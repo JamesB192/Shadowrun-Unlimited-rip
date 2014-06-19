@@ -49,7 +49,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Conversation)"
           args {
-            string_value: "51f879f1336331744500012b"
+            string_value: "53724d7e3032660016001d00"
           }
         }
       }
@@ -183,45 +183,13 @@ triggers {
   name: "Renraku_Ambush"
   events {
     ops {
-      functionName: "On Region Enter"
+      functionName: "Get Map Item (Event)"
       args {
-        call_value {
-          functionName: "Get Map Item (Region)"
-          args {
-            string_value: "51fc55bc336331983c003539"
-          }
-        }
+        string_value: "Soka Speaks to Josh"
       }
     }
   }
   conditions {
-    ops {
-      functionName: "Comparison (Actor)"
-      args {
-        call_value {
-          functionName: "Triggering Actor"
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "51f87e98336331744500014c"
-          }
-        }
-      }
-    }
   }
   actions {
     ops {
@@ -230,15 +198,15 @@ triggers {
         call_value {
           functionName: "Get Map Item (Conversation)"
           args {
-            string_value: "51f87f96336331744500014f"
+            string_value: "5373b258303266440a011dd3"
           }
         }
       }
       args {
         call_value {
-          functionName: "Get Map Item (Actor)"
+          functionName: "Get Map Item (Player)"
           args {
-            string_value: "51f87d4e3363317445000149"
+            int_value: 0
           }
         }
       }
@@ -360,6 +328,35 @@ triggers {
           }
           args {
             int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Order Actor to Face Direction"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "51f87e98336331744500014c"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 8
           }
         }
       }
@@ -629,7 +626,7 @@ triggers {
         }
       }
       args {
-        string_value: "It\'s just over there. C\'mon."
+        string_value: "Okay, we\'re here. C\'mon."
       }
       args {
         float_value: 0
@@ -663,112 +660,6 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Main"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Display Text over Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TextPopupStyle"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        string_value: "What\'s so damn cool you have to show me tonight?"
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 2
-      }
-      args {
-        float_value: 1
-      }
-      args {
-        float_value: 2
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "51fc569f336331983c00353a"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Unkillable Player"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Set Actor Unkillable"
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "520c231a336331982d00397d"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
   name: "Soka Ambush"
   events {
     ops {
@@ -781,43 +672,6 @@ triggers {
   conditions {
   }
   actions {
-    ops {
-      functionName: "Order Actor to Move To (Actor)"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "51f87e98336331744500014c"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "51f87d4e3363317445000149"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "FacingDirection"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
     ops {
       functionName: "Suspend Team\'s Turn"
       args {
@@ -832,7 +686,7 @@ triggers {
         }
       }
       args {
-        int_value: 2
+        int_value: 1
       }
       args {
         call_value {
@@ -865,7 +719,7 @@ triggers {
         }
       }
       args {
-        string_value: "Who the drek is that?!"
+        string_value: "Who the drek is that?"
       }
       args {
         float_value: 0
@@ -887,50 +741,65 @@ triggers {
       }
       args {
         float_value: 0
+      }
+    }
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "51f87e98336331744500014c"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "536b675a3363315011012ba1"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 2
+          }
+        }
       }
     }
   }
   isActive: true
   idRef {
     id: "5252318c336331f4270003b1"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Ambush Trigger"
-  events {
-    ops {
-      functionName: "On Region Enter"
-      args {
-        call_value {
-          functionName: "Get Map Item (Region)"
-          args {
-            string_value: "51f87e3f336331744500014a"
-          }
-        }
-      }
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Send Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Soka Ambush"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "52523251336331f4270003b4"
   }
   elseActions {
   }
@@ -1137,6 +1006,68 @@ triggers {
       }
     }
     ops {
+      functionName: "Teleport Camera To Point"
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "5252392b336331cc24007293"
+              }
+            }
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "51f87d4e3363317445000149"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Hold up a second $(story.Real_Name)."
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
       functionName: "Teleport Actor"
       args {
         call_value {
@@ -1155,12 +1086,12 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Current Location of Prop"
+          functionName: "Center of Region"
           args {
             call_value {
-              functionName: "Get Map Item (Prop)"
+              functionName: "Get Map Item (Region)"
               args {
-                string_value: "52523946336331cc24007294"
+                string_value: "5367cb823363315c17005b8c"
               }
             }
           }
@@ -1173,7 +1104,7 @@ triggers {
             string_value: "FacingDirection"
           }
           args {
-            int_value: 0
+            int_value: 4
           }
         }
       }
@@ -1184,23 +1115,7 @@ triggers {
             string_value: "TeleportMethod"
           }
           args {
-            int_value: 2
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Teleport Camera To Point"
-      args {
-        call_value {
-          functionName: "Current Location of Prop"
-          args {
-            call_value {
-              functionName: "Get Map Item (Prop)"
-              args {
-                string_value: "5252392b336331cc24007293"
-              }
-            }
+            int_value: 3
           }
         }
       }
@@ -1264,7 +1179,7 @@ triggers {
             string_value: "FacingDirection"
           }
           args {
-            int_value: 0
+            int_value: 2
           }
         }
       }
@@ -1777,7 +1692,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Conversation)"
           args {
-            string_value: "51f882d13363317445000170"
+            string_value: "5373f531303266440a015f8b"
           }
         }
       }
@@ -2117,52 +2032,6 @@ triggers {
       }
     }
     ops {
-      functionName: "Display Text over Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TextPopupStyle"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        string_value: "JOSHUA?!"
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 2
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-    }
-    ops {
       functionName: "Send Event After Delay"
       args {
         call_value {
@@ -2207,52 +2076,6 @@ triggers {
             string_value: "Soka Conversation"
           }
         }
-      }
-      args {
-        float_value: 2
-      }
-    }
-    ops {
-      functionName: "Display Text over Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TextPopupStyle"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        string_value: "YOU SON OF A BITCH! That was my brother!"
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 3
-      }
-      args {
-        float_value: 0
       }
       args {
         float_value: 2
@@ -2326,26 +2149,36 @@ triggers {
   }
   actions {
     ops {
-      functionName: "End Current Team Round"
+      functionName: "Order Actor to Face Direction"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
     }
     ops {
-      functionName: "Play Animation From Manifest"
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Animation)"
-          args {
-            string_value: "Seattle:General/downed_idle"
-          }
-        }
-      }
+      functionName: "End Current Team Round"
     }
     ops {
       functionName: "Remove Item from Actor"
@@ -2454,7 +2287,7 @@ triggers {
     ops {
       functionName: "Fade Camera Out"
       args {
-        float_value: 5
+        float_value: 8
       }
       args {
         float_value: 0
@@ -2478,6 +2311,25 @@ triggers {
           functionName: "Get Map Item (Trigger)"
           args {
             string_value: "535bdd40336331e00d0053b2"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/downed_idle"
           }
         }
       }
@@ -2801,6 +2653,235 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "NewTrigger"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "51f87e3f336331744500014a"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "51f87d4e3363317445000149"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Soka Ambush"
+          }
+        }
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "536b60283363315011017222"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "NewTrigger"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "51f87e3f336331744500014a"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "51f87e98336331744500014c"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Sword 3 Katana"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "51f87e98336331744500014c"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "51f87e98336331744500014c"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "536b675a3363315011012ba1"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Soka Speaks to Josh"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+    }
+    ops {
+      functionName: "End Current Actor Turn"
+    }
+  }
+  isActive: true
+  idRef {
+    id: "536b60b43363315011019abe"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Ambush_Switch"
   position {
@@ -2973,7 +3054,7 @@ regions {
   }
   ambience_template: ""
   combat_music: "Seattle-Set9-Combat"
-  default_music: "Seattle-Set3-Legwork"
+  default_music: "Seattle-Bar07"
   loop_combat_music: true
   loop_default_music: true
 }
@@ -2989,6 +3070,50 @@ regions {
   is_camera_region: false
   idRef {
     id: "535bdf1f3363313c0e004793"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+}
+regions {
+  name: "Main Placement"
+  position {
+    x: -110
+    y: -2
+    width: 2
+    height: 2
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  idRef {
+    id: "5367cb823363315c17005b8c"
   }
   highlight_color {
     r: 0
@@ -3102,7 +3227,7 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -96
+    x: -97
     y: 0
     z: -1
   }
@@ -3126,7 +3251,7 @@ characters {
         essence: 0
         magic: 0
         hp: 2
-        ap: 1
+        ap: -1
         armor: 0
         force: 0
         morale: 0
@@ -3135,7 +3260,7 @@ characters {
         perception: 0
         authority: 0
         protect_tether_range: 0
-        move_speed: 8
+        move_speed: -8
         is_fearless: 1
         is_strict: 1
       }
@@ -3176,9 +3301,6 @@ characters {
       vulnerabilities {
       }
     }
-    equipment {
-      prefab_name: "Sword 3 Katana"
-    }
     team_id: "LoneStar"
     char_name: "Mysterious Samurai"
     enabled_at_start: false
@@ -3201,6 +3323,7 @@ mapEvents: "Main Upset"
 mapEvents: "Soka Walk Away"
 mapEvents: "Main Upset 2"
 mapEvents: "Hit 1"
+mapEvents: "Soka Speaks to Josh"
 worldMapLocation {
   filename: ""
   location {
@@ -3212,7 +3335,7 @@ mapName: "c14-s4_daytelestriantopfloor"
 parentStory: ""
 scene_title: "Seattle"
 scene_subtitle: ""
-scene_synopsis: "Having taken a week off of your boring desk job, you visit your brother up in Seattle. Before any festivities could begin, he insisted on taking you for a tour of the city he\'s called home for the last 5 years. "
+scene_synopsis: "Rain drizzles down from the hazy sky in a gentle shower, the moisture and smog mixing and bonding to lend a soft glow to the neon lights glaring down from practically every buidling. The rain is all that separates this neon-studded sprawl from your own hometown, but at least it\'s a change. At this point, anything different is . . . well, it\'s something. Being a wageslave has its perks, but the soul-sucking monotony gets a little old. A week-long vacation, even if it\'s just to Seattle, is nice.\n\nBesides, getting to see Joshua would make just about anything worthwhile. Your brother can be a bit of a drekhead, but he\'s got a good heart, and it\'s been too damn long since you\'ve seen him face to face. He\'s as excited about this visit as you are--maybe more--and he said he\'s got all kinds of plans for this week. Before the festivities begin, though, he wants to give you the grand tour and show you the sights of the city he\'s called home for the last five years.\n\nHonestly, you\'ve never been very interested in sight-seeing. You\'re just hoping it won\'t be too boring."
 scene_image: ""
 scene_continue_button_skip: false
 scene_restore_runner_health: false

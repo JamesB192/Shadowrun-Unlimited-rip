@@ -1970,6 +1970,28 @@ nodes {
           }
         }
       }
+      ops {
+        functionName: "Set Region Enabled"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "51f17fd4336331a0320018f4"
+            }
+          }
+        }
+      }
     }
     nextNodeIndex: 37
     hideIfUnavailable: true
@@ -2872,6 +2894,11 @@ nodes {
   }
   index: 2
   text: "Just keep pulling easy runs like this, and I\'ll keep my ears to the ground until something more tangible comes up."
+  branches {
+    responseText: ""
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
   nodeType: ConversationNodeType_Simple
 }
 nodes {
@@ -3085,6 +3112,11 @@ nodes {
   }
   index: 4
   text: "Just keep pulling runs, and I\'ll keep my ears to the ground until something comes up."
+  branches {
+    responseText: ""
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
   nodeType: ConversationNodeType_Simple
 }
 nodes {
@@ -3094,6 +3126,42 @@ nodes {
   index: 5
   text: "Actually I need to talk to you. In person. Come see me when you have a chance..."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+      args {
+        string_value: "Eric wants to meet with me in person. I shouldn\'t keep him waiting."
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Journal"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "text"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -6116,7 +6184,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -7708,7 +7776,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -9300,7 +9368,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -10892,7 +10960,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -12484,7 +12552,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -14076,7 +14144,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -15668,7 +15736,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -17260,7 +17328,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -18852,7 +18920,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -20528,7 +20596,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -22145,7 +22213,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -23821,7 +23889,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -25413,7 +25481,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -27005,7 +27073,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -28597,7 +28665,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -30189,7 +30257,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -31781,7 +31849,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -33373,7 +33441,7 @@ nodes {
           }
         }
         args {
-          string_value: ""
+          string_value: "I need to find a job."
         }
       }
       ops {
@@ -33705,7 +33773,7 @@ nodes {
     id: "5230b6ff336331b419002e86"
   }
   index: 39
-  text: "It means that back when you were a nobody, they didn\'t even consider you being in on it. But now your starting to make a name for yourself in certain circles... and now Renraku\'s looking for you, thinking maybe you aren\'t just some pencil pushing desk jockey."
+  text: "It means that back when you were a nobody, they didn\'t even consider you being in on it. But you\'re starting to make a name for yourself in certain circles... and now Renraku\'s looking for you, thinking maybe you aren\'t just some pencil pushing desk jockey."
   branches {
     responseText: "If they wanted whatever the hell got stolen, why did they kill Joshua? Why didn\'t they just take him alive?"
     nextNodeIndex: 40
@@ -33843,6 +33911,23 @@ nodes {
           }
           args {
             int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Journal"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "text"
+          }
+          args {
+            string_value: "Information"
           }
         }
       }

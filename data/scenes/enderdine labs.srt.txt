@@ -1560,7 +1560,7 @@ triggers {
         float_value: 0
       }
       args {
-        float_value: 3
+        float_value: 5
       }
       args {
         float_value: 1
@@ -1606,13 +1606,13 @@ triggers {
         float_value: 0
       }
       args {
-        float_value: 3
+        float_value: 5
       }
       args {
         float_value: 1
       }
       args {
-        float_value: 14
+        float_value: 16
       }
     }
   }
@@ -4210,20 +4210,6 @@ triggers {
         }
       }
     }
-    ops {
-      functionName: "Enable/Disable Manual Turn Mode"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "EnableOrDisable"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
   }
   isActive: true
   idRef {
@@ -4876,6 +4862,34 @@ triggers {
           functionName: "Get Map Item (Event)"
           args {
             string_value: "Alarm"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "props"
+          }
+          args {
+            string_value: "Alarm2"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
           }
         }
       }
@@ -6308,6 +6322,244 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "NewTrigger"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Team\'s Turn"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Start up"
+          }
+        }
+      }
+      args {
+        float_value: 8
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "536b5a77336331ec0d004ee4"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "NewTrigger"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Start up"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Team\'s Turn"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "536b5a99336331ec0d004ee5"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Boss"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Change Actor Team"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 3
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  isActive: false
+  idRef {
+    id: "536b5d21336331ec0d004ef5"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "NewTrigger"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "536b5dc9336331ec0d004efb"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Manual Turn Mode"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "536b5de4336331ec0d004efc"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Guard_Trigger(1)"
   position {
@@ -6704,6 +6956,50 @@ regions {
   loop_combat_music: true
   loop_default_music: false
 }
+regions {
+  name: "Turn_Move"
+  position {
+    x: -50
+    y: 24
+    width: 4
+    height: 10
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  idRef {
+    id: "536b5dc9336331ec0d004efb"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+}
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
@@ -6804,7 +7100,7 @@ characters {
     equipment {
       prefab_name: "SamuraiMilitary"
     }
-    team_id: "LoneStar"
+    team_id: "Civilians"
     char_name: "Security Chief"
     enabled_at_start: false
     pc_spawn_number: -1
@@ -6897,7 +7193,7 @@ characters {
       specializations {
       }
     }
-    team_id: "LoneStar"
+    team_id: "Civilians"
     char_name: "Lonestar Heavy Gunner"
     enabled_at_start: false
     pc_spawn_number: -1
@@ -6940,7 +7236,7 @@ characters {
       specializations {
       }
     }
-    team_id: "LoneStar"
+    team_id: "Civilians"
     char_name: "Lonestar Heavy Gunner"
     enabled_at_start: false
     pc_spawn_number: -1
@@ -7191,7 +7487,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Story/ThaddeusRyker"
+    prefab_name: "Seattle:Story/ThaddeusRyker"
     character_sheet_id: "BaseCivilian"
     character_mod {
       stats {
@@ -7214,7 +7510,7 @@ characters {
       }
       skills {
         ranged_combat: 3
-        decking: 4
+        decking: 0
         drone_control: 4
         biotech: 2
         dodge: 1
@@ -7222,10 +7518,12 @@ characters {
       specializations {
         pistol: 2
         smg: 2
-        esp_control: 4
+        esp_control: 0
         drone_combat: 4
       }
       archetypeName: "Player"
+      vulnerabilities {
+      }
     }
     equipment {
       prefab_name: "HealthPack_med"
@@ -7246,7 +7544,7 @@ characters {
     portrait {
       filename: "backer_humanmale_jamestbenton"
     }
-    karma: 97
+    karma: 77
     hiring_cost_override: 1000
   }
 }
@@ -7314,9 +7612,8 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Lonestar/HumanMaleLonestarGuard"
+    prefab_name: "Seattle:Lonestar/HumanMaleLonestarGuard"
     character_sheet_id: "Lonestar_Lv1_Human_Pistol"
-    equipment_sheet_id: "Lonestar_Pistol_Low"
     character_mod {
       stats {
         body: 2
@@ -7337,6 +7634,11 @@ characters {
       specializations {
         pistol: 2
       }
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "Pi 1 Fichetti Security 500"
     }
     team_id: "LoneStar"
     char_name: "Lonestar Guard"
@@ -7364,9 +7666,8 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Lonestar/HumanMaleLonestarGuard"
+    prefab_name: "Seattle:Lonestar/HumanMaleLonestarGuard"
     character_sheet_id: "Lonestar_Lv1_Human_Pistol"
-    equipment_sheet_id: "Lonestar_Pistol_Low"
     character_mod {
       stats {
         body: 2
@@ -7387,6 +7688,11 @@ characters {
       specializations {
         pistol: 2
       }
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "Pi 1 Fichetti Security 500"
     }
     team_id: "LoneStar"
     char_name: "Lonestar Guard"
@@ -7464,9 +7770,8 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Lonestar/HumanMaleLonestarGuard"
+    prefab_name: "Seattle:Lonestar/HumanMaleLonestarGuard"
     character_sheet_id: "Lonestar_Lv1_Human_Pistol"
-    equipment_sheet_id: "Lonestar_Pistol_Low"
     character_mod {
       stats {
         body: 2
@@ -7487,6 +7792,11 @@ characters {
       specializations {
         pistol: 2
       }
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "Pi 1 Fichetti Security 500"
     }
     team_id: "LoneStar"
     char_name: "Lonestar Guard"
@@ -7514,9 +7824,8 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Lonestar/HumanMaleLonestarGuard"
+    prefab_name: "Seattle:Lonestar/HumanMaleLonestarGuard"
     character_sheet_id: "Lonestar_Lv1_Human_Pistol"
-    equipment_sheet_id: "Lonestar_Pistol_Low"
     character_mod {
       stats {
         body: 2
@@ -7537,6 +7846,11 @@ characters {
       specializations {
         pistol: 2
       }
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "Pi 1 Fichetti Security 500"
     }
     team_id: "LoneStar"
     char_name: "Lonestar Guard"
@@ -8220,6 +8534,7 @@ mapEvents: "Chiba Revive"
 mapEvents: "Penumbra Revive"
 mapEvents: "Revive 1"
 mapEvents: "Revive 2"
+mapEvents: "Start up"
 worldMapLocation {
   filename: ""
   location {
@@ -8303,8 +8618,6 @@ scene_dimensions {
   dimension_name: "New Dimension 2"
   initial_alarm_state: 0
   turns_per_round: 3
-}
-character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
