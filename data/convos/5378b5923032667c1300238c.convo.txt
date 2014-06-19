@@ -1,0 +1,152 @@
+idRef {
+  id: "5378b5923032667c1300238c"
+}
+ui_name: "Testing Shit"
+nodes {
+  idRef {
+    id: "5378b6cc3032667c13002395"
+  }
+  index: 0
+  text: "I\'ll pay you $(story.EricCleaningJob)."
+  branches {
+    responseText: "Deal."
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "How about a little something extra?"
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5378b72f3032667c1300239b"
+  }
+  index: 1
+  text: "Alright, fine. I can give you $(story.EricCleaningJobNegotiate)."
+  branches {
+    responseText: "Deal."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "537249303032660016001cfa"
+          }
+          args {
+            string_value: "EricCleaningJobNegotiate"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            call_value {
+              functionName: "Get Story Variable (int)"
+              args {
+                string_value: "537249303032660016001cfa"
+              }
+              args {
+                string_value: "EricCleaningJob"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                int_value: 40
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 2
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Arithmetic (int)"
+                  args {
+                    call_value {
+                      functionName: "Get Actor Attribute"
+                      args {
+                        call_value {
+                          functionName: "Get Map Item (Player)"
+                          args {
+                            int_value: 0
+                          }
+                        }
+                      }
+                      args {
+                        call_value {
+                          functionName: "Get Preset Value (int)"
+                          args {
+                            string_value: "BaseOrCurrent"
+                          }
+                          args {
+                            int_value: 0
+                          }
+                        }
+                      }
+                      args {
+                        call_value {
+                          functionName: "Get Preset Value (int)"
+                          args {
+                            string_value: "ActorAttributes"
+                          }
+                          args {
+                            int_value: 3
+                          }
+                        }
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "Arithmetic Ops"
+                      }
+                      args {
+                        int_value: 1
+                      }
+                    }
+                  }
+                  args {
+                    int_value: 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

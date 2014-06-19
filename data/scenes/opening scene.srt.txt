@@ -2178,6 +2178,25 @@ triggers {
       }
     }
     ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:General/downed_idle"
+          }
+        }
+      }
+    }
+    ops {
       functionName: "End Current Team Round"
     }
     ops {
@@ -2316,20 +2335,59 @@ triggers {
       }
     }
     ops {
-      functionName: "Play Animation From Manifest"
+      functionName: "Set Actor In Passive Mode"
       args {
         call_value {
-          functionName: "Get Map Item (Player)"
+          functionName: "Specific Actor"
           args {
-            int_value: 0
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
           }
         }
       }
       args {
         call_value {
-          functionName: "Get Map Item (Animation)"
+          functionName: "Get Preset Value (int)"
           args {
-            string_value: "Seattle:General/downed_idle"
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Change Actor Control"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PlayerOrAI"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -2460,7 +2518,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Scene)"
           args {
-            string_value: "6_Months_Later"
+            string_value: "6 Weeks Later"
           }
         }
       }
@@ -3154,6 +3212,7 @@ characters {
     z: -3
   }
   orientation: ORIENTATION_N
+  GeneralTags: "isPlayer"
   idRef {
     id: "51f858d43363317046001953"
   }
@@ -3164,6 +3223,7 @@ characters {
     }
     team_id: "Shadowrunners"
     char_name: "New Actor"
+    GeneralTags: "isPlayer"
     enabled_at_start: true
     pc_spawn_number: 0
     ai_ignores: true
@@ -3177,6 +3237,7 @@ characters {
     z: -2
   }
   orientation: ORIENTATION_N
+  GeneralTags: "isJoshua"
   displayName: "Joshua"
   idRef {
     id: "51f87d4e3363317445000149"
@@ -3216,6 +3277,7 @@ characters {
     }
     team_id: "Civilians"
     char_name: "Joshua"
+    GeneralTags: "isJoshua"
     pc_spawn_number: -1
     portrait {
       filename: "backer_humanmale_winterhawk_dralastairstone"
@@ -3232,6 +3294,7 @@ characters {
     z: -1
   }
   orientation: ORIENTATION_N
+  GeneralTags: "isSoka"
   displayName: "Captain_Soka"
   idRef {
     id: "51f87e98336331744500014c"
@@ -3303,6 +3366,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Mysterious Samurai"
+    GeneralTags: "isSoka"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
