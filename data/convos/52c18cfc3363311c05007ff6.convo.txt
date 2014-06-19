@@ -1,0 +1,166 @@
+idRef {
+  id: "52c18cfc3363311c05007ff6"
+}
+ui_name: "NPC Prep Work-1"
+nodes {
+  idRef {
+    id: "52c18d1b3363311c05007ffc"
+  }
+  index: 0
+  text: "Who the hell are you?! And what are you doing in my home?!\n\n{{GM}}The man stumbles back, obviously afraid{{/GM}}"
+  branches {
+    responseText: "I\'m just here to collect a little something from you that I need..."
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c18d893363311c05008005"
+  }
+  index: 1
+  text: "What? What is it? What do you want?"
+  branches {
+    responseText: "I just need your company keycard."
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c18dcd3363311c05008008"
+  }
+  index: 2
+  text: "You can\'t have it, if they find out I gave it to you, I\'ll be fired.. or worse!"
+  branches {
+    responseText: "And what do you think will happen if you don\'t give it over?\n\n{{GM}}Attempt to intimidate the target. Tests Strength + Charisma{{/GM}}"
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Intimidate"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Sorry. I don\'t have time for this.\n\n{{GM}}You kill the director{{/GM}}"
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Execute"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c18f093363311c05008b34"
+  }
+  index: 3
+  text: "You have what you came for, just take it and leave!"
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor Has Item"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Keycard"
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 0
+  hideIfUnavailable: true
+}
+roots {
+  responseText: ""
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor Has Item"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Keycard"
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 3
+  hideIfUnavailable: true
+}

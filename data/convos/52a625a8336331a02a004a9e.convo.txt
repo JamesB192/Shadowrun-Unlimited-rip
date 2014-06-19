@@ -1,0 +1,56 @@
+idRef {
+  id: "52a625a8336331a02a004a9e"
+}
+ui_name: "ASM-SappySapling: Intro"
+nodes {
+  idRef {
+    id: "52a625b2336331a02a004aa4"
+  }
+  index: 0
+  text: "I need you to protect me as I nurture the tree with my magic. The UCAS soldiers will undoubtedly be here soon."
+  branches {
+    responseText: "Why do I do in the mean time?"
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52a6261f336331a02a004aa7"
+  }
+  index: 1
+  text: "I would get to cover if I were you! Remember the longer we hold out, the more the tree will grow and the greater your payout."
+  branches {
+    responseText: "Okay, let\'s do this."
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "52a62568336331a02a004a9d"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

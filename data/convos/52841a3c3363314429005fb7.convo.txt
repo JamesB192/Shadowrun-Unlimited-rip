@@ -1,0 +1,77 @@
+idRef {
+  id: "52841a3c3363314429005fb7"
+}
+ui_name: "Wild Yak Janitor Persuade"
+nodes {
+  idRef {
+    id: "52841a4f3363314429005fbd"
+  }
+  index: 0
+  text: "Okay, the name\'s John. These yakuza jerks are a real pain, but work\'s hard to come by. If you can help get this place back to the way it used to be, I\'d be more than happy to help. Well I think it\'s time I head home for the night. Have a good one.\n\n{{GM}}You notice as John walks away, he\'s \"accidentally\" left his keys on the table. You quickly pocket them.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Keys"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "52841bdf3363314429005fd0"
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

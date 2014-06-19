@@ -1,0 +1,94 @@
+idRef {
+  id: "520d23b8336331ec09007a71"
+}
+ui_name: "Generic Lab-Matrix-Door_Disable"
+nodes {
+  idRef {
+    id: "520d23d2336331ec09007a7d"
+  }
+  index: 0
+  text: "Door Control"
+  branches {
+    responseText: "{{CC}}Decking{{/CC}}Attempt to disable the MagLocked doors.\n"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "Skill_Test"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Random (int)"
+            args {
+              int_value: 2
+            }
+            args {
+              int_value: 10
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "520d1ecd336331e82b00169d"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Leave it alone."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Skill_Test"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            int_value: 1
+          }
+          args {
+            int_value: 7
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 0
+}

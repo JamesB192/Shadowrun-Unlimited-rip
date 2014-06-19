@@ -1,0 +1,47 @@
+id: "Silenced FA RC3 Ability"
+uirep {
+  icon: "icon_auto"
+  name: "Silenced Full Auto Fire RC3"
+  description: "5 attacks, 10 bullets, increased damage. -30% to hit. RC 3."
+}
+anim_action: AnimAction_Attack
+apCostMod: 1
+accuracyMod: -30
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 9"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 3
+  }
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.25
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+offensiveAbility: true
+ammoCost: 10
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunFullAutoFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

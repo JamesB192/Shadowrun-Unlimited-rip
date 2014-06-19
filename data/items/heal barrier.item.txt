@@ -1,0 +1,59 @@
+id: "heal barrier"
+type: ItemType_Shaman
+uirep {
+  icon: "icon_heal1"
+  name: "Heal Barrier I"
+  description: "Set 3 Light Cover barriers that last 3 RNDS. Anyone that enters takes -1 AP DMG."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Charisma
+coreSkill: Skill_Conjuring
+forceRating: 1
+rangeModTable: 10
+rangeModTable: 9
+rangeModTable: 8
+rangeModTable: 7
+rangeModTable: 6
+rangeModTable: 5
+rangeModTable: 4
+rangeModTable: 3
+rangeModTable: 2
+rangeModTable: 1
+rangeModTable: 0
+rangeModTable: -1
+rangeModTable: -2
+rangeModTable: -3
+rangeModTable: -4
+rangeModTable: -5
+rangeModTable: -6
+rangeModTable: -7
+rangeModTable: -8
+rangeModTable: -9
+noiseLevel: 2
+noiseRounds: 1
+modelessAbilities: "conjure"
+affectsFriendly: true
+canTargetUnoccupiedGridPoint: true
+additionalTargets: 2
+cooldown: 1
+isMagic: true
+effectDuration: 3
+effectOnTile: true
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "GenericSpellCastAction"
+  hitReactionFxName: "HealSpellHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  stackingCategory: "HP"
+  statMods {
+    attribute: Attribute_HP
+    intModValue: 10
+  }
+  statusConditions: Condition_CoverMedium
+  fxScript: "GenericSpellStatus"
+  durationFxScript: "HealSpellHitReaction"
+}
+store_cost: 600
+sorting_group: "Barriers"

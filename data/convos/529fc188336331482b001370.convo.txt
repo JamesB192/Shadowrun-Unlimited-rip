@@ -1,0 +1,60 @@
+idRef {
+  id: "529fc188336331482b001370"
+}
+ui_name: "Matrix-HubJackOut"
+nodes {
+  idRef {
+    id: "529fc192336331482b001376"
+  }
+  index: 0
+  text: "Jack-Out?"
+  branches {
+    responseText: "Yes."
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "JackingOut"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "JackOut"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "No."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+  hideIfUnavailable: true
+}

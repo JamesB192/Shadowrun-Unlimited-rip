@@ -1,0 +1,48 @@
+id: "Roundhouse Kick (Wound)"
+uirep {
+  icon: "icon_roundhousekick"
+  name: "Roundhouse Kick"
+  description: "An unarmed melee attack that can hit adjacent targets."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+hpDamageMod: 4
+apDamageMod: -10
+accuracyMod: 0
+prereqStrings: "Item.CORE_SPECIALIZATION >= 4"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+spreadAngle: 55
+effectModTable: 1
+effectModTable: 0.5
+fxrep {
+  preActionFxName: ""
+  actionFxName: "UnarmedRoundhouseAction"
+  postActionFxName: ""
+  hitReactionFxName: "UnarmedHitReaction"
+  missReactionFxName: "UnarmedMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

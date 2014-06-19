@@ -1,0 +1,198 @@
+idRef {
+  id: "52a875353061632429004686"
+}
+ui_name: "ASM-Lumber Jacked: Lumber Jack Intro"
+nodes {
+  idRef {
+    id: "52a87565306163242900468c"
+  }
+  index: 0
+  text: "Hoi There!\nYou chummers might want to clear out of here."
+  branches {
+    responseText: "And why is that?"
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7cd373061632429004674"
+  }
+}
+nodes {
+  idRef {
+    id: "52af1f6f306163600a000e23"
+  }
+  index: 1
+  text: "When trees fall in the forest they do make sounds, but the sounds are louder when they fall on people.\nBesides, I\'m pretty sure this is a restricted area, we had to get a special permit to work here."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52af1f6f306163600a000e26"
+  }
+  index: 2
+  text: "Please, these trees are ancient.  You can\'t hurt them!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+}
+nodes {
+  idRef {
+    id: "52af1f6f306163600a000e29"
+  }
+  index: 3
+  text: "{{GM}}The foreman pauses to consider.{{/GM}}\nLook lady, I understand, and I like a good tree more than most, but if we listen to you we\'ll just go home with empty pockets and someone else will be back to cut them tomorrow.\n\nBest you just head on home and let us do our job."
+  branches {
+    responseText: ""
+    nextNodeIndex: 4
+  }
+  sourceInSceneRef {
+    id: "52a7cd373061632429004674"
+  }
+}
+nodes {
+  idRef {
+    id: "52af1f6f306163600a000e2c"
+  }
+  index: 4
+  text: "I can\'t do that, and I\'ve brought help.\n\n{{GM}}She motions to you.{{/GM}}\n\nPlease don\'t make my associate hurt you."
+  branches {
+    responseText: "Actually lady, he\'s got a point.  I\'m out of here."
+    nextNodeIndex: 5
+  }
+  branches {
+    responseText: "Look chummer, just listen to the lady and clear out and no one gets hurt."
+    nextNodeIndex: 6
+  }
+  branches {
+    responseText: "Best back off chummer, you\'re out of your league."
+    nextNodeIndex: 7
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+}
+nodes {
+  idRef {
+    id: "52af1f6f306163600a000e2f"
+  }
+  index: 5
+  text: "Coward!"
+  branches {
+    responseText: ""
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "52a11bd53061635408002ea7"
+            }
+            args {
+              string_value: "ArborsEmbraceBetrayed"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "Staging"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+}
+nodes {
+  idRef {
+    id: "52af1f6f306163600a000e33"
+  }
+  index: 6
+  text: "Sorry chummer, if you won\'t get out of the way we\'ll just have to cut you down first, and the trees after."
+  branches {
+    responseText: ""
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7cd373061632429004674"
+  }
+}
+nodes {
+  idRef {
+    id: "52af1f6f306163600a000e37"
+  }
+  index: 7
+  text: "You might be right, maybe I need some help.\n\n{{GM}}He pulls a hand radio out of his vest and turns it on{{/GM}}\n\nUCAS dispatch, this is work team one, do you copy?\n\n{{GM}}You hear a voice from the radio but cannot make out what it\'s saying{{/GM}}\n\nWe have an obstruction of the non-vegitative variety that needs clearing.  Request assistance, over."
+  branches {
+    responseText: ""
+    nextNodeIndex: 8
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52af1f6f306163600a000e3a"
+  }
+  index: 8
+  text: "Now then, as long as we\'re waiting for the cavalry, might as well give you a go ourselves."
+  branches {
+    responseText: ""
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "TimeToResponse"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7cd373061632429004674"
+  }
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

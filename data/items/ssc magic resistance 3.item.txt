@@ -1,0 +1,46 @@
+id: "SSC Magic Resistance 3"
+type: ItemType_Adept
+uirep {
+  icon: "icon_magicresistance3"
+  name: "Magic Resistance 3"
+  description: "The adept gains a Heavy Cover bonus to magic spells for 4 rounds."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_ChiCasting
+forceRating: 3
+apCost: 1
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 10"
+baseHPDamage: 0
+baseAPDamage: 0
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: "Activate Magic Resistance (Heavy)"
+affectsFriendly: false
+affectsEnemy: false
+canTargetSelf: true
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 5
+isMagic: true
+effectDuration: 4
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "AdeptSpellBuffAction"
+  postActionFxName: ""
+  hitReactionFxName: "AdeptDefenseBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_magicresistance3"
+    name: "Resistance: Heavy Cover from Spells"
+  }
+  stackingCategory: "Cover"
+  statusConditions: Condition_MagicCoverHeavy
+  fxScript: "AdeptDefenseBuffStatus"
+}
+store_cost: 30000
+sorting_group: "Chi Casting (Adept)"

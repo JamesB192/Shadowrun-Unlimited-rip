@@ -1,0 +1,49 @@
+id: "Shoot (Pistol Chainshot)"
+uirep {
+  icon: "icon_chainshot"
+  name: "Chainshot"
+  description: "Three bullets. Three targets."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 2"
+prereqStrings: "Item.CORE_SPECIALIZATION >= 7"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+ammoCost: 3
+cooldown: 3
+additionalTargets: 2
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunChainFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

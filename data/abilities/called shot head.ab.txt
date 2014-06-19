@@ -1,0 +1,43 @@
+id: "Called Shot Head"
+uirep {
+  icon: "icon_headshot"
+  name: "Called Shot - Headshot"
+  description: "Aim for the head for double damage. -50% to hit"
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+accuracyMod: -50
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 0"
+damageBucket {
+  successEntries {
+    weight: 0.3
+    value: 4
+  }
+  successEntries {
+    weight: 0.4
+    value: 3
+  }
+  successEntries {
+    weight: 0.3
+    value: 2
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+}
+offensiveAbility: true
+ammoCost: 1
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunSingleFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

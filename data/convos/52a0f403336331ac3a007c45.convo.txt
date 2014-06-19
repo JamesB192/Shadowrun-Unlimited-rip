@@ -1,0 +1,37 @@
+idRef {
+  id: "52a0f403336331ac3a007c45"
+}
+ui_name: "Summoning Wild Easy"
+nodes {
+  idRef {
+    id: "52a0f40e336331ac3a007c4b"
+  }
+  index: 0
+  text: "You sense a strange, albeit weak presence here. "
+  branches {
+    responseText: "Attempt to summon and bind a spirit.\n\n{{GM}}You must pass an easy Summoning Skill test. If you fail, the spirit will break free and attack. If you pass, you will gain a force 1 spirit fetish.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Summoning Test Step 1"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Nevermind."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

@@ -1,0 +1,69 @@
+id: "SSC Spell Haste 3"
+type: ItemType_Shaman
+uirep {
+  icon: "icon_haste3"
+  name: "Haste 3"
+  description: "Increases the friendly target\'s AP by 1 for 4 RNDS."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Charisma
+coreSkill: Skill_Conjuring
+forceRating: 8
+apCost: 2
+prereqStrings: "Player.SKILL.Skill_Conjuring >= 4"
+baseHPDamage: 0
+baseAPDamage: 0
+rangeModTable: 10
+rangeModTable: 9
+rangeModTable: 8
+rangeModTable: 7
+rangeModTable: 6
+rangeModTable: 5
+rangeModTable: 4
+rangeModTable: 3
+rangeModTable: 2
+rangeModTable: 1
+rangeModTable: 0
+rangeModTable: 0
+rangeModTable: -1
+rangeModTable: -2
+rangeModTable: -3
+rangeModTable: -4
+rangeModTable: -5
+rangeModTable: -6
+rangeModTable: -7
+rangeModTable: -8
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: "Buff Spells (Non Spirit)"
+affectsFriendly: true
+affectsEnemy: false
+canTargetSelf: true
+canTargetActor: true
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 4
+isMagic: true
+effectDuration: 4
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "GenericSpellCastAction"
+  postActionFxName: ""
+  hitReactionFxName: "GenericSpellBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_haste3"
+    name: "Haste: AP +1"
+  }
+  stackingCategory: "Move"
+  statMods {
+    attribute: Attribute_AP
+    intModValue: 1
+  }
+  fxScript: "GenericSpellStatus"
+}
+store_cost: 24000
+sorting_group: "Conjuring (Shaman)"

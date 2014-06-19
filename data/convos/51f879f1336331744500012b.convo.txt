@@ -1,0 +1,105 @@
+idRef {
+  id: "51f879f1336331744500012b"
+}
+ui_name: "Opening_Joshua"
+nodes {
+  idRef {
+    id: "51f87a163363317445000131"
+  }
+  index: 0
+  text: "Hey $(story.Real_Name), if I\'m gonna give you the grand tour of Seattle, I have to include the Renraku Arcology!"
+  branches {
+    responseText: "So it\'s the headquarters of some bloated megacorp. Who cares?"
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "51f87e98336331744500014c"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "51f87a653363317445000134"
+  }
+  index: 1
+  text: "Can I let you in on a little secret? What if I told you that this place was hit by an elite team of runners not three nights ago."
+  branches {
+    responseText: "Oh god. Don\'t tell me you were involved..."
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "51f87aa53363317445000137"
+  }
+  index: 2
+  text: "But alas, I\'m afraid I was. Poor bastards had no idea what hit them. We snuck in like ghosts, and faded back into the night without anyone even knowing we were there."
+  branches {
+    responseText: "Dammit Joshua, you know how I feel about this \'shadowrunning\' gig of yours. Why not come back home and do some honest work before you get yourself killed?"
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "51f87b36336331744500013a"
+  }
+  index: 3
+  text: "Don\'t worry, I know what I\'m doing, besides I could never settle down to a hum-drum life after running the shadows for all these years. It gets in your blood."
+  branches {
+    responseText: "I know you have this \"reckless, immature, bad-boy\" thing going on, but have you ever stopped to think about anyone other than yourself?"
+    actions {
+      ops {
+        functionName: "Set Region Enabled"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "51f87e3f336331744500014a"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52994bab336331c826006f75"
+  }
+  index: 4
+  text: "Listen $(story.Real_Name)..."
+  branches {
+    responseText: "Whatever Joshua, you sure know how to ruin a perfectly good evening. Let\'s just head back to the hotel. I\'ve had enough sight seeing for one day."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: "Why did you drag me all the way out here Joshua? Don\'t get me wrong, your hotel is pretty much terrible, but we could be hitting up a bar or something!"
+  nextNodeIndex: 0
+}

@@ -1,0 +1,68 @@
+id: "SP Acid Burst Power"
+type: ItemType_Spell
+uirep {
+  icon: "icon_acidburst"
+  name: "Acid Burst"
+  description: "A explosion of acid that also delivers ongoing -5 HP. Lasts 2 RNDS."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_Spellcasting
+forceRating: 3
+apCost: 2
+baseHPDamage: 10
+baseAPDamage: 0
+rangeModTable: 10
+rangeModTable: 9
+rangeModTable: 8
+rangeModTable: 7
+rangeModTable: 6
+rangeModTable: 5
+rangeModTable: 4
+rangeModTable: 3
+rangeModTable: 2
+rangeModTable: 1
+rangeModTable: 0
+rangeModTable: 0
+rangeModTable: -1
+rangeModTable: -2
+rangeModTable: -3
+rangeModTable: -4
+rangeModTable: -5
+rangeModTable: -6
+rangeModTable: -7
+rangeModTable: -8
+effectModTable: 1
+effectModTable: 1
+effectModTable: 1
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: "Spirit Acid Burst"
+affectsFriendly: true
+affectsEnemy: true
+canTargetOccupiedGridPoint: true
+canTargetUnoccupiedGridPoint: true
+isDebuff: true
+cooldown: 2
+isMagic: true
+effectDuration: 2
+fxrep {
+  preActionFxName: "AcidSpellPrepare"
+  actionFxName: "AcidBurstThrowAction"
+  postActionFxName: ""
+  hitReactionFxName: "AcidHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_acidburst"
+    name: "Acid: HP -5 per RND"
+  }
+  stackingCategory: "Acid"
+  statMods {
+    attribute: Attribute_HP
+    intModValue: -5
+  }
+  fxScript: "AcidBurnStatus"
+}
+sorting_group: "Spirit Powers"

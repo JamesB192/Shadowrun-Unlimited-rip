@@ -1,0 +1,67 @@
+id: "SSC PR Slow 1"
+type: ItemType_DeckerProgram
+uirep {
+  icon: "icon_slow"
+  name: "Slow Lvl 1"
+  description: "Reduces AP of target by 1 for 2 RNDS."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Intelligence
+coreSkill: Skill_Decking
+forceRating: 1
+apCost: 1
+prereqStrings: "Player.SKILL.Skill_Decking >= 1"
+baseHPDamage: 0
+baseAPDamage: 0
+rangeModTable: 10
+rangeModTable: 9
+rangeModTable: 8
+rangeModTable: 7
+rangeModTable: 6
+rangeModTable: 5
+rangeModTable: 4
+rangeModTable: 3
+rangeModTable: 2
+rangeModTable: 1
+rangeModTable: 0
+rangeModTable: 0
+rangeModTable: -1
+rangeModTable: -2
+rangeModTable: -3
+rangeModTable: -4
+rangeModTable: -5
+rangeModTable: -6
+rangeModTable: -7
+rangeModTable: -8
+noiseLevel: 2
+noiseRounds: 1
+modelessAbilities: "DeBuff Spells"
+affectsFriendly: false
+affectsEnemy: true
+canTargetActor: true
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isDebuff: true
+cooldown: 3
+isMagic: false
+effectDuration: 2
+fxrep {
+  preActionFxName: "MatrixSpellPrepare"
+  actionFxName: "MatrixCastAction"
+  postActionFxName: ""
+  hitReactionFxName: "MatrixDebuffHitReaction"
+  missReactionFxName: "MatrixCastMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_slow3"
+    name: "Slowed: AP -1 per RND"
+  }
+  stackingCategory: "AP"
+  statMods {
+    attribute: Attribute_AP
+    intModValue: -1
+  }
+}
+store_cost: 2000
+sorting_group: "Programs"

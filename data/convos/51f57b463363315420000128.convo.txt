@@ -1,0 +1,84 @@
+idRef {
+  id: "51f57b463363315420000128"
+}
+ui_name: "Rent_Apartment"
+nodes {
+  idRef {
+    id: "5230bab3336331b419003bf7"
+  }
+  index: 0
+  text: ""
+  branches {
+    responseText: "Rent this Apartment? It\'s 600 Nuyen upfront, then 125 nuyen rent..."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 600
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f169b733633124330018bf"
+            }
+            args {
+              string_value: "Lifestyle"
+            }
+          }
+        }
+        args {
+          int_value: 125
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 600
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "{{GM}}TUTORIAL{{/GM}} Explain how safe houses work."
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "Nevermind."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5230bac1336331b419003bfc"
+  }
+  index: 1
+  text: "Safe houses allow you to rest, recovering health and lowering your Heat rating. High Heat ratings can cause Lone Star patrols to stop and harrass you. Safe houses all have an associated rent cost. This is deducted upon run completion and whenever you rest. More expensive safe houses will grant more efficient health recover, cause Heat to bleed off faster, and will grant special perks. You have to live somewhere, but if the cost of living is hurting your wallet, you can always move back into a cheaper safe house."
+  branches {
+    responseText: ""
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

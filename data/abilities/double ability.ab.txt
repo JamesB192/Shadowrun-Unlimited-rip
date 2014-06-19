@@ -1,0 +1,43 @@
+id: "Double Ability"
+uirep {
+  icon: "icon_burst"
+  name: "Double Fire"
+  description: "Fire both barrels at once."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 1"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+offensiveAbility: true
+ammoCost: 2
+repetition: 2
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunDoubleTapFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

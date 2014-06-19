@@ -1,0 +1,44 @@
+idRef {
+  id: "52076f06336331d813007ea2"
+}
+ui_name: "Piper-Hostage_Computer"
+nodes {
+  idRef {
+    id: "52076f3d336331d813007ea8"
+  }
+  index: 0
+  text: "There\'s a simple system controlling the electronic mag-lock."
+  branches {
+    responseText: "{{CC}}Decking{{/CC}}Attempt to run a simple bypass."
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "520d1afb3363312c2900867a"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

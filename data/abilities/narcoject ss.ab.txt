@@ -1,0 +1,76 @@
+id: "Narcoject SS"
+uirep {
+  icon: "icon_medkit"
+  name: "Narcoject Shot"
+  description: "Armor-penetrating dart delivers tranquilizer. -5 Move -2 to all stats, 5 rounds."
+}
+anim_action: AnimAction_Attack
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 0"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.25
+    value: 1
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1.5
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+}
+offensiveAbility: true
+ammoCost: 1
+effectDuration: 5
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunSingleFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"
+activationStatusEffects {
+  uirep {
+    icon: "icon_selfdestruct"
+    name: "Narcoject, -5 Move, -2 All Stats"
+  }
+  statMods {
+    attribute: Attribute_Move_Speed
+    intModValue: -5
+  }
+  statMods {
+    attribute: Attribute_Body
+    intModValue: -2
+  }
+  statMods {
+    attribute: Attribute_Quickness
+    intModValue: -2
+  }
+  statMods {
+    attribute: Attribute_Strength
+    intModValue: -2
+  }
+  statMods {
+    attribute: Attribute_Intelligence
+    intModValue: -2
+  }
+  statMods {
+    attribute: Attribute_Willpower
+    intModValue: -2
+  }
+  statMods {
+    attribute: Attribute_Charisma
+    intModValue: -2
+  }
+}

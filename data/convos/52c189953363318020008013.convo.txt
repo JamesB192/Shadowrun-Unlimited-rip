@@ -1,0 +1,83 @@
+idRef {
+  id: "52c189953363318020008013"
+}
+ui_name: "Neighborhood Watch"
+nodes {
+  idRef {
+    id: "52c189a23363318020008019"
+  }
+  index: 0
+  text: "Can I help you?"
+  branches {
+    responseText: "{{GM}}Try and Fast-Talk{{/GM}}\n\nI\'m just here visiting a friend."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Fast-Talk"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "Slag-off, frag face!"
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c18c3f3363318020008032"
+  }
+  index: 1
+  text: "Right. Well have good night.\n\n{{GM}}The neighborhood watch walks away, and looks to be making a phone call.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c189f9336331802000801f"
+  }
+  index: 2
+  text: "Right. Well have good night.\n\n{{GM}}The neighborhood watch walks away, and looks to be making a phone call.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "SkillTest"
+          }
+        }
+      }
+      args {
+        int_value: 20
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Fast-Talk"
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

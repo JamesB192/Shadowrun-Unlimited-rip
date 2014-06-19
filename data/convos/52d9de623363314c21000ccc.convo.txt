@@ -1,0 +1,37 @@
+idRef {
+  id: "52d9de623363314c21000ccc"
+}
+ui_name: "Matrix-Firewall Control"
+nodes {
+  idRef {
+    id: "52d9de6e3363314c21000cd2"
+  }
+  index: 0
+  text: "FIREWALL"
+  branches {
+    responseText: "Attempt to disable the Firewall using your Exploit program."
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Firewall Test"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Leave it alone."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

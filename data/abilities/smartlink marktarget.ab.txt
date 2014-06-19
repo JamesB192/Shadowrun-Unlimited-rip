@@ -1,0 +1,68 @@
+id: "smartlink marktarget"
+uirep {
+  icon: "icon_deckertargeting"
+  name: "Smartlink - Mark Target"
+  description: "Marks enemy, causing them to become 15% easier to hit."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+damageBucket {
+  successEntries {
+    weight: 0.3
+    value: 2
+  }
+  successEntries {
+    weight: 0.3
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.4
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+offensiveAbility: true
+drainBucket {
+  successEntries {
+    weight: 0.66
+    value: 1
+  }
+  successEntries {
+    weight: 0.34
+    value: 0
+  }
+  failureEntries {
+    weight: 0.66
+    value: 0
+  }
+  failureEntries {
+    weight: 0.34
+    value: -1
+  }
+}
+cooldown: 3
+fxrep {
+  actionFxName: "DeckerSpellCastAction"
+  hitReactionFxName: "GenericSpellDeBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+toHitFunction: "actorMatrixAttackToHit"
+damageFunction: "buffTarget"
+activationStatusEffects {
+  uirep {
+    icon: "icon_disintegrate1"
+    name: "Marked Target"
+  }
+  stackingCategory: "ToHitRed"
+  statMods {
+    attribute: Attribute_Accuracy_Reduction_Mod
+    intModValue: -15
+  }
+}
