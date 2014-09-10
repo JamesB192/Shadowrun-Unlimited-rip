@@ -1,7 +1,7 @@
 idRef {
   id: "520caeef3363313423007e8a"
 }
-ui_name: "Commlink-Barrens"
+ui_name: "Commlink-City Hubs"
 nodes {
   idRef {
     id: "52c981bb336331dc26008514"
@@ -9,158 +9,23 @@ nodes {
   index: 0
   text: "Novatech Commlink"
   branches {
-    responseText: "Call Eric Gunderson."
-    conditions {
-      ops {
-        functionName: "Comparison (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Erics_Number"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "IsOrIsNot"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Commlink"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Start Conversation Between Actors"
-        args {
-          call_value {
-            functionName: "Get Map Item (Conversation)"
-            args {
-              string_value: "5377aefd303266bc1200235c"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Nearest Tagged Actor to Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (SenseTagList)"
-                args {
-                  string_value: "Eric"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Play Animation From Manifest"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Animation)"
-            args {
-              string_value: "Seattle:General/standing_idle_talking"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    hideIfUnavailable: true
+    responseText: "Runners"
+    nextNodeIndex: 1
   }
   branches {
-    responseText: "Call Frosty."
+    responseText: "Fixers"
+    nextNodeIndex: 2
+  }
+  branches {
+    responseText: "Call a Taxi"
     conditions {
       ops {
-        functionName: "Comparison (bool)"
+        functionName: "Comparison (int)"
         args {
           call_value {
-            functionName: "Get Story Variable (bool)"
+            functionName: "Get Variable (int)"
             args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Frosty_Number"
+              string_value: "Job_Check"
             }
           }
         }
@@ -168,7 +33,7 @@ nodes {
           call_value {
             functionName: "Get Preset Value (int)"
             args {
-              string_value: "IsOrIsNot"
+              string_value: "Comparison Ops"
             }
             args {
               int_value: 1
@@ -176,91 +41,18 @@ nodes {
           }
         }
         args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
+          int_value: 1
         }
       }
     }
     actions {
       ops {
-        functionName: "Set Variable (bool)"
+        functionName: "Send Event"
         args {
           call_value {
-            functionName: "Get Story Variable (bool)"
+            functionName: "Get Map Item (Event)"
             args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Commlink"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Start Conversation Between Actors"
-        args {
-          call_value {
-            functionName: "Get Map Item (Conversation)"
-            args {
-              string_value: "51fa38d5336331dc47002234"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Nearest Tagged Actor to Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (SenseTagList)"
-                args {
-                  string_value: "Frosty"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
+              string_value: "Call Taxi"
             }
           }
         }
@@ -286,8 +78,19 @@ nodes {
       }
     }
     nextNodeIndex: -1
-    hideIfUnavailable: true
   }
+  branches {
+    responseText: "{{GM}}Hang up{{/GM}}"
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "53ed4fab386461800400898e"
+  }
+  index: 1
+  text: "Runners"
   branches {
     responseText: "Call Ricky the Raccon shaman."
     conditions {
@@ -1454,15 +1257,31 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
-    responseText: "Call a Taxi"
+    responseText: "Nevermind."
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "53ed4fc2386461800400899c"
+  }
+  index: 2
+  text: "Fixers"
+  branches {
+    responseText: "Call Eric Gunderson."
     conditions {
       ops {
-        functionName: "Comparison (int)"
+        functionName: "Comparison (bool)"
         args {
           call_value {
-            functionName: "Get Variable (int)"
+            functionName: "Get Story Variable (bool)"
             args {
-              string_value: "Job_Check"
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Erics_Number"
             }
           }
         }
@@ -1470,7 +1289,7 @@ nodes {
           call_value {
             functionName: "Get Preset Value (int)"
             args {
-              string_value: "Comparison Ops"
+              string_value: "IsOrIsNot"
             }
             args {
               int_value: 1
@@ -1478,18 +1297,91 @@ nodes {
           }
         }
         args {
-          int_value: 1
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
         }
       }
     }
     actions {
       ops {
-        functionName: "Send Event"
+        functionName: "Set Variable (bool)"
         args {
           call_value {
-            functionName: "Get Map Item (Event)"
+            functionName: "Get Story Variable (bool)"
             args {
-              string_value: "Call Taxi"
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Commlink"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Start Conversation Between Actors"
+        args {
+          call_value {
+            functionName: "Get Map Item (Conversation)"
+            args {
+              string_value: "5377aefd303266bc1200235c"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Player)"
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Nearest Tagged Actor to Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "Eric"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
             }
           }
         }
@@ -1515,10 +1407,152 @@ nodes {
       }
     }
     nextNodeIndex: -1
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Call Frosty."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Frosty_Number"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Commlink"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Start Conversation Between Actors"
+        args {
+          call_value {
+            functionName: "Get Map Item (Conversation)"
+            args {
+              string_value: "51fa38d5336331dc47002234"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Player)"
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Nearest Tagged Actor to Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "Frosty"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Play Animation From Manifest"
+        args {
+          call_value {
+            functionName: "Get Map Item (Player)"
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Animation)"
+            args {
+              string_value: "Seattle:General/standing_idle_talking"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
   }
   branches {
     responseText: "Nevermind."
-    nextNodeIndex: -1
+    nextNodeIndex: 0
+    auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
 }

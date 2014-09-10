@@ -1,0 +1,58 @@
+id: "GhoulPunch(default)"
+uirep {
+  icon: "icon_wound"
+  name: "Punch"
+  description: "An unarmed melee attack that does more HP damage than AP damage."
+  thumbnail: ""
+}
+anim_action: AnimAction_Attack
+anim_modifier: AnimModifier_Null
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: -10
+accuracyMod: 0
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+defensiveAbility: false
+ammoCost: 0
+effectDuration: -1
+repetition: 1
+can_summon: false
+cooldown: 0
+cooldown_category: ""
+spreadAngle: 0
+damageType: VulnerabilityType_Normal
+additionalTargets: -1
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GhoulFistPunchAction"
+  postActionFxName: ""
+  hitReactionFxName: "UnarmedHitReaction"
+  missReactionFxName: "UnarmedMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"
+intended_user: IntendedUser_Player
+additional_anim_group: ItemType_None

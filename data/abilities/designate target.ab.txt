@@ -1,0 +1,98 @@
+id: "Designate Target"
+uirep {
+  icon: "icon_headshot"
+  name: "Designate Target"
+  description: "Marks a target with reflected laser light, making it easier to hit."
+  thumbnail: ""
+}
+anim_action: AnimAction_Null
+anim_modifier: AnimModifier_Null
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+defensiveAbility: false
+ammoCost: 0
+effectDuration: 1
+drainBucket {
+  successEntries {
+    weight: 0.66
+    value: 1
+  }
+  successEntries {
+    weight: 0.34
+    value: 0
+  }
+  failureEntries {
+    weight: 0.66
+    value: 0
+  }
+  failureEntries {
+    weight: 0.34
+    value: -1
+  }
+}
+repetition: 1
+can_summon: false
+cooldown: 2
+cooldown_category: ""
+spreadAngle: 0
+damageType: VulnerabilityType_Normal
+additionalTargets: -1
+fxrep {
+  preActionFxName: ""
+  actionFxName: "InteractionAction"
+  postActionFxName: ""
+  hitReactionFxName: "GenericSpellDeBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+toHitFunction: "actorMatrixAttackToHit"
+damageFunction: "buffTarget"
+activationStatusEffects {
+  uirep {
+    icon: "icon_disintegrate1"
+    name: "Marked Target"
+    description: ""
+    thumbnail: ""
+  }
+  stackingCategory: "ToHitRed"
+  statMods {
+    attribute: Attribute_Accuracy_Reduction_Mod
+    skill: Skill_None
+    specialization: Specialization_None
+    intModValue: -10
+    floatModValue: 0
+    damageType: VulnerabilityType_Normal
+  }
+  fxScript: ""
+  durationFxScript: ""
+  is_buff: false
+  is_debuff: true
+  is_totem: false
+}
+intended_user: IntendedUser_Player
+additional_anim_group: ItemType_None

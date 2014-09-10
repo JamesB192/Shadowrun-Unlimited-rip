@@ -7345,6 +7345,56 @@ triggers {
   }
   actions {
     ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Concealment_Check"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            int_value: 1
+          }
+          args {
+            int_value: 12
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "SkillTest"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            int_value: 1
+          }
+          args {
+            int_value: 12
+          }
+        }
+      }
+    }
+    ops {
       functionName: "Activate Actor Spawner"
       args {
         call_value {
@@ -7432,7 +7482,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Conversation)"
           args {
-            string_value: "5252362b3363314c350041ab"
+            string_value: "53ebc45f38646140210021ed"
           }
         }
       }
@@ -7488,7 +7538,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Lonestar_Encounter_Roll"
@@ -7546,7 +7596,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Lonestar Check"
@@ -7626,7 +7676,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Renraku Encounter"
@@ -12019,7 +12069,10 @@ triggers {
       functionName: "Display Text over Actor"
       args {
         call_value {
-          functionName: "Triggering Actor"
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "51f997d03363319c3e001541"
+          }
         }
       }
       args {
@@ -12292,7 +12345,10 @@ triggers {
       functionName: "Display Text over Actor"
       args {
         call_value {
-          functionName: "Triggering Actor"
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "51f997d03363319c3e001541"
+          }
         }
       }
       args {
@@ -27746,12 +27802,12 @@ triggers {
   name: "NewTrigger"
   events {
     ops {
-      functionName: "On Region Enter"
+      functionName: "On New Round"
       args {
         call_value {
-          functionName: "Get Map Item (Region)"
+          functionName: "Get Map Item (SceneDimension)"
           args {
-            string_value: "51f2add6336331d02d001c4e"
+            string_value: "Default"
           }
         }
       }
@@ -27761,30 +27817,47 @@ triggers {
   }
   actions {
     ops {
-      functionName: "Cause Damage"
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Test"
+      }
       args {
         call_value {
-          functionName: "Specific Actor"
+          functionName: "Convert (int) to (string)"
           args {
             call_value {
-              functionName: "Triggering Actor"
+              functionName: "Get Actor Skill"
+              args {
+                call_value {
+                  functionName: "Get Map Item (Player)"
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "BaseOrCurrent"
+                  }
+                  args {
+                    int_value: 1
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "ActorSkills"
+                  }
+                  args {
+                    int_value: 9
+                  }
+                }
+              }
             }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        int_value: 30
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "HPOrAP"
-          }
-          args {
-            int_value: 0
           }
         }
       }
@@ -27792,11 +27865,501 @@ triggers {
   }
   isActive: true
   idRef {
-    id: "5367c43d3363310c1b00797c"
+    id: "53b85794386461f822001368"
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
+}
+triggers {
+  name: "NewTrigger"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "53ebc6263864614021002224"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Lonestar_Encounter_Roll"
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Lonestar Check"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "53b855ff386461f822001367"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Permit Test"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "LoneStar Test"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "SkillTest"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        int_value: 10
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "51f997d03363319c3e001541"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Ok. Everything looks in order."
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Clear LoneStar"
+          }
+        }
+      }
+      args {
+        float_value: 5
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "53ebdb6f386461b016006b4c"
+  }
+  elseActions {
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "51f997d03363319c3e001541"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "This is a forgery! Freeze!"
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Clear LoneStar"
+          }
+        }
+      }
+      args {
+        float_value: 2
+      }
+    }
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Lonestar Encounter"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "EncounterLonestar"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Run_Identifier"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 38
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Run_Identifier"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 39
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Concealment_Check"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            int_value: 1
+          }
+          args {
+            int_value: 12
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "SkillTest"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            int_value: 1
+          }
+          args {
+            int_value: 12
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "51f997d03363319c3e001541"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Teleport Actor near Actor"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 2
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        int_value: 2
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Start Conversation Between Actors"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "53ebc45f38646140210021ed"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "51f997d03363319c3e001541"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Heat"
+          }
+        }
+      }
+      args {
+        int_value: -10
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "53ebdeb13864613822004231"
+  }
+  elseActions {
+  }
+  is_oneshot: false
 }
 regions {
   name: "Docks Travel"
@@ -28749,6 +29312,7 @@ characters {
     z: 16
   }
   orientation: ORIENTATION_E
+  GeneralTags: "isPlayer"
   idRef {
     id: "51f29a9f336331d02d001c0d"
   }
@@ -28759,6 +29323,7 @@ characters {
     }
     team_id: "Shadowrunners"
     char_name: "New Actor"
+    GeneralTags: "isPlayer"
     enabled_at_start: true
     pc_spawn_number: 0
   }
@@ -32570,6 +33135,7 @@ mapEvents: "Taxi Leave"
 mapEvents: "Taxi Check"
 mapEvents: "Gang Charisma test"
 mapEvents: "Training Buffs"
+mapEvents: "LoneStar Test"
 worldMapLocation {
   filename: ""
   location {
@@ -32644,8 +33210,6 @@ team_affiliations {
 scene_dimensions {
   dimension_name: "Default"
   initial_alarm_state: 0
-}
-character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {

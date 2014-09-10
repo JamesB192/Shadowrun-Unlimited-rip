@@ -2522,44 +2522,6 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Jack-In Failsafe"
-  events {
-    ops {
-      functionName: "On Item Interaction"
-      args {
-        call_value {
-          functionName: "Get Map Item (InteractableObject)"
-          args {
-            string_value: "51f7cc52336331a81e001921"
-          }
-        }
-      }
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Send Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Jack-In"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "52c18d62336331a42e002d42"
-  }
-  elseActions {
-  }
-  is_oneshot: false
-}
-triggers {
   name: "Slave-Door Disable Test"
   events {
     ops {
@@ -42890,8 +42852,6 @@ scene_dimensions {
   initial_alarm_state: 0
   turns_per_round: 1
 }
-character_roster {
-}
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
   prereq_description: ""
@@ -42907,5 +42867,5 @@ use_hiring_cost_warning: false
 hiring_average_cost: 99999
 override_hiring_average_cost: true
 show_equip_screen_on_scene_load: false
-can_move_outside_camera_regions: true
-can_start_before_triggers: true
+can_move_outside_camera_regions: false
+can_start_before_triggers: false

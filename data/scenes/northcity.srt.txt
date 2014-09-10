@@ -235,148 +235,6 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Lonestar Encounter"
-  events {
-    ops {
-      functionName: "Get Map Item (Event)"
-      args {
-        string_value: "EncounterLonestar"
-      }
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Activate Actor Spawner"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor Reference)"
-          args {
-            string_value: "520d1ed23363313c190042b0"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Teleport Actor near Actor"
-      args {
-        call_value {
-          functionName: "All Actors on Team"
-          args {
-            call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 2
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
-          }
-        }
-      }
-      args {
-        int_value: 4
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "FacingDirection"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TeleportMethod"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Start Conversation Between Actors"
-      args {
-        call_value {
-          functionName: "Get Map Item (Conversation)"
-          args {
-            string_value: "5252362b3363314c350041ab"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor)"
-          args {
-            string_value: "520d1ed23363313c190042b0"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "51f997f73363319c3e001542"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
   name: "Lonestar_Peace"
   events {
     ops {
@@ -719,7 +577,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Conversation)"
           args {
-            string_value: "520d1e0d336331640e00762c"
+            string_value: "520caeef3363313423007e8a"
           }
         }
       }
@@ -892,13 +750,13 @@ triggers {
         call_value {
           functionName: "Specified Point (3D)"
           args {
-            float_value: 24
+            float_value: 20
           }
           args {
             float_value: 0
           }
           args {
-            float_value: 3
+            float_value: 188
           }
         }
       }
@@ -1151,13 +1009,13 @@ triggers {
         call_value {
           functionName: "Specified Point (3D)"
           args {
-            float_value: 10
+            float_value: 8
           }
           args {
             float_value: 0
           }
           args {
-            float_value: 24
+            float_value: 209
           }
         }
       }
@@ -1379,13 +1237,13 @@ triggers {
         call_value {
           functionName: "Specified Point (3D)"
           args {
-            float_value: 1
+            float_value: -2
           }
           args {
             float_value: 0
           }
           args {
-            float_value: 29
+            float_value: 215
           }
         }
       }
@@ -1396,7 +1254,7 @@ triggers {
             string_value: "FacingDirection"
           }
           args {
-            int_value: 5
+            int_value: 3
           }
         }
       }
@@ -5785,7 +5643,10 @@ triggers {
       functionName: "Display Text over Actor"
       args {
         call_value {
-          functionName: "Triggering Actor"
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "520d1ed23363313c190042b0"
+          }
         }
       }
       args {
@@ -6058,7 +5919,10 @@ triggers {
       functionName: "Display Text over Actor"
       args {
         call_value {
-          functionName: "Triggering Actor"
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "520d1ed23363313c190042b0"
+          }
         }
       }
       args {
@@ -7540,13 +7404,13 @@ triggers {
         call_value {
           functionName: "Specified Point (3D)"
           args {
-            float_value: -40
+            float_value: -43
           }
           args {
             float_value: 0
           }
           args {
-            float_value: 25
+            float_value: 210
           }
         }
       }
@@ -7695,6 +7559,23 @@ triggers {
           }
           args {
             string_value: "Information"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Plot Information"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "PlotInformation"
           }
         }
       }
@@ -7921,13 +7802,13 @@ triggers {
         call_value {
           functionName: "Specified Point (3D)"
           args {
-            float_value: 14
+            float_value: 10
           }
           args {
             float_value: 0
           }
           args {
-            float_value: -28
+            float_value: 159
           }
         }
       }
@@ -20979,11 +20860,446 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Permit Test"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "LoneStar Test"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "SkillTest"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        int_value: 10
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "520d1ed23363313c190042b0"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Ok. Everything looks in order."
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Clear LoneStar"
+          }
+        }
+      }
+      args {
+        float_value: 5
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "53ebdb6f386461b016006b4c"
+  }
+  elseActions {
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "520d1ed23363313c190042b0"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "This is a forgery! Freeze!"
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Clear LoneStar"
+          }
+        }
+      }
+      args {
+        float_value: 2
+      }
+    }
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Lonestar Encounter"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "EncounterLonestar"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Run_Identifier"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 38
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Run_Identifier"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: 39
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Concealment_Check"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            int_value: 1
+          }
+          args {
+            int_value: 12
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "SkillTest"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            int_value: 1
+          }
+          args {
+            int_value: 12
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "520d1ed23363313c190042b0"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Teleport Actor near Actor"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 2
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        int_value: 2
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Start Conversation Between Actors"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "53ebc45f38646140210021ed"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "520d1ed23363313c190042b0"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Heat"
+          }
+        }
+      }
+      args {
+        int_value: -10
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "53ebdeb13864613822004231"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Camera Bind"
   position {
-    x: -54
-    y: -53
+    x: -57
+    y: 132
     width: 82
     height: 103
   }
@@ -21026,8 +21342,8 @@ regions {
 regions {
   name: "Downtown Travel"
   position {
-    x: 22
-    y: -4
+    x: 19
+    y: 181
     width: 5
     height: 17
   }
@@ -21070,8 +21386,8 @@ regions {
 regions {
   name: "Johnson Trigger"
   position {
-    x: -24
-    y: 44
+    x: -27
+    y: 229
     width: -11
     height: 6
   }
@@ -21114,8 +21430,8 @@ regions {
 regions {
   name: "Generax Labs Desc"
   position {
-    x: -2
-    y: 29
+    x: -5
+    y: 214
     width: 7
     height: 3
   }
@@ -21158,8 +21474,8 @@ regions {
 regions {
   name: "The Skeleton Desc"
   position {
-    x: -15
-    y: 13
+    x: -18
+    y: 198
     width: 3
     height: 7
   }
@@ -21202,8 +21518,8 @@ regions {
 regions {
   name: "Telestrian RD Desc"
   position {
-    x: -42
-    y: 22
+    x: -45
+    y: 207
     width: 3
     height: 7
   }
@@ -21246,8 +21562,8 @@ regions {
 regions {
   name: "Rainier"
   position {
-    x: 11
-    y: -28
+    x: 8
+    y: 157
     width: 8
     height: 5
   }
@@ -21290,8 +21606,8 @@ regions {
 regions {
   name: "Car Collsion East"
   position {
-    x: -128
-    y: 15
+    x: -131
+    y: 200
     width: 2
     height: 1
   }
@@ -21334,8 +21650,8 @@ regions {
 regions {
   name: "Car Collsion South"
   position {
-    x: -126
-    y: 10
+    x: -129
+    y: 195
     width: 1
     height: 2
   }
@@ -21378,9 +21694,9 @@ regions {
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
-    x: -14
+    x: -17
     y: 0
-    z: 16
+    z: 201
   }
   orientation: ORIENTATION_S
   GeneralTags: "isPlayer"
@@ -21403,9 +21719,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -86
+    x: -89
     y: 0
-    z: -27
+    z: 158
   }
   orientation: ORIENTATION_S
   GeneralTags: "Frosty"
@@ -21458,9 +21774,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -85
+    x: -88
     y: 0
-    z: -24
+    z: 161
   }
   orientation: ORIENTATION_S
   GeneralTags: "Eric"
@@ -21549,9 +21865,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -86
+    x: -89
     y: 0
-    z: -25
+    z: 160
   }
   orientation: ORIENTATION_S
   GeneralTags: "Taxi"
@@ -21601,9 +21917,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -91
+    x: -94
     y: 0
-    z: -29
+    z: 156
   }
   orientation: ORIENTATION_S
   displayName: "Lonestar1"
@@ -21686,9 +22002,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -30
+    x: -33
     y: 0
-    z: 47
+    z: 232
   }
   orientation: ORIENTATION_W
   displayName: "Mr. Johnson"
@@ -21745,9 +22061,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -28
+    x: -31
     y: 0
-    z: 49
+    z: 234
   }
   orientation: ORIENTATION_W
   displayName: "BodyGuard1"
@@ -21838,9 +22154,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -31
+    x: -34
     y: 0
-    z: 49
+    z: 234
   }
   orientation: ORIENTATION_W
   displayName: "BodyGuard2"
@@ -21931,9 +22247,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -85
+    x: -88
     y: 0
-    z: -25
+    z: 160
   }
   orientation: ORIENTATION_S
   displayName: "VID"
@@ -21977,9 +22293,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -86
+    x: -89
     y: 0
-    z: -24
+    z: 161
   }
   orientation: ORIENTATION_S
   idRef {
@@ -22067,9 +22383,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -85
+    x: -88
     y: 0
-    z: -26
+    z: 159
   }
   orientation: ORIENTATION_S
   idRef {
@@ -22118,9 +22434,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -87
+    x: -90
     y: 0
-    z: -25
+    z: 160
   }
   orientation: ORIENTATION_S
   idRef {
@@ -22176,9 +22492,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -87
+    x: -90
     y: 0
-    z: -24
+    z: 161
   }
   orientation: ORIENTATION_S
   idRef {
@@ -22228,9 +22544,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -91
+    x: -94
     y: 0
-    z: -28
+    z: 157
   }
   orientation: ORIENTATION_S
   displayName: "Swat 1"
@@ -22316,9 +22632,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -91
+    x: -94
     y: 0
-    z: -27
+    z: 158
   }
   orientation: ORIENTATION_S
   displayName: "Swat 2"
@@ -22404,9 +22720,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -91
+    x: -94
     y: 0
-    z: -26
+    z: 159
   }
   orientation: ORIENTATION_S
   displayName: "Swat 3"
@@ -22492,9 +22808,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -91
+    x: -94
     y: 0
-    z: -25
+    z: 160
   }
   orientation: ORIENTATION_S
   displayName: "Swat 4"
@@ -22580,9 +22896,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -90
+    x: -93
     y: 0
-    z: -27
+    z: 158
   }
   orientation: ORIENTATION_S
   GeneralTags: "Mars"
@@ -22694,9 +23010,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -94
+    x: -97
     y: 0
-    z: -27
+    z: 158
   }
   orientation: ORIENTATION_S
   GeneralTags: "Trent"
@@ -22796,9 +23112,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -95
+    x: -98
     y: 0
-    z: -27
+    z: 158
   }
   orientation: ORIENTATION_S
   GeneralTags: "Vigor"
@@ -22850,9 +23166,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -94
+    x: -97
     y: 0
-    z: -28
+    z: 157
   }
   orientation: ORIENTATION_S
   GeneralTags: "Argyle"
@@ -22915,9 +23231,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -93
+    x: -96
     y: 0
-    z: -29
+    z: 156
   }
   orientation: ORIENTATION_S
   GeneralTags: "Verum"
@@ -23014,9 +23330,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -95
+    x: -98
     y: 0
-    z: -28
+    z: 157
   }
   orientation: ORIENTATION_S
   GeneralTags: "Caleb"
@@ -23071,9 +23387,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -93
+    x: -96
     y: 0
-    z: -30
+    z: 155
   }
   orientation: ORIENTATION_S
   GeneralTags: "Ricky"
@@ -23180,9 +23496,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -95
+    x: -98
     y: 0
-    z: -29
+    z: 156
   }
   orientation: ORIENTATION_S
   GeneralTags: "Julias"
@@ -23240,9 +23556,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -94
+    x: -97
     y: 0
-    z: -30
+    z: 155
   }
   orientation: ORIENTATION_S
   GeneralTags: "Clockwork"
@@ -23314,9 +23630,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -95
+    x: -98
     y: 0
-    z: -30
+    z: 155
   }
   orientation: ORIENTATION_S
   idRef {
@@ -23372,9 +23688,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -94
+    x: -97
     y: 0
-    z: -29
+    z: 156
   }
   orientation: ORIENTATION_S
   GeneralTags: "Smash Jacker"
@@ -23539,6 +23855,7 @@ mapEvents: "Taxi Check"
 mapEvents: "Car East Move"
 mapEvents: "Car South Move"
 mapEvents: "Taxi Leave"
+mapEvents: "LoneStar Test"
 worldMapLocation {
   filename: ""
   location {
@@ -23612,6 +23929,8 @@ team_affiliations {
 }
 scene_dimensions {
   dimension_name: "Default"
+}
+character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {

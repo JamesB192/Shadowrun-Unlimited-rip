@@ -1,0 +1,91 @@
+id: "BrightLight"
+uirep {
+  icon: "icon_manaball1"
+  name: "BrightLight Flash"
+  description: "Temporarily overload a target\'s optic nerves."
+  thumbnail: ""
+}
+anim_action: AnimAction_Null
+anim_modifier: AnimModifier_Null
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+defensiveAbility: false
+ammoCost: 0
+effectDuration: 2
+drainBucket {
+  successEntries {
+    weight: 0.66
+    value: 1
+  }
+  successEntries {
+    weight: 0.34
+    value: 0
+  }
+  failureEntries {
+    weight: 0.66
+    value: 0
+  }
+  failureEntries {
+    weight: 0.34
+    value: -1
+  }
+}
+repetition: 1
+can_summon: false
+cooldown: 6
+cooldown_category: ""
+spreadAngle: 0
+damageType: VulnerabilityType_Normal
+additionalTargets: -1
+fxrep {
+  preActionFxName: ""
+  actionFxName: "InteractionAction"
+  postActionFxName: ""
+  hitReactionFxName: "GenericSpellDeBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+toHitFunction: "actorSpellAttackToHit"
+damageFunction: "buffTarget"
+activationStatusEffects {
+  uirep {
+    icon: "icon_blindness"
+    name: "Blinded"
+    description: ""
+    thumbnail: ""
+  }
+  stackingCategory: "AI"
+  statusConditions: Condition_Blind
+  fxScript: ""
+  durationFxScript: ""
+  is_buff: false
+  is_debuff: true
+  is_totem: false
+}
+intended_user: IntendedUser_Player
+additional_anim_group: ItemType_None

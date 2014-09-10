@@ -1,0 +1,60 @@
+id: "Headshot (Single Sniper)"
+uirep {
+  icon: "icon_headshot"
+  name: "Headshot"
+  description: "Single Target. One bullet. -10% to hit. Increases chance for critical DMG."
+  thumbnail: ""
+}
+anim_action: AnimAction_Attack
+anim_modifier: AnimModifier_Null
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: -10
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 0"
+prereqStrings: "Item.CORE_SPECIALIZATION > 6"
+damageBucket {
+  successEntries {
+    weight: 0.4
+    value: 2
+  }
+  successEntries {
+    weight: 0.4
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.2
+    value: 1
+  }
+  failureEntries {
+    weight: 0.8
+    value: 1
+  }
+  failureEntries {
+    weight: 0.2
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+defensiveAbility: false
+ammoCost: 1
+effectDuration: -1
+repetition: 1
+can_summon: false
+cooldown: 2
+cooldown_category: ""
+spreadAngle: 0
+damageType: VulnerabilityType_Normal
+additionalTargets: -1
+fxrep {
+  preActionFxName: ""
+  actionFxName: "Berlin:SniperRifleSingleFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"
+intended_user: IntendedUser_Player
+additional_anim_group: ItemType_None

@@ -7102,7 +7102,15 @@ nodes {
           call_value {
             functionName: "Arithmetic (int)"
             args {
-              int_value: 400
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Pay"
+                }
+              }
             }
             args {
               call_value {
@@ -19874,10 +19882,12 @@ nodes {
       }
     }
     nextNodeIndex: 400
+    hideIfUnavailable: true
   }
   branches {
     responseText: "Of course it was."
     nextNodeIndex: 401
+    hideIfUnavailable: true
   }
   nodeType: ConversationNodeType_Simple
   sourceWithTagInScene: "isEric"
@@ -21171,10 +21181,10 @@ nodes {
         call_value {
           functionName: "Get Story Variable (string)"
           args {
-            string_value: "537249303032660016001cfa"
+            string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "Information"
+            string_value: "PlotInformation"
           }
         }
       }
@@ -21210,7 +21220,7 @@ nodes {
     ops {
       functionName: "Set Screen Label"
       args {
-        string_value: "Journal"
+        string_value: "Plot Information"
       }
       args {
         call_value {
@@ -21661,6 +21671,43 @@ roots {
         }
       }
     }
+    ops {
+      functionName: "Evaluate If Actor Has Item"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Erics_Letter"
+          }
+        }
+      }
+    }
   }
   actions {
     ops {
@@ -21783,6 +21830,43 @@ roots {
           }
           args {
             int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor Has Item"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Erics_Letter"
           }
         }
       }

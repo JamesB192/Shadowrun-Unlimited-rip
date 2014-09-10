@@ -4971,6 +4971,23 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Plot Information"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "PlotInformation"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -13105,13 +13122,16 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "NewTrigger"
+  name: "Display Test"
   events {
     ops {
       functionName: "On New Round"
       args {
         call_value {
-          functionName: "Nothing Selected"
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
         }
       }
     }
@@ -13119,14 +13139,60 @@ triggers {
   conditions {
   }
   actions {
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Test"
+      }
+      args {
+        call_value {
+          functionName: "Convert (int) to (string)"
+          args {
+            call_value {
+              functionName: "Get Actor Attribute"
+              args {
+                call_value {
+                  functionName: "Get Map Item (Player)"
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "BaseOrCurrent"
+                  }
+                  args {
+                    int_value: 1
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "ActorAttributes"
+                  }
+                  args {
+                    int_value: 20
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
-  isActive: true
+  isActive: false
   idRef {
-    id: "5367bf26336331bc130026e2"
+    id: "53b85794386461f822001368"
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 regions {
   name: "Redmond Travel"
@@ -15317,6 +15383,8 @@ team_affiliations {
 }
 scene_dimensions {
   dimension_name: "Default"
+}
+character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
