@@ -1,6 +1,6 @@
-minX: -86
+minX: -87
 minZ: -90
-numX: 166
+numX: 167
 numZ: 117
 props {
   name: "docks_clutter_shippingCrate03"
@@ -2923,9 +2923,9 @@ props {
 props {
   name: "docks_clutter_shippingCrate01"
   gridPoint {
-    x: -22
+    x: -31
     y: 2
-    z: -6
+    z: -11
   }
   orientation: ORIENTATION_S
   idRef {
@@ -2936,9 +2936,9 @@ props {
 props {
   name: "docks_decor_shippingCrates02"
   gridPoint {
-    x: -23.06
+    x: -25.06
     y: 0
-    z: -5.1
+    z: -8.1
   }
   orientation: ORIENTATION_S
   idRef {
@@ -2949,9 +2949,9 @@ props {
 props {
   name: "docks_decor_shippingCrates03"
   gridPoint {
-    x: -24
+    x: -28
     y: 0
-    z: -8
+    z: -13
   }
   orientation: ORIENTATION_N
   idRef {
@@ -2962,9 +2962,9 @@ props {
 props {
   name: "docks_decor_shippingCrates04"
   gridPoint {
-    x: -24
+    x: -28
     y: 0
-    z: -7
+    z: -11
   }
   orientation: ORIENTATION_E
   idRef {
@@ -2975,9 +2975,9 @@ props {
 props {
   name: "docks_decor_shippingCrates"
   gridPoint {
-    x: -23
+    x: -32
     y: 0
-    z: -7
+    z: -12
   }
   orientation: ORIENTATION_S
   idRef {
@@ -4359,11 +4359,6 @@ props {
   orientation: ORIENTATION_W
   idRef {
     id: "519a9abd64343122031698fa"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    interactionIcon: InteractionIcon_SceneTransition
   }
   lod: 0
 }
@@ -13287,9 +13282,9 @@ props {
 props {
   name: "docks_appliance_fuelContainer01"
   gridPoint {
-    x: -24
+    x: -26
     y: 0
-    z: 3
+    z: 16
   }
   orientation: ORIENTATION_S
   idRef {
@@ -14571,9 +14566,9 @@ props {
 props {
   name: "docks_vehicle_towTug"
   gridPoint {
-    x: -28.8
+    x: -31.8
     y: 0
-    z: -17.8
+    z: -16.8
   }
   orientation: ORIENTATION_E
   lod: 0
@@ -20036,8 +20031,37 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
-    dummyInteraciton {
+    prerequisites {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Bottling Plant"
+        }
+      }
     }
+    interactionIcon: InteractionIcon_SceneTransition
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -20084,4 +20108,66 @@ props {
     }
     intensity: 4
   }
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: 7
+    y: 0
+    z: -59
+  }
+  orientation: ORIENTATION_S
+  displayName: "Bottling Plant (Not Run)"
+  idRef {
+    id: "5442d31c363735e00e003fb4"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          string_value: "Bottling Plant"
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_SceneTransition
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "docks_floor_6x6panel01"
+  gridPoint {
+    x: -87
+    y: 0
+    z: -0.89999962
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5455ba9e363735ac1600345a"
+  }
+  lod: 0
 }

@@ -1,4 +1,121 @@
 triggers {
+  name: "Clothing"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Fade Camera Out"
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Remove Item from Actor by Item Type"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ItemType"
+          }
+          args {
+            int_value: 18
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Outfit_Corporate Salaryman"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "End Current Actor Turn"
+    }
+    ops {
+      functionName: "Fade Camera In"
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 2
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5328133a3363312028001223"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
   name: "Conversation"
   events {
     ops {
@@ -1495,120 +1612,6 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Clothing"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Fade Camera Out"
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-    }
-    ops {
-      functionName: "Remove Item from Actor by Item Type"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "ItemType"
-          }
-          args {
-            int_value: 18
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Add Item to Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Item)"
-          args {
-            string_value: "Outfit_Corporate Salaryman"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Fade Camera In"
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 2
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "5328133a3363312028001223"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
   name: "Real Name"
   events {
     ops {
@@ -1965,6 +1968,19 @@ triggers {
           }
           args {
             int_value: 2
+          }
+        }
+      }
+      args {
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -3964,6 +3980,7 @@ regions {
     a: 1
   }
   visible_at_start: false
+  is_closet: false
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -4008,6 +4025,7 @@ regions {
     a: 1
   }
   visible_at_start: false
+  is_closet: false
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -4052,6 +4070,7 @@ regions {
     a: 1
   }
   visible_at_start: false
+  is_closet: false
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -4096,6 +4115,7 @@ regions {
     a: 1
   }
   visible_at_start: false
+  is_closet: false
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -4140,6 +4160,7 @@ regions {
     a: 1
   }
   visible_at_start: false
+  is_closet: false
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -4184,6 +4205,7 @@ regions {
     a: 1
   }
   visible_at_start: false
+  is_closet: false
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -4228,6 +4250,7 @@ regions {
     a: 1
   }
   visible_at_start: false
+  is_closet: false
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -4520,7 +4543,7 @@ parentStory: ""
 scene_title: "Seattle"
 scene_subtitle: ""
 scene_synopsis: "Rain drizzles down from the hazy sky in a gentle shower, the moisture and smog mixing and bonding to lend a soft glow to the neon lights glaring down from practically every buidling. The rain is all that separates this neon-studded sprawl from your own hometown, but at least it\'s a change. At this point, anything different is . . . well, it\'s something. Being a wageslave has its perks, but the soul-sucking monotony gets a little old. A week-long vacation, even if it\'s just to Seattle, is nice.\n\nBesides, getting to see Joshua would make just about anything worthwhile. Your brother can be a bit of a drekhead, but he\'s got a good heart, and it\'s been too damn long since you\'ve seen him face to face. He\'s as excited about this visit as you are--maybe more--and he said he\'s got all kinds of plans for this week. Before the festivities begin, though, he wants to give you the grand tour and show you the sights of the city he\'s called home for the last five years.\n\nHonestly, you\'ve never been very interested in sight-seeing. You\'re just hoping it won\'t be too boring."
-scene_image: ""
+scene_image: "loadingimage_a1_hotel_s1"
 scene_continue_button_skip: false
 scene_restore_runner_health: false
 directional_light_dir {
@@ -4593,5 +4616,8 @@ use_hiring_cost_warning: false
 hiring_average_cost: 99999
 override_hiring_average_cost: true
 show_equip_screen_on_scene_load: false
+is_persistant: false
+is_persistant_has_value: false
 can_move_outside_camera_regions: false
 can_start_before_triggers: false
+can_use_team_advancement: false

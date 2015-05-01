@@ -538,62 +538,34 @@ nodes {
   nodeType: ConversationNodeType_Simple
   actions {
     ops {
-      functionName: "Set Variable (bool)"
+      functionName: "Add To Variable (int)"
       args {
         call_value {
-          functionName: "Get Story Variable (bool)"
+          functionName: "Get Story Variable (int)"
           args {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "RunSuccess"
+            string_value: "Current_Run-Step"
           }
         }
       }
       args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
+        int_value: 1
       }
     }
     ops {
-      functionName: "Set Variable (string)"
+      functionName: "Send Event After Delay"
       args {
         call_value {
-          functionName: "Get Story Variable (string)"
+          functionName: "Get Map Item (Event)"
           args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Information"
+            string_value: "Check Next Objective"
           }
         }
       }
       args {
-        string_value: "I should contact my Fixer for my reward."
-      }
-    }
-    ops {
-      functionName: "Set Screen Label"
-      args {
-        string_value: "Journal"
-      }
-      args {
-        call_value {
-          functionName: "Get Story Variable (string)"
-          args {
-            string_value: "text"
-          }
-          args {
-            string_value: "Information"
-          }
-        }
+        float_value: 2
       }
     }
   }
@@ -607,173 +579,80 @@ nodes {
   nodeType: ConversationNodeType_Simple
   actions {
     ops {
-      functionName: "Set Variable (bool)"
+      functionName: "Change Actor Team"
       args {
         call_value {
-          functionName: "Get Story Variable (bool)"
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "JSON"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
           args {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "RunSuccess"
+            string_value: "Current_Run-Step"
           }
         }
       }
       args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
+        int_value: 1
       }
     }
     ops {
-      functionName: "Change Actor Team"
+      functionName: "Send Event After Delay"
       args {
         call_value {
-          functionName: "Specific Actor"
+          functionName: "Get Map Item (Event)"
           args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "520d208e336331b42900177e"
-              }
-            }
-          }
-          args {
+            string_value: "Check Next Objective"
           }
         }
       }
       args {
-        call_value {
-          functionName: "Get Preset Value (string)"
-          args {
-            string_value: "FactionList"
-          }
-          args {
-            int_value: 4
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (SceneDimension)"
-          args {
-            string_value: "Default"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Change Actor Team"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "520d2203336331d02e00390e"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (string)"
-          args {
-            string_value: "FactionList"
-          }
-          args {
-            int_value: 4
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (SceneDimension)"
-          args {
-            string_value: "Default"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Change Actor Team"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "520d21da336331d02e00390d"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (string)"
-          args {
-            string_value: "FactionList"
-          }
-          args {
-            int_value: 4
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (SceneDimension)"
-          args {
-            string_value: "Default"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Variable (string)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (string)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Information"
-          }
-        }
-      }
-      args {
-        string_value: "I should contact my Fixer for my reward."
-      }
-    }
-    ops {
-      functionName: "Set Screen Label"
-      args {
-        string_value: "Journal"
-      }
-      args {
-        call_value {
-          functionName: "Get Story Variable (string)"
-          args {
-            string_value: "text"
-          }
-          args {
-            string_value: "Information"
-          }
-        }
+        float_value: 2
       }
     }
   }
@@ -787,68 +666,40 @@ nodes {
   nodeType: ConversationNodeType_Simple
   actions {
     ops {
-      functionName: "Set Variable (bool)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (bool)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "RunSuccess"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-    ops {
       functionName: "Add Nuyen"
       args {
         int_value: 100
       }
     }
     ops {
-      functionName: "Set Variable (string)"
+      functionName: "Add To Variable (int)"
       args {
         call_value {
-          functionName: "Get Story Variable (string)"
+          functionName: "Get Story Variable (int)"
           args {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "Information"
+            string_value: "Current_Run-Step"
           }
         }
       }
       args {
-        string_value: "I should contact my Fixer for my reward."
+        int_value: 1
       }
     }
     ops {
-      functionName: "Set Screen Label"
-      args {
-        string_value: "Journal"
-      }
+      functionName: "Send Event After Delay"
       args {
         call_value {
-          functionName: "Get Story Variable (string)"
+          functionName: "Get Map Item (Event)"
           args {
-            string_value: "text"
-          }
-          args {
-            string_value: "Information"
+            string_value: "Check Next Objective"
           }
         }
+      }
+      args {
+        float_value: 2
       }
     }
   }
@@ -857,45 +708,26 @@ roots {
   responseText: ""
   actions {
     ops {
-      functionName: "Enable/Disable Trigger"
+      functionName: "Set Variable (int)"
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "Get Story Variable (int)"
           args {
-            string_value: "EnableOrDisable"
+            string_value: "51f15c62336331d02c00440e"
           }
           args {
-            int_value: 0
+            string_value: "Johnson_Twist"
           }
         }
       }
       args {
         call_value {
-          functionName: "Get Map Item (Trigger)"
+          functionName: "Random (int)"
           args {
-            string_value: "520d2298336331d02e0039d9"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Enable/Disable Trigger"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "EnableOrDisable"
+            int_value: 1
           }
           args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Trigger)"
-          args {
-            string_value: "520d2298336331d02e0039d9"
+            int_value: 6
           }
         }
       }

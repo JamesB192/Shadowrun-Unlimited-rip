@@ -212,39 +212,18 @@ nodes {
     nextNodeIndex: -1
   }
   branches {
-    responseText: "{{CC}}Intelligence{{/CC}}Attempt to re-wire the control panel and open the door quietly.\n"
+    responseText: "{{CC}}Electronics{{/CC}}Attempt to re-wire the control panel and open the door quietly.\n"
     conditions {
       ops {
         functionName: "Comparison (int)"
         args {
           call_value {
-            functionName: "Get Actor Attribute"
+            functionName: "Get Story Variable (int)"
             args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
+              string_value: "51f15c62336331d02c00440e"
             }
             args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "BaseOrCurrent"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "ActorAttributes"
-                }
-                args {
-                  int_value: 4
-                }
-              }
+              string_value: "Custom_Skill-Electronics"
             }
           }
         }
@@ -255,12 +234,12 @@ nodes {
               string_value: "Comparison Ops"
             }
             args {
-              int_value: 3
+              int_value: 2
             }
           }
         }
         args {
-          int_value: 3
+          int_value: 0
         }
       }
     }
@@ -283,7 +262,7 @@ nodes {
     nextNodeIndex: -1
   }
   branches {
-    responseText: "Destroy the panel and hope for the best."
+    responseText: "Destroy the panel (The door will open, but the alarm will sound)."
     actions {
       ops {
         functionName: "Play Sound"

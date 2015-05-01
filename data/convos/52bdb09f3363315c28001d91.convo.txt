@@ -14,7 +14,7 @@ nodes {
   }
   branches {
     responseText: "Just checking in."
-    nextNodeIndex: 3
+    nextNodeIndex: 6
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -25,8 +25,145 @@ nodes {
   index: 1
   text: "Details?"
   branches {
-    responseText: "\'Just need you to drive me there, and take me home. No danger involved."
+    responseText: "I\'m heading to the \'burbs to raid the home of some big shot, try and score his keycard, passcode, or whatever."
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current-Run-JobType"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "High Security"
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Keycard"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Employed"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 2
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "I need a lift out to a Private Hanger and airstrip just outside of the city."
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Private Hanger"
+        }
+      }
+    }
+    nextNodeIndex: 4
+    hideIfUnavailable: true
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -76,7 +213,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: -1
+    nextNodeIndex: 3
   }
   branches {
     responseText: "Maybe later."
@@ -86,9 +223,79 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52c190363363311c050080a0"
+    id: "5455a5fe363735ac16002e09"
   }
   index: 3
+  text: "I\'ll be there shortly..."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c18f813363311c0500809c"
+  }
+  index: 4
+  text: "My rate is 250 nuyen, non-negotiable."
+  branches {
+    responseText: "Deal. Let\'s go."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 250
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "Run Location-Private Hanger"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 250
+        }
+      }
+    }
+    nextNodeIndex: 5
+  }
+  branches {
+    responseText: "Maybe later."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5455a5fe363735ac16002e09"
+  }
+  index: 5
+  text: "I\'ll be there shortly..."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c190363363311c050080a0"
+  }
+  index: 6
   text: "Right. Talk to you later..."
   nodeType: ConversationNodeType_Simple
 }

@@ -46,6 +46,17 @@ triggers {
           }
         }
       }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
     }
     ops {
       functionName: "Activate Actor Spawner"
@@ -57,6 +68,17 @@ triggers {
           }
         }
       }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
     }
     ops {
       functionName: "Activate Actor Spawner"
@@ -65,6 +87,17 @@ triggers {
           functionName: "Get Map Item (Actor Reference)"
           args {
             string_value: "520d21e1336331443a004bd7"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -1021,6 +1054,17 @@ triggers {
           }
         }
       }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
     }
     ops {
       functionName: "Activate Actor Spawner"
@@ -1029,6 +1073,17 @@ triggers {
           functionName: "Get Map Item (Actor Reference)"
           args {
             string_value: "529952b5336331c826006f24"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -2141,6 +2196,31 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "NewTrigger"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Remove Screen Label"
+      args {
+        string_value: "Plot Information"
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5498c3bb393362c09c002ea6"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Camera_Bind"
   position {
@@ -2161,6 +2241,7 @@ regions {
     a: 1
   }
   visible_at_start: false
+  is_closet: false
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -2184,6 +2265,7 @@ regions {
   default_music: "Seattle-Set8-Stealth"
   loop_combat_music: true
   loop_default_music: true
+  no_fow_in_region: false
 }
 regions {
   name: "ConvoTrigger"
@@ -2205,6 +2287,7 @@ regions {
     a: 1
   }
   visible_at_start: false
+  is_closet: false
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -2228,6 +2311,7 @@ regions {
   default_music: ""
   loop_combat_music: true
   loop_default_music: false
+  no_fow_in_region: false
 }
 patrolRoutes {
   name: "New Patrol Route"
@@ -2866,7 +2950,7 @@ parentStory: ""
 scene_title: "The Boss\' Penthouse"
 scene_subtitle: ""
 scene_synopsis: "This penthouse belongs to Victor \"The Wiseman\" Boone. You had best wipe your feet and tread carefully..."
-scene_image: ""
+scene_image: "loadingimage_a1_hotel_s1"
 scene_continue_button_skip: false
 scene_restore_runner_health: false
 directional_light_dir {
@@ -2943,5 +3027,8 @@ use_hiring_cost_warning: false
 hiring_average_cost: 99999
 override_hiring_average_cost: true
 show_equip_screen_on_scene_load: false
+is_persistant: false
+is_persistant_has_value: false
 can_move_outside_camera_regions: true
 can_start_before_triggers: true
+can_use_team_advancement: false

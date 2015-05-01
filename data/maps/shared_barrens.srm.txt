@@ -5451,9 +5451,9 @@ props {
 props {
   name: "memphismotors_car_fordamericarwhite"
   gridPoint {
-    x: -40.449997
+    x: -27.449997
     y: 0
-    z: 115.63
+    z: 215.63
   }
   orientation: ORIENTATION_E
   idRef {
@@ -5490,7 +5490,7 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: -27
+    x: -25
     y: 0
     z: 218
   }
@@ -5539,7 +5539,7 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: -27
+    x: -25
     y: 0
     z: 218
   }
@@ -5588,7 +5588,7 @@ props {
 props {
   name: "system_invisible_nonsolidProp"
   gridPoint {
-    x: -27
+    x: -25
     y: 0
     z: 218
   }
@@ -9063,11 +9063,11 @@ props {
 props {
   name: "haven_vehicle_armoredVan01"
   gridPoint {
-    x: -6
+    x: -3
     y: 0
-    z: 214.6
+    z: 207.6
   }
-  orientation: ORIENTATION_N
+  orientation: ORIENTATION_E
   idRef {
     id: "53ed577c386461a42d0026e4"
   }
@@ -34300,8 +34300,124 @@ props {
           int_value: 0
         }
       }
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          string_value: "Rat\'s Nest"
+        }
+      }
     }
     interactionIcon: InteractionIcon_SceneTransition
+    interaction_info_text: ""
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -36
+    y: 0
+    z: 223
+  }
+  orientation: ORIENTATION_S
+  displayName: "Rat\'s Nest Travel (Run Location)"
+  idRef {
+    id: "54529d66363735f0030059a8"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Turn Mode"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "Job_Check"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Rat\'s Nest"
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_SceneTransition
+    interaction_info_text: ""
   }
   lod: 0
 }

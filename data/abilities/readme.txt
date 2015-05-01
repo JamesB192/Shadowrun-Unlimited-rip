@@ -1,1 +1,0 @@
-AbilityDef messages in the TextFormat Protobuf format.

@@ -699,6 +699,17 @@ triggers {
           }
         }
       }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
     }
     ops {
       functionName: "Send Event"
@@ -2172,6 +2183,7 @@ regions {
     a: 1
   }
   visible_at_start: false
+  is_closet: false
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -2216,6 +2228,7 @@ regions {
     a: 1
   }
   visible_at_start: false
+  is_closet: false
   is_teleporter_region: false
   directional_light_dir {
     x: -0.5
@@ -2319,7 +2332,7 @@ characters {
   }
   lod: 0
   character_instance {
-    prefab_name: "Scientist/HumanMaleScientistCoatMask"
+    prefab_name: "Seattle:Scientist/HumanMaleScientistCoatMask"
     character_sheet_id: "BaseCivilian"
     equipment_sheet_id: "SSC_Alpha_Grade_Cyberware_Merchant"
     character_mod {
@@ -2345,6 +2358,8 @@ characters {
       }
       specializations {
       }
+      vulnerabilities {
+      }
     }
     equipment {
       prefab_name: "SSC HealthPack_med"
@@ -2363,6 +2378,12 @@ characters {
     }
     equipment {
       prefab_name: "SSC DocWagonPlatinum"
+    }
+    equipment {
+      prefab_name: "Berlin_Induction Datajack"
+    }
+    equipment {
+      prefab_name: "Berlin_Eye Datajack"
     }
     team_id: "Civilians"
     char_name: "Dr. Adams"
@@ -2618,7 +2639,7 @@ parentStory: ""
 scene_title: "Penumbra Clinic"
 scene_subtitle: "Penumbra Clinic"
 scene_synopsis: "A clinic that straddles the border between legitimate medical practice and discreet shadow-doc for criminal types. A pretty receptionist is standing in front of you, playing with a clipboard and looking utterly bored."
-scene_image: ""
+scene_image: "loadingimage_c21-s2"
 scene_continue_button_skip: true
 scene_restore_runner_health: false
 directional_light_dir {
@@ -2685,5 +2706,8 @@ use_hiring_cost_warning: false
 hiring_average_cost: 99999
 override_hiring_average_cost: true
 show_equip_screen_on_scene_load: false
+is_persistant: false
+is_persistant_has_value: false
 can_move_outside_camera_regions: true
 can_start_before_triggers: true
+can_use_team_advancement: false
