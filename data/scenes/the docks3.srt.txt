@@ -1197,7 +1197,10 @@ triggers {
   name: "Gang_Spawn"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "propogate jobs"
+      }
     }
   }
   conditions {
@@ -1470,7 +1473,10 @@ triggers {
   name: "Dealer_Spawn"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "propogate jobs"
+      }
     }
   }
   conditions {
@@ -1628,7 +1634,10 @@ triggers {
   name: "Contact_Spawn"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "propogate jobs"
+      }
     }
   }
   conditions {
@@ -15656,6 +15665,36 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "init propogate jobs"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "propogate jobs"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5543fefe646632d40e0006aa"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Redmond Travel"
   position {
@@ -15700,6 +15739,7 @@ regions {
   default_music: ""
   loop_combat_music: true
   loop_default_music: false
+  no_fow_in_region: false
 }
 regions {
   name: "Enemy Spawn"
@@ -15745,6 +15785,7 @@ regions {
   default_music: ""
   loop_combat_music: true
   loop_default_music: false
+  no_fow_in_region: false
 }
 regions {
   name: "Camera Bind"
@@ -15790,6 +15831,7 @@ regions {
   default_music: "Seattle-Bar04"
   loop_combat_music: true
   loop_default_music: true
+  no_fow_in_region: false
 }
 regions {
   name: "Bottling Plant Desc"
@@ -15835,6 +15877,7 @@ regions {
   default_music: ""
   loop_combat_music: true
   loop_default_music: false
+  no_fow_in_region: false
 }
 regions {
   name: "Start"
@@ -15880,6 +15923,7 @@ regions {
   default_music: ""
   loop_combat_music: true
   loop_default_music: false
+  no_fow_in_region: false
 }
 regions {
   name: "Escort Target"
@@ -15925,6 +15969,7 @@ regions {
   default_music: ""
   loop_combat_music: true
   loop_default_music: false
+  no_fow_in_region: false
 }
 characters {
   name: "system_spawner_playerSpawner"
@@ -18241,6 +18286,7 @@ mapEvents: "SmashJacker Vanish"
 mapEvents: "Gang Encounter Charisma Test"
 mapEvents: "Training Buffs"
 mapEvents: "Check Next Objective"
+mapEvents: "propogate jobs"
 worldMapLocation {
   filename: ""
   location {

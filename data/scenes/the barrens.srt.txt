@@ -5142,7 +5142,10 @@ triggers {
   name: "Mr. Johnson"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "propogate_jobs"
+      }
     }
   }
   conditions {
@@ -9619,7 +9622,10 @@ triggers {
   name: "Security_3"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "propogate_jobs"
+      }
     }
   }
   conditions {
@@ -31145,6 +31151,36 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "init propogate jobs"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "propogate_jobs"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5543ff5b646632d40e0006ab"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Docks Travel"
   position {
@@ -36301,6 +36337,7 @@ mapEvents: "Gang Charisma test"
 mapEvents: "Training Buffs"
 mapEvents: "LoneStar Test"
 mapEvents: "Check Next Objective"
+mapEvents: "propogate_jobs"
 worldMapLocation {
   filename: ""
   location {
