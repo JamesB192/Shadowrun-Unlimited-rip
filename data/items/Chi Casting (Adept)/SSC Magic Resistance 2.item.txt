@@ -1,0 +1,47 @@
+id: "SSC Magic Resistance 2"
+type: ItemType_Adept
+uirep {
+	icon: "icon_magicresistance2"
+	name: "Magic Resistance 2"
+	description: "The adept gains a Medium Cover bonus to magic spells for 4 rounds."
+}
+
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_ChiCasting
+forceRating: 2
+apCost: 1
+modelessAbilities: "Activate Magic Resistance (Medium)"
+baseHPDamage: 0
+baseAPDamage: 0
+noiseLevel: 0
+noiseRounds: 0
+affectsEnemy: false
+affectsFriendly: false
+canTargetSelf: true
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 5
+isMagic: true
+effectDuration: 4
+activationStatusEffects {
+	uirep {
+		icon: "icon_magicresistance2"
+		name: "Resistance: Medium Cover from Spells"
+	}
+	stackingCategory: "Cover"
+	fxScript: "AdeptDefenseBuffStatus"
+	statusConditions: Condition_MagicCoverMedium
+}
+fxrep{
+	preActionFxName: "GenericSpellPrepare"
+	actionFxName: "AdeptSpellBuffAction"
+	postActionFxName: ""
+	hitReactionFxName: "AdeptDefenseBuffHitReaction"
+	missReactionFxName: "GenericSpellMissReaction"
+}
+store_cost: 18000
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 6"
+sorting_group: "Chi Casting (Adept)"

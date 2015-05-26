@@ -1,0 +1,50 @@
+id: "SSC Mystic Armor"
+type: ItemType_Adept
+uirep {
+	icon: "icon_mysticarmor"
+	name: "Mystic Armor"
+	description: "The adept's gains +4 Armor for 3 RNDS."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_ChiCasting
+forceRating: 6
+apCost: 1
+modelessAbilities: "Activate Mystic Armor"
+baseHPDamage: 0
+baseAPDamage: 0
+noiseLevel: 0
+noiseRounds: 0
+
+affectsEnemy: false
+affectsFriendly: false
+canTargetSelf: true
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 4
+isMagic: true
+effectDuration: 3
+activationStatusEffects {
+	uirep {
+		icon: "icon_mysticarmor"
+		name: "Mystic Armor: Armor +3"
+	}
+	fxScript: "AdeptDefenseBuffStatus"
+	stackingCategory: "Armor"
+	statMods{
+		attribute: Attribute_Armor
+		intModValue: 4
+	}
+}
+fxrep{
+	preActionFxName: "GenericSpellPrepare"
+	actionFxName: "AdeptSpellBuffAction"
+	postActionFxName: ""
+	hitReactionFxName: "AdeptDefenseBuffHitReaction"
+	missReactionFxName: "GenericSpellMissReaction"
+}
+store_cost: 24000
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 8"
+sorting_group: "Chi Casting (Adept)"

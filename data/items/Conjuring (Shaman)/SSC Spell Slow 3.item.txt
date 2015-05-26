@@ -1,16 +1,16 @@
 id: "SSC Spell Slow 3"
 type: ItemType_Shaman
 uirep {
-  icon: "icon_slow3"
-  name: "Slow 3"
-  description: "Decreases the target\'s movement by 3 for 4 RNDS."
+	icon: "icon_slow3"
+	name: "Slow 3"
+	description: "Decreases the target's movement by 3 for 4 RNDS."
 }
 anim_type: AnimType_Spell
 coreAttribute: Attribute_Charisma
 coreSkill: Skill_Conjuring
 forceRating: 5
 apCost: 1
-prereqStrings: "Player.SKILL.Skill_Conjuring >= 4"
+modelessAbilities: "DeBuff Spells (Non Spirit)"
 baseHPDamage: 0
 baseAPDamage: 0
 rangeModTable: 10
@@ -35,9 +35,9 @@ rangeModTable: -7
 rangeModTable: -8
 noiseLevel: 0
 noiseRounds: 0
-modelessAbilities: "DeBuff Spells (Non Spirit)"
-affectsFriendly: false
+
 affectsEnemy: true
+affectsFriendly: false
 canTargetActor: true
 canTargetOccupiedGridPoint: false
 canTargetUnoccupiedGridPoint: false
@@ -45,23 +45,24 @@ isDebuff: true
 cooldown: 2
 isMagic: true
 effectDuration: 4
-fxrep {
-  preActionFxName: "GenericSpellPrepare"
-  actionFxName: "GenericSpellCastAction"
-  postActionFxName: ""
-  hitReactionFxName: "GenericSpellDeBuffHitReaction"
-  missReactionFxName: "GenericSpellMissReaction"
-}
 activationStatusEffects {
-  uirep {
-    icon: "icon_slow3"
-    name: "Slow: Movement -3"
-  }
-  stackingCategory: "Move"
-  statMods {
-    attribute: Attribute_Move_Speed
-    intModValue: -3
-  }
+	uirep {
+		icon: "icon_slow3"
+		name: "Slow: Movement -3"
+	}
+	stackingCategory: "Move"
+	statMods{
+		attribute: Attribute_Move_Speed
+		intModValue: -3
+	}
+}
+fxrep{
+	preActionFxName: "GenericSpellPrepare"
+	actionFxName: "GenericSpellCastAction"
+	postActionFxName: ""
+	hitReactionFxName: "GenericSpellDeBuffHitReaction"
+	missReactionFxName: "GenericSpellMissReaction"
 }
 store_cost: 10000
+prereqStrings: "Player.SKILL.Skill_Conjuring >= 4"
 sorting_group: "Conjuring (Shaman)"

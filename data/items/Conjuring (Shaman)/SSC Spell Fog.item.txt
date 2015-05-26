@@ -1,16 +1,17 @@
-id: "SSC Spell Shadow"
+id: "SSC Spell Fog"
 type: ItemType_Shaman
 uirep {
-  icon: "icon_shadow"
-  name: "Shadow"
-  description: "Creates a shadow zone in which characters cannot be targeted, nor target others. Lasts for 3 RNDS."
+	icon: "icon_fogB"
+	name: "Fog"
+	description: "An area effect spell that reduces the chance to target someone by 15%. Lasts for 3 RNDS."
 }
+
 anim_type: AnimType_Spell
 coreAttribute: Attribute_Charisma
 coreSkill: Skill_Conjuring
-forceRating: 6
+forceRating: 4
 apCost: 2
-prereqStrings: "Player.SKILL.Skill_Conjuring >= 4"
+modelessAbilities: "Cast AOE Buffs"
 baseHPDamage: 0
 baseAPDamage: 0
 rangeModTable: 10
@@ -35,9 +36,8 @@ rangeModTable: -7
 rangeModTable: -8
 noiseLevel: 1
 noiseRounds: 1
-modelessAbilities: "Cast AOE Buffs"
-affectsFriendly: true
 affectsEnemy: true
+affectsFriendly: true
 canTargetOccupiedGridPoint: true
 canTargetUnoccupiedGridPoint: true
 cooldown: 2
@@ -45,20 +45,21 @@ isMagic: true
 effectDuration: 3
 effectRadius: 3
 effectOnTile: true
-fxrep {
-  preActionFxName: "GenericSpellPrepare"
-  actionFxName: "GenericSpellCastAction"
-  postActionFxName: ""
-  hitReactionFxName: "GenericSpellBuffHitReaction"
-  missReactionFxName: "GenericSpellMissReaction"
-}
 activationStatusEffects {
-  uirep {
-    icon: "icon_shadow"
-    name: "Shadow: Cannot Be Targeted"
-  }
-  statusConditions: Condition_Invisible
-  fxScript: "ShadowAOE"
+	uirep {
+		icon: "icon_fogB"
+		name: "Fog: Accuracy -15%"
+	}
+	fxScript: "FogAOE"
+	statusConditions: Condition_HalfVisibility
+	}
+fxrep{
+	preActionFxName: "GenericSpellPrepare"
+	actionFxName: "GenericSpellCastAction"
+	postActionFxName: ""
+	hitReactionFxName: "GenericSpellHitReaction"
+	missReactionFxName: "GenericSpellMissReaction"
 }
-store_cost: 18000
+store_cost: 10000
+prereqStrings: "Player.SKILL.Skill_Conjuring >= 3"
 sorting_group: "Conjuring (Shaman)"

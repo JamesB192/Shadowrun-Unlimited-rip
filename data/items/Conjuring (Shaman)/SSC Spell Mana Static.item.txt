@@ -1,16 +1,17 @@
 id: "SSC Spell Mana Static"
 type: ItemType_Shaman
 uirep {
-  icon: "icon_manastatic"
-  name: "Mana Static"
-  description: "An area effect spell that increases the cost of magic by 1 AP. Lasts for 3 RNDS."
+	icon: "icon_manastatic"
+	name: "Mana Static"
+	description: "An area effect spell that increases the cost of magic by 1 AP. Lasts for 3 RNDS."
 }
+
 anim_type: AnimType_Spell
 coreAttribute: Attribute_Charisma
 coreSkill: Skill_Conjuring
 forceRating: 8
 apCost: 3
-prereqStrings: "Player.SKILL.Skill_Conjuring >= 5"
+modelessAbilities: "Mana Static"
 baseHPDamage: 0
 baseAPDamage: 0
 rangeModTable: 10
@@ -35,9 +36,9 @@ rangeModTable: -7
 rangeModTable: -8
 noiseLevel: 1
 noiseRounds: 1
-modelessAbilities: "Mana Static"
-affectsFriendly: true
+
 affectsEnemy: true
+affectsFriendly: true
 canTargetActor: false
 canTargetOccupiedGridPoint: true
 canTargetUnoccupiedGridPoint: true
@@ -47,24 +48,25 @@ isMagic: true
 effectDuration: 3
 effectRadius: 3
 effectOnTile: true
-fxrep {
-  preActionFxName: "GenericSpellPrepare"
-  actionFxName: "GenericSpellThrowAction"
-  postActionFxName: ""
-  hitReactionFxName: "GenericSpellDeBuffHitReaction"
-  missReactionFxName: "GenericSpellMissReaction"
-}
 activationStatusEffects {
-  uirep {
-    icon: "icon_manastatic"
-    name: "Mana Static: Spell AP Cost +1"
-  }
-  stackingCategory: "AP"
-  statMods {
-    attribute: Attribute_Magic_AP_Mod
-    intModValue: 1
-  }
-  fxScript: "GenericSpellAOE"
+	uirep {
+		icon: "icon_manastatic"
+		name: "Mana Static: Spell AP Cost +1"
+	}
+	stackingCategory: "AP"
+	fxScript: "GenericSpellAOE"
+	statMods{
+		attribute: Attribute_Magic_AP_Mod
+		intModValue: 1
+	}
+}
+fxrep{
+	preActionFxName: "GenericSpellPrepare"
+	actionFxName: "GenericSpellThrowAction"
+	postActionFxName: ""
+	hitReactionFxName: "GenericSpellDeBuffHitReaction"
+	missReactionFxName: "GenericSpellMissReaction"
 }
 store_cost: 24000
+prereqStrings: "Player.SKILL.Skill_Conjuring >= 5"
 sorting_group: "Conjuring (Shaman)"

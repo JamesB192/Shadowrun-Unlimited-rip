@@ -1,16 +1,17 @@
 id: "SSC Spell Quiet Bomb 1"
 type: ItemType_Shaman
 uirep {
-  icon: "icon_quietbomb"
-  name: "Quiet Bomb"
-  description: "An area effect spell that reduces any sound made in it to 0. Lasts for 4 RNDS."
+	icon: "icon_quietbomb"
+	name: "Quiet Bomb"
+	description: "An area effect spell that reduces any sound made in it to 0. Lasts for 4 RNDS."
 }
+
 anim_type: AnimType_Spell
 coreAttribute: Attribute_Charisma
 coreSkill: Skill_Conjuring
 forceRating: 4
 apCost: 1
-prereqStrings: "Player.SKILL.Skill_Conjuring >= 3"
+modelessAbilities: "Cast AOE Buffs"
 baseHPDamage: 0
 baseAPDamage: 0
 rangeModTable: 10
@@ -35,9 +36,9 @@ rangeModTable: -7
 rangeModTable: -8
 noiseLevel: 0
 noiseRounds: 0
-modelessAbilities: "Cast AOE Buffs"
-affectsFriendly: true
+
 affectsEnemy: true
+affectsFriendly: true
 canTargetOccupiedGridPoint: true
 canTargetUnoccupiedGridPoint: true
 cooldown: 1
@@ -45,21 +46,22 @@ isMagic: true
 effectDuration: 4
 effectRadius: 3
 effectOnTile: true
-fxrep {
-  preActionFxName: "GenericSpellPrepare"
-  actionFxName: "GenericSpellCastAction"
-  postActionFxName: ""
-  hitReactionFxName: "GenericSpellHitReaction"
-  missReactionFxName: "GenericSpellMissReaction"
-}
 activationStatusEffects {
-  uirep {
-    icon: "icon_quietbomb"
-    name: "Silence"
-  }
-  stackingCategory: "Silence"
-  statusConditions: Condition_Silence
-  fxScript: "GenericSpellAOE"
+	uirep {
+		icon: "icon_quietbomb"
+		name: "Silence"
+	}
+	stackingCategory: "Silence"
+	fxScript: "GenericSpellAOE"
+	statusConditions: Condition_Silence
+	}
+fxrep{
+	preActionFxName: "GenericSpellPrepare"
+	actionFxName: "GenericSpellCastAction"
+	postActionFxName: ""
+	hitReactionFxName: "GenericSpellHitReaction"
+	missReactionFxName: "GenericSpellMissReaction"
 }
 store_cost: 10000
+prereqStrings: "Player.SKILL.Skill_Conjuring >= 3"
 sorting_group: "Conjuring (Shaman)"

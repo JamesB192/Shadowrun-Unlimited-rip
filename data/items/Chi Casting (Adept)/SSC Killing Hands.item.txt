@@ -1,0 +1,49 @@
+id: "SSC Killing Hands"
+type: ItemType_Adept
+uirep {
+	icon: "icon_killerhands"
+	name: "Killing Hands"
+	description: "The adept's hands become lethal weapons for 4 RNDS, increasing DMG by 10 HP."
+}
+
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_ChiCasting
+forceRating: 2
+apCost: 1
+modelessAbilities: "Buff Spells"
+baseHPDamage: 0
+baseAPDamage: 0
+rangeModTable: 12
+noiseLevel: 0
+noiseRounds: 0
+
+affectsEnemy: false
+affectsFriendly: false
+canTargetSelf: true
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 5
+isMagic: true
+effectDuration: 4
+activationStatusEffects {
+	uirep {
+		icon: "icon_killerhands"
+		name: "Killing Hands: DMG +10"
+	}
+	fxScript: "KillerHandsStatus"	
+	stackingCategory: "KillingHands"
+	statusConditions: Condition_KillingHands
+}
+fxrep{
+	preActionFxName: "GenericSpellPrepare"
+	actionFxName: "AdeptSpellBuffAction"
+	postActionFxName: ""
+	hitReactionFxName: "AdeptOffenseBuffHitReaction"
+	missReactionFxName: "GenericSpellMissReaction"
+}
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 1"
+store_cost: 2000
+sorting_group: "Chi Casting (Adept)"

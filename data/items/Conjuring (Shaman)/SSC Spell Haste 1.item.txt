@@ -1,16 +1,17 @@
 id: "SSC Spell Haste 1"
 type: ItemType_Shaman
 uirep {
-  icon: "icon_haste1"
-  name: "Haste 1"
-  description: "Increases the friendly target\'s AP by 1 for 2 RNDS."
+	icon: "icon_haste1"
+	name: "Haste 1"
+	description: "Increases the friendly target's AP by 1 for 2 RNDS."
 }
+
 anim_type: AnimType_Spell
 coreAttribute: Attribute_Charisma
 coreSkill: Skill_Conjuring
 forceRating: 3
 apCost: 2
-prereqStrings: "Player.SKILL.Skill_Conjuring >= 1"
+modelessAbilities: "Buff Spells (Non Spirit)"
 baseHPDamage: 0
 baseAPDamage: 0
 rangeModTable: 10
@@ -35,35 +36,36 @@ rangeModTable: -7
 rangeModTable: -8
 noiseLevel: 0
 noiseRounds: 0
-modelessAbilities: "Buff Spells (Non Spirit)"
-affectsFriendly: true
+
 affectsEnemy: false
-canTargetSelf: true
+affectsFriendly: true
 canTargetActor: true
+canTargetSelf: true
 canTargetOccupiedGridPoint: false
 canTargetUnoccupiedGridPoint: false
 isBuff: true
 cooldown: 3
 isMagic: true
 effectDuration: 2
-fxrep {
-  preActionFxName: "GenericSpellPrepare"
-  actionFxName: "GenericSpellCastAction"
-  postActionFxName: ""
-  hitReactionFxName: "GenericSpellBuffHitReaction"
-  missReactionFxName: "GenericSpellMissReaction"
-}
 activationStatusEffects {
-  uirep {
-    icon: "icon_haste1"
-    name: "Haste: AP +1"
-  }
-  stackingCategory: "Move"
-  statMods {
-    attribute: Attribute_AP
-    intModValue: 1
-  }
-  fxScript: "GenericSpellStatus"
+	uirep {
+		icon: "icon_haste1"
+		name: "Haste: AP +1"
+	}
+	stackingCategory: "Move"
+	fxScript: "GenericSpellStatus"
+	statMods{
+		attribute: Attribute_AP
+		intModValue: 1
+	}
+}
+fxrep{
+	preActionFxName: "GenericSpellPrepare"
+	actionFxName: "GenericSpellCastAction"
+	postActionFxName: ""
+	hitReactionFxName: "GenericSpellBuffHitReaction"
+	missReactionFxName: "GenericSpellMissReaction"
 }
 store_cost: 2000
+prereqStrings: "Player.SKILL.Skill_Conjuring >= 1"
 sorting_group: "Conjuring (Shaman)"
