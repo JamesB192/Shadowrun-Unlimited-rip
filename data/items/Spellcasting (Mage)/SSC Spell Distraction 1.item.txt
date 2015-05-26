@@ -1,0 +1,67 @@
+id: "SSC Spell Distraction 1"
+type: ItemType_Spell
+uirep {
+  icon: "icon_distraction1"
+  name: "Distraction 1"
+  description: "Decreases the target's to hit chance by 12%. Lasts for 1 RND."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_Spellcasting
+forceRating: 2
+apCost: 1
+prereqStrings: "Player.SKILL.Skill_Spellcasting >= 1"
+baseHPDamage: 0
+baseAPDamage: 0
+rangeModTable: 10
+rangeModTable: 9
+rangeModTable: 8
+rangeModTable: 7
+rangeModTable: 6
+rangeModTable: 5
+rangeModTable: 4
+rangeModTable: 3
+rangeModTable: 2
+rangeModTable: 1
+rangeModTable: 0
+rangeModTable: 0
+rangeModTable: -1
+rangeModTable: -2
+rangeModTable: -3
+rangeModTable: -4
+rangeModTable: -5
+rangeModTable: -6
+rangeModTable: -7
+rangeModTable: -8
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: "DeBuff Spells"
+affectsFriendly: false
+affectsEnemy: true
+canTargetActor: true
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isDebuff: true
+cooldown: 0
+isMagic: true
+effectDuration: 1
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "GenericSpellCastAction"
+  postActionFxName: ""
+  hitReactionFxName: "GenericSpellDeBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_distraction1"
+    name: "Distracted: Accuracy -12%"
+  }
+  stackingCategory: "Aim"
+  statMods {
+    attribute: Attribute_Accuracy
+    intModValue: -12
+  }
+}
+store_cost: 2000
+sorting_group: "Spellcasting (Mage)"

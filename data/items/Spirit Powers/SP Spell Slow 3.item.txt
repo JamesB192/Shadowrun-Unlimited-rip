@@ -1,0 +1,67 @@
+id: "SP Spell Slow 3"
+type: ItemType_Shaman
+uirep {
+	icon: "icon_slow3"
+	name: "Slow 3"
+	description: "Decreases the target's movement by 3 for 4 RNDS."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Charisma
+coreSkill: Skill_Conjuring
+forceRating: 5
+apCost: 1
+modelessAbilities: "DeBuff Spells (Non Spirit)"
+baseHPDamage: 0
+baseAPDamage: 0
+rangeModTable: 10
+rangeModTable: 9
+rangeModTable: 8
+rangeModTable: 7
+rangeModTable: 6
+rangeModTable: 5
+rangeModTable: 4
+rangeModTable: 3
+rangeModTable: 2
+rangeModTable: 1
+rangeModTable: 0
+rangeModTable: 0
+rangeModTable: -1
+rangeModTable: -2
+rangeModTable: -3
+rangeModTable: -4
+rangeModTable: -5
+rangeModTable: -6
+rangeModTable: -7
+rangeModTable: -8
+noiseLevel: 0
+noiseRounds: 0
+
+affectsEnemy: true
+affectsFriendly: false
+canTargetActor: true
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isDebuff: true
+cooldown: 2
+isMagic: true
+effectDuration: 4
+activationStatusEffects {
+	uirep {
+		icon: "icon_slow3"
+		name: "Slow: Movement -3"
+	}
+	stackingCategory: "Move"
+	statMods{
+		attribute: Attribute_Move_Speed
+		intModValue: -3
+	}
+}
+fxrep{
+	preActionFxName: "GenericSpellPrepare"
+	actionFxName: "GenericSpellCastAction"
+	postActionFxName: ""
+	hitReactionFxName: "GenericSpellDeBuffHitReaction"
+	missReactionFxName: "GenericSpellMissReaction"
+}
+store_cost: 500
+sorting_group: "Spirit Powers"

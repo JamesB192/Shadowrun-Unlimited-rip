@@ -1,0 +1,73 @@
+id: "SSC Spell Ball Lightning 1"
+type: ItemType_Spell
+uirep {
+  icon: "icon_balllightning1"
+  name: "Ball Lightning 1"
+  description: "Lightning explosion that also does -1 AP. Ongoing -7 HP & -1 AP for 1 RND."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_Spellcasting
+forceRating: 6
+apCost: 3
+prereqStrings: "Player.SKILL.Skill_Spellcasting >= 4"
+baseHPDamage: 19
+baseAPDamage: 1
+rangeModTable: 10
+rangeModTable: 9
+rangeModTable: 8
+rangeModTable: 7
+rangeModTable: 6
+rangeModTable: 5
+rangeModTable: 4
+rangeModTable: 3
+rangeModTable: 2
+rangeModTable: 1
+rangeModTable: 0
+rangeModTable: 0
+rangeModTable: -1
+rangeModTable: -2
+rangeModTable: -3
+rangeModTable: -4
+rangeModTable: -5
+rangeModTable: -6
+rangeModTable: -7
+rangeModTable: -8
+effectModTable: 0.75
+effectModTable: 0.5
+noiseLevel: 5
+noiseRounds: 1
+modelessAbilities: "Ball Lightning"
+affectsFriendly: true
+affectsEnemy: true
+canTargetOccupiedGridPoint: true
+canTargetUnoccupiedGridPoint: true
+cooldown: 4
+isMagic: false
+effectDuration: 1
+fxrep {
+  preActionFxName: "lightningSpellPrepare"
+  actionFxName: "BallLightningThrowAction"
+  postActionFxName: ""
+  hitReactionFxName: "LightningHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+isDebuff: true
+activationStatusEffects {
+  uirep {
+    icon: "icon_balllightning1"
+    name: "Lightning: HP -5, AP -1 per RND"
+  }
+  stackingCategory: "Lightning"
+  statMods {
+    attribute: Attribute_HP
+    intModValue: -5
+  }
+  statMods {
+    attribute: Attribute_AP
+    intModValue: -1
+  }
+  fxScript: "LightningStatus"
+}
+store_cost: 18000
+sorting_group: "Spellcasting (Mage)"
