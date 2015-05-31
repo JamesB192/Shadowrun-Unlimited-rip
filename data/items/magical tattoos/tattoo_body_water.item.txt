@@ -1,0 +1,34 @@
+id: "tattoo_body_water"
+type: ItemType_Cyberware
+uirep {
+  icon: "icon_waterspirit"
+  name: "Magical Tattoo: Heart of Water"
+  description: "The best defense is to not be there.  Activate to dodge the next attack."
+}
+anim_type: AnimType_Spell
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 5"
+modelessAbilities: "Activate Flow Like Water"
+canTargetSelf: true
+isBuff: true
+cooldown: 4
+effectDuration: 2
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "AdeptSpellBuffAction"
+  hitReactionFxName: "AdeptOffenseBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_waterspirit"
+    name: "Flow Like Water: Dodge Next Attack"
+  }
+  stackingCategory: "CyberwareMove"
+  statusConditions: Condition_AutoDodge
+  fxScript: "AdeptOffenseBuffStatus"
+}
+equippedStatusEffects {
+}
+cyberware_type: CyberwareType_Body
+store_cost: 5000
+sorting_group: "CyberwareBody"
