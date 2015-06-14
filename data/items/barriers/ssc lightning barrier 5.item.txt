@@ -1,0 +1,71 @@
+id: "SSC Lightning Barrier 5"
+type: ItemType_Shaman
+uirep {
+  icon: "icon_lightningbarrier3"
+  name: "Lightning Barrier 3"
+  description: "Set 5 Med Cover barriers that last 3 RNDS. Anyone that enters takes -6 HP & -1 AP DMG"
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Charisma
+coreSkill: Skill_SpiritSummoning
+forceRating: 5
+apCost: 1
+prereqStrings: "Player.SKILL.Skill_Conjuring >= 4"
+baseHPDamage: 0
+baseAPDamage: 0
+rangeModTable: 10
+rangeModTable: 9
+rangeModTable: 8
+rangeModTable: 7
+rangeModTable: 6
+rangeModTable: 5
+rangeModTable: 4
+rangeModTable: 3
+rangeModTable: 2
+rangeModTable: 1
+rangeModTable: 0
+rangeModTable: -1
+rangeModTable: -2
+rangeModTable: -3
+rangeModTable: -4
+rangeModTable: -5
+rangeModTable: -6
+rangeModTable: -7
+rangeModTable: -8
+rangeModTable: -9
+noiseLevel: 5
+noiseRounds: 1
+modelessAbilities: "Conjure"
+affectsFriendly: true
+affectsEnemy: true
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: true
+additionalTargets: 4
+cooldown: 2
+isMagic: true
+effectDuration: 3
+effectRadius: 0
+effectOnTile: true
+fxrep {
+  preActionFxName: "LightningSpellPrepare"
+  actionFxName: "ConjureLightningBarrierAction"
+  postActionFxName: ""
+  hitReactionFxName: "LightningHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  stackingCategory: "Lightning"
+  statMods {
+    attribute: Attribute_HP
+    intModValue: -7
+  }
+  statMods {
+    attribute: Attribute_AP
+    intModValue: -1
+  }
+  statusConditions: Condition_CoverMedium
+  fxScript: "LightningBarrierStatus"
+  durationFxScript: "LightningStatusHitReaction"
+}
+store_cost: 15000
+sorting_group: "Barriers"

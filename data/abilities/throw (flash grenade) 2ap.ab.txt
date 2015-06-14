@@ -1,0 +1,45 @@
+id: "Throw (Flash Grenade) 2AP"
+uirep {
+  icon: "icon_flash"
+  name: "Throw Grenade"
+  description: "Cause AP damage to targets."
+}
+anim_action: AnimAction_Throw
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "Item.CORE_SKILL < 5"
+damageBucket {
+  successEntries {
+    weight: 0.2
+    value: 2
+  }
+  successEntries {
+    weight: 0.2
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.6
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+fxrep {
+  preActionFxName: ""
+  actionFxName: "FlashGrenadeThrowAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GenericMissReaction"
+}
+toHitFunction: "locationWeaponToHit"
+damageFunction: "weaponDamage"

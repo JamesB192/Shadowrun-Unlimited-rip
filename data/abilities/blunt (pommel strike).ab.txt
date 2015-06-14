@@ -1,0 +1,45 @@
+id: "Blunt (Pommel Strike)"
+uirep {
+  icon: "icon_pommelstrike"
+  name: "Pommel Strike"
+  description: "Does an additional -2 AP. Ignores the weapon\'s HP damage. -10% to hit."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+hpDamageMod: -30
+apDamageMod: 2
+accuracyMod: -10
+prereqStrings: "Item.CORE_SPECIALIZATION >= 3"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.3
+    value: 1
+  }
+  failureEntries {
+    weight: 0.7
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+fxrep {
+  preActionFxName: ""
+  actionFxName: "BluntWeaponSwingAction"
+  postActionFxName: ""
+  hitReactionFxName: "UnarmedHitReaction"
+  missReactionFxName: "UnarmedMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

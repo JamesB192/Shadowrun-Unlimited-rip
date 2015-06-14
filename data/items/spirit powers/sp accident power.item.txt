@@ -1,0 +1,69 @@
+id: "SP Accident Power"
+type: ItemType_Spell
+uirep {
+  icon: "icon_accident"
+  name: "Accident"
+  description: "Enemies within a range of 3 squares have their action costs go up by 1 AP. Lasts 3 RNDS"
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_Spellcasting
+forceRating: 6
+apCost: 3
+baseHPDamage: 0
+baseAPDamage: 0
+rangeModTable: 10
+rangeModTable: 9
+rangeModTable: 8
+rangeModTable: 7
+rangeModTable: 6
+rangeModTable: 5
+rangeModTable: 4
+rangeModTable: 3
+rangeModTable: 2
+rangeModTable: 1
+rangeModTable: 0
+rangeModTable: 0
+rangeModTable: -1
+rangeModTable: -2
+rangeModTable: -3
+rangeModTable: -4
+rangeModTable: -5
+rangeModTable: -6
+rangeModTable: -7
+rangeModTable: -8
+effectModTable: 1
+effectModTable: 1
+effectModTable: 1
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: "Spirit Accident"
+affectsFriendly: false
+affectsEnemy: true
+canTargetSelf: true
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isDebuff: true
+cooldown: 3
+isMagic: true
+effectDuration: 3
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "GenericSpellCastAction"
+  postActionFxName: ""
+  hitReactionFxName: "GenericSpellHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_accident"
+    name: "Accident: All Actions AP Cost +1"
+  }
+  stackingCategory: "AP"
+  statMods {
+    attribute: Attribute_AP_Mod
+    intModValue: 1
+  }
+}
+sorting_group: "Spirit Powers"

@@ -1,0 +1,49 @@
+id: "SSC Stride"
+type: ItemType_Adept
+uirep {
+  icon: "icon_stride"
+  name: "Stride"
+  description: "The adept\'s movement is increased by 4 for 3 RNDS."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_ChiCasting
+forceRating: 5
+apCost: 1
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 4"
+baseHPDamage: 0
+baseAPDamage: 0
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: "Activate Stride"
+affectsFriendly: false
+affectsEnemy: false
+canTargetSelf: true
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 4
+isMagic: true
+effectDuration: 3
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "AdeptSpellBuffAction"
+  postActionFxName: ""
+  hitReactionFxName: "AdeptOffenseBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_stride"
+    name: "Stride: Movement +4"
+  }
+  stackingCategory: "Move"
+  statMods {
+    attribute: Attribute_Move_Speed
+    intModValue: 4
+  }
+  fxScript: "AdeptOffenseBuffStatus"
+}
+store_cost: 12000
+sorting_group: "Chi Casting (Adept)"

@@ -1,0 +1,48 @@
+id: "Aimed Shot (SMG Burst)"
+uirep {
+  icon: "icon_aim"
+  name: "Aimed Burst"
+  description: "Two attacks in one action. Low critical damage. Increases accuracy by 10%. Uses four bullets."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 10
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 3"
+prereqStrings: "Item.CORE_SPECIALIZATION >= 3"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+offensiveAbility: true
+ammoCost: 4
+repetition: 2
+cooldown: 3
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunBurstFireActionEmpty"
+  postActionFxName: ""
+  hitReactionFxName: "GunBurstHitReaction"
+  missReactionFxName: "GunBurstMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

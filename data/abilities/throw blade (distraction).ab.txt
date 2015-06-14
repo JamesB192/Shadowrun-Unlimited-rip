@@ -1,0 +1,60 @@
+id: "Throw Blade (Distraction)"
+uirep {
+  icon: "icon_thrownblade_distract"
+  name: "Bladed Distraction"
+  description: "Does -1 AP but reduces HP DMG by 4. Reduced accuracy."
+  thumbnail: ""
+}
+anim_action: AnimAction_Attack
+anim_modifier: AnimModifier_Null
+apCostMod: 0
+hpDamageMod: -3
+apDamageMod: 1
+accuracyMod: -5
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 0"
+prereqStrings: "Item.CORE_SKILL >= 1"
+damageBucket {
+  successEntries {
+    weight: 0.2
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.2
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.6
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+defensiveAbility: false
+ammoCost: 1
+effectDuration: -1
+repetition: 1
+can_summon: false
+cooldown: 2
+cooldown_category: ""
+spreadAngle: 0
+damageType: VulnerabilityType_Normal
+additionalTargets: -1
+fxrep {
+  preActionFxName: ""
+  actionFxName: "Berlin:ThrownBladeDoubleFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"
+intended_user: IntendedUser_Player
+additional_anim_group: ItemType_None

@@ -1,0 +1,42 @@
+id: "SA Ability"
+uirep {
+  icon: "icon_single"
+  name: "Single Shot"
+  description: "One bullet. Single target."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 0"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+offensiveAbility: true
+ammoCost: 1
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunSingleFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

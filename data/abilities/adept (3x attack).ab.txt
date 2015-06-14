@@ -1,0 +1,47 @@
+id: "Adept (3x Attack)"
+uirep {
+  icon: "icon_chionslaught"
+  name: "Chi Onslaught"
+  description: "Make 3 melee attacks on one target with a -15% to hit. Increases chance for critical DMG"
+}
+anim_action: AnimAction_Attack
+apCostMod: 2
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 6"
+damageBucket {
+  successEntries {
+    weight: 0.4
+    value: 2
+  }
+  successEntries {
+    weight: 0.6
+    value: 1.5
+  }
+  failureEntries {
+    weight: 0.45
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.05
+    value: 0.5
+  }
+}
+attackRatingMod: -15
+offensiveAbility: true
+ammoCost: 0
+repetition: 3
+fxrep {
+  preActionFxName: ""
+  actionFxName: "SwordTripleSwingAction"
+  postActionFxName: ""
+  hitReactionFxName: "SwordHitReaction"
+  missReactionFxName: "SwordMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

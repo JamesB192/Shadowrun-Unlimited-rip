@@ -1,0 +1,47 @@
+id: "Double Tap (Single)"
+uirep {
+  icon: "icon_doubletap"
+  name: "Double Tap"
+  description: "Two attacks on a single target with one action. Critical hit chance increased."
+}
+anim_action: AnimAction_Attack
+apCostMod: 1
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 1"
+prereqStrings: "Item.CORE_SPECIALIZATION > 5"
+damageBucket {
+  successEntries {
+    weight: 0.3
+    value: 2
+  }
+  successEntries {
+    weight: 0.3
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.4
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+offensiveAbility: true
+ammoCost: 2
+repetition: 2
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunDoubleTapFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

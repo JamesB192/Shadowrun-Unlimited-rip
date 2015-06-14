@@ -1,0 +1,52 @@
+id: "Taser"
+uirep {
+  icon: "icon_lightningbarrier1"
+  name: "Taser"
+  description: "Zap your target. -1 Action Point."
+}
+anim_action: AnimAction_Attack
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 0"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.25
+    value: 1
+  }
+  successEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1.5
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+}
+offensiveAbility: true
+ammoCost: 1
+effectDuration: 1
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunSingleFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"
+activationStatusEffects {
+  uirep {
+    icon: "icon_lightningbarrier1"
+    name: "Tased"
+  }
+  statMods {
+    attribute: Attribute_AP
+    intModValue: -1
+  }
+}

@@ -1,0 +1,47 @@
+id: "Shotgun BF RC1 Ability"
+uirep {
+  icon: "icon_burst"
+  name: "Shotgun Burst Fire RC1"
+  description: "2 attacks, requires 3 bullets, increased damage, -30% to hit. RC 1."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+accuracyMod: -30
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 2"
+damageBucket {
+  successEntries {
+    weight: 0.25
+    value: 3
+  }
+  successEntries {
+    weight: 0.25
+    value: 2
+  }
+  successEntries {
+    weight: 0.25
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.25
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.3
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.1
+  }
+}
+offensiveAbility: true
+ammoCost: 3
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunBurstFireActionEmpty"
+  postActionFxName: ""
+  hitReactionFxName: "GunBurstHitReaction"
+  missReactionFxName: "GunBurstMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

@@ -1,0 +1,48 @@
+id: "Kneecap (Shotgun Single)"
+uirep {
+  icon: "icon_kneecap"
+  name: "Kneecap"
+  description: "Does -1 AP but reduces HP DMG by 6. Can hit adjacent targets at ranges of 6 or greater. Reduced accuracy."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+hpDamageMod: -6
+apDamageMod: 1
+accuracyMod: -5
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 0"
+prereqStrings: "Item.CORE_SPECIALIZATION >= 1"
+damageBucket {
+  successEntries {
+    weight: 0.2
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.2
+    value: 1.5
+  }
+  successEntries {
+    weight: 0.6
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 0.5
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+ammoCost: 1
+cooldown: 2
+fxrep {
+  preActionFxName: ""
+  actionFxName: "ShotgunFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "ShotgunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

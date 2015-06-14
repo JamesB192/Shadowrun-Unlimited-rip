@@ -1,0 +1,67 @@
+id: "SSC Spell Slo-Mo"
+type: ItemType_Shaman
+uirep {
+  icon: "icon_slo-mo"
+  name: "Slo-Mo"
+  description: "Increases the target\'s AP cost for all actions by 2. Lasts for 2 RNDS."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Charisma
+coreSkill: Skill_Conjuring
+forceRating: 7
+apCost: 3
+prereqStrings: "Player.SKILL.Skill_Conjuring >= 5"
+baseHPDamage: 0
+baseAPDamage: 0
+rangeModTable: 10
+rangeModTable: 9
+rangeModTable: 8
+rangeModTable: 7
+rangeModTable: 6
+rangeModTable: 5
+rangeModTable: 4
+rangeModTable: 3
+rangeModTable: 2
+rangeModTable: 1
+rangeModTable: 0
+rangeModTable: 0
+rangeModTable: -1
+rangeModTable: -2
+rangeModTable: -3
+rangeModTable: -4
+rangeModTable: -5
+rangeModTable: -6
+rangeModTable: -7
+rangeModTable: -8
+noiseLevel: 2
+noiseRounds: 1
+modelessAbilities: "DeBuff Spells (Non Spirit)"
+affectsFriendly: false
+affectsEnemy: true
+canTargetActor: true
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isDebuff: true
+cooldown: 4
+isMagic: true
+effectDuration: 2
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "GenericSpellCastAction"
+  postActionFxName: ""
+  hitReactionFxName: "GenericSpellDeBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_slo-mo"
+    name: "Slo-Mo: All Actions AP Cost +2"
+  }
+  stackingCategory: "AP"
+  statMods {
+    attribute: Attribute_AP_Mod
+    intModValue: 2
+  }
+}
+store_cost: 21000
+sorting_group: "Conjuring (Shaman)"

@@ -1,0 +1,33 @@
+id: "ESP Attack (Matrix)"
+uirep {
+  icon: "icon_single"
+  name: "ESP Matrix Attack"
+  description: "Simple attack program to destroy ESPs."
+}
+anim_action: AnimAction_Attack
+apCostMod: 0
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+damageBucket {
+  successEntries {
+    weight: 1
+    value: 1
+  }
+  failureEntries {
+    weight: 1
+    value: 1
+  }
+}
+attackRatingMod: 0
+offensiveAbility: true
+ammoCost: 0
+fxrep {
+  preActionFxName: "MatrixSpellPrepare"
+  actionFxName: "MatrixSpellThrowAction"
+  postActionFxName: ""
+  hitReactionFxName: "MatrixSpellHitReaction"
+  missReactionFxName: "MatrixSpellMissReaction"
+}
+toHitFunction: "actorMatrixESPAttackToHit"
+damageFunction: "matrixDamage"

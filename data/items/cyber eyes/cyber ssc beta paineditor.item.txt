@@ -1,0 +1,42 @@
+id: "cyber SSC beta paineditor"
+type: ItemType_Cyberware
+uirep {
+  icon: "icon_cyber_eyevisionmag"
+  name: "Beta Pain Editor"
+  description: "Activating inhibits wound pain, reducing incoming damage by 2. +1 Will -1 Int"
+}
+noiseLevel: 2
+noiseRounds: 1
+modelessAbilities: "edit pain"
+affectsFriendly: true
+canTargetSelf: true
+isBuff: true
+cooldown: 5
+effectDuration: 5
+activationStatusEffects {
+  uirep {
+    icon: "icon_shield"
+    name: "Pain Editor - Reduce Pain"
+  }
+  statMods {
+    attribute: Attribute_Damage_Reduction_Mod
+    intModValue: 2
+  }
+  statMods {
+    attribute: Attribute_Willpower
+    intModValue: 1
+  }
+  statMods {
+    attribute: Attribute_Intelligence
+    intModValue: -1
+  }
+}
+equippedStatusEffects {
+  statMods {
+    attribute: Attribute_Magic_Essence
+    floatModValue: -0.3
+  }
+}
+cyberware_type: CyberwareType_Eyes
+store_cost: 48000
+sorting_group: "CyberwareEyes"
