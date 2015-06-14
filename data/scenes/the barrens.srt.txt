@@ -8900,7 +8900,10 @@ triggers {
   name: "Security_Job"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -9963,7 +9966,10 @@ triggers {
   name: "Security_3"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -30256,7 +30262,10 @@ triggers {
   name: "Escort A"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -30388,7 +30397,10 @@ triggers {
   name: "Escort B"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -30520,7 +30532,10 @@ triggers {
   name: "Escort C"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -30652,7 +30667,10 @@ triggers {
   name: "Escort D"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -31055,6 +31073,55 @@ triggers {
   elseActions {
   }
   is_oneshot: false
+}
+triggers {
+  name: "on(ready) populate jobs"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "populate-runs"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "557dc2a06466327414005992"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "NewTrigger"
+  events {
+  }
+  conditions {
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "557dc2ab6466327414005993"
+  }
+  elseActions {
+  }
+  is_oneshot: true
 }
 regions {
   name: "Docks Travel"
@@ -37831,6 +37898,7 @@ mapEvents: "Gang Charisma test"
 mapEvents: "Training Buffs"
 mapEvents: "LoneStar Test"
 mapEvents: "Check Next Objective"
+mapEvents: "populate-runs"
 worldMapLocation {
   filename: ""
   location {

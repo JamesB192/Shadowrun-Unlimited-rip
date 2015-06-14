@@ -1197,7 +1197,10 @@ triggers {
   name: "Gang_Spawn"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -1470,7 +1473,10 @@ triggers {
   name: "Dealer_Spawn"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -1628,7 +1634,10 @@ triggers {
   name: "Contact_Spawn"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -14664,7 +14673,10 @@ triggers {
   name: "Escort A"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -14796,7 +14808,10 @@ triggers {
   name: "Escort B"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -14928,7 +14943,10 @@ triggers {
   name: "Escort C"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -15060,7 +15078,10 @@ triggers {
   name: "Escort D"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -15192,7 +15213,10 @@ triggers {
   name: "Escort Complete A"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -15309,7 +15333,10 @@ triggers {
   name: "Escort Complete A 2"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -15426,7 +15453,10 @@ triggers {
   name: "Escort Complete A 3"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -15543,7 +15573,10 @@ triggers {
   name: "Escort Complete A 4"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -15651,6 +15684,39 @@ triggers {
   isActive: true
   idRef {
     id: "5458b93a363735e01f001bc2"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "on(ready) populate runs"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "populate-runs"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "557dc4f46466327414005994"
   }
   elseActions {
   }
@@ -18247,6 +18313,7 @@ mapEvents: "SmashJacker Vanish"
 mapEvents: "Gang Encounter Charisma Test"
 mapEvents: "Training Buffs"
 mapEvents: "Check Next Objective"
+mapEvents: "populate-runs"
 worldMapLocation {
   filename: ""
   location {
@@ -18308,6 +18375,8 @@ team_affiliations {
 }
 scene_dimensions {
   dimension_name: "Default"
+}
+character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
