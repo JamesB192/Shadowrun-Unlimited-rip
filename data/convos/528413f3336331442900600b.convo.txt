@@ -1,0 +1,194 @@
+idRef {
+  id: "528413f3336331442900600b"
+}
+ui_name: "Wild Yak Guard"
+nodes {
+  idRef {
+    id: "528413fe3363314429006011"
+  }
+  index: 0
+  text: "What do you want?"
+  branches {
+    responseText: "I\'m sorry, I\'m just looking for some information."
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "What\'s going on in the back room there?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "StoryStep"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 14
+        }
+      }
+    }
+    nextNodeIndex: 2
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "528414233363314429006017"
+  }
+  index: 1
+  text: "Well I ain\'t no damn library, beat it."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "528414823363314429006019"
+  }
+  index: 2
+  text: "None of your damn business. Now get outta my face!"
+  branches {
+    responseText: "Sorry I asked."
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "{{GM}}Pick a fight with the guard{{/GM}}"
+    actions {
+      ops {
+        functionName: "Set Team Alliance"
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeamAlliance"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Team Alliance"
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeamAlliance"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Run_Factor_2"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

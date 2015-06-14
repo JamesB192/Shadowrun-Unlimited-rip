@@ -1,0 +1,105 @@
+idRef {
+  id: "51f879f1336331744500012b"
+}
+ui_name: "Opening_Joshua"
+nodes {
+  idRef {
+    id: "51f87a163363317445000131"
+  }
+  index: 0
+  text: "Hey $(story.Real_Name), if I\'m gonna give you the grand tour of Seattle, I have to include the Renraku Arcology!"
+  branches {
+    responseText: "So it\'s the headquarters of some bloated megacorp. Who cares?"
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "51f87e98336331744500014c"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "51f87a653363317445000134"
+  }
+  index: 1
+  text: "{{GM}}Joshua glances around, then lowers his voice to a conspiratorial whisper.{{/GM}}\n\nWhat if I told you this place was hit by an elite team of \342\200\230runners not three nights ago?\n"
+  branches {
+    responseText: "Oh, God. Please tell me you weren\342\200\231t involved..."
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "51f87aa53363317445000137"
+  }
+  index: 2
+  text: "Afraid I was. Poor bastards had no idea what hit them. You should have seen it, $(story.Real_Name). We were like ghosts. We spoofed their security measures, walked in, took what we wanted, and walked back out without anyone even knowing we were there. \n\n{{GM}}He grins and slaps you on the shoulder.{{/GM}} \n\nIt was beautiful, chummer. We were one with the fragging night."
+  branches {
+    responseText: "Dammit, Josh! I\'ve heard this shadowrunning thing can get intense, but stealing from Renraku? You\'re crazy! You\'ve got to quit before you do a job that gets you killed! Come home with me. We can get out of town, right now. I\'ll bet I can even get you a job with the company I work for."
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "51f87b36336331744500013a"
+  }
+  index: 3
+  text: "Whoa, calm down. I know what I\342\200\231m doing, $(story.Real_Name). I\342\200\231m not some greenhorn, trying not to shoot myself in the foot. I\342\200\231m a professional, and I work with professionals. Besides, I couldn\342\200\231t do what you do. I might get geeked on a run, but if I come back and take some fragging desk job they\342\200\231ll just be killing me slower. The shadows are in my blood. This is where I want to be."
+  branches {
+    responseText: "Unbelievable. You\342\200\231ve always been reckless, always had this \342\200\234bad boy\342\200\235 thing going on, but this is a new level of selfish. Do you ever stop to think about anyone other than yourself? Do you ever think about what it would do to me if you got \342\200\234geeked\342\200\235?"
+    actions {
+      ops {
+        functionName: "Set Region Enabled"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Region)"
+            args {
+              string_value: "51f87e3f336331744500014a"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52994bab336331c826006f75"
+  }
+  index: 4
+  text: "Listen $(story.Real_Name)..."
+  branches {
+    responseText: "Whatever Joshua, you sure know how to ruin a perfectly good evening. Let\'s just head back to the hotel. I\'ve had enough sight seeing for one day."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: "Why did you drag me all the way out here Joshua? Don\'t get me wrong, your hotel is pretty much terrible, but we could be hitting up a bar or something!"
+  nextNodeIndex: 0
+}

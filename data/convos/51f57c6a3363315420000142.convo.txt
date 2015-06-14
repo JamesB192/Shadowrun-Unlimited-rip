@@ -1,0 +1,59 @@
+idRef {
+  id: "51f57c6a3363315420000142"
+}
+ui_name: "Rent_Coffin"
+nodes {
+  idRef {
+    id: "5230b94f336331b419003ba9"
+  }
+  index: 0
+  text: ""
+  branches {
+    responseText: "Do I really wanna go back to staying in this rat hole? No money down, and 75 nuyen rent."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f169b733633124330018bf"
+            }
+            args {
+              string_value: "Lifestyle"
+            }
+          }
+        }
+        args {
+          int_value: 75
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "{{GM}}TUTORIAL{{/GM}} Explain how safe houses work."
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "Nevermind."
+    nextNodeIndex: -1
+  }
+}
+nodes {
+  idRef {
+    id: "5230b94f336331b419003bad"
+  }
+  index: 1
+  text: "Safe houses allow you to rest, recovering health and lowering your Heat rating. High Heat ratings can cause Lone Star patrols to stop and harass you. Safe houses all have an associated rent cost. This is deducted upon run completion and whenever you rest. More expensive safe houses will grant more efficient health recover, cause Heat to bleed off faster, and will grant special perks. You have to live somewhere, but if the cost of living is hurting your wallet, you can always move back into a cheaper safe house."
+  branches {
+    responseText: ""
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

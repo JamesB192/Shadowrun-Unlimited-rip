@@ -1,0 +1,39 @@
+idRef {
+  id: "5461600c363735f018004aed"
+}
+ui_name: "Freemove Option"
+nodes {
+  idRef {
+    id: "54616016363735f018004af3"
+  }
+  index: 0
+  text: "Enable Turn-Based Mode out of Combat?"
+  branches {
+    responseText: "Yes"
+    actions {
+      ops {
+        functionName: "Enable/Disable Manual Turn Mode"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "No"
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  nextNodeIndex: 0
+}

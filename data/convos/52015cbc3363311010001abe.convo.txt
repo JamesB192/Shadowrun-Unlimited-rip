@@ -1,0 +1,196 @@
+idRef {
+  id: "52015cbc3363311010001abe"
+}
+ui_name: "StreetDoc_2-Receptionist"
+nodes {
+  idRef {
+    id: "52015ce23363311010001ac4"
+  }
+  index: 0
+  text: "{{GM}}Required Street: Greenhorn{{/GM}} Sorry, the doctor isn\'t taking any new patients at this time."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52015d3b3363311010001ac7"
+  }
+  index: 1
+  text: "Not a problem, just head back and take your first left."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52015fe83363311010001b3b"
+  }
+  index: 2
+  text: "Have a good day."
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: "I need to see the doctor."
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Street_Cred"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        int_value: 25
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Check"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  nextNodeIndex: 0
+  hideIfUnavailable: true
+}
+roots {
+  responseText: "I need to see the doctor."
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Street_Cred"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        int_value: 21
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Check"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Check"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  nextNodeIndex: 1
+  hideIfUnavailable: true
+}
+roots {
+  responseText: ""
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Check"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  nextNodeIndex: 2
+  hideIfUnavailable: true
+}

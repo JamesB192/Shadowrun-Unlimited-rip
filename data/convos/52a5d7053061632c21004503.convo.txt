@@ -1,0 +1,344 @@
+idRef {
+  id: "52a5d7053061632c21004503"
+}
+ui_name: "ASM-Canine Conservation: Oh Hes Friendly"
+nodes {
+  idRef {
+    id: "52a611e13061632028004419"
+  }
+  index: 0
+  text: "{{GM}}Arbor\'s Embrace approaches the hell hound, which doesn\'t seem to object to her presence.\nAlthough she\'s definitely not all there, she is obviously a fairly adept shaman.{{/GM}}"
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_GM_Voice
+  sourceInSceneRef {
+    id: "52a37ff43061630026004e1c"
+  }
+  actions {
+    ops {
+      functionName: "Play Animation From Type"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "52a37f133061630026004e1b"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (AnimationType)"
+          args {
+            string_value: "Seattle"
+          }
+          args {
+            string_value: "cast"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Heal Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "52a37ff43061630026004e1c"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 60
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "52a657693061632028004693"
+  }
+  index: 1
+  text: "Aww poor thing."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a37f133061630026004e1b"
+  }
+}
+nodes {
+  idRef {
+    id: "52a657693061632028004696"
+  }
+  index: 2
+  text: "See, he\'s friendly!  Don\'t worry little guy, I think those soldiers should leave you alone for a while."
+  branches {
+    responseText: "Okay, crazy lady, lets get out of here."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "52a11bd53061635408002ea7"
+            }
+            args {
+              string_value: "ArborArdourProgress"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "The barrens"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "{{CC}}Pet the Hell Hound{{/CC}}"
+    actions {
+      ops {
+        functionName: "Play Animation From Type"
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "52a37ff43061630026004e1c"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (AnimationType)"
+            args {
+              string_value: "Seattle"
+            }
+            args {
+              string_value: "attack"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Apply Camera Shake"
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0.5
+        }
+      }
+      ops {
+        functionName: "Cause Damage"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Actor Attribute"
+                args {
+                  call_value {
+                    functionName: "Triggering Actor"
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "BaseOrCurrent"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "ActorAttributes"
+                    }
+                    args {
+                      int_value: 8
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HPOrAP"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a37f133061630026004e1b"
+  }
+}
+nodes {
+  idRef {
+    id: "52a65769306163202800469a"
+  }
+  index: 3
+  text: "Ooh, careful, he\'s still a bit shy."
+  branches {
+    responseText: "Shy?  He practically took my arm off!  Whatever, lets get out of here."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "52a11bd53061635408002ea7"
+            }
+            args {
+              string_value: "ArborArdourProgress"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "The barrens"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Travel"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Arbor_Pay"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a37f133061630026004e1b"
+  }
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+  hideIfUnavailable: true
+}

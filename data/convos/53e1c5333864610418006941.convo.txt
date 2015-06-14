@@ -1,0 +1,470 @@
+idRef {
+  id: "53e1c5333864610418006941"
+}
+ui_name: "Arena Battle ALT"
+nodes {
+  idRef {
+    id: "53e1c5413864610418006948"
+  }
+  index: 0
+  text: "Are you looking for a fight?\n"
+  branches {
+    responseText: "Details?"
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "53e1c65b3864610418006950"
+  }
+  index: 1
+  text: "I could be, what\'s the deal with these fights?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPlayer"
+}
+nodes {
+  idRef {
+    id: "53e1c6913864610418006954"
+  }
+  index: 2
+  text: "You get to be a modern day gladiator, battling for the amusement of the crowds. Of course, you also stand to make a pretty penny. The only rule is that it\'s melee combat only. No guns, no spells, no grenades, nado."
+  branches {
+    responseText: "Rewards?"
+    nextNodeIndex: 3
+  }
+  branches {
+    responseText: "No"
+    nextNodeIndex: 5
+  }
+  branches {
+    responseText: "Yeah"
+    nextNodeIndex: 6
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "53e1c6d63864610418006957"
+  }
+  index: 3
+  text: "What kind of money are we talking here?"
+  branches {
+    responseText: ""
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPlayer"
+}
+nodes {
+  idRef {
+    id: "53e1cc7e3864610418006972"
+  }
+  index: 4
+  text: "Well that all depends on your {{CC}}Rank{{/CC}}. A newcomer like yourself will be taking home \302\24550 just for fighting, and an extra \302\24550 if you manage to win."
+  branches {
+    responseText: ""
+    nextNodeIndex: 7
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "53e1c763386461041800695a"
+  }
+  index: 5
+  text: "Nah. Doesn\'t sound like my thing."
+  branches {
+    responseText: ""
+    nextNodeIndex: 7
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPlayer"
+}
+nodes {
+  idRef {
+    id: "53e1c794386461041800695d"
+  }
+  index: 6
+  text: "Hell yeah! Sign me up!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 7
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPlayer"
+}
+nodes {
+  idRef {
+    id: "53e1cc52386461041800696f"
+  }
+  index: 7
+  text: "What can I help you with?"
+  branches {
+    responseText: "I\'m looking for a fight."
+    nextNodeIndex: 8
+  }
+  branches {
+    responseText: "Nevermind."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "53e2cf1e386461d41500384d"
+  }
+  index: 8
+  text: "I might be looking to enter the pit."
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Get Map Item (Player)"
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 8
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 9
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Compare Actor Attribute"
+        args {
+          call_value {
+            functionName: "Get Map Item (Player)"
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorAttributes"
+            }
+            args {
+              int_value: 8
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 13
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPlayer"
+}
+nodes {
+  idRef {
+    id: "53e2cf39386461d415003850"
+  }
+  index: 9
+  text: "So are you ready to enter the Pit?\n\n{{GM}}WARNING{{/GM}}\n{{GM}}Attempting to bring firearms, grenades, spells, fetishes, or drones into the pit will be considered cheating. The arena staff will seize these items as a penalty. Please use the stash provided to \"check\" your gear before the match.{{/GM}}"
+  branches {
+    responseText: "Yeah, I\'m ready."
+    nextNodeIndex: 10
+  }
+  branches {
+    responseText: "No, not right now."
+    nextNodeIndex: 12
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "53e2cf39386461d415003853"
+  }
+  index: 10
+  text: "Yeah! Let\'s do this!"
+  branches {
+    responseText: ""
+    nextNodeIndex: 11
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPlayer"
+}
+nodes {
+  idRef {
+    id: "53e2d170386461d4150039aa"
+  }
+  index: 11
+  text: "Great, you\'ll get \302\245$(story.ArenaReward) just for fighting, and another \302\245$(story.ArenaReward) if you can pull off the win."
+  branches {
+    responseText: ""
+    actions {
+      ops {
+        functionName: "Send Event After Delay"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Fight Start"
+            }
+          }
+        }
+        args {
+          float_value: 2
+        }
+      }
+      ops {
+        functionName: "Fade Camera Out"
+        args {
+          float_value: 2
+        }
+        args {
+          float_value: 0
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "53e2cf4b386461d415003857"
+  }
+  index: 12
+  text: "On second though, not right now."
+  branches {
+    responseText: ""
+    nextNodeIndex: 7
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceWithTagInScene: "isPlayer"
+}
+nodes {
+  idRef {
+    id: "53f50bd1386461381c006bea"
+  }
+  index: 13
+  text: "Sorry, you look like you\'re in rough shape. Come back after you rest up a bit."
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Arena_Intro"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Arena_Intro"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "ArenaRank"
+          }
+        }
+      }
+      args {
+        int_value: 100
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "ArenaReward"
+          }
+        }
+      }
+      args {
+        int_value: 50
+      }
+    }
+  }
+  nextNodeIndex: 0
+  hideIfUnavailable: true
+}
+roots {
+  responseText: ""
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Arena_Intro"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 7
+  hideIfUnavailable: true
+}

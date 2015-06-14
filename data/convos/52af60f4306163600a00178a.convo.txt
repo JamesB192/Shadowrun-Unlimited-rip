@@ -1,0 +1,73 @@
+idRef {
+  id: "52af60f4306163600a00178a"
+}
+ui_name: "ASM-Lumber Jacked: Let it Burn"
+nodes {
+  idRef {
+    id: "52af6122306163600a001790"
+  }
+  index: 0
+  text: "UCAS dispatch, this is alpha team.  We are withdrawing with heavy casualties.  Requesting air strike at my position.\n\n{{GM}}He turns to you.{{/GM}}\n\nYou just don\'t get it do you?  You\'re aces sure, but we\'ve got tanks, planes, bombs... You\'re out of your league.\n\n{{GM}}He withdraws with the remainder of his team.{{/GM}}"
+  branches {
+    responseText: ""
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a9114b3061632429004901"
+  }
+}
+nodes {
+  idRef {
+    id: "52af62be306163600a0017bb"
+  }
+  index: 1
+  text: "Uh, that sounds bad. Do we need to get out of here?"
+  branches {
+    responseText: "Slot and run lady!"
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Light it up"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Arbor_Pay"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

@@ -1,0 +1,248 @@
+idRef {
+  id: "52ab82fe306163600a000de7"
+}
+ui_name: "ASM-Lumber Jacked: UCAS Intro"
+nodes {
+  idRef {
+    id: "52ab830f306163600a000ded"
+  }
+  index: 0
+  text: "Halt!\nYou are trespassing on restricted UCAS territory."
+  branches {
+    responseText: "See honey? I told you the camp-site was the other direction."
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a9114b3061632429004901"
+  }
+}
+nodes {
+  idRef {
+    id: "52af2063306163600a000e5b"
+  }
+  index: 1
+  text: "Very funny.  I\'m assuming you\'re the same group that gave us trouble over that damned hell hound?"
+  branches {
+    responseText: "If you\'d stop giving the forest trouble then we wouldn\'t have to give it back to you."
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "52a11bd53061635408002ea7"
+            }
+            args {
+              string_value: "ArborsEmbraceOpinion"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 2
+  }
+  branches {
+    responseText: "Sorry chummer, just doing my job."
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a9114b3061632429004901"
+  }
+}
+nodes {
+  idRef {
+    id: "52af21cf306163600a000e74"
+  }
+  index: 2
+  text: "Drek, you\'re a nut-case. No help for it, dust em boys!"
+  branches {
+    responseText: ""
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a9114b3061632429004901"
+  }
+}
+nodes {
+  idRef {
+    id: "52af23ff306163600a000e77"
+  }
+  index: 3
+  text: "Your \"job\" is about to get you greased chummer.  I don\'t care how hard you are, you\'re tangling with an army here."
+  branches {
+    responseText: "Judging by the lack of ordinance heading my way, I\'m guessing you\'re gonna try and talk us out of here."
+    nextNodeIndex: 4
+  }
+  branches {
+    responseText: "You wouldn\'t be talking if you had the firepower to take me down chummer.  Walk away."
+    nextNodeIndex: 9
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a9114b3061632429004901"
+  }
+}
+nodes {
+  idRef {
+    id: "52af2bcd306163600a000e8a"
+  }
+  index: 4
+  text: "Bingo chummer.  It\'s rather unbecoming for a professional army to be gunning down scrubs like you.\nHere\'s the deal: you walk away and leave your overly-zealous friend for some educational courses.\nIn return, you don\'t die."
+  branches {
+    responseText: "Sorry, her offer involves more credits."
+    nextNodeIndex: 5
+  }
+  branches {
+    responseText: "Sorry lady, I didn\'t sign up for this.  You\'re on your own."
+    nextNodeIndex: 8
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52af2f46306163600a000e8e"
+  }
+  index: 5
+  text: "The UCAS military doesn\'t pay the likes of you son, but I seem to have dropped my cred stick.  Why don\'t you pick it up and get out of here before I change my mind?"
+  branches {
+    responseText: "No deal."
+    nextNodeIndex: 6
+  }
+  branches {
+    responseText: "Sorry lady, I didn\'t sign up for this.  You\'re on your own."
+    nextNodeIndex: 7
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a9114b3061632429004901"
+  }
+}
+nodes {
+  idRef {
+    id: "52af2fd3306163600a000e92"
+  }
+  index: 6
+  text: ""
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52af2ff7306163600a000e94"
+  }
+  index: 7
+  text: ""
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add Nuyen"
+      args {
+        int_value: 2000
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "52a11bd53061635408002ea7"
+          }
+          args {
+            string_value: "ArborsEmbraceBetrayed"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Open Scene"
+      args {
+        call_value {
+          functionName: "Get Map Item (Scene)"
+          args {
+            string_value: "Staging"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "52af3002306163600a000e96"
+  }
+  index: 8
+  text: ""
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "52a11bd53061635408002ea7"
+          }
+          args {
+            string_value: "ArborsEmbraceBetrayed"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Open Scene"
+      args {
+        call_value {
+          functionName: "Get Map Item (Scene)"
+          args {
+            string_value: "Staging"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "52af3106306163600a000e98"
+  }
+  index: 9
+  text: "Drek, you\'re a nut-case. No help for it, dust em boys!"
+  branches {
+    responseText: ""
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

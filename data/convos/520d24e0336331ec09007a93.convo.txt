@@ -1,0 +1,70 @@
+idRef {
+  id: "520d24e0336331ec09007a93"
+}
+ui_name: "Generic Lab-Matrix-Camera_Control"
+nodes {
+  idRef {
+    id: "520d24fe336331ec09007a9f"
+  }
+  index: 0
+  text: "Camera Control "
+  branches {
+    responseText: "{{CC}}Decking{{/CC}}Attempt to disable the security cameras.\n"
+    actions {
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "520d1e26336331e82b001667"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "Skill_Test"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Random (int)"
+            args {
+              int_value: 2
+            }
+            args {
+              int_value: 10
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Leave it alone."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

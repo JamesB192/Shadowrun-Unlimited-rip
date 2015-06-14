@@ -1,0 +1,68 @@
+idRef {
+  id: "528413b1336331902a001f79"
+}
+ui_name: "Rainier Tower Entrance"
+nodes {
+  idRef {
+    id: "528413bd336331902a001f7f"
+  }
+  index: 0
+  text: "Rainier Tower"
+  branches {
+    responseText: "{{GM}}Head up to Victor\'s penthouse{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "StoryStep"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 16
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "Victor`s Apartment"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Nevermind."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

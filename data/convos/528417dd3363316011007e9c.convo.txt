@@ -1,0 +1,110 @@
+idRef {
+  id: "528417dd3363316011007e9c"
+}
+ui_name: "Rent_Warehouse"
+nodes {
+  idRef {
+    id: "528417ee3363316011007eac"
+  }
+  index: 0
+  text: ""
+  branches {
+    responseText: "Purchase this empty warehouse? It\'s 10,000 Nuyen upfront, then 200 nuyen upkeep."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 10000
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f169b733633124330018bf"
+            }
+            args {
+              string_value: "Lifestyle"
+            }
+          }
+        }
+        args {
+          int_value: 200
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 10000
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "OwnWarehouse"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "{{GM}}TUTORIAL{{/GM}} Explain how this custom safe house works."
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "Nevermind."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "528417ee3363316011007eb0"
+  }
+  index: 1
+  text: "This warehouse will act as a safe house for your character. Unlike regular safehouses that come furnished, you will be buying an empty warehouse. You will then have to spend additional money to furnish it any way you want. You will be able to transform it into a decker\'s haven, a shaman\'s lodge, a training dojo, a workshop, or anything in between. This safe house, once upgraded, will grant you perks not granted by the other basic safe houses."
+  branches {
+    responseText: ""
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

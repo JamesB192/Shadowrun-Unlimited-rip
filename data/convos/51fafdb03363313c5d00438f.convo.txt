@@ -1,0 +1,168 @@
+idRef {
+  id: "51fafdb03363313c5d00438f"
+}
+ui_name: "Enderdine Labs-Scientist_FastTalk"
+nodes {
+  idRef {
+    id: "51fafdc93363313c5d004395"
+  }
+  index: 0
+  text: "What do you think you`re doing in here?!"
+  branches {
+    responseText: "{{CC}}Charisma{{/CC}} We are here to deliver some sample to the lab. Apparantly it\'s dangerous."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "SkillTest"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Random (int)"
+            args {
+              int_value: 2
+            }
+            args {
+              int_value: 8
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "520d1e9d3363314419004ada"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "{{CC}}Ettiquette: Academic{{/CC}} Oh thank goodness. I head up a field research team for Mitsuhama, and I was supposed to bring this volatile compound to the lab here right away. You see the chemicals are highly unstable, and the last thing I need is them becoming inert. Do you think you would be able to take them off of my hands? "
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 19
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "SkillTest"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Random (int)"
+            args {
+              int_value: 2
+            }
+            args {
+              int_value: 6
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "520d1e9d3363314419004ada"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: "Um excuse me..."
+  nextNodeIndex: 0
+}

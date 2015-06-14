@@ -1,0 +1,74 @@
+idRef {
+  id: "524635e13363317c1e0065bc"
+}
+ui_name: "Matrix-NodeLoad"
+roots {
+  responseText: "Attempt to Spoof the node."
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Test"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "SpoofTest"
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: -1
+}
+roots {
+  responseText: "Breach the system."
+  actions {
+    ops {
+      functionName: "Suspend Team\'s Turn"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "New Dimension 1"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "MatrixAlarm"
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: -1
+}

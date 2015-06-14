@@ -1,0 +1,68 @@
+idRef {
+  id: "52076d7e336331d813007e8f"
+}
+ui_name: "Piper-Hostage_1"
+nodes {
+  idRef {
+    id: "52076d90336331d813007e95"
+  }
+  index: 0
+  text: "Who\'s there?!"
+  branches {
+    responseText: "It\'s cool chum, I\'m a friend."
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52076db4336331d813007e98"
+  }
+  index: 1
+  text: "Well if you\'re a friend, then you\'ll gotta get me the hell out of here before those dreckheads show up! Check the computer and see if you can\'t get this lock open."
+  branches {
+    responseText: "I\'m on it."
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "You know you\'re pretty bossy for hostage."
+    nextNodeIndex: 2
+  }
+  branches {
+    responseText: "Calm down Captain Drama, I\'ll check the damn computer."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "InspectCheck"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "52994f3f3363317c250066db"
+  }
+  index: 2
+  text: "Please check the computer. Happy now?"
+  branches {
+    responseText: "Much better."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}

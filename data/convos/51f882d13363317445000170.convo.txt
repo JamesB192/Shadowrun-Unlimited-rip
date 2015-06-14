@@ -1,0 +1,175 @@
+idRef {
+  id: "51f882d13363317445000170"
+}
+ui_name: "Opening_Soka"
+nodes {
+  idRef {
+    id: "51f882e93363317445000176"
+  }
+  index: 0
+  text: "Be silent, little worm. Your brother\342\200\231s life was over when he crossed Renraku, but I have no reason to kill you tonight. You are free to go.\n\n"
+  branches {
+    responseText: "I\'ll fraggin kill you!"
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "51f8831b3363317445000179"
+  }
+  index: 1
+  text: "You? Please. You would be spilling your blood on the pavement with your brother. Be grateful I\342\200\231m feeling charitable tonight.\n\n"
+  branches {
+    responseText: "You will answer for this! Mark my words!"
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "51f8836a336331744500017c"
+  }
+  index: 2
+  text: "Yes, I\'m sure I will little worm. Well DO try and enjoy the rest of your evening...."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Trigger: Wait for Rounds"
+      args {
+        int_value: 25
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f169b733633124330018bf"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Change Actor Control"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PlayerOrAI"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "535bdca9336331e00d0053a0"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "535bd79e3363313c0e004753"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Actor In Passive Mode"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "51f87e98336331744500014c"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}
