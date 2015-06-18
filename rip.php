@@ -1,9 +1,9 @@
-project_id: "90120262336331d02c516479"
-project_name: "Shadowrun Unlimited rip Resource Pack"
-project_version: "2015f June 15 z2005 -- Abstract (internal)"
+project_id: "51f15c62336331d02c00440e"
+project_name: "Shadowrun Unlimited rip"
+project_version: "<?php include "./project.php" ?>"
 author_name: "Ryan Wyllie and the Shadowrun Unlimited rip team"
-synopsis: "Resources for Shadowrun Unlimited rip"
-has_story: false
+synopsis: "Shadowrun Unlimited rip"
+has_story: true
 read_only: false
 preview_image: "preview"
 game_version_required: 1.24
@@ -14,16 +14,16 @@ content_pack_dependencies {
   package_description: "Core Shadowrun Returns functionality"
 }
 content_pack_dependencies {
-  package_id: "901202516479370824006c6a"
-  package_version: "1"
-  package_name: "Berlin++ or DFDC--"
-  package_description: "Shadowrun: Dragonfall - Director\'s Cut stripped of the story (for reasons unkown)"
-}
-content_pack_dependencies {
   package_id: "518d7672643431b03f0041aa"
   package_version: "1"
   package_name: "Seattle"
   package_description: "Seattle Area Environments and Tilesets"
+}
+content_pack_dependencies {
+  package_id: "518d7674643431b03f0041ab"
+  package_version: "1"
+  package_name: "DeadMansSwitch"
+  package_description: "The Dead Man\'s Switch"
 }
 content_pack_dependencies {
   package_id: "51c3790e643431ec22169899"
@@ -32,8 +32,14 @@ content_pack_dependencies {
   package_description: "Berlin Area Environments and Tilesets"
 }
 content_pack_dependencies {
-  package_id: "518d76746434901202516479"
+  package_id: "53472c8f3234370824006c6a"
   package_version: "1"
-  package_name: "Seattle++ or DMS--"
-  package_description: "Dead Mans Switch stripped of the story (for reasons unkown)"
+  package_name: "DragonfallExtended"
+  package_description: "Shadowrun: Dragonfall - Director\'s Cut"
+}
+content_pack_dependencies {
+  package_id: "90120262336331d02c516479"
+  package_version: "1"
+  package_name: "Shadowrun Unlimited rip Resource Pack"
+  package_description: "Resources for Shadowrun Unlimited rip"
 }
