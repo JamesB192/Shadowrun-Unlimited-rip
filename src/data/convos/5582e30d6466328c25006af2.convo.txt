@@ -1,12 +1,24 @@
 idRef {
   id: "5582e30d6466328c25006af2"
 }
-ui_name: "PayData Blue"
+ui_name: "PayData-1_BLUE"
+nodes {
+  idRef {
+    id: "55834d7a646632342000536c"
+  }
+  index: 0
+  text: "You can not have more than six PayData files in storage"
+  branches {
+    responseText: "My bad."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
 nodes {
   idRef {
     id: "5573bbff646632381d005f4c"
   }
-  index: 0
+  index: 1
   text: ""
   branches {
     responseText: ""
@@ -40,7 +52,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 1
+    nextNodeIndex: 2
   }
   branches {
     responseText: ""
@@ -162,7 +174,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: -1
+    nextNodeIndex: 4
   }
   nodeType: ConversationNodeType_Simple
   actions {
@@ -224,7 +236,7 @@ nodes {
   idRef {
     id: "5573bf1a646632381d005f64"
   }
-  index: 1
+  index: 2
   text: ""
   branches {
     responseText: ""
@@ -308,7 +320,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     auxiliaryLink: true
     comment: "12"
   }
@@ -394,7 +406,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     auxiliaryLink: true
     comment: "23"
   }
@@ -480,7 +492,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     auxiliaryLink: true
     comment: "34"
   }
@@ -566,7 +578,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     auxiliaryLink: true
     comment: "45"
   }
@@ -652,7 +664,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     auxiliaryLink: true
     comment: "56"
   }
@@ -738,7 +750,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     auxiliaryLink: true
     comment: "67"
   }
@@ -824,7 +836,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     auxiliaryLink: true
     comment: "78"
   }
@@ -910,7 +922,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     auxiliaryLink: true
     comment: "89"
   }
@@ -996,9 +1008,192 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     auxiliaryLink: true
     comment: "91"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          int_value: 4
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "PayData"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Pay Data 1a"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Cause Damage"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HPOrAP"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Deck_Storage_FileCount"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Deck_Storage_Used"
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Pay Data 1a"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 3
+    auxiliaryLink: true
+    comment: "4"
   }
   branches {
     responseText: ""
@@ -1179,7 +1374,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: -1
+    nextNodeIndex: 3
     comment: "1"
   }
   branches {
@@ -1361,7 +1556,8 @@ nodes {
         }
       }
     }
-    nextNodeIndex: -1
+    nextNodeIndex: 3
+    auxiliaryLink: true
     comment: "2"
   }
   branches {
@@ -1543,372 +1739,9 @@ nodes {
         }
       }
     }
-    nextNodeIndex: -1
+    nextNodeIndex: 3
+    auxiliaryLink: true
     comment: "3"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          int_value: 4
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "PayData"
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Pay Data 1a"
-            }
-          }
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Cause Damage"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HPOrAP"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Storage_FileCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Storage_Used"
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Add Item to Actor"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Pay Data 1a"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    comment: "4"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          int_value: 5
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "PayData"
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Pay Data 2a"
-            }
-          }
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Cause Damage"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HPOrAP"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Storage_FileCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Storage_Used"
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Add Item to Actor"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Pay Data 2a"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    comment: "5"
   }
   branches {
     responseText: ""
@@ -2089,8 +1922,192 @@ nodes {
         }
       }
     }
-    nextNodeIndex: -1
+    nextNodeIndex: 3
+    auxiliaryLink: true
     comment: "6"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          int_value: 5
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "PayData"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Pay Data 2a"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Cause Damage"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HPOrAP"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Deck_Storage_FileCount"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Deck_Storage_Used"
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Pay Data 2a"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 3
+    auxiliaryLink: true
+    comment: "5"
   }
   branches {
     responseText: ""
@@ -2271,190 +2288,9 @@ nodes {
         }
       }
     }
-    nextNodeIndex: -1
+    nextNodeIndex: 3
+    auxiliaryLink: true
     comment: "7"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          int_value: 8
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "PayData"
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Pay Data 1a"
-            }
-          }
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Cause Damage"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HPOrAP"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Storage_FileCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Storage_Used"
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Add Item to Actor"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Pay Data 1a"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    comment: "8"
   }
   branches {
     responseText: ""
@@ -2635,11 +2471,215 @@ nodes {
         }
       }
     }
-    nextNodeIndex: -1
+    nextNodeIndex: 3
+    auxiliaryLink: true
     comment: "9"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          int_value: 8
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "PayData"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Pay Data 1a"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Cause Damage"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HPOrAP"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Deck_Storage_FileCount"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Deck_Storage_Used"
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Pay Data 1a"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 3
+    auxiliaryLink: true
+    comment: "8"
   }
   nodeType: ConversationNodeType_Simple
   comment: "infinite loop or not"
+}
+nodes {
+  idRef {
+    id: "55834e156466323420005373"
+  }
+  index: 3
+  text: "PayData acquired."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "55834ddd6466323420005370"
+  }
+  index: 4
+  text: "Your deck storage is full. Better unload some of your digital loot."
+  branches {
+    responseText: "Should have bought that thumbdrive."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
 }
 roots {
   conditions {
@@ -2760,7 +2800,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: -1
+  nextNodeIndex: 0
 }
 roots {
   conditions {
@@ -2817,5 +2857,5 @@ roots {
       }
     }
   }
-  nextNodeIndex: 0
+  nextNodeIndex: 1
 }
