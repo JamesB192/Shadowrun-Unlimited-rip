@@ -23008,7 +23008,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "pop-AugmentedReality"
+  name: "populate AugmentedReality"
   events {
     ops {
       functionName: "On Map Start"
@@ -23016,7 +23016,7 @@ triggers {
     ops {
       functionName: "Get Map Item (Event)"
       args {
-        string_value: "popultate-AR"
+        string_value: "populate-ar"
       }
     }
   }
@@ -23061,118 +23061,6 @@ triggers {
   actions {
     ops {
       functionName: "Clear All Waypoints"
-    }
-    ops {
-      functionName: "Set Waypoint on Prop"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "PrimaryOrSecondary"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Nearest Tagged Prop to Actor"
-          args {
-            call_value {
-              functionName: "Tag From String"
-              args {
-                call_value {
-                  functionName: "Append (string)"
-                  args {
-                    call_value {
-                      functionName: "Convert (int) to (string)"
-                      args {
-                        call_value {
-                          functionName: "Get Story Variable (int)"
-                          args {
-                            string_value: "51f15c62336331d02c00440e"
-                          }
-                          args {
-                            string_value: "StoryStep"
-                          }
-                        }
-                      }
-                    }
-                  }
-                  args {
-                    string_value: "way_psp_"
-                  }
-                }
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Waypoint on Prop"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "PrimaryOrSecondary"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Nearest Tagged Prop to Actor"
-          args {
-            call_value {
-              functionName: "Tag From String"
-              args {
-                call_value {
-                  functionName: "Append (string)"
-                  args {
-                    call_value {
-                      functionName: "Convert (int) to (string)"
-                      args {
-                        call_value {
-                          functionName: "Get Story Variable (int)"
-                          args {
-                            string_value: "51f15c62336331d02c00440e"
-                          }
-                          args {
-                            string_value: "StoryStep"
-                          }
-                        }
-                      }
-                    }
-                  }
-                  args {
-                    string_value: "way_pss_"
-                  }
-                }
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-        }
-      }
     }
     ops {
       functionName: "Set Waypoint on Prop"
@@ -23259,7 +23147,7 @@ triggers {
                     }
                   }
                   args {
-                    string_value: "way_pjs_"
+                    string_value: "way_pJs_"
                   }
                 }
               }
@@ -23401,7 +23289,7 @@ triggers {
     ops {
       functionName: "Comparison (string)"
       args {
-        string_value: ""
+        string_value: " "
       }
       args {
         call_value {
@@ -23470,7 +23358,7 @@ triggers {
     ops {
       functionName: "Comparison (string)"
       args {
-        string_value: ""
+        string_value: " "
       }
       args {
         call_value {
@@ -23526,7 +23414,7 @@ triggers {
       }
     }
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 regions {
   name: "To Redmond"
@@ -24212,6 +24100,7 @@ characters {
     z: -4
   }
   orientation: ORIENTATION_E
+  GeneralTags: "way_ajp_Greely"
   displayName: "Greely"
   idRef {
     id: "51f296c0336331d02d001c08"
@@ -24270,6 +24159,7 @@ characters {
     }
     team_id: "Civilians"
     char_name: "Greely"
+    GeneralTags: "way_ajp_Greely"
     pc_spawn_number: -1
     portrait {
       filename: "backer_dwarfmale_alexanderfalk"
@@ -26643,8 +26533,8 @@ mapEvents: "Call Taxi"
 mapEvents: "Taxi Check"
 mapEvents: "Taxi Leave"
 mapEvents: "LoneStar Test"
-mapEvents: "populate-runs"
 mapEvents: "insert"
+mapEvents: "populate-ar"
 worldMapLocation {
   filename: ""
   location {

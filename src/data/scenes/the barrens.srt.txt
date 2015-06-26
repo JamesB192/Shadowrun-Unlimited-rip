@@ -29526,7 +29526,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "pop-AugmentedReality"
+  name: "populate AugmentedReality"
   events {
     ops {
       functionName: "On Map Start"
@@ -29579,118 +29579,6 @@ triggers {
   actions {
     ops {
       functionName: "Clear All Waypoints"
-    }
-    ops {
-      functionName: "Set Waypoint on Prop"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "PrimaryOrSecondary"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Nearest Tagged Prop to Actor"
-          args {
-            call_value {
-              functionName: "Tag From String"
-              args {
-                call_value {
-                  functionName: "Append (string)"
-                  args {
-                    call_value {
-                      functionName: "Convert (int) to (string)"
-                      args {
-                        call_value {
-                          functionName: "Get Story Variable (int)"
-                          args {
-                            string_value: "51f15c62336331d02c00440e"
-                          }
-                          args {
-                            string_value: "StoryStep"
-                          }
-                        }
-                      }
-                    }
-                  }
-                  args {
-                    string_value: "way_psp_"
-                  }
-                }
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Waypoint on Prop"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "PrimaryOrSecondary"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Nearest Tagged Prop to Actor"
-          args {
-            call_value {
-              functionName: "Tag From String"
-              args {
-                call_value {
-                  functionName: "Append (string)"
-                  args {
-                    call_value {
-                      functionName: "Convert (int) to (string)"
-                      args {
-                        call_value {
-                          functionName: "Get Story Variable (int)"
-                          args {
-                            string_value: "51f15c62336331d02c00440e"
-                          }
-                          args {
-                            string_value: "StoryStep"
-                          }
-                        }
-                      }
-                    }
-                  }
-                  args {
-                    string_value: "way_pss_"
-                  }
-                }
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-        }
-      }
     }
     ops {
       functionName: "Set Waypoint on Prop"
@@ -30044,7 +29932,7 @@ triggers {
       }
     }
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 regions {
   name: "Docks Travel"
