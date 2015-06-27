@@ -1,5 +1,5 @@
 triggers {
-  name: "DarknessHub"
+  name: "on(ready) DarknessHub"
   events {
     ops {
       functionName: "On Map Start"
@@ -44,7 +44,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "System Initializing"
+  name: "on(ready) System Initializing"
   events {
     ops {
       functionName: "On Map Start"
@@ -227,7 +227,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "JackOut1"
+  name: "on(JackOut) 1"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -335,7 +335,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "JackOut2"
+  name: "on(JackOut) 2"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -443,7 +443,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "JackOut3"
+  name: "on(JackOut) 3"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -551,7 +551,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "JackOut4"
+  name: "on(JackOut) 4"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -659,7 +659,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "JackOut5"
+  name: "on(JackOut) 5"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -767,7 +767,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "JackOut6"
+  name: "on(JackOut) 6"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -875,7 +875,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "JackOut7"
+  name: "on(JackOut) 7"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -983,7 +983,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "JackOut8"
+  name: "on(JackOut) 8"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -1091,7 +1091,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "JackOut System Integrity"
+  name: "on(JackOut) System Integrity"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -1200,7 +1200,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Revive-LittleChiba"
+  name: "on(Revive) LittleChiba"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -1358,7 +1358,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Journal"
+  name: "on(ready) Journal"
   events {
     ops {
       functionName: "On Map Start"
@@ -1495,7 +1495,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Force Jack"
+  name: "on(ready) Force Jack"
   events {
     ops {
       functionName: "On Map Start"
@@ -1871,7 +1871,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "NewTrigger"
+  name: "on(ready) Hack Indicator"
   events {
     ops {
       functionName: "On Map Start"
@@ -1934,7 +1934,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Dance Step 1"
+  name: "on(Dance Step 1)"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -2008,7 +2008,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Dance Step 2"
+  name: "on(Dance Step 2)"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -2082,7 +2082,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Animation"
+  name: "on(ready) Animation"
   events {
     ops {
       functionName: "On Map Start"
@@ -2178,7 +2178,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Animation 3"
+  name: "on(Animation)"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -2423,7 +2423,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Dance Step 3"
+  name: "on(Dance Step 3)"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -2987,6 +2987,218 @@ triggers {
   isActive: true
   idRef {
     id: "52995c31336331a819003b9c"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Body Training"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "FitnessTraining"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Main_Health"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Actor Attribute"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "BaseOrCurrent"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "ActorAttributes"
+              }
+              args {
+                int_value: 8
+              }
+            }
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Apply Attribute Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            call_value {
+              functionName: "Get Story Variable (int)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "FitnessTraining"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 2
+              }
+            }
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Fitness Training"
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Set Actor Base Attribute"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Main_Health"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 8
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "529961613363310822005749"
   }
   elseActions {
   }
@@ -3617,7 +3829,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Jack-In"
+  name: "on(Jack-In)"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -5458,7 +5670,78 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 1"
+  name: "Camera Reset After Conversation"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Last Created Persona"
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5425fc29386461ac69000468"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "RandomSystemCheck"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Random_Matrix_System"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            int_value: 1
+          }
+          args {
+            int_value: 8
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "52fba847336331102a001ca6"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "on(LeavingHUBVegas2) 1"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -5572,7 +5855,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 2"
+  name: "on(LeavingHUBVegas2) 2"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -5686,7 +5969,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 3"
+  name: "on(LeavingHUBVegas2) 3"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -5800,7 +6083,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 4"
+  name: "on(LeavingHUBVegas2) 4"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -5897,7 +6180,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 5"
+  name: "on(LeavingHUBVegas2) 5"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -6011,7 +6294,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 6"
+  name: "on(LeavingHUBVegas2) 6"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -6108,7 +6391,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 7"
+  name: "on(LeavingHUBVegas2) 7"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -6222,7 +6505,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 8"
+  name: "on(LeavingHUBVegas2) 8"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -6336,290 +6619,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "RandomSystemCheck"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Random_Matrix_System"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Random (int)"
-          args {
-            int_value: 1
-          }
-          args {
-            int_value: 8
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "52fba847336331102a001ca6"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Body Training"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "FitnessTraining"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 2
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Main_Health"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Actor Attribute"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "BaseOrCurrent"
-              }
-              args {
-                int_value: 1
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "ActorAttributes"
-              }
-              args {
-                int_value: 8
-              }
-            }
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Apply Attribute Status Effect to Actor"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Arithmetic (int)"
-          args {
-            call_value {
-              functionName: "Get Story Variable (int)"
-              args {
-                string_value: "51f15c62336331d02c00440e"
-              }
-              args {
-                string_value: "FitnessTraining"
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "Arithmetic Ops"
-              }
-              args {
-                int_value: 2
-              }
-            }
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "ActorAttributes"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        string_value: "Fitness Training"
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "BuffDebuffType"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        int_value: -1
-      }
-    }
-    ops {
-      functionName: "Set Actor Base Attribute"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Main_Health"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "ActorAttributes"
-          }
-          args {
-            int_value: 8
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "529961613363310822005749"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Camera Reset After Conversation"
-  events {
-    ops {
-      functionName: "On Conversation Complete"
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Teleport Camera To Actor"
-      args {
-        call_value {
-          functionName: "Last Created Persona"
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "5425fc29386461ac69000468"
-  }
-  elseActions {
-  }
-  is_oneshot: false
-}
-triggers {
-  name: "Leaving HUB Vegas 1A"
+  name: "on(LeavingHUBVegas2) 1a"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -6732,7 +6732,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 2A"
+  name: "on(LeavingHUBVegas2) 2a"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -6845,7 +6845,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 3A"
+  name: "on(LeavingHUBVegas2) 3a"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -6958,7 +6958,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 4A"
+  name: "on(LeavingHUBVegas2) 4a"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -7071,7 +7071,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 5A"
+  name: "on(LeavingHUBVegas2) 5a"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -7184,7 +7184,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 6A"
+  name: "on(LeavingHUBVegas2) 6a"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -7297,7 +7297,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 7A"
+  name: "on(LeavingHUBVegas2) 7a"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -7410,7 +7410,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 8A"
+  name: "on(LeavingHUBVegas2) 8a"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -7523,7 +7523,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 9A"
+  name: "on(LeavingHUBVegas2) 9a"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -7636,7 +7636,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 10A"
+  name: "on(LeavingHUBVegas2) 10a"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -7749,7 +7749,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Leaving HUB Vegas 11A"
+  name: "on(LeavingHUBVegas2) 12a"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -9266,7 +9266,7 @@ characters {
     GeneralTags: "isPlayer"
     enabled_at_start: true
     pc_spawn_number: 0
-    spawn_type: SpawnType_Matrix
+    spawn_type: SpawnType_Normal
   }
 }
 characters {
@@ -10038,6 +10038,56 @@ characters {
     }
     karma: 77
     hiring_cost_override: 1000
+  }
+}
+characters {
+  name: "system_spawner_playerSpawner"
+  gridPoint {
+    x: -265
+    y: 0
+    z: -101
+  }
+  orientation: ORIENTATION_W
+  GeneralTags: "isPlayer"
+  idRef {
+    id: "558f0d8f3366374021001239"
+  }
+  lod: 0
+  character_instance {
+    character_mod {
+      archetypeName: "Player"
+    }
+    team_id: "Shadowrunners"
+    char_name: "New Actor"
+    GeneralTags: "isPlayer"
+    enabled_at_start: true
+    pc_spawn_number: 0
+    spawn_type: SpawnType_Normal
+  }
+}
+characters {
+  name: "system_spawner_playerSpawner"
+  gridPoint {
+    x: -265
+    y: 0
+    z: -93
+  }
+  orientation: ORIENTATION_W
+  GeneralTags: "isPlayer"
+  idRef {
+    id: "558f0d9a336637402100123a"
+  }
+  lod: 0
+  character_instance {
+    character_mod {
+      archetypeName: "Player"
+    }
+    team_id: "Shadowrunners"
+    char_name: "New Actor"
+    GeneralTags: "isPlayer"
+    enabled_at_start: true
+    pc_spawn_number: 0
+    spawn_type: SpawnType_Normal
   }
 }
 variables {
