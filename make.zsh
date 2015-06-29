@@ -15,11 +15,6 @@ ls -la "${CPAX}"/*
 cp -v src/preview.png SrURP/
 php srurp.php > SrURP/project.cpack.txt
 "${COMPILE}" --cp-build --srcdir "${BASE}/SrURP" \
-	--packPaths "${CPAX}"/shadowrun_core/project.cpack.bytes \
-	--packPaths "${CPAX}"/seattle/project.cpack.bytes \
-	--packPaths "${CPAX}"/dead_man_switch/project.cpack.bytes \
-	--packPaths "${CPAX}"/berlin/project.cpack.bytes \
-	--packPaths "${CPAX}"/DragonfallExtended/project.cpack.bytes \
 	--outdir "${BASE}/90120262336331d02c516479-SrURP" \
 	2>&1 |sed "/compiling: /d;/copying: /d"
 zip -X9vr 51f15c62336331d02c00440e-Shadowrun-Unlimited-rip 51f15c62336331d02c00440e-Shadowrun-Unlimited-rip|sed "/adding: /d"
