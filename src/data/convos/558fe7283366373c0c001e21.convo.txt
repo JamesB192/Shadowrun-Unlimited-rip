@@ -220,7 +220,7 @@ nodes {
               string_value: "bool"
             }
             args {
-              int_value: 0
+              int_value: 1
             }
           }
         }
@@ -392,33 +392,13 @@ nodes {
   text: "TRACKING SYSTEM...."
   branches {
     responseText: ""
-    actions {
-      ops {
-        functionName: "Fade Camera Out"
-        args {
-          float_value: 0.5
-        }
-        args {
-          float_value: 0
-        }
-      }
-      ops {
-        functionName: "Fade Camera In"
-        args {
-          float_value: 0.5
-        }
-        args {
-          float_value: 1
-        }
-      }
-    }
     nextNodeIndex: 2
   }
   nodeType: ConversationNodeType_Simple
 }
 nodes {
   idRef {
-    id: "52a0fef83363315037003df9"
+    id: "52e1f9133363313029005cca"
   }
   index: 2
   text: "ENTERING SYSTEM CODE..."
@@ -431,7 +411,7 @@ nodes {
           call_value {
             functionName: "Get Map Item (Event)"
             args {
-              string_value: "Leaving HUB Vegas"
+              string_value: "Leaving Hub Vegas 2"
             }
           }
         }
@@ -462,14 +442,61 @@ nodes {
   text: "ENTERING SYSTEM CODE..."
   branches {
     responseText: "Travel to system."
-    actions {
+    conditions {
       ops {
-        functionName: "Send Event"
+        functionName: "Comparison (string)"
         args {
           call_value {
-            functionName: "Get Map Item (Event)"
+            functionName: "Get Story Variable (string)"
             args {
-              string_value: "Leaving HUB Vegas"
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Bottling Plant"
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid has identified this system as belonging to the Bottling Plant."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix-bottling plant"
             }
           }
         }
@@ -477,25 +504,265 @@ nodes {
     }
     nextNodeIndex: -1
     hideIfUnavailable: true
+    comment: "bottling plant"
+  }
+  branches {
+    responseText: "Travel to system."
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Generax"
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid has identified this system as belonging to Generax Labs."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix-generax labs"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    comment: "generax"
+  }
+  branches {
+    responseText: "Travel to system."
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "AG Chemie"
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid has identified this system as belonging to AG Chemie."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-telestrian r&d"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    comment: "BAD AG Chemie"
+  }
+  branches {
+    responseText: "Travel to system."
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Telestrian R&D"
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid has identified this system as belonging to Telestrian R&D."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix-telestrian r&d"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    comment: "telestrian"
   }
   nodeType: ConversationNodeType_Simple
 }
 nodes {
   idRef {
-    id: "52a0fe803363315037003df6"
+    id: "52a0fef83363315037003df9"
   }
   index: 5
   text: "ENTERING SYSTEM CODE PERMUTATIONS"
   branches {
     responseText: "Engage."
-    actions {
+    conditions {
       ops {
-        functionName: "Send Event"
+        functionName: "Comparison (int)"
         args {
           call_value {
-            functionName: "Get Map Item (Event)"
+            functionName: "Get Story Variable (int)"
             args {
-              string_value: "Leaving HUB Vegas"
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Random_Matrix_System"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid yielded no results as to the nature of this system."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-bottling plant"
             }
           }
         }
@@ -503,6 +770,469 @@ nodes {
     }
     nextNodeIndex: -1
     hideIfUnavailable: true
+    comment: "1 bottling plant"
+  }
+  branches {
+    responseText: "Engage."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Random_Matrix_System"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid yielded no results as to the nature of this system."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-generax labs"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "2 generax"
+  }
+  branches {
+    responseText: "Engage."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Random_Matrix_System"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid yielded no results as to the nature of this system."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-legal firm"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "3 legal firm"
+  }
+  branches {
+    responseText: "Engage."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Random_Matrix_System"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid yielded no results as to the nature of this system."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-organ grinders"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "4 morgue delstr"
+  }
+  branches {
+    responseText: "Engage."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Random_Matrix_System"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid yielded no results as to the nature of this system."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-private detective"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "5 private detective"
+  }
+  branches {
+    responseText: "Engage."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Random_Matrix_System"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 6
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid yielded no results as to the nature of this system."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-simsense company"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "6 simsense delstr"
+  }
+  branches {
+    responseText: "Engage."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Random_Matrix_System"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 7
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid yielded no results as to the nature of this system."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-telestrian r&d"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "7 telestrian"
+  }
+  branches {
+    responseText: "Engage."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Random_Matrix_System"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 8
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid yielded no results as to the nature of this system."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-unlisted 1"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "8"
   }
   nodeType: ConversationNodeType_Simple
 }
