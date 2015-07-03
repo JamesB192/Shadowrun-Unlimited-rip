@@ -227,7 +227,7 @@ nodes {
   }
   branches {
     responseText: "Asset Management"
-    nextNodeIndex: 9
+    nextNodeIndex: 10
   }
   branches {
     responseText: "{{GM}}Hang up{{/GM}}"
@@ -1841,6 +1841,10 @@ nodes {
     responseText: "Nevermind."
     nextNodeIndex: -1
   }
+  branches {
+    responseText: "Dispelliing: $(story.Custom_Skill-Dispelling)"
+    nextNodeIndex: 9
+  }
   nodeType: ConversationNodeType_Simple
 }
 nodes {
@@ -1850,7 +1854,7 @@ nodes {
   index: 4
   text: "{{GM}}Negotiation{{/GM}}\n\nThis skill will allow you to negotiate larger pay-outs for runs.\n\nRequires an equal level of {{CC}}Charisma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Negotiation)"
   branches {
-    responseText: "Buy level 1 {{GM}}1 Karma{{/GM}}"
+    responseText: "Buy a point of Negotiation"
     conditions {
       ops {
         functionName: "Comparison (int)"
@@ -1872,59 +1876,44 @@ nodes {
               string_value: "Comparison Ops"
             }
             args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
+              int_value: 4
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (int)"
+            functionName: "Get Actor Attribute"
             args {
-              string_value: "BaseOrCurrent"
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
             }
             args {
-              int_value: 0
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 3
+                }
+              }
             }
           }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
         }
       }
       ops {
@@ -1954,13 +1943,21 @@ nodes {
           }
         }
         args {
-          int_value: 1
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Negotiation"
+            }
+          }
         }
       }
     }
     actions {
       ops {
-        functionName: "Set Variable (int)"
+        functionName: "Add To Variable (int)"
         args {
           call_value {
             functionName: "Get Story Variable (int)"
@@ -1994,1366 +1991,34 @@ nodes {
           }
         }
         args {
-          int_value: -1
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 2 {{GM}}2 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
           call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
+            functionName: "Arithmetic (int)"
             args {
               int_value: 0
             }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
             args {
               call_value {
-                functionName: "Get Map Item (Player)"
+                functionName: "Get Preset Value (int)"
                 args {
-                  int_value: 0
+                  string_value: "Arithmetic Ops"
                 }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
                 args {
-                  int_value: 0
+                  int_value: 1
                 }
               }
             }
             args {
-            }
-          }
-        }
-        args {
-          int_value: -2
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 3 {{GM}}3 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
               call_value {
-                functionName: "Get Map Item (Player)"
+                functionName: "Get Story Variable (int)"
                 args {
-                  int_value: 0
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Custom_Skill-Negotiation"
                 }
               }
             }
           }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 4 {{GM}}4 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -4
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 5 {{GM}}5 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -5
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 6 {{GM}}6 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -6
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 7 {{GM}}7 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -7
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 8 {{GM}}8 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -8
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 9 {{GM}}9 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -9
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 10 {{GM}}10 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Negotiation"
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -10
         }
       }
     }
@@ -3372,7 +2037,7 @@ nodes {
   index: 5
   text: "{{GM}}Lockpicking{{/GM}}\n\nThis skill will allow you to bypass tumbler-locked doors.\n\nRequires an equal level of {{CC}}Quickness{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Lockpicking)"
   branches {
-    responseText: "Buy level 1 {{GM}}1 Karma{{/GM}}"
+    responseText: "Buy a point of Lockpicking"
     conditions {
       ops {
         functionName: "Comparison (int)"
@@ -3394,59 +2059,44 @@ nodes {
               string_value: "Comparison Ops"
             }
             args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
+              int_value: 4
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (int)"
+            functionName: "Get Actor Attribute"
             args {
-              string_value: "BaseOrCurrent"
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
             }
             args {
-              int_value: 0
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 1
+                }
+              }
             }
           }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
         }
       }
       ops {
@@ -3476,13 +2126,21 @@ nodes {
           }
         }
         args {
-          int_value: 1
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Lockpicking"
+            }
+          }
         }
       }
     }
     actions {
       ops {
-        functionName: "Set Variable (int)"
+        functionName: "Add To Variable (int)"
         args {
           call_value {
             functionName: "Get Story Variable (int)"
@@ -3516,1366 +2174,34 @@ nodes {
           }
         }
         args {
-          int_value: -1
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 2 {{GM}}2 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
           call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
+            functionName: "Arithmetic (int)"
             args {
               int_value: 0
             }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
             args {
               call_value {
-                functionName: "Get Map Item (Player)"
+                functionName: "Get Preset Value (int)"
                 args {
-                  int_value: 0
+                  string_value: "Arithmetic Ops"
                 }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
                 args {
-                  int_value: 0
+                  int_value: 1
                 }
               }
             }
             args {
-            }
-          }
-        }
-        args {
-          int_value: -2
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 3 {{GM}}3 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
               call_value {
-                functionName: "Get Map Item (Player)"
+                functionName: "Get Story Variable (int)"
                 args {
-                  int_value: 0
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Custom_Skill-Lockpicking"
                 }
               }
             }
           }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -3
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 4 {{GM}}4 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -4
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 5 {{GM}}5 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -5
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 6 {{GM}}6 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -6
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 7 {{GM}}7 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -7
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 8 {{GM}}8 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -8
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 9 {{GM}}9 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -9
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 10 {{GM}}10 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Lockpicking"
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -10
         }
       }
     }
@@ -4894,7 +2220,7 @@ nodes {
   index: 6
   text: "{{GM}}Electronics{{/GM}}\n\nThis skill is used to rewire or repair electronics. Primarily used to bypass MagLocked doors.\n\nRequires an equal level of {{CC}}Intelligence{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Electronics)"
   branches {
-    responseText: "Buy level 1 {{GM}}1 Karma{{/GM}}"
+    responseText: "Buy a point of Electronics"
     conditions {
       ops {
         functionName: "Comparison (int)"
@@ -4916,59 +2242,44 @@ nodes {
               string_value: "Comparison Ops"
             }
             args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
               int_value: 4
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (int)"
+            functionName: "Get Actor Attribute"
             args {
-              string_value: "Comparison Ops"
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
             }
             args {
-              int_value: 3
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 4
+                }
+              }
             }
           }
-        }
-        args {
-          int_value: 1
         }
       }
       ops {
@@ -4998,13 +2309,21 @@ nodes {
           }
         }
         args {
-          int_value: 1
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Electronics"
+            }
+          }
         }
       }
     }
     actions {
       ops {
-        functionName: "Set Variable (int)"
+        functionName: "Add To Variable (int)"
         args {
           call_value {
             functionName: "Get Story Variable (int)"
@@ -5038,1366 +2357,34 @@ nodes {
           }
         }
         args {
-          int_value: -1
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 2 {{GM}}2 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
           call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
+            functionName: "Arithmetic (int)"
             args {
               int_value: 0
             }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
             args {
               call_value {
-                functionName: "Get Map Item (Player)"
+                functionName: "Get Preset Value (int)"
                 args {
-                  int_value: 0
+                  string_value: "Arithmetic Ops"
                 }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
                 args {
-                  int_value: 0
+                  int_value: 1
                 }
               }
             }
             args {
-            }
-          }
-        }
-        args {
-          int_value: -2
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 3 {{GM}}3 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
               call_value {
-                functionName: "Get Map Item (Player)"
+                functionName: "Get Story Variable (int)"
                 args {
-                  int_value: 0
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Custom_Skill-Electronics"
                 }
               }
             }
           }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 4 {{GM}}4 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -4
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 5 {{GM}}5 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -5
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 6 {{GM}}6 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -6
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 7 {{GM}}7 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -7
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 8 {{GM}}8 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -8
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 9 {{GM}}9 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -9
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 10 {{GM}}10 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Electronics"
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -10
         }
       }
     }
@@ -6416,7 +2403,7 @@ nodes {
   index: 7
   text: "{{GM}}Fast Talking{{/GM}}\n\nThis skill is used to lie convincingly. Primarily used to bypass guards and civilians non-violently.\n\nRequires an equal level of {{CC}}Charisma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Fast_Talking)"
   branches {
-    responseText: "Buy level 1 {{GM}}1 Karma{{/GM}}"
+    responseText: "Buy a point of Fast-talk"
     conditions {
       ops {
         functionName: "Comparison (int)"
@@ -6438,59 +2425,44 @@ nodes {
               string_value: "Comparison Ops"
             }
             args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
+              int_value: 4
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (int)"
+            functionName: "Get Actor Attribute"
             args {
-              string_value: "BaseOrCurrent"
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
             }
             args {
-              int_value: 0
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 3
+                }
+              }
             }
           }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
         }
       }
       ops {
@@ -6520,13 +2492,21 @@ nodes {
           }
         }
         args {
-          int_value: 1
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Fast_Talking"
+            }
+          }
         }
       }
     }
     actions {
       ops {
-        functionName: "Set Variable (int)"
+        functionName: "Add To Variable (int)"
         args {
           call_value {
             functionName: "Get Story Variable (int)"
@@ -6560,1366 +2540,34 @@ nodes {
           }
         }
         args {
-          int_value: -1
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 2 {{GM}}2 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
           call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
+            functionName: "Arithmetic (int)"
             args {
               int_value: 0
             }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
             args {
               call_value {
-                functionName: "Get Map Item (Player)"
+                functionName: "Get Preset Value (int)"
                 args {
-                  int_value: 0
+                  string_value: "Arithmetic Ops"
                 }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
                 args {
-                  int_value: 0
+                  int_value: 1
                 }
               }
             }
             args {
-            }
-          }
-        }
-        args {
-          int_value: -2
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 3 {{GM}}3 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
               call_value {
-                functionName: "Get Map Item (Player)"
+                functionName: "Get Story Variable (int)"
                 args {
-                  int_value: 0
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Custom_Skill-Fast_Talking"
                 }
               }
             }
           }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 4 {{GM}}4 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -4
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 5 {{GM}}5 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -5
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 6 {{GM}}6 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -6
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 7 {{GM}}7 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -7
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 8 {{GM}}8 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -8
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 9 {{GM}}9 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -9
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 10 {{GM}}10 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Fast_Talking"
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -10
         }
       }
     }
@@ -7936,9 +2584,9 @@ nodes {
     id: "5442e77a363735140a006f81"
   }
   index: 8
-  text: "{{GM}}Stealth{{/GM}}\n\nThis skill is used to sneak by guards who might otherwise hear you.\n\nRequires an equal level of {{CC}}Quickness{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Stealth)"
+  text: "{{GM}}Stealth{{/GM}}\n\nThis skill is used to sneak by guards who might otherwise hear you.\n\nRequires an equal level of {{CC}}Quickness{{/CC}} and {{CC}}Karma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Stealth)"
   branches {
-    responseText: "Buy level 1 {{GM}}1 Karma{{/GM}}"
+    responseText: "Buy a point of Stealth"
     conditions {
       ops {
         functionName: "Comparison (int)"
@@ -7960,59 +2608,44 @@ nodes {
               string_value: "Comparison Ops"
             }
             args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
+              int_value: 4
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (int)"
+            functionName: "Get Actor Attribute"
             args {
-              string_value: "BaseOrCurrent"
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
             }
             args {
-              int_value: 0
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 1
+                }
+              }
             }
           }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
         }
       }
       ops {
@@ -8042,13 +2675,21 @@ nodes {
           }
         }
         args {
-          int_value: 1
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Stealth"
+            }
+          }
         }
       }
     }
     actions {
       ops {
-        functionName: "Set Variable (int)"
+        functionName: "Add To Variable (int)"
         args {
           call_value {
             functionName: "Get Story Variable (int)"
@@ -8082,1366 +2723,34 @@ nodes {
           }
         }
         args {
-          int_value: -1
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 2 {{GM}}2 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
           call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
+            functionName: "Arithmetic (int)"
             args {
               int_value: 0
             }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
             args {
               call_value {
-                functionName: "Get Map Item (Player)"
+                functionName: "Get Preset Value (int)"
                 args {
-                  int_value: 0
+                  string_value: "Arithmetic Ops"
                 }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
                 args {
-                  int_value: 0
+                  int_value: 1
                 }
               }
             }
             args {
-            }
-          }
-        }
-        args {
-          int_value: -2
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 3 {{GM}}3 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
               call_value {
-                functionName: "Get Map Item (Player)"
+                functionName: "Get Story Variable (int)"
                 args {
-                  int_value: 0
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Custom_Skill-Stealth"
                 }
               }
             }
           }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 4 {{GM}}4 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -4
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 5 {{GM}}5 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -5
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 6 {{GM}}6 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -6
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 7 {{GM}}7 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -7
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 8 {{GM}}8 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -8
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 9 {{GM}}9 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -9
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Buy level 10 {{GM}}10 Karma{{/GM}}"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Get Map Item (Player)"
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Actor Unspent Karma"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Custom_Skill-Stealth"
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-      ops {
-        functionName: "Add Actor Karma"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          int_value: -10
         }
       }
     }
@@ -9452,12 +2761,284 @@ nodes {
     nextNodeIndex: -1
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "No Effect"
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "559672b8336637c8150085e0"
+  }
+  index: 9
+  text: "{{GM}}Dispelling{{/GM}}\n\nThis skill is used to unravel magical barriers.\n\nRequires an equal level of {{CC}}Willpower{{/CC}} and {{CC}}Karma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Dispelling)"
+  branches {
+    responseText: "Buy a point of Dispelling"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Dispelling"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Actor Skill"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorSkills"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Actor Unspent Karma"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Dispelling"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Actor Attribute"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 5
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Actor Skill"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorSkills"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Dispelling"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Add Actor Karma"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 0
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Custom_Skill-Dispelling"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Nevermind"
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
 }
 nodes {
   idRef {
     id: "5589c5146466321815003a2f"
   }
-  index: 9
+  index: 10
   text: ""
   branches {
     responseText: "Discard commlimk {{GM}}Dangerous{{/GM}}"
@@ -9497,7 +3078,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 10
+    nextNodeIndex: 11
   }
   branches {
     responseText: "Enable Augmented Reality overlay"
@@ -9768,7 +3349,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     hideIfUnavailable: true
   }
   branches {
@@ -9792,7 +3373,7 @@ nodes {
   idRef {
     id: "5589c58f6466321815003b16"
   }
-  index: 10
+  index: 11
   text: "Discarding the commlink is a bad idea type Discard into the field below to do it."
   branches {
     responseText: "Discard"
@@ -9850,7 +3431,7 @@ nodes {
   idRef {
     id: "557d399e646632940c0008a9"
   }
-  index: 11
+  index: 12
   text: "cyberdeck file cull v0.1-alpha1\nMMLIII Micodeck Inc.\nRedmond, UCAS"
   branches {
     responseText: "{{GM}}Do something else.{{/GM}}"
