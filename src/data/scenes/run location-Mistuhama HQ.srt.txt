@@ -273,271 +273,6 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Description_Downtown"
-  events {
-    ops {
-      functionName: "On Region Enter"
-      args {
-        call_value {
-          functionName: "Get Map Item (Region)"
-          args {
-            string_value: "520d25083363313c1900ea20"
-          }
-        }
-      }
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Display Text over Prop"
-      args {
-        call_value {
-          functionName: "Get Map Item (Prop)"
-          args {
-            string_value: "520d219f336331a836007b8f"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TextPopupStyle"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        string_value: "Downtown"
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 3
-      }
-      args {
-        float_value: 3
-      }
-      args {
-        float_value: 0
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "520983b43363315c24007419"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Downtown Travel"
-  events {
-    ops {
-      functionName: "On Item Interaction"
-      args {
-        call_value {
-          functionName: "Get Map Item (InteractableObject)"
-          args {
-            string_value: "520d219f336331a836007b8f"
-          }
-        }
-      }
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Evaluate Turn Mode"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TurnBasedOrFreeMove"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Comparison (Actor)"
-      args {
-        call_value {
-          functionName: "Triggering Actor"
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Travel"
-          }
-        }
-      }
-      args {
-        int_value: 21
-      }
-    }
-    ops {
-      functionName: "Open Scene"
-      args {
-        call_value {
-          functionName: "Get Map Item (Scene)"
-          args {
-            string_value: "Puyullup Barrens"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "520943993363315c240073fd"
-  }
-  elseActions {
-  }
-  is_oneshot: false
-}
-triggers {
-  name: "Club Travel"
-  events {
-    ops {
-      functionName: "On Item Interaction"
-      args {
-        call_value {
-          functionName: "Get Map Item (InteractableObject)"
-          args {
-            string_value: "399995113363315801000f75"
-          }
-        }
-      }
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Evaluate Turn Mode"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TurnBasedOrFreeMove"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Comparison (Actor)"
-      args {
-        call_value {
-          functionName: "Triggering Actor"
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Travel"
-          }
-        }
-      }
-      args {
-        int_value: 3
-      }
-    }
-    ops {
-      functionName: "Open Scene"
-      args {
-        call_value {
-          functionName: "Get Map Item (Scene)"
-          args {
-            string_value: "Underground 93"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "399994d83363315801000f72"
-  }
-  elseActions {
-  }
-  is_oneshot: false
-}
-triggers {
   name: "SunRise(1)"
   events {
     ops {
@@ -7005,11 +6740,924 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "enter(CameraBind)"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55817b7b6466325409000fdf"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Current_Floor"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "559730b33366379800000a14"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "enter(Section2)"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55817bb86466325409000fe0"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Current_Floor"
+          }
+        }
+      }
+      args {
+        int_value: 2
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55972fd83366379800000a0c"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "enter(Section3)"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55817bf86466325409000fe1"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Current_Floor"
+          }
+        }
+      }
+      args {
+        int_value: 3
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5597300f3366379800000a0d"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "enter(Section4)"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55817e096466325409000fe5"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Current_Floor"
+          }
+        }
+      }
+      args {
+        int_value: 4
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "559730143366379800000a0e"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "enter(Section5)"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55817b336466325409000fde"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Current_Floor"
+          }
+        }
+      }
+      args {
+        int_value: 5
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "559730143366379800000a0f"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "enter(Section6)"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55817c046466325409000fe2"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Current_Floor"
+          }
+        }
+      }
+      args {
+        int_value: 6
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "559730183366379800000a10"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "enter(Section7)"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55817dfe6466325409000fe4"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Current_Floor"
+          }
+        }
+      }
+      args {
+        int_value: 7
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "559730183366379800000a11"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "enter(Section8)"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55817e176466325409000fe6"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Current_Floor"
+          }
+        }
+      }
+      args {
+        int_value: 8
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "559730183366379800000a12"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "enter(Section9)"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "55817c6c6466325409000fe3"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Current_Floor"
+          }
+        }
+      }
+      args {
+        int_value: 9
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "559730183366379800000a13"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Door Exit"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5596f95e336637480a0015ab"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Travel"
+          }
+        }
+      }
+      args {
+        int_value: -908
+      }
+    }
+    ops {
+      functionName: "Open Scene"
+      args {
+        call_value {
+          functionName: "Get Map Item (Scene)"
+          args {
+            string_value: "northcity"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5596fc18336637480a0015b4"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Tunnel Exit"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "55805e286466324c18007fc2"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Travel"
+          }
+        }
+      }
+      args {
+        int_value: -900
+      }
+    }
+    ops {
+      functionName: "Open Scene"
+      args {
+        call_value {
+          functionName: "Get Map Item (Scene)"
+          args {
+            string_value: "northcity"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5596fc20336637480a0015b5"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Ramp Exit"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5596f9b0336637480a0015ac"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Travel"
+          }
+        }
+      }
+      args {
+        int_value: -907
+      }
+    }
+    ops {
+      functionName: "Open Scene"
+      args {
+        call_value {
+          functionName: "Get Map Item (Scene)"
+          args {
+            string_value: "northcity"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5596fc2c336637480a0015b6"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Helecopter Exit"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5596fbd0336637480a0015b3"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Travel"
+          }
+        }
+      }
+      args {
+        int_value: -906
+      }
+    }
+    ops {
+      functionName: "Open Scene"
+      args {
+        call_value {
+          functionName: "Get Map Item (Scene)"
+          args {
+            string_value: "the docks3"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "520943993363315c240073fd"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Left Elevator"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "54017936316235c808000aaa"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5411479f316235b81f00356e"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5411ebb831623594120007ba"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "559719543366379800000915"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55971c893366379800000941"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Right Elevator"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5581780c6466325409000fc3"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "558177596466325409000fc1"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "54095e303162355807002f59"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "559719983366379800000925"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55971c8c3366379800000942"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Building Lighting hot"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "SunRising"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Ambient Light Color"
+      args {
+        float_value: 0.45
+      }
+      args {
+        float_value: 0.55
+      }
+      args {
+        float_value: 0.6
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55972ead3366379800000a0b"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Directional Light Color"
+      args {
+        float_value: 0.75
+      }
+      args {
+        float_value: 0.9
+      }
+      args {
+        float_value: 0.9
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: -0.6
+      }
+      args {
+        float_value: -1.1
+      }
+      args {
+        float_value: -0.8
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55972ead3366379800000a0b"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "559728fb3366379800000a09"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Building Lighting cold"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "NightFall"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Ambient Light Color"
+      args {
+        float_value: 0.1
+      }
+      args {
+        float_value: 0.15
+      }
+      args {
+        float_value: 0.2
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55972ead3366379800000a0b"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Directional Light Color"
+      args {
+        float_value: 0.35
+      }
+      args {
+        float_value: 0.4
+      }
+      args {
+        float_value: 0.4
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: -0.6
+      }
+      args {
+        float_value: -0.8
+      }
+      args {
+        float_value: -0.4
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55972ead3366379800000a0b"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55972add3366379800000a0a"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "region Chunnel"
   position {
-    x: 66
-    y: -22
+    x: 44
+    y: -98
     width: 44
     height: -11
   }
@@ -7052,7 +7700,7 @@ regions {
   no_fow_in_region: false
 }
 regions {
-  name: "New Region"
+  name: "Section 5"
   position {
     x: -24
     y: 1
@@ -7100,8 +7748,8 @@ regions {
 regions {
   name: "CameraBind"
   position {
-    x: 44
-    y: -70
+    x: 22
+    y: -146
     width: -42
     height: 41
   }
@@ -7144,7 +7792,7 @@ regions {
   no_fow_in_region: false
 }
 regions {
-  name: "New Region"
+  name: "Section 2"
   position {
     x: 7
     y: -8
@@ -7190,7 +7838,7 @@ regions {
   no_fow_in_region: false
 }
 regions {
-  name: "New Region"
+  name: "Section 3"
   position {
     x: 9
     y: 85
@@ -7236,7 +7884,7 @@ regions {
   no_fow_in_region: false
 }
 regions {
-  name: "New Region"
+  name: "Section 6"
   position {
     x: -70
     y: 82
@@ -7282,7 +7930,7 @@ regions {
   no_fow_in_region: false
 }
 regions {
-  name: "New Region"
+  name: "Section 9"
   position {
     x: -102
     y: 125
@@ -7328,7 +7976,7 @@ regions {
   no_fow_in_region: false
 }
 regions {
-  name: "New Region"
+  name: "Section 7"
   position {
     x: -115
     y: -61
@@ -7374,7 +8022,7 @@ regions {
   no_fow_in_region: false
 }
 regions {
-  name: "New Region"
+  name: "Section 4"
   position {
     x: -52
     y: -54
@@ -7420,7 +8068,7 @@ regions {
   no_fow_in_region: false
 }
 regions {
-  name: "New Region"
+  name: "Section 8"
   position {
     x: -135
     y: 6
@@ -7465,12 +8113,58 @@ regions {
   loop_default_music: false
   no_fow_in_region: false
 }
+regions {
+  name: "Inside"
+  position {
+    x: -130
+    y: -85
+    width: 208
+    height: 224
+  }
+  enabledAtStart: true
+  is_camera_region: true
+  idRef {
+    id: "55972ead3366379800000a0b"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  ambient_light_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+}
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
-    x: 103
+    x: 81
     y: 0
-    z: -28
+    z: -104
   }
   orientation: ORIENTATION_N
   idRef {
@@ -7490,9 +8184,9 @@ characters {
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
-    x: 104
+    x: 82
     y: 0
-    z: -28
+    z: -104
   }
   orientation: ORIENTATION_N
   idRef {
@@ -7512,9 +8206,9 @@ characters {
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
-    x: 102
+    x: 80
     y: 0
-    z: -28
+    z: -104
   }
   orientation: ORIENTATION_N
   idRef {
@@ -7534,9 +8228,9 @@ characters {
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
-    x: 105
+    x: 83
     y: 0
-    z: -28
+    z: -104
   }
   orientation: ORIENTATION_N
   idRef {
@@ -7553,8 +8247,17 @@ characters {
     pc_spawn_number: 3
   }
 }
+variables {
+  int_value: 0
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "Current_Floor"
+    typeName: "int"
+  }
+}
 mapEvents: "SunRising"
 mapEvents: "NightFall"
+mapEvents: "insert"
 worldMapLocation {
   filename: ""
   location {

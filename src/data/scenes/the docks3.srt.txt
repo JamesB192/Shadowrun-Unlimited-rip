@@ -15662,6 +15662,61 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Redmond Travel"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "51f52278336331ec1a004536"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f169b733633124330018bf"
+          }
+          args {
+            string_value: "Travel"
+          }
+        }
+      }
+      args {
+        int_value: 906
+      }
+    }
+    ops {
+      functionName: "Open Scene"
+      args {
+        call_value {
+          functionName: "Get Map Item (Scene)"
+          args {
+            string_value: "run location-Mistuhama HQ"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "559702613366379800000905"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "Redmond Travel"
   position {
