@@ -7,9 +7,9 @@ nodes {
     id: "537444f3336331cc1c001567"
   }
   index: 0
-  text: "{{GM}}Elevator Controls{{/GM}}\n\nWhich Floor"
+  text: "{{GM}}Executive Elevator Controls{{/GM}}\n\nWhich Floor"
   branches {
-    responseText: " B - Garage"
+    responseText: " P - Penthouse"
     conditions {
       ops {
         functionName: "Comparison (int)"
@@ -33,7 +33,128 @@ nodes {
           }
         }
         args {
-          int_value: 2
+          int_value: 4
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Teleport Actor"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5411479f316235b81f00356e"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "Current_Floor"
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
+    nextNodeIndex: -1
+    comment: "4"
+  }
+  branches {
+    responseText: " R - Roof"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "Current_Floor"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          int_value: 8
         }
       }
     }
@@ -49,7 +170,7 @@ nodes {
           }
         }
         args {
-          int_value: 2
+          int_value: 8
         }
       }
       ops {
@@ -96,7 +217,7 @@ nodes {
               call_value {
                 functionName: "Get Map Item (Prop)"
                 args {
-                  string_value: "54017936316235c808000aaa"
+                  string_value: "559894cd336637d8150013c1"
                 }
               }
             }
@@ -127,7 +248,7 @@ nodes {
       }
     }
     nextNodeIndex: -1
-    comment: "2"
+    comment: "1"
   }
   branches {
     responseText: "UM - Upper Management"
@@ -217,7 +338,7 @@ nodes {
               call_value {
                 functionName: "Get Map Item (Prop)"
                 args {
-                  string_value: "5409033b316235341a0060ae"
+                  string_value: "55989550336637d8150013c5"
                 }
               }
             }
@@ -230,7 +351,7 @@ nodes {
               string_value: "FacingDirection"
             }
             args {
-              int_value: 3
+              int_value: 5
             }
           }
         }
@@ -251,7 +372,7 @@ nodes {
     comment: "8"
   }
   branches {
-    responseText: " P - Penthouse"
+    responseText: " B - Garage"
     conditions {
       ops {
         functionName: "Comparison (int)"
@@ -275,128 +396,7 @@ nodes {
           }
         }
         args {
-          int_value: 4
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Teleport Actor"
-        args {
-          call_value {
-            functionName: "All Actors on Team"
-            args {
-              call_value {
-                functionName: "Get Preset Value (string)"
-                args {
-                  string_value: "FactionList"
-                }
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "AllOrAny"
-                }
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Map Item (SceneDimension)"
-                args {
-                  string_value: "Default"
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Current Location of Prop"
-            args {
-              call_value {
-                functionName: "Get Map Item (Prop)"
-                args {
-                  string_value: "5411479f316235b81f00356e"
-                }
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "FacingDirection"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "TeleportMethod"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "Current_Floor"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    nextNodeIndex: -1
-    comment: "4"
-  }
-  branches {
-    responseText: " R - Roof"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "Current_Floor"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          int_value: 1
+          int_value: 2
         }
       }
     }
@@ -412,7 +412,7 @@ nodes {
           }
         }
         args {
-          int_value: 1
+          int_value: 2
         }
       }
       ops {
@@ -459,7 +459,7 @@ nodes {
               call_value {
                 functionName: "Get Map Item (Prop)"
                 args {
-                  string_value: "5411ebb831623594120007ba"
+                  string_value: "55989499336637d8150013bf"
                 }
               }
             }
@@ -472,7 +472,7 @@ nodes {
               string_value: "FacingDirection"
             }
             args {
-              int_value: 3
+              int_value: 5
             }
           }
         }
@@ -490,7 +490,7 @@ nodes {
       }
     }
     nextNodeIndex: -1
-    comment: "1"
+    comment: "2"
   }
   nodeType: ConversationNodeType_Simple
 }
