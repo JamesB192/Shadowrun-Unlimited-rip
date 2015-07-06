@@ -7,10 +7,11 @@ $oldwords=[
  "Aardvark"
 ,"Abrupt"
 ,"Abstract"
+,"Accordian"
 ];
 
 $word=["",
- "Accordian"
+ "Acerbic"
 ,"Adamany"
 ,"Aevil"
 ,"Affluent"
@@ -24,6 +25,6 @@ $today = getdate();
  /* 2015f June 15 z2005 -- Abstract */
 
 
-printf("%04u%s z%02u%02u -- %s", $today["year"], $letter[$today["mon"]], $today["hours"], $today["minutes"], $word[1]);
+printf("%04u%s %s %02u z%02u%02u -o++o- %s", $today["year"], $letter[$today["mon"]], $today["month"], $today["mday"], $today["hours"], $today["minutes"], $word[1]);
 
 ?>
