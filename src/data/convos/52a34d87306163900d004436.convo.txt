@@ -50,10 +50,44 @@ nodes {
       }
     }
     nextNodeIndex: 2
+    hideIfUnavailable: true
   }
   branches {
     responseText: "It\'s the tree or us lady!"
     nextNodeIndex: 3
+  }
+  branches {
+    responseText: "Isn\'t the tree big enough yet?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "TreeMagic"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 50
+        }
+      }
+    }
+    nextNodeIndex: 3
+    hideIfUnavailable: true
+    auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -85,7 +119,7 @@ nodes {
     id: "52a358d7306163900d0044cf"
   }
   index: 4
-  text: "Oh right!  Let me ask the tree!\n\n{{GM}}She gets a far off look in her eyes{{/GM}}.\n\nGee, this tree is kind of cheap, she says I should pay you $(story.Pay) Yen."
+  text: "Oh right!  Let me ask the tree!\n\n{{GM}}She gets a far off look in her eyes{{/GM}}.\n\nGee, this tree is kind of cheap, she says I should pay you $(story.Pay) nuyen."
   branches {
     responseText: "I guess there\'s no point negotiating with a tree. Let\'s go."
     actions {
@@ -140,6 +174,23 @@ nodes {
               int_value: 1
             }
           }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Travel"
+            }
+          }
+        }
+        args {
+          int_value: 15
         }
       }
     }
