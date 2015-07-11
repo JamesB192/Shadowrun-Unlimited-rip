@@ -1,13 +1,13 @@
 idRef {
   id: "5585e35e646632c00f000faf"
 }
-ui_name: "PayData-0_Start"
+ui_name: "Run-Matrix PayData"
 nodes {
   idRef {
     id: "55834d7a646632342000536c"
   }
   index: 0
-  text: "You can not have more than six PayData files in storage"
+  text: "You can not have more than eight PayData files in storage"
   branches {
     responseText: "My bad."
     nextNodeIndex: -1
@@ -3062,6 +3062,71 @@ nodes {
   index: 4
   text: "PayData acquired."
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Screen Label Progress Bar (int)"
+      args {
+        string_value: "storage capacity"
+      }
+      args {
+        call_value {
+          functionName: "Append (string)"
+          args {
+            string_value: "of 8"
+          }
+          args {
+            call_value {
+              functionName: "Append (string)"
+              args {
+                call_value {
+                  functionName: "Convert (int) to (string)"
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Deck_Storage_FileCount"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                string_value: "storage capacity: "
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Deck_Storage_Used"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Deck_Total_Storage"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "No Effect"
+    }
+  }
 }
 nodes {
   idRef {
@@ -16508,7 +16573,7 @@ roots {
         }
       }
       args {
-        int_value: 6
+        int_value: 8
       }
     }
   }
@@ -16680,7 +16745,7 @@ roots {
         }
       }
       args {
-        int_value: 6
+        int_value: 8
       }
     }
   }
