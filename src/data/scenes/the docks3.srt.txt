@@ -125,7 +125,10 @@ triggers {
   name: "Wetwork_Description"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -253,6 +256,28 @@ triggers {
         int_value: 1
       }
     }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "51f8396a3363316838000c2b"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -266,7 +291,10 @@ triggers {
   name: "Cleaning_Description"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -394,6 +422,28 @@ triggers {
         int_value: 2
       }
     }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "51f51e32336331ec1a00450d"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -407,7 +457,10 @@ triggers {
   name: "Courier_Description"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
@@ -759,13 +812,13 @@ triggers {
       }
     }
   }
-  isActive: true
+  isActive: false
   idRef {
     id: "51f8396a3363316838000c2b"
   }
   elseActions {
   }
-  is_oneshot: false
+  is_oneshot: true
 }
 triggers {
   name: "Cleaning_Success"
@@ -981,13 +1034,13 @@ triggers {
       }
     }
   }
-  isActive: true
+  isActive: false
   idRef {
     id: "51f51e32336331ec1a00450d"
   }
   elseActions {
   }
-  is_oneshot: false
+  is_oneshot: true
 }
 triggers {
   name: "PickUp_Success"
@@ -1127,7 +1180,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: false
+  is_oneshot: true
 }
 triggers {
   name: "Redmond Travel"
@@ -2086,95 +2139,13 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Waypoint_10"
-  events {
-    ops {
-      functionName: "On New Round"
-      args {
-        call_value {
-          functionName: "Get Map Item (SceneDimension)"
-          args {
-            string_value: "Default"
-          }
-        }
-      }
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (bool)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (bool)"
-          args {
-            string_value: "51f169b733633124330018bf"
-          }
-          args {
-            string_value: "RunSuccess"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Set Waypoint on Prop"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "PrimaryOrSecondary"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Prop)"
-          args {
-            string_value: "51f52278336331ec1a004536"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "51fa65da336331dc47002533"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
   name: "Universal_Startup"
   events {
     ops {
-      functionName: "On Map Start"
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "populate-runs"
+      }
     }
   }
   conditions {
