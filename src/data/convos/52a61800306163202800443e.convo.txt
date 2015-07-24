@@ -319,7 +319,7 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
-    responseText: "{{CC}}Negotiation{{/CC}}\n\n{{GM}}You haggle with Arbor{{/GM}}\n\nDeal."
+    responseText: "{{CC}}Negotiation{{/CC}}\n{{GM}}You haggle with Arbor{{/GM}}\nI think you can afford a little more."
     actions {
       ops {
         functionName: "Set Variable (bool)"
@@ -613,9 +613,9 @@ nodes {
     id: "52a621df3363311c1d003b7a"
   }
   index: 9
-  text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
+  text: "I can go as high as $(story.Pay) nuyen."
   branches {
-    responseText: ""
+    responseText: "Deal"
     actions {
       ops {
         functionName: "Set Variable (int)"
@@ -632,6 +632,64 @@ nodes {
         }
         args {
           int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 8
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Sorry, not interested."
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Information"
+            }
+          }
+        }
+        args {
+          string_value: ""
+        }
+      }
+      ops {
+        functionName: "Set Screen Label"
+        args {
+          string_value: "Journal"
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "text"
+            }
+            args {
+              string_value: "Information"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Story_Mission"
+            }
+          }
+        }
+        args {
+          int_value: 0
         }
       }
     }
