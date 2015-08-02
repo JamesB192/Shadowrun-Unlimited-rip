@@ -36029,135 +36029,6 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Access IC (SAN)"
-  events {
-    ops {
-      functionName: "On Item Interaction"
-      args {
-        call_value {
-          functionName: "Get Map Item (InteractableObject)"
-          args {
-            string_value: "542aa2c03637353896003947"
-          }
-        }
-      }
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Set Variable (string)"
-      args {
-        call_value {
-          functionName: "Get Variable (string)"
-          args {
-            string_value: "AccessIC"
-          }
-        }
-      }
-      args {
-        string_value: "SAN"
-      }
-    }
-    ops {
-      functionName: "Set Variable (string)"
-      args {
-        call_value {
-          functionName: "Get Variable (string)"
-          args {
-            string_value: "Access_Node"
-          }
-        }
-      }
-      args {
-        string_value: "SAN"
-      }
-    }
-    ops {
-      functionName: "Set Variable (string)"
-      args {
-        call_value {
-          functionName: "Get Variable (string)"
-          args {
-            string_value: "IC_Location"
-          }
-        }
-      }
-      args {
-        string_value: "SAN"
-      }
-    }
-    ops {
-      functionName: "Set Variable (string)"
-      args {
-        call_value {
-          functionName: "Get Variable (string)"
-          args {
-            string_value: "AccessNodeName"
-          }
-        }
-      }
-      args {
-        string_value: "SYSTEM ACCESS NODE\n\nACCESS IC is barring your entry into the system."
-      }
-    }
-    ops {
-      functionName: "Start Conversation"
-      args {
-        call_value {
-          functionName: "Get Map Item (Conversation)"
-          args {
-            string_value: "52d9e4983363314c21000990"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Last Created Persona"
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Teleport Camera To Actor"
-      args {
-        call_value {
-          functionName: "Active Actor"
-        }
-      }
-    }
-    ops {
-      functionName: "Send Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Matrix Test"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "543efc9c363735ec18006895"
-  }
-  elseActions {
-  }
-  is_oneshot: false
-}
-triggers {
   name: "Access IC (CPU)"
   events {
     ops {
@@ -41894,6 +41765,124 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Commlink"
+  events {
+    ops {
+      functionName: "On Actor Clicked"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "comm-offRoad"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "comm-jammed"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "520caeef3363313423007e8a"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "520caeb93363313423007e89"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Camera (1)"
   position {
@@ -44624,9 +44613,9 @@ regions {
   name: "IOP 2"
   position {
     x: -108
-    y: -98
+    y: -102
     width: 12
-    height: 12
+    height: 16
   }
   enabledAtStart: true
   is_camera_region: true
@@ -48588,100 +48577,6 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -291.5
-    y: 0
-    z: -135
-  }
-  orientation: ORIENTATION_W
-  GeneralTags: "Barrier"
-  GeneralTags: "Sentry"
-  GeneralTags: "Burner"
-  GeneralTags: "B3"
-  displayName: "Barrier/Sentry IC 1"
-  idRef {
-    id: "54405f1d3637351008004e88"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Matrix/SpiritESPShield"
-    character_sheet_id: "IC_Lv1_White_Melee"
-    character_mod {
-      stats {
-        body: -1
-        quickness: 0
-        strength: -1
-        charisma: -3
-        intelligence: -1
-        willpower: -2
-        essence: 0
-        magic: 0
-        hp: 440
-        ap: -2
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 1
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 2
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Guard - Protect"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    equipment {
-      prefab_name: "Matrix Basic Attack (Ranged IC Lv 2)"
-    }
-    team_id: "Intrusion Countermeasures"
-    char_name: "Barrier IC (ORANGE)"
-    GeneralTags: "Barrier"
-    GeneralTags: "Sentry"
-    GeneralTags: "Burner"
-    GeneralTags: "B3"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    dimension_name: "New Dimension 1"
-    karma: 20
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
     x: -176.5
     y: 0
     z: -98
@@ -48771,464 +48666,6 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -292.5
-    y: 0
-    z: -135
-  }
-  orientation: ORIENTATION_W
-  GeneralTags: "Barrier"
-  GeneralTags: "Sentry"
-  GeneralTags: "Burner"
-  GeneralTags: "B3"
-  displayName: "Barrier/Sentry IC 1"
-  idRef {
-    id: "54405f1d3637351008004e8a"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Matrix/SpiritESPShield"
-    character_sheet_id: "IC_Lv1_White_Melee"
-    character_mod {
-      stats {
-        body: -1
-        quickness: 0
-        strength: -1
-        charisma: -3
-        intelligence: -1
-        willpower: -2
-        essence: 0
-        magic: 0
-        hp: 540
-        ap: -2
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 2
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 3
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Guard - Protect"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    equipment {
-      prefab_name: "Matrix Basic Attack (Ranged IC Lv 2)"
-    }
-    team_id: "Intrusion Countermeasures"
-    char_name: "Barrier IC (RED)"
-    GeneralTags: "Barrier"
-    GeneralTags: "Sentry"
-    GeneralTags: "Burner"
-    GeneralTags: "B3"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    dimension_name: "New Dimension 1"
-    karma: 27
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -291.5
-    y: 0
-    z: -137
-  }
-  orientation: ORIENTATION_W
-  GeneralTags: "Barrier"
-  GeneralTags: "B3"
-  displayName: "Barrier IC 1"
-  idRef {
-    id: "54405f1d3637351008004e8b"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Matrix/SpiritESPShield"
-    character_sheet_id: "IC_Lv1_White_Melee"
-    character_mod {
-      stats {
-        body: -1
-        quickness: 0
-        strength: -1
-        charisma: -3
-        intelligence: -1
-        willpower: -2
-        essence: 0
-        magic: 0
-        hp: 240
-        ap: -2
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 1
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Guard - Protect"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Intrusion Countermeasures"
-    char_name: "Barrier IC (BLUE)"
-    GeneralTags: "Barrier"
-    GeneralTags: "B3"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    dimension_name: "New Dimension 1"
-    karma: 15
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -292.5
-    y: 0
-    z: -137
-  }
-  orientation: ORIENTATION_W
-  GeneralTags: "Barrier"
-  GeneralTags: "Tracer"
-  GeneralTags: "B3"
-  displayName: "Barrier IC 1"
-  idRef {
-    id: "54405f1d3637351008004e8c"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Matrix/SpiritESPShield"
-    character_sheet_id: "IC_Lv1_White_Melee"
-    character_mod {
-      stats {
-        body: -1
-        quickness: 0
-        strength: -1
-        charisma: -3
-        intelligence: -1
-        willpower: -2
-        essence: 0
-        magic: 0
-        hp: 340
-        ap: -2
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 2
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Guard - Protect"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Intrusion Countermeasures"
-    char_name: "Barrier IC (GREEN)"
-    GeneralTags: "Barrier"
-    GeneralTags: "Tracer"
-    GeneralTags: "B3"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    dimension_name: "New Dimension 1"
-    karma: 18
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -297.5
-    y: 0
-    z: -135
-  }
-  orientation: ORIENTATION_W
-  GeneralTags: "Barrier"
-  GeneralTags: "Sentry"
-  GeneralTags: "Burner"
-  GeneralTags: "B4"
-  displayName: "Barrier/Sentry IC 1"
-  idRef {
-    id: "54405f3e3637351008004e8d"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Matrix/SpiritESPShield"
-    character_sheet_id: "IC_Lv1_White_Melee"
-    character_mod {
-      stats {
-        body: -1
-        quickness: 0
-        strength: -1
-        charisma: -3
-        intelligence: -1
-        willpower: -2
-        essence: 0
-        magic: 0
-        hp: 440
-        ap: -2
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 1
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 2
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Guard - Protect"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    equipment {
-      prefab_name: "Matrix Basic Attack (Ranged IC Lv 2)"
-    }
-    team_id: "Intrusion Countermeasures"
-    char_name: "Barrier IC (ORANGE)"
-    GeneralTags: "Barrier"
-    GeneralTags: "Sentry"
-    GeneralTags: "Burner"
-    GeneralTags: "B4"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    dimension_name: "New Dimension 1"
-    karma: 20
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -298.5
-    y: 0
-    z: -135
-  }
-  orientation: ORIENTATION_W
-  GeneralTags: "Barrier"
-  GeneralTags: "Sentry"
-  GeneralTags: "Burner"
-  GeneralTags: "B4"
-  displayName: "Barrier/Sentry IC 1"
-  idRef {
-    id: "54405f3e3637351008004e8e"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Matrix/SpiritESPShield"
-    character_sheet_id: "IC_Lv1_White_Melee"
-    character_mod {
-      stats {
-        body: -1
-        quickness: 0
-        strength: -1
-        charisma: -3
-        intelligence: -1
-        willpower: -2
-        essence: 0
-        magic: 0
-        hp: 540
-        ap: -2
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 2
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 3
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Guard - Protect"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    equipment {
-      prefab_name: "Matrix Basic Attack (Ranged IC Lv 2)"
-    }
-    team_id: "Intrusion Countermeasures"
-    char_name: "Barrier IC (RED)"
-    GeneralTags: "Barrier"
-    GeneralTags: "Sentry"
-    GeneralTags: "Burner"
-    GeneralTags: "B4"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    dimension_name: "New Dimension 1"
-    karma: 27
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
     x: -145.5
     y: 0
     z: -92
@@ -49313,182 +48750,6 @@ characters {
     spawn_type: SpawnType_Matrix
     dimension_name: "New Dimension 1"
     karma: 20
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -297.5
-    y: 0
-    z: -137
-  }
-  orientation: ORIENTATION_W
-  GeneralTags: "Barrier"
-  GeneralTags: "B4"
-  displayName: "Barrier IC 1"
-  idRef {
-    id: "54405f3e3637351008004e90"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Matrix/SpiritESPShield"
-    character_sheet_id: "IC_Lv1_White_Melee"
-    character_mod {
-      stats {
-        body: -1
-        quickness: 0
-        strength: -1
-        charisma: -3
-        intelligence: -1
-        willpower: -2
-        essence: 0
-        magic: 0
-        hp: 240
-        ap: -2
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 1
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Guard - Protect"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Intrusion Countermeasures"
-    char_name: "Barrier IC (BLUE)"
-    GeneralTags: "Barrier"
-    GeneralTags: "B4"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    dimension_name: "New Dimension 1"
-    karma: 15
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -298.5
-    y: 0
-    z: -137
-  }
-  orientation: ORIENTATION_W
-  GeneralTags: "Barrier"
-  GeneralTags: "Tracer"
-  GeneralTags: "B4"
-  displayName: "Barrier IC 1"
-  idRef {
-    id: "54405f3e3637351008004e91"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Matrix/SpiritESPShield"
-    character_sheet_id: "IC_Lv1_White_Melee"
-    character_mod {
-      stats {
-        body: -1
-        quickness: 0
-        strength: -1
-        charisma: -3
-        intelligence: -1
-        willpower: -2
-        essence: 0
-        magic: 0
-        hp: 340
-        ap: -2
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 2
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Guard - Protect"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Intrusion Countermeasures"
-    char_name: "Barrier IC (GREEN)"
-    GeneralTags: "Barrier"
-    GeneralTags: "Tracer"
-    GeneralTags: "B4"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    spawn_type: SpawnType_Matrix
-    dimension_name: "New Dimension 1"
-    karma: 18
   }
 }
 characters {
@@ -50853,7 +50114,7 @@ characters {
   orientation: ORIENTATION_E
   GeneralTags: "Barrier"
   GeneralTags: "Tracer"
-  GeneralTags: "SPU 1"
+  GeneralTags: "SPU 2"
   displayName: "Barrier IC 1"
   idRef {
     id: "544877e036373558160056d8"
@@ -50924,7 +50185,7 @@ characters {
     char_name: "Barrier IC (GREEN)"
     GeneralTags: "Barrier"
     GeneralTags: "Tracer"
-    GeneralTags: "SPU 1"
+    GeneralTags: "SPU 2"
     enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix
@@ -51028,7 +50289,7 @@ characters {
   }
   orientation: ORIENTATION_N
   GeneralTags: "Barrier"
-  GeneralTags: "SPU 2"
+  GeneralTags: "SPU 1"
   displayName: "Barrier IC 1"
   idRef {
     id: "5448784936373558160056db"
@@ -51098,7 +50359,7 @@ characters {
     team_id: "Intrusion Countermeasures"
     char_name: "Barrier IC (BLUE)"
     GeneralTags: "Barrier"
-    GeneralTags: "SPU 2"
+    GeneralTags: "SPU 1"
     enabled_at_start: false
     pc_spawn_number: -1
     spawn_type: SpawnType_Matrix

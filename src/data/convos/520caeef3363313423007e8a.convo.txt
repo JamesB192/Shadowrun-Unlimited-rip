@@ -7,7 +7,7 @@ nodes {
     id: "52c981bb336331dc26008514"
   }
   index: 0
-  text: "Novatech Commlink\n\nAdamant"
+  text: "Novatech Commlink\n\nAerobic"
   branches {
     responseText: "Job\'s done."
     conditions {
@@ -73,6 +73,34 @@ nodes {
               string_value: "StoryStep"
             }
           }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "comm-jammed"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          int_value: 1
         }
       }
     }
@@ -692,6 +720,74 @@ nodes {
           string_value: "Nil"
         }
       }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Job_Check"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Johnson_Meeting"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Run_Identifier"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Run_Permutation"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
     }
     nextNodeIndex: -1
     hideIfUnavailable: true
@@ -733,8 +829,37 @@ nodes {
           }
         }
       }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "comm-jammed"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
     }
     nextNodeIndex: 1
+    hideIfUnavailable: true
   }
   branches {
     responseText: "Fixers"
@@ -773,12 +898,45 @@ nodes {
           }
         }
       }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "comm-jammed"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
     }
     nextNodeIndex: 2
+    hideIfUnavailable: true
   }
   branches {
     responseText: "{{GM}}Increase Non-Combat Skills{{/GM}}"
     nextNodeIndex: 3
+  }
+  branches {
+    responseText: "Asset Management"
+    nextNodeIndex: 10
   }
   branches {
     responseText: "Call a Taxi"
@@ -878,6 +1036,34 @@ nodes {
           }
         }
       }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "comm-jammed"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
     }
     actions {
       ops {
@@ -912,16 +1098,113 @@ nodes {
       }
     }
     nextNodeIndex: -1
-  }
-  branches {
-    responseText: "Asset Management"
-    nextNodeIndex: 10
+    hideIfUnavailable: true
   }
   branches {
     responseText: "{{GM}}Hang up{{/GM}}"
     nextNodeIndex: -1
   }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Randomness"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            int_value: 1
+          }
+          args {
+            int_value: 6
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Animation From Manifest"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Animation)"
+          args {
+            string_value: "Seattle:Elf/rigging_idle"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: ""
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        float_value: 5
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
 }
 nodes {
   idRef {
@@ -3729,7 +4012,7 @@ nodes {
   index: 10
   text: ""
   branches {
-    responseText: "Discard commlimk {{GM}}Dangerous{{/GM}}"
+    responseText: "Discard commlink {{GM}}Dangerous{{/GM}}"
     conditions {
       ops {
         functionName: "Evaluate If Actor Has Item"
@@ -4001,7 +4284,7 @@ nodes {
     auxiliaryLink: true
   }
   branches {
-    responseText: "remove file from cyrberdeck"
+    responseText: "remove file from cyberdeck"
     conditions {
       ops {
         functionName: "Evaluate If Team Has Cyberdeck"
@@ -4194,7 +4477,7 @@ nodes {
               string_value: "WithOrWithout"
             }
             args {
-              int_value: 1
+              int_value: 0
             }
           }
         }
@@ -10448,32 +10731,5 @@ nodes {
 }
 roots {
   responseText: ""
-  actions {
-    ops {
-      functionName: "Set Variable (bool)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (bool)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "comm-offRoad"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-  }
   nextNodeIndex: 0
 }

@@ -3798,7 +3798,7 @@ nodes {
         }
       }
       ops {
-        functionName: "Start Conversation"
+        functionName: "Start Conversation Between Actors"
         args {
           call_value {
             functionName: "Get Map Item (Conversation)"
@@ -3809,9 +3809,30 @@ nodes {
         }
         args {
           call_value {
-            functionName: "Get Map Item (Actor)"
+            functionName: "Get Map Item (Player)"
             args {
-              string_value: "520d1ae93363310828002720"
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Nearest Tagged Actor to Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "Eric"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
             }
           }
         }
