@@ -1,6 +1,7 @@
 <?php
 
-$I="run location-telestrian r&d.srt.txt";
+$I=$argv[1];
+echo "splitting:\t".$I."\n";
 $handle = @fopen($I, "r");
 
 $bub = @fopen("parts/bub", "w");
