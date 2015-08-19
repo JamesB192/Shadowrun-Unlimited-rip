@@ -164,6 +164,146 @@ nodes {
   }
   branches {
     responseText: "{{CC}}Try and craft and Expert Systems Program.{{/CC}}\n\n{{GM}}This can take a little while, and can cost upwards to 200 nuyen depending upon you skill level.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 200
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  int_value: 10
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 2
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Actor Skill"
+                    args {
+                      call_value {
+                        functionName: "Get Map Item (Player)"
+                        args {
+                          int_value: 0
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "BaseOrCurrent"
+                        }
+                        args {
+                          int_value: 1
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "ActorSkills"
+                        }
+                        args {
+                          int_value: 5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "FadeVariable"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Actor Skill"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorSkills"
+                }
+                args {
+                  int_value: 5
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 1
   }
   branches {
@@ -182,26 +322,192 @@ nodes {
     responseText: "{{CC}}Exploder{{/CC}}"
     actions {
       ops {
-        functionName: "Set Variable (int)"
+        functionName: "Fade Camera Out"
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Play Sound"
         args {
           call_value {
-            functionName: "Get Variable (int)"
+            functionName: "Get Map Item (Sound)"
             args {
-              string_value: "ESP_Type"
+              string_value: "decker"
+            }
+            args {
+              string_value: "Matrix_ESP-BeingSummoned"
             }
           }
         }
         args {
-          int_value: 2
+          float_value: 1
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
         }
       }
       ops {
-        functionName: "Send Event"
+        functionName: "Fade Camera In"
+        args {
+          float_value: 1
+        }
         args {
           call_value {
-            functionName: "Get Map Item (Event)"
+            functionName: "Arithmetic (float)"
             args {
-              string_value: "Program ESP"
+              float_value: 15
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Convert (int) to (float)"
+                args {
+                  call_value {
+                    functionName: "Get Story Variable (int)"
+                    args {
+                      string_value: "51f15c62336331d02c00440e"
+                    }
+                    args {
+                      string_value: "FadeVariable"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 200
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  int_value: 10
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 2
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Actor Skill"
+                    args {
+                      call_value {
+                        functionName: "Get Map Item (Player)"
+                        args {
+                          int_value: 0
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "BaseOrCurrent"
+                        }
+                        args {
+                          int_value: 1
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "ActorSkills"
+                        }
+                        args {
+                          int_value: 5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "ESP Kamikaze"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
             }
           }
         }
@@ -213,26 +519,192 @@ nodes {
     responseText: "{{CC}}Shield{{/CC}}"
     actions {
       ops {
-        functionName: "Set Variable (int)"
+        functionName: "Fade Camera Out"
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Play Sound"
         args {
           call_value {
-            functionName: "Get Variable (int)"
+            functionName: "Get Map Item (Sound)"
             args {
-              string_value: "ESP_Type"
+              string_value: "decker"
+            }
+            args {
+              string_value: "Matrix_ESP-BeingSummoned"
             }
           }
         }
         args {
-          int_value: 3
+          float_value: 1
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
         }
       }
       ops {
-        functionName: "Send Event"
+        functionName: "Fade Camera In"
+        args {
+          float_value: 1
+        }
         args {
           call_value {
-            functionName: "Get Map Item (Event)"
+            functionName: "Arithmetic (float)"
             args {
-              string_value: "Program ESP"
+              float_value: 15
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Convert (int) to (float)"
+                args {
+                  call_value {
+                    functionName: "Get Story Variable (int)"
+                    args {
+                      string_value: "51f15c62336331d02c00440e"
+                    }
+                    args {
+                      string_value: "FadeVariable"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 200
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  int_value: 10
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 2
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Actor Skill"
+                    args {
+                      call_value {
+                        functionName: "Get Map Item (Player)"
+                        args {
+                          int_value: 0
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "BaseOrCurrent"
+                        }
+                        args {
+                          int_value: 1
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "ActorSkills"
+                        }
+                        args {
+                          int_value: 5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "ESP Shield"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
             }
           }
         }
@@ -244,26 +716,192 @@ nodes {
     responseText: "{{CC}}Attacker{{/CC}}"
     actions {
       ops {
-        functionName: "Set Variable (int)"
+        functionName: "Fade Camera Out"
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Play Sound"
         args {
           call_value {
-            functionName: "Get Variable (int)"
+            functionName: "Get Map Item (Sound)"
             args {
-              string_value: "ESP_Type"
+              string_value: "decker"
+            }
+            args {
+              string_value: "Matrix_ESP-BeingSummoned"
             }
           }
         }
         args {
-          int_value: 4
+          float_value: 1
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
         }
       }
       ops {
-        functionName: "Send Event"
+        functionName: "Fade Camera In"
+        args {
+          float_value: 1
+        }
         args {
           call_value {
-            functionName: "Get Map Item (Event)"
+            functionName: "Arithmetic (float)"
             args {
-              string_value: "Program ESP"
+              float_value: 15
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Convert (int) to (float)"
+                args {
+                  call_value {
+                    functionName: "Get Story Variable (int)"
+                    args {
+                      string_value: "51f15c62336331d02c00440e"
+                    }
+                    args {
+                      string_value: "FadeVariable"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 200
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  int_value: 10
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 2
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Actor Skill"
+                    args {
+                      call_value {
+                        functionName: "Get Map Item (Player)"
+                        args {
+                          int_value: 0
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "BaseOrCurrent"
+                        }
+                        args {
+                          int_value: 1
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "ActorSkills"
+                        }
+                        args {
+                          int_value: 5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "ESP Attacker"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
             }
           }
         }
@@ -275,26 +913,192 @@ nodes {
     responseText: "{{CC}}Assassin{{/CC}}"
     actions {
       ops {
-        functionName: "Set Variable (int)"
+        functionName: "Fade Camera Out"
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Play Sound"
         args {
           call_value {
-            functionName: "Get Variable (int)"
+            functionName: "Get Map Item (Sound)"
             args {
-              string_value: "ESP_Type"
+              string_value: "decker"
+            }
+            args {
+              string_value: "Matrix_ESP-BeingSummoned"
             }
           }
         }
         args {
-          int_value: 1
+          float_value: 1
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
         }
       }
       ops {
-        functionName: "Send Event"
+        functionName: "Fade Camera In"
+        args {
+          float_value: 1
+        }
         args {
           call_value {
-            functionName: "Get Map Item (Event)"
+            functionName: "Arithmetic (float)"
             args {
-              string_value: "Program ESP"
+              float_value: 15
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Convert (int) to (float)"
+                args {
+                  call_value {
+                    functionName: "Get Story Variable (int)"
+                    args {
+                      string_value: "51f15c62336331d02c00440e"
+                    }
+                    args {
+                      string_value: "FadeVariable"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 200
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  int_value: 10
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 2
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Actor Skill"
+                    args {
+                      call_value {
+                        functionName: "Get Map Item (Player)"
+                        args {
+                          int_value: 0
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "BaseOrCurrent"
+                        }
+                        args {
+                          int_value: 1
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "ActorSkills"
+                        }
+                        args {
+                          int_value: 5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "ESP Assassin"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
             }
           }
         }
