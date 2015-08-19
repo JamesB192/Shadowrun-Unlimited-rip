@@ -38341,6 +38341,279 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "Summong Fail x-x"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Summoning Test Step 2"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "SkillTest"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Actor Skill"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "BaseOrCurrent"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "ActorSkills"
+              }
+              args {
+                int_value: 8
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Teleport Actor near Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Actor)"
+              args {
+                string_value: "52923e08336331701300128e"
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 3
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "summoning"
+          }
+          args {
+            string_value: "SummoningEscape"
+          }
+        }
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Damn, it broke free!"
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Tag From String"
+          args {
+            call_value {
+              functionName: "Append (string)"
+              args {
+                call_value {
+                  functionName: "Append (string)"
+                  args {
+                    call_value {
+                      functionName: "Convert (int) to (string)"
+                      args {
+                        call_value {
+                          functionName: "Get Variable (int)"
+                          args {
+                            string_value: "SpiritForce"
+                          }
+                        }
+                      }
+                    }
+                  }
+                  args {
+                    string_value: "_"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Append (string)"
+                  args {
+                    call_value {
+                      functionName: "Convert (int) to (string)"
+                      args {
+                        call_value {
+                          functionName: "Get Variable (int)"
+                          args {
+                            string_value: "SpiritType"
+                          }
+                        }
+                      }
+                    }
+                  }
+                  args {
+                    string_value: "summonFail_"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55d474996466325c1e00068e"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "New Region"
   position {
@@ -38805,6 +39078,7 @@ characters {
     z: -194
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_1_1"
   displayName: "Wild Water 1"
   idRef {
     id: "52923d323363317013000f64"
@@ -38874,6 +39148,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_1_1"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -38890,6 +39165,7 @@ characters {
     z: -193
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_1_2"
   displayName: "Wild Water 2"
   idRef {
     id: "52923dfc3363317013000f6c"
@@ -38959,6 +39235,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_1_2"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -38975,6 +39252,7 @@ characters {
     z: -192
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_1_3"
   displayName: "Wild Water 3"
   idRef {
     id: "52923e143363317013000f6d"
@@ -39044,6 +39322,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_1_3"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39060,6 +39339,7 @@ characters {
     z: -191
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_1_4"
   displayName: "Wild Water 4"
   idRef {
     id: "52923e2c3363317013000f6e"
@@ -39129,6 +39409,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_1_4"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39145,6 +39426,7 @@ characters {
     z: -190
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_1_5"
   displayName: "Wild Water 5"
   idRef {
     id: "52923e743363317013000f6f"
@@ -39214,6 +39496,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_1_5"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39230,6 +39513,7 @@ characters {
     z: -189
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_1_6"
   displayName: "Wild Water 6"
   idRef {
     id: "52923ed63363317013000f70"
@@ -39299,6 +39583,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_1_6"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39315,6 +39600,7 @@ characters {
     z: -194
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_2_1"
   displayName: "Wild Air 1"
   idRef {
     id: "529242883363317013001277"
@@ -39384,6 +39670,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_2_1"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39400,6 +39687,7 @@ characters {
     z: -193
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_2_2"
   displayName: "Wild Air 2"
   idRef {
     id: "5292428a3363317013001278"
@@ -39469,6 +39757,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_2_2"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39485,6 +39774,7 @@ characters {
     z: -192
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_2_3"
   displayName: "Wild Air 3"
   idRef {
     id: "5292428d3363317013001279"
@@ -39554,6 +39844,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_2_3"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39570,6 +39861,7 @@ characters {
     z: -191
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_2_4"
   displayName: "Wild Air 4"
   idRef {
     id: "5292428f336331701300127a"
@@ -39639,6 +39931,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_2_4"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39655,6 +39948,7 @@ characters {
     z: -190
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_2_5"
   displayName: "Wild Air 5"
   idRef {
     id: "52924290336331701300127b"
@@ -39724,6 +40018,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_2_5"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39740,6 +40035,7 @@ characters {
     z: -189
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_2_6"
   displayName: "Wild Air 6"
   idRef {
     id: "52924291336331701300127c"
@@ -39809,6 +40105,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_2_6"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39825,6 +40122,7 @@ characters {
     z: -194
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_3_1"
   displayName: "Wild Fire 1"
   idRef {
     id: "52924362336331701300127d"
@@ -39894,6 +40192,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_3_1"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39910,6 +40209,7 @@ characters {
     z: -193
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_3_2"
   displayName: "Wild Fire 2"
   idRef {
     id: "52924363336331701300127e"
@@ -39979,6 +40279,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_3_2"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -39995,6 +40296,7 @@ characters {
     z: -192
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_3_3"
   displayName: "Wild Fire 3"
   idRef {
     id: "52924364336331701300127f"
@@ -40064,6 +40366,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_3_3"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -40080,6 +40383,7 @@ characters {
     z: -191
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_3_4"
   displayName: "Wild Fire 4"
   idRef {
     id: "529243663363317013001280"
@@ -40149,6 +40453,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_3_4"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -40165,6 +40470,7 @@ characters {
     z: -190
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_3_5"
   displayName: "Wild Fire 5"
   idRef {
     id: "529243673363317013001281"
@@ -40234,6 +40540,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_3_5"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -40250,6 +40557,7 @@ characters {
     z: -189
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_3_6"
   displayName: "Wild Fire 6"
   idRef {
     id: "529243683363317013001282"
@@ -40319,6 +40627,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_3_6"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -40335,6 +40644,7 @@ characters {
     z: -194
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_4_1"
   displayName: "Wild Nature 1"
   idRef {
     id: "529236b03363317013001283"
@@ -40404,6 +40714,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_4_1"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -40420,6 +40731,7 @@ characters {
     z: -193
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_4_2"
   displayName: "Wild Nature 2"
   idRef {
     id: "529236b13363317013001284"
@@ -40489,6 +40801,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_4_2"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -40505,6 +40818,7 @@ characters {
     z: -192
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_4_3"
   displayName: "Wild Nature 3"
   idRef {
     id: "529236b23363317013001285"
@@ -40574,6 +40888,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_4_3"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -40590,6 +40905,7 @@ characters {
     z: -191
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_4_4"
   displayName: "Wild Nature 4"
   idRef {
     id: "529236b33363317013001286"
@@ -40659,6 +40975,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_4_4"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -40675,6 +40992,7 @@ characters {
     z: -190
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_4_5"
   displayName: "Wild Nature 5"
   idRef {
     id: "529236b43363317013001287"
@@ -40744,6 +41062,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_4_5"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -40760,6 +41079,7 @@ characters {
     z: -189
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_4_6"
   displayName: "Wild Nature 6"
   idRef {
     id: "529236b53363317013001288"
@@ -40829,6 +41149,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_4_6"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -40845,6 +41166,7 @@ characters {
     z: -194
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_5_1"
   displayName: "Wild Earth 1"
   idRef {
     id: "52923e013363317013001289"
@@ -40914,6 +41236,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_5_1"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -40930,6 +41253,7 @@ characters {
     z: -193
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_5_2"
   displayName: "Wild Earth 2"
   idRef {
     id: "52923e01336331701300128a"
@@ -40999,6 +41323,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_5_2"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -41015,6 +41340,7 @@ characters {
     z: -192
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_5_3"
   displayName: "Wild Earth 3"
   idRef {
     id: "52923e03336331701300128b"
@@ -41084,6 +41410,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_5_3"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -41100,6 +41427,7 @@ characters {
     z: -191
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_5_4"
   displayName: "Wild Earth 4"
   idRef {
     id: "52923e04336331701300128c"
@@ -41169,6 +41497,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_5_4"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -41185,6 +41514,7 @@ characters {
     z: -190
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_5_5"
   displayName: "Wild Earth 5"
   idRef {
     id: "52923e06336331701300128d"
@@ -41254,6 +41584,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_5_5"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -41270,6 +41601,7 @@ characters {
     z: -189
   }
   orientation: ORIENTATION_S
+  GeneralTags: "summonFail_5_6"
   displayName: "Wild Earth 6"
   idRef {
     id: "52923e08336331701300128e"
@@ -41339,6 +41671,7 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Wild Spirit"
+    GeneralTags: "summonFail_5_6"
     enabled_at_start: false
     pc_spawn_number: -1
     portrait {
@@ -41409,6 +41742,7 @@ characters {
   }
   orientation: ORIENTATION_S
   GeneralTags: "Eric"
+  GeneralTags: "isEric"
   idRef {
     id: "529960c83363312011001415"
   }
@@ -41478,6 +41812,7 @@ characters {
     team_id: "Civilians"
     char_name: "Eric Gunderson"
     GeneralTags: "Eric"
+    GeneralTags: "isEric"
     pc_spawn_number: -1
     spawn_type: SpawnType_Normal
     hiring_type: HiringType_None
