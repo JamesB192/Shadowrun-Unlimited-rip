@@ -62,24 +62,25 @@ and evolve over time until it is a full realized shadowrun simulation."
 * Mizaroth for all his amazing map building."
 
 
-### INSTALLATION:
+### Paths
 
-Download the zip, extract to: 
+Removed obselete and/or wrong build instructions.
 
-PC
-C:\Users\<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks
+Resource pack is in "/Shadowrun Unlimited rip Resource Pack"
 
-MAC
-<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks
+SR:Unlimited is in "/src"
 
-Linux
-/home/<USER>/Documents/Shadowrun Dragonfall Director's Cut/ContentPacks
+### Branches
 
-1. Start the `Shadowrun Returns Dragonfall - Directors Cut` `Editor`.
-1. Under the `File` menu item select `Open Content Pack`.
-1. Navigate to and Select the downloaded zip file.
-1. Under the `File` menu item select `Publish Content Pack Locally`.
-1. Wait for the editor to publish the content pack.
-1. Close the editor.
-1. (Re)start Dragonfall
+* "Stableish" is the current development branch for Dragon Fall Directors cut
+* "HK_fat" is the current working brach for Hong Kong
+* "SRR" is the current (not) working branch for Shadowrun Returns + Dragon Fall
 
+===
+
+* "SRHK" was an attempt at running SR:Unlimited on Hong Kong
+* "autobuild" was an attempt to version & build via a commandline scripts
+
+### Building
+
+Figure it out my attempts at handholding worked really well from the feedback. Find the "project.cpack.txt". 
