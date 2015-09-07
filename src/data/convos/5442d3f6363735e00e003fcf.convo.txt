@@ -34329,37 +34329,18 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
-    responseText: "I think the pay could be better. Can you go any higher than $(story.Pay) nuyen?"
+    responseText: "{{CC}}Negotiation{{/CC}}\nI think the pay could be better. Can you go any higher than $(story.Pay) nuyen?"
     conditions {
       ops {
-        functionName: "Compare Actor Attribute"
+        functionName: "Comparison (int)"
         args {
           call_value {
-            functionName: "Get Map Item (Player)"
+            functionName: "Get Story Variable (int)"
             args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
+              string_value: "51f15c62336331d02c00440e"
             }
             args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
+              string_value: "Custom_Skill-Negotiation"
             }
           }
         }
@@ -34375,7 +34356,7 @@ nodes {
           }
         }
         args {
-          int_value: 2
+          int_value: 0
         }
       }
     }
