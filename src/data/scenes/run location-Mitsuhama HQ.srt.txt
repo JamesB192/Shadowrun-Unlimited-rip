@@ -13726,7 +13726,7 @@ triggers {
             string_value: "FactionList"
           }
           args {
-            int_value: 4
+            int_value: 5
           }
         }
       }
@@ -15612,6 +15612,271 @@ triggers {
   isActive: true
   idRef {
     id: "543078ab3637356c3e001281"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Cleaning  Aggression"
+  events {
+    ops {
+      functionName: "On Actor Awareness of Another Actor"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "Cleaning"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Change Actor Team"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "Cleaning"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "No Effect"
+    }
+  }
+  isActive: true
+  idRef {
+    id: "545064fd363735cc10006223"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Wetwork  Aggression"
+  events {
+    ops {
+      functionName: "On Actor Awareness of Another Actor"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "Target"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Change Actor Team"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "55ec9abf646632240b00517b"
   }
   elseActions {
   }
@@ -17783,6 +18048,7 @@ characters {
     team_id: "Civilians"
     char_name: "Jessica Watts"
     GeneralTags: "Target"
+    enabled_at_start: false
     pc_spawn_number: -1
     hiring_type: HiringType_None
     portrait {
@@ -17905,6 +18171,7 @@ characters {
     team_id: "Civilians"
     char_name: "New Actor"
     GeneralTags: "Cleaning"
+    enabled_at_start: false
     pc_spawn_number: -1
     hiring_type: HiringType_Hireable
     karma: 6
@@ -18028,6 +18295,7 @@ characters {
     team_id: "Civilians"
     char_name: "New Actor"
     GeneralTags: "Cleaning"
+    enabled_at_start: false
     pc_spawn_number: -1
     hiring_type: HiringType_Hireable
     karma: 6
@@ -18151,6 +18419,7 @@ characters {
     team_id: "Civilians"
     char_name: "New Actor"
     GeneralTags: "Cleaning"
+    enabled_at_start: false
     pc_spawn_number: -1
     hiring_type: HiringType_Hireable
     karma: 6
@@ -18274,6 +18543,7 @@ characters {
     team_id: "Civilians"
     char_name: "New Actor"
     GeneralTags: "Cleaning"
+    enabled_at_start: false
     pc_spawn_number: -1
     hiring_type: HiringType_Hireable
     karma: 6
@@ -18397,6 +18667,7 @@ characters {
     team_id: "Civilians"
     char_name: "New Actor"
     GeneralTags: "Cleaning"
+    enabled_at_start: false
     pc_spawn_number: -1
     hiring_type: HiringType_Hireable
     karma: 6
@@ -18514,6 +18785,7 @@ characters {
     team_id: "Civilians"
     char_name: "New Actor"
     GeneralTags: "Cleaning"
+    enabled_at_start: false
     pc_spawn_number: -1
     hiring_type: HiringType_Hireable
     karma: 6
@@ -18924,6 +19196,7 @@ team_affiliations {
   affiliation: 1
   affiliation: 1
   affiliation: 0
+  affiliation: 1
 }
 team_affiliations {
   team_name: "Gangers"
@@ -18932,11 +19205,13 @@ team_affiliations {
   affiliation: 1
   affiliation: 0
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "Lonestar"
   affiliation: 1
   affiliation: 1
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -18948,9 +19223,20 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "Civilians"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "alerted guards"
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
