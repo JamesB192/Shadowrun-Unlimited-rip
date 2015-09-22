@@ -210,13 +210,13 @@ nodes {
           }
         }
         args {
-          int_value: 75
+          int_value: 200
         }
       }
     }
     nextNodeIndex: 6
     hideIfUnavailable: true
-    comment: "coffin"
+    comment: "ware safehouse"
   }
   branches {
     responseText: "My safe-house"
@@ -246,13 +246,13 @@ nodes {
           }
         }
         args {
-          int_value: 200
+          int_value: 75
         }
       }
     }
     nextNodeIndex: 7
     hideIfUnavailable: true
-    comment: "ware safehouse"
+    comment: "coffin"
   }
   branches {
     responseText: "My safe-house"
@@ -400,54 +400,30 @@ nodes {
     responseText: "the docks"
     conditions {
       ops {
-        functionName: "OR"
+        functionName: "Comparison (string)"
         args {
           call_value {
-            functionName: "Comparison (string)"
+            functionName: "Get Story Variable (string)"
             args {
-              call_value {
-                functionName: "Nothing Selected"
-              }
             }
             args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "IsOrIsNot"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              string_value: "Bottling Plant"
+              string_value: "Current_Run-Location"
             }
           }
         }
         args {
           call_value {
-            functionName: "Comparison (string)"
+            functionName: "Get Preset Value (int)"
             args {
-              call_value {
-                functionName: "Nothing Selected"
-              }
+              string_value: "IsOrIsNot"
             }
             args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "IsOrIsNot"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              string_value: "Docks"
+              int_value: 1
             }
           }
+        }
+        args {
+          string_value: "Bottling Plant"
         }
       }
     }
@@ -524,6 +500,76 @@ nodes {
     nextNodeIndex: 14
     hideIfUnavailable: true
     comment: "Mitsuhama"
+  }
+  branches {
+    responseText: "the docks"
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Club Penumbra"
+        }
+      }
+    }
+    nextNodeIndex: 15
+    hideIfUnavailable: true
+    comment: "Club Penumbra"
+  }
+  branches {
+    responseText: "the docks"
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Docks"
+        }
+      }
+    }
+    nextNodeIndex: 16
+    hideIfUnavailable: true
+    comment: "docks"
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -1007,7 +1053,7 @@ nodes {
           call_value {
             functionName: "Get Map Item (Scene)"
             args {
-              string_value: "coffin motel"
+              string_value: "warehouse safehouse pre-setup"
             }
           }
         }
@@ -1061,7 +1107,7 @@ nodes {
           call_value {
             functionName: "Get Map Item (Scene)"
             args {
-              string_value: "warehouse safehouse pre-setup"
+              string_value: "coffin motel"
             }
           }
         }
@@ -1450,6 +1496,114 @@ nodes {
   }
   branches {
     responseText: "I\'d rather walk."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "533695193363317013008014"
+  }
+  index: 15
+  text: "Null sweat. That\'s 25 Nuyen..."
+  branches {
+    responseText: "I\'d rather walk."
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Pocket change..."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 35
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 25
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "club penumbra"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "533695193363317013008014"
+  }
+  index: 16
+  text: "Null sweat. That\'s 25 Nuyen..."
+  branches {
+    responseText: "I\'d rather walk."
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Pocket change..."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 25
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 25
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "the docks3"
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: -1
   }
   nodeType: ConversationNodeType_Simple
