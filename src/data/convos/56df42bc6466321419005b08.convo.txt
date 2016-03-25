@@ -22,13 +22,8 @@ nodes {
   index: 1
   text: ""
   branches {
-    responseText: "I want to donate some of my earthly knowledge..."
+    responseText: "I want to prepay for services."
     nextNodeIndex: 2
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "I want to donate some living energy for services..."
-    nextNodeIndex: 9
     hideIfUnavailable: true
   }
   branches {
@@ -71,7 +66,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 10
+    nextNodeIndex: 9
     hideIfUnavailable: true
   }
   branches {
@@ -249,7 +244,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 16
+    nextNodeIndex: 15
     hideIfUnavailable: true
   }
   branches {
@@ -355,7 +350,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 25
+    nextNodeIndex: 24
   }
   branches {
     responseText: "Nevermind."
@@ -369,7 +364,7 @@ nodes {
     id: "52a0faba336331a83e00091c"
   }
   index: 2
-  text: "What knowledge do you wish to part with?"
+  text: "What do you wish to part with?"
   branches {
     responseText: "Toughness"
     conditions {
@@ -883,15 +878,6 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
-    responseText: "Nevermind."
-    nextNodeIndex: 1
-    auxiliaryLink: true
-  }
-  branches {
-    responseText: "Goodbye"
-    nextNodeIndex: -1
-  }
-  branches {
     responseText: "Intelligence"
     nextNodeIndex: 5
   }
@@ -902,6 +888,15 @@ nodes {
   branches {
     responseText: "Charm"
     nextNodeIndex: 7
+  }
+  branches {
+    responseText: "Nevermind."
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Goodbye"
+    nextNodeIndex: -1
   }
   nodeType: ConversationNodeType_Simple
   comment: "skills / specializations"
@@ -2766,34 +2761,39 @@ nodes {
         }
       }
       ops {
-        functionName: "Compare Actor Attribute"
+        functionName: "Comparison (int)"
         args {
           call_value {
-            functionName: "Get Map Item (Player)"
+            functionName: "Get Actor Attribute"
             args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
             }
             args {
-              int_value: 0
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
             }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
             args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 1
+                }
+              }
             }
           }
         }
@@ -2821,34 +2821,39 @@ nodes {
         }
       }
       ops {
-        functionName: "Compare Actor Attribute"
+        functionName: "Comparison (int)"
         args {
           call_value {
-            functionName: "Get Map Item (Player)"
+            functionName: "Get Actor Attribute"
             args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
             }
             args {
-              int_value: 0
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
             }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
             args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 1
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 1
+                }
+              }
             }
           }
         }
@@ -4604,34 +4609,39 @@ nodes {
         }
       }
       ops {
-        functionName: "Compare Actor Attribute"
+        functionName: "Comparison (int)"
         args {
           call_value {
-            functionName: "Get Map Item (Player)"
+            functionName: "Get Actor Attribute"
             args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
             }
             args {
-              int_value: 0
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
             }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
             args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 4
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 4
+                }
+              }
             }
           }
         }
@@ -6216,34 +6226,39 @@ nodes {
         }
       }
       ops {
-        functionName: "Compare Actor Skill"
+        functionName: "Comparison (int)"
         args {
           call_value {
-            functionName: "Get Map Item (Player)"
+            functionName: "Get Actor Attribute"
             args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
             }
             args {
-              int_value: 0
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 0
+                }
+              }
             }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
             args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 3
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 5
+                }
+              }
             }
           }
         }
@@ -6940,7 +6955,7 @@ nodes {
   index: 7
   text: ""
   branches {
-    responseText: "{{GM}}Charisma{{/GM}}"
+    responseText: "{{GM}}Charisma $(l.Charisma){{/GM}}"
     conditions {
       ops {
         functionName: "Compare Actor Attribute"
@@ -9444,27 +9459,13 @@ nodes {
 }
 nodes {
   idRef {
-    id: "523c2cb5336331b808004d7a"
-  }
-  index: 9
-  text: "Excellent... you energy is magnificent!"
-  branches {
-    responseText: "Nevermind"
-    nextNodeIndex: 0
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-  comment: "loop 3"
-}
-nodes {
-  idRef {
     id: "523c2cb5336331b808004d5d"
   }
-  index: 10
+  index: 9
   text: "You.... I sense a unique potential in you. Come closer..."
   branches {
     responseText: "Who... what are you?"
-    nextNodeIndex: 11
+    nextNodeIndex: 10
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -9472,11 +9473,11 @@ nodes {
   idRef {
     id: "523c2cb5336331b808004d60"
   }
-  index: 11
+  index: 10
   text: "My name is Xalthu. I am what some of your kind would consider a \"free spirit\". I manifest in this plane of my own free will."
   branches {
     responseText: "So no one summoned you? Then why are you here?"
-    nextNodeIndex: 12
+    nextNodeIndex: 11
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -9484,11 +9485,11 @@ nodes {
   idRef {
     id: "523c2cb5336331b808004d63"
   }
-  index: 12
+  index: 11
   text: "I crave what most sentient things crave; power. This realm is full of untapped power, but I am unable to harvest it on my own... Would you be willing to help me?"
   branches {
     responseText: "Help you how?"
-    nextNodeIndex: 13
+    nextNodeIndex: 12
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -9496,11 +9497,11 @@ nodes {
   idRef {
     id: "523c2cb5336331b808004d66"
   }
-  index: 13
+  index: 12
   text: "Have you ever heard of a Spirit Pact? It is when a willing metahuman enters into a symbiotic bond with one of my kind. We spirits cannot grow and flourish as your kind does. We must be fed living energy by a partner. In exchange we offer to share our power with those who feed us.  I would ask that you enter into this pact with me, so we can both grow powerful."
   branches {
     responseText: "I don\'t like the sound of \"feeding you my living energy\"..."
-    nextNodeIndex: 14
+    nextNodeIndex: 13
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -9508,11 +9509,11 @@ nodes {
   idRef {
     id: "523c2cb5336331b808004d69"
   }
-  index: 14
+  index: 13
   text: "Although it is true that you will become weaker with each exchange, you metahumans have the ability to recover that lost power simply by existing. That is why you are perfect partners, you can generate the energy we spirits so desperately crave, but it must be given over willingly. It is rare for one of my kind to find someone such as yourself, who shows such raw potential. Please, I beg you! If you enter this pact and I can grant you many boons..."
   branches {
     responseText: "What kind of \"boons\" are we talking here?"
-    nextNodeIndex: 15
+    nextNodeIndex: 14
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -9520,7 +9521,7 @@ nodes {
   idRef {
     id: "523c2cb5336331b808004d6c"
   }
-  index: 15
+  index: 14
   text: "Wealth, Power, Health, Knowledge, almost anything you can desire. When you are willing I will siphon off some of your Karmic Energy. When enough Karmic Energy is siphoned off, I will grant you a service. You can then barter these services with me in exchange for a boon or pact of your choosing..."
   branches {
     responseText: "Let me think about it..."
@@ -9559,7 +9560,7 @@ nodes {
   idRef {
     id: "523c2cb5336331b808004d73"
   }
-  index: 16
+  index: 15
   text: "It seems I owe you some services..."
   branches {
     responseText: "Yes, let\'s deal."
@@ -9590,7 +9591,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 17
+    nextNodeIndex: 16
   }
   branches {
     responseText: "Nevermind."
@@ -9602,15 +9603,15 @@ nodes {
   idRef {
     id: "523c2cb5336331b808004d76"
   }
-  index: 17
+  index: 16
   text: "Well of course... what would interest you?"
   branches {
     responseText: "I want wealth!"
-    nextNodeIndex: 18
+    nextNodeIndex: 17
   }
   branches {
     responseText: "I want greater healing abilities!"
-    nextNodeIndex: 19
+    nextNodeIndex: 18
   }
   branches {
     responseText: "I want to be fast!"
@@ -9644,7 +9645,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 20
+    nextNodeIndex: 19
     hideIfUnavailable: true
   }
   branches {
@@ -9679,12 +9680,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 21
+    nextNodeIndex: 20
     hideIfUnavailable: true
   }
   branches {
     responseText: "I want my punches to be strong enough to reduce concrete to dust!"
-    nextNodeIndex: 22
+    nextNodeIndex: 21
   }
   branches {
     responseText: "I want to recover some of my magical power that has diminished when I purchased Cyberware."
@@ -9737,7 +9738,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 23
+    nextNodeIndex: 22
   }
   branches {
     responseText: "I want peace."
@@ -9799,7 +9800,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 24
+    nextNodeIndex: 23
   }
   branches {
     responseText: "Nevermind."
@@ -9918,7 +9919,7 @@ nodes {
   idRef {
     id: "523c3447336331b808005017"
   }
-  index: 18
+  index: 17
   text: "As a single service I can give you 10000 Nuyen that I have accumulated. I have little need for such things."
   branches {
     responseText: "You have a deal."
@@ -9991,7 +9992,7 @@ nodes {
   idRef {
     id: "523c279f336331b80800513f"
   }
-  index: 19
+  index: 18
   text: "For two services I can create an astral link between us, providing you with regenerative powers. This Pact of Health is a potent service, sought greatly by mortals. {{GM}}This can be taken multiple times with a stacking effect.{{/GM}}"
   branches {
     responseText: "That sounds great!"
@@ -10100,7 +10101,7 @@ nodes {
   idRef {
     id: "523c2d5e336331b808005283"
   }
-  index: 20
+  index: 19
   text: "I can make your steps quicker with a lesser Pact of Haste for three services."
   branches {
     responseText: "Deal!"
@@ -10250,7 +10251,7 @@ nodes {
   idRef {
     id: "523c29d3336331e437002bd9"
   }
-  index: 21
+  index: 20
   text: "A greater Haste pact would allow you to move at supernatural speeds for five services."
   branches {
     responseText: "Deal!"
@@ -10437,7 +10438,7 @@ nodes {
   idRef {
     id: "523c2ca1336331e437002c5d"
   }
-  index: 22
+  index: 21
   text: "For a service I can grant a gift akin to Killing Hands. You strikes will be imbued with mystic energy, and your body will become a lethal weapon."
   branches {
     responseText: "That sounds great!"
@@ -10587,7 +10588,7 @@ nodes {
   idRef {
     id: "523c3184336331e437002ce6"
   }
-  index: 23
+  index: 22
   text: "For three services I can create a Geas Pact between us. Your spells you will also draw upon a portion of my own power to supplement what you have lost... {{GM}}This Pact can be taken many times, with a stacking effect{{/GM}}"
   branches {
     responseText: "I accept."
@@ -10765,7 +10766,7 @@ nodes {
   idRef {
     id: "523c27a3336331e437002ece"
   }
-  index: 24
+  index: 23
   text: "For a service I can influence the minds of those who would pursue you. They would lose interest in you, for now... {{GM}}This will reduce Notoriety and Heat to 0{{/GM}}"
   branches {
     responseText: "I accept."
@@ -10866,7 +10867,7 @@ nodes {
   idRef {
     id: "56f366e8646632800f006dcf"
   }
-  index: 25
+  index: 24
   text: ""
   branches {
     responseText: ""
@@ -10936,7 +10937,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 25
+    nextNodeIndex: 24
     auxiliaryLink: true
   }
   branches {
@@ -11078,7 +11079,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 26
+    nextNodeIndex: 25
   }
   nodeType: ConversationNodeType_Simple
   comment: "loopy 9"
@@ -11087,7 +11088,7 @@ nodes {
   idRef {
     id: "523c2cb5336331b808004d73"
   }
-  index: 26
+  index: 25
   text: "It seems I owe you some services..."
   branches {
     responseText: "Yes, let\'s deal."
@@ -11118,7 +11119,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 27
+    nextNodeIndex: 26
   }
   branches {
     responseText: "Nevermind."
@@ -11130,7 +11131,7 @@ nodes {
   idRef {
     id: "523c2cb5336331b808004d76"
   }
-  index: 27
+  index: 26
   text: "Well of course... what would interest you?"
   branches {
     responseText: "I want wealth!"
@@ -11164,7 +11165,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 28
+    nextNodeIndex: 27
   }
   branches {
     responseText: "I want greater healing abilities!"
@@ -11198,7 +11199,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 29
+    nextNodeIndex: 28
   }
   branches {
     responseText: "I want to be fast!"
@@ -11260,7 +11261,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 30
+    nextNodeIndex: 29
     hideIfUnavailable: true
   }
   branches {
@@ -11323,7 +11324,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 31
+    nextNodeIndex: 30
     hideIfUnavailable: true
   }
   branches {
@@ -11395,7 +11396,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 32
+    nextNodeIndex: 31
   }
   branches {
     responseText: "I want to recover some of my magical power that has diminished when I purchased Cyberware."
@@ -11476,7 +11477,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 33
+    nextNodeIndex: 32
   }
   branches {
     responseText: "I want peace."
@@ -11566,7 +11567,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 34
+    nextNodeIndex: 33
   }
   branches {
     responseText: "Nevermind."
@@ -11685,7 +11686,7 @@ nodes {
   idRef {
     id: "523c3447336331b808005017"
   }
-  index: 28
+  index: 27
   text: "As a single service I can give you 10000 Nuyen that I have accumulated. I have little need for such things."
   branches {
     responseText: "You have a deal."
@@ -11728,7 +11729,7 @@ nodes {
   idRef {
     id: "523c279f336331b80800513f"
   }
-  index: 29
+  index: 28
   text: "For two services I can create an astral link between us, providing you with regenerative powers. This Pact of Health is a potent service, sought greatly by mortals. {{GM}}This can be taken multiple times with a stacking effect.{{/GM}}"
   branches {
     responseText: "That sounds great!"
@@ -11808,7 +11809,7 @@ nodes {
   idRef {
     id: "523c2d5e336331b808005283"
   }
-  index: 30
+  index: 29
   text: "I can make your steps quicker with a lesser Pact of Haste for three services."
   branches {
     responseText: "Deal!"
@@ -11928,7 +11929,7 @@ nodes {
   idRef {
     id: "523c29d3336331e437002bd9"
   }
-  index: 31
+  index: 30
   text: "A greater Haste pact would allow you to move at supernatural speeds for five services."
   branches {
     responseText: "Deal!"
@@ -12085,7 +12086,7 @@ nodes {
   idRef {
     id: "523c2ca1336331e437002c5d"
   }
-  index: 32
+  index: 31
   text: "For a service I can grant a gift akin to Killing Hands. You strikes will be imbued with mystic energy, and your body will become a lethal weapon."
   branches {
     responseText: "That sounds great!"
@@ -12205,7 +12206,7 @@ nodes {
   idRef {
     id: "523c3184336331e437002ce6"
   }
-  index: 33
+  index: 32
   text: "For three services I can create a Geas Pact between us. Your spells you will also draw upon a portion of my own power to supplement what you have lost... {{GM}}This Pact can be taken many times, with a stacking effect{{/GM}}"
   branches {
     responseText: "I accept."
@@ -12353,7 +12354,7 @@ nodes {
   idRef {
     id: "523c27a3336331e437002ece"
   }
-  index: 34
+  index: 33
   text: "For a service I can influence the minds of those who would pursue you. They would lose interest in you, for now... {{GM}}This will reduce Notoriety and Heat to 0{{/GM}}"
   branches {
     responseText: "I accept."
