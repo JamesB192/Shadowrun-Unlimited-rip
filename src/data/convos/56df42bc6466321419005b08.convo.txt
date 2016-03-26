@@ -22,11 +22,6 @@ nodes {
   index: 1
   text: ""
   branches {
-    responseText: "I want to prepay for services."
-    nextNodeIndex: 2
-    hideIfUnavailable: true
-  }
-  branches {
     responseText: ""
     conditions {
       ops {
@@ -66,7 +61,50 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 9
+    nextNodeIndex: 2
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "I want to prepay for services."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "MetXalnu"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 8
     hideIfUnavailable: true
   }
   branches {
@@ -361,9 +399,108 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52a0faba336331a83e00091c"
+    id: "523c2cb5336331b808004d5d"
   }
   index: 2
+  text: "You.... I sense a unique potential in you. Come closer..."
+  branches {
+    responseText: "Who... what are you?"
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "523c2cb5336331b808004d60"
+  }
+  index: 3
+  text: "My name is Xalthu. I am what some of your kind would consider a \"free spirit\". I manifest in this plane of my own free will."
+  branches {
+    responseText: "So no one summoned you? Then why are you here?"
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "523c2cb5336331b808004d63"
+  }
+  index: 4
+  text: "I crave what most sentient things crave; power. This realm is full of untapped power, but I am unable to harvest it on my own... Would you be willing to help me?"
+  branches {
+    responseText: "Help you how?"
+    nextNodeIndex: 5
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "523c2cb5336331b808004d66"
+  }
+  index: 5
+  text: "Have you ever heard of a Spirit Pact? It is when a willing metahuman enters into a symbiotic bond with one of my kind. We spirits cannot grow and flourish as your kind does. We must be fed living energy by a partner. In exchange we offer to share our power with those who feed us.  I would ask that you enter into this pact with me, so we can both grow powerful."
+  branches {
+    responseText: "I don\'t like the sound of \"feeding you my living energy\"..."
+    nextNodeIndex: 6
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "523c2cb5336331b808004d69"
+  }
+  index: 6
+  text: "Although it is true that you will become weaker with each exchange, you metahumans have the ability to recover that lost power simply by existing. That is why you are perfect partners, you can generate the energy we spirits so desperately crave, but it must be given over willingly. It is rare for one of my kind to find someone such as yourself, who shows such raw potential. Please, I beg you! If you enter this pact and I can grant you many boons..."
+  branches {
+    responseText: "What kind of \"boons\" are we talking here?"
+    nextNodeIndex: 7
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "523c2cb5336331b808004d6c"
+  }
+  index: 7
+  text: "Wealth, Power, Health, Knowledge, almost anything you can desire. When you are willing I will siphon off some of your Karmic Energy. When enough Karmic Energy is siphoned off, I will grant you a service. You can then barter these services with me in exchange for a boon or pact of your choosing..."
+  branches {
+    responseText: "Let me think about it..."
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "MetXalnu"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52a0faba336331a83e00091c"
+  }
+  index: 8
   text: "What do you wish to part with?"
   branches {
     responseText: "Toughness"
@@ -550,7 +687,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 2
+    nextNodeIndex: 8
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -659,7 +796,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 3
+    nextNodeIndex: 9
   }
   branches {
     responseText: "{{GM}}Quickness{{/GM}}"
@@ -874,20 +1011,20 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 4
+    nextNodeIndex: 10
     hideIfUnavailable: true
   }
   branches {
     responseText: "Intelligence"
-    nextNodeIndex: 5
+    nextNodeIndex: 11
   }
   branches {
     responseText: "{{GM}}Willpower{{/GM}}"
-    nextNodeIndex: 6
+    nextNodeIndex: 12
   }
   branches {
     responseText: "Charm"
-    nextNodeIndex: 7
+    nextNodeIndex: 13
   }
   branches {
     responseText: "Nevermind."
@@ -905,7 +1042,7 @@ nodes {
   idRef {
     id: "56f35fe8646632800f006b8e"
   }
-  index: 3
+  index: 9
   text: "Strength tree"
   branches {
     responseText: "{{GM}}Strength{{/GM}}"
@@ -1428,7 +1565,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 3
+    nextNodeIndex: 9
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -1617,7 +1754,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 3
+    nextNodeIndex: 9
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -1806,7 +1943,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 3
+    nextNodeIndex: 9
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -1995,7 +2132,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 3
+    nextNodeIndex: 9
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -2184,13 +2321,13 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 3
+    nextNodeIndex: 9
     hideIfUnavailable: true
     auxiliaryLink: true
   }
   branches {
     responseText: "Nevermind."
-    nextNodeIndex: 2
+    nextNodeIndex: 8
     auxiliaryLink: true
   }
   branches {
@@ -2204,7 +2341,7 @@ nodes {
   idRef {
     id: "56f35e49646632800f006a66"
   }
-  index: 4
+  index: 10
   text: ""
   branches {
     responseText: "{{GM}}Quickness{{/GM}}"
@@ -3015,7 +3152,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 4
+    nextNodeIndex: 10
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -3204,7 +3341,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 4
+    nextNodeIndex: 10
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -3471,7 +3608,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 4
+    nextNodeIndex: 10
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -3660,7 +3797,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 4
+    nextNodeIndex: 10
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -3849,7 +3986,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 4
+    nextNodeIndex: 10
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -4038,7 +4175,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 4
+    nextNodeIndex: 10
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -4136,7 +4273,7 @@ nodes {
   idRef {
     id: "56f40778646632cc2e007331"
   }
-  index: 5
+  index: 11
   text: ""
   branches {
     responseText: "{{GM}}Intelligence{{/GM}}"
@@ -4803,7 +4940,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 5
+    nextNodeIndex: 11
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -4992,7 +5129,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 5
+    nextNodeIndex: 11
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -5260,7 +5397,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 5
+    nextNodeIndex: 11
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -5449,7 +5586,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 5
+    nextNodeIndex: 11
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -5717,7 +5854,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 5
+    nextNodeIndex: 11
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -5906,7 +6043,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 5
+    nextNodeIndex: 11
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -5986,12 +6123,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 5
+    nextNodeIndex: 11
     auxiliaryLink: true
   }
   branches {
     responseText: "Nevermind."
-    nextNodeIndex: 2
+    nextNodeIndex: 8
     auxiliaryLink: true
   }
   branches {
@@ -6005,7 +6142,7 @@ nodes {
   idRef {
     id: "56f40c5c646632cc2e0075f0"
   }
-  index: 6
+  index: 12
   text: ""
   branches {
     responseText: "{{GM}}Willpower{{/GM}}"
@@ -6420,7 +6557,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 6
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -6609,7 +6746,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 6
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -6853,7 +6990,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 6
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -6933,12 +7070,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 6
+    nextNodeIndex: 12
     auxiliaryLink: true
   }
   branches {
     responseText: "Nevermind"
-    nextNodeIndex: 2
+    nextNodeIndex: 8
     auxiliaryLink: true
   }
   branches {
@@ -6952,7 +7089,7 @@ nodes {
   idRef {
     id: "56f41059646632cc2e007a37"
   }
-  index: 7
+  index: 13
   text: ""
   branches {
     responseText: "{{GM}}Charisma $(l.Charisma){{/GM}}"
@@ -7698,7 +7835,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 8
+    nextNodeIndex: 14
   }
   branches {
     responseText: "{{GM}}Ch Conjuring{{/GM}}"
@@ -7885,7 +8022,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     auxiliaryLink: true
   }
   branches {
@@ -8073,7 +8210,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     auxiliaryLink: true
   }
   branches {
@@ -8261,7 +8398,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     auxiliaryLink: true
   }
   branches {
@@ -8340,7 +8477,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     auxiliaryLink: true
   }
   branches {
@@ -8419,12 +8556,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     auxiliaryLink: true
   }
   branches {
     responseText: "Nevermind"
-    nextNodeIndex: 2
+    nextNodeIndex: 8
     auxiliaryLink: true
   }
   branches {
@@ -8438,7 +8575,7 @@ nodes {
   idRef {
     id: "56df64a86466321419006036"
   }
-  index: 8
+  index: 14
   text: "Around whom do you wish to become tongue tied?"
   branches {
     responseText: "Gangs"
@@ -8581,7 +8718,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -8726,7 +8863,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -8871,7 +9008,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -9016,7 +9153,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -9161,7 +9298,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -9306,7 +9443,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -9451,108 +9588,9 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "523c2cb5336331b808004d5d"
-  }
-  index: 9
-  text: "You.... I sense a unique potential in you. Come closer..."
-  branches {
-    responseText: "Who... what are you?"
-    nextNodeIndex: 10
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "523c2cb5336331b808004d60"
-  }
-  index: 10
-  text: "My name is Xalthu. I am what some of your kind would consider a \"free spirit\". I manifest in this plane of my own free will."
-  branches {
-    responseText: "So no one summoned you? Then why are you here?"
-    nextNodeIndex: 11
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "523c2cb5336331b808004d63"
-  }
-  index: 11
-  text: "I crave what most sentient things crave; power. This realm is full of untapped power, but I am unable to harvest it on my own... Would you be willing to help me?"
-  branches {
-    responseText: "Help you how?"
-    nextNodeIndex: 12
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "523c2cb5336331b808004d66"
-  }
-  index: 12
-  text: "Have you ever heard of a Spirit Pact? It is when a willing metahuman enters into a symbiotic bond with one of my kind. We spirits cannot grow and flourish as your kind does. We must be fed living energy by a partner. In exchange we offer to share our power with those who feed us.  I would ask that you enter into this pact with me, so we can both grow powerful."
-  branches {
-    responseText: "I don\'t like the sound of \"feeding you my living energy\"..."
-    nextNodeIndex: 13
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "523c2cb5336331b808004d69"
-  }
-  index: 13
-  text: "Although it is true that you will become weaker with each exchange, you metahumans have the ability to recover that lost power simply by existing. That is why you are perfect partners, you can generate the energy we spirits so desperately crave, but it must be given over willingly. It is rare for one of my kind to find someone such as yourself, who shows such raw potential. Please, I beg you! If you enter this pact and I can grant you many boons..."
-  branches {
-    responseText: "What kind of \"boons\" are we talking here?"
-    nextNodeIndex: 14
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "523c2cb5336331b808004d6c"
-  }
-  index: 14
-  text: "Wealth, Power, Health, Knowledge, almost anything you can desire. When you are willing I will siphon off some of your Karmic Energy. When enough Karmic Energy is siphoned off, I will grant you a service. You can then barter these services with me in exchange for a boon or pact of your choosing..."
-  branches {
-    responseText: "Let me think about it..."
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "MetXalnu"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -10881,7 +10919,7 @@ nodes {
               string_value: "51f15c62336331d02c00440e"
             }
             args {
-              string_value: "KarmicEnergy"
+              string_value: "Spirit_Services"
             }
           }
         }
@@ -10897,7 +10935,7 @@ nodes {
           }
         }
         args {
-          int_value: 30
+          int_value: 1
         }
       }
     }
@@ -10916,11 +10954,38 @@ nodes {
           }
         }
         args {
-          int_value: -30
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 30
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Spirit_Services"
+                }
+              }
+            }
+          }
         }
       }
       ops {
-        functionName: "Add To Variable (int)"
+        functionName: "Set Variable (int)"
         args {
           call_value {
             functionName: "Get Story Variable (int)"
@@ -10933,7 +10998,7 @@ nodes {
           }
         }
         args {
-          int_value: 1
+          int_value: 0
         }
       }
     }
@@ -10952,7 +11017,7 @@ nodes {
               string_value: "51f15c62336331d02c00440e"
             }
             args {
-              string_value: "KarmicEnergy"
+              string_value: "Spirit_Services"
             }
           }
         }
@@ -10968,7 +11033,7 @@ nodes {
           }
         }
         args {
-          int_value: 30
+          int_value: 1
         }
       }
     }
@@ -11261,7 +11326,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 29
+    nextNodeIndex: 30
     hideIfUnavailable: true
   }
   branches {
@@ -11324,7 +11389,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 30
+    nextNodeIndex: 31
     hideIfUnavailable: true
   }
   branches {
@@ -11396,7 +11461,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 31
+    nextNodeIndex: 32
   }
   branches {
     responseText: "I want to recover some of my magical power that has diminished when I purchased Cyberware."
@@ -11477,7 +11542,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 32
+    nextNodeIndex: 33
   }
   branches {
     responseText: "I want peace."
@@ -11567,7 +11632,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 33
+    nextNodeIndex: 34
   }
   branches {
     responseText: "Nevermind."
@@ -11794,8 +11859,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 0
-    auxiliaryLink: true
+    nextNodeIndex: 29
     comment: "FIXME"
   }
   branches {
@@ -11807,9 +11871,144 @@ nodes {
 }
 nodes {
   idRef {
-    id: "523c2d5e336331b808005283"
+    id: "56f5cc5d646632bc04006a51"
   }
   index: 29
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Pact of Health"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Pact of Health"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 24
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Pact of Health"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 24
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "523c2d5e336331b808005283"
+  }
+  index: 30
   text: "I can make your steps quicker with a lesser Pact of Haste for three services."
   branches {
     responseText: "Deal!"
@@ -11929,7 +12128,7 @@ nodes {
   idRef {
     id: "523c29d3336331e437002bd9"
   }
-  index: 30
+  index: 31
   text: "A greater Haste pact would allow you to move at supernatural speeds for five services."
   branches {
     responseText: "Deal!"
@@ -12086,7 +12285,7 @@ nodes {
   idRef {
     id: "523c2ca1336331e437002c5d"
   }
-  index: 31
+  index: 32
   text: "For a service I can grant a gift akin to Killing Hands. You strikes will be imbued with mystic energy, and your body will become a lethal weapon."
   branches {
     responseText: "That sounds great!"
@@ -12206,7 +12405,7 @@ nodes {
   idRef {
     id: "523c3184336331e437002ce6"
   }
-  index: 32
+  index: 33
   text: "For three services I can create a Geas Pact between us. Your spells you will also draw upon a portion of my own power to supplement what you have lost... {{GM}}This Pact can be taken many times, with a stacking effect{{/GM}}"
   branches {
     responseText: "I accept."
@@ -12354,7 +12553,7 @@ nodes {
   idRef {
     id: "523c27a3336331e437002ece"
   }
-  index: 33
+  index: 34
   text: "For a service I can influence the minds of those who would pursue you. They would lose interest in you, for now... {{GM}}This will reduce Notoriety and Heat to 0{{/GM}}"
   branches {
     responseText: "I accept."
