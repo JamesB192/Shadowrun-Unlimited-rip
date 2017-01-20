@@ -2270,6 +2270,92 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "on(ready) Real Name"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Compare Actor Gender"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Gender"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Real_Name"
+          }
+        }
+      }
+      args {
+        string_value: "Mike"
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "532815083363312028001224"
+  }
+  elseActions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Real_Name"
+          }
+        }
+      }
+      args {
+        string_value: "Emma"
+      }
+    }
+  }
+  is_oneshot: true
+}
 regions {
   name: "Andy Conversation"
   position {
