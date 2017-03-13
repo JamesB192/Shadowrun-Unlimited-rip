@@ -231,6 +231,7 @@ props {
       }
     }
     interactionIcon: InteractionIcon_Conversation
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -1481,8 +1482,45 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Tokiro Package"
+            }
+          }
+        }
+      }
+    }
     dummyInteraciton {
     }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -1526,6 +1564,40 @@ props {
           int_value: 2
         }
       }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Tokiro Package"
+            }
+          }
+        }
+      }
     }
     inspectInteraction {
       dispalyTime: 4
@@ -1533,6 +1605,7 @@ props {
       inspectText: "I have to drop off this package before I can head home and meet Andy."
       disableAfterInteracting: false
     }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -1551,7 +1624,44 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Tokiro Package"
+            }
+          }
+        }
+      }
+    }
     interactionIcon: InteractionIcon_Generic
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -1590,7 +1700,35 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "SceneStep"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
     interactionIcon: InteractionIcon_Generic
+    interaction_info_text: ""
   }
   lod: 0
 }
