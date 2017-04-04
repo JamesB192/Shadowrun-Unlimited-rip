@@ -17,6 +17,27 @@ nodes {
     nextNodeIndex: 5
   }
   branches {
+    responseText: "Cultists vs Bums"
+    conditions {
+      ops {
+        functionName: "Invert Bool"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 8
+    hideIfUnavailable: true
+  }
+  branches {
     responseText: "Leave"
     nextNodeIndex: -1
   }
@@ -7802,6 +7823,225 @@ nodes {
       functionName: "Remove Nuyen"
       args {
         int_value: 10
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "58e387f5303736ac57b357e2"
+  }
+  index: 8
+  text: "Wager on a fight between a bum and a culitst?"
+  branches {
+    responseText: "Just watch"
+    nextNodeIndex: 9
+  }
+  branches {
+    responseText: "No"
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "58e388ad303736ac57b35a82"
+  }
+  index: 9
+  text: "whatevs"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Variable (string)"
+          args {
+            string_value: "MacCabe-color"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Append (string)"
+          args {
+            call_value {
+              functionName: "Convert (int) to (string)"
+              args {
+                call_value {
+                  functionName: "Random (int)"
+                  args {
+                    int_value: 1
+                  }
+                  args {
+                    int_value: 5
+                  }
+                }
+              }
+            }
+          }
+          args {
+            string_value: "nord"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Variable (string)"
+          args {
+            string_value: "MacCabe-evens"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Append (string)"
+          args {
+            call_value {
+              functionName: "Convert (int) to (string)"
+              args {
+                call_value {
+                  functionName: "Random (int)"
+                  args {
+                    int_value: 1
+                  }
+                  args {
+                    int_value: 5
+                  }
+                }
+              }
+            }
+          }
+          args {
+            string_value: "sud"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Tag From String"
+          args {
+            call_value {
+              functionName: "Get Variable (string)"
+              args {
+                string_value: "MacCabe-evens"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Tag From String"
+          args {
+            call_value {
+              functionName: "Get Variable (string)"
+              args {
+                string_value: "MacCabe-color"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Camera Point of Interest (Point)"
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "53e1367338646168110040af"
+              }
+            }
+          }
+        }
+      }
+      args {
+        float_value: -1
+      }
+    }
+    ops {
+      functionName: "Set Actor In Passive Mode"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
       }
     }
   }
