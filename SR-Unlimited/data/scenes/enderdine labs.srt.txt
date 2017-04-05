@@ -2485,17 +2485,28 @@ triggers {
   }
   actions {
     ops {
-      functionName: "Set Variable (int)"
+      functionName: "Set Variable (bool)"
       args {
         call_value {
-          functionName: "Get Variable (int)"
+          functionName: "Get Story Variable (bool)"
           args {
-            string_value: "Door_Open"
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Door_1_Open"
           }
         }
       }
       args {
-        int_value: 1
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
       }
     }
     ops {
@@ -2538,6 +2549,31 @@ triggers {
           functionName: "Get Map Item (InteractableObject)"
           args {
             string_value: "51fc5bc4336331983c003555"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Door_2_Open"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
           }
         }
       }
@@ -8136,6 +8172,9 @@ scene_hiring_prerequisites {
   prereq_conditions {
   }
 }
+hiring_slot_count: 0
+hiring_minimum_karma: 0
+hiring_maximum_karma: 25
 roster_overrides {
   roster_entries {
     reference_id: "Runner_Argyle"
@@ -8179,7 +8218,6 @@ roster_overrides {
     hiring_cost: -1
     content_pack_source: ""
   }
-
 }
 use_hiring_cost_warning: true
 hiring_average_cost: 750
