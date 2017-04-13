@@ -4,64 +4,13 @@ import re
 import stat
 import sys
 
-substitute = """triggers {
-  name: "Runner-Smash Jacker Load"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
+substitute = """roster_overrides {
+  roster_entries {
+    reference_id: "Runner_Argyle"
+    hiring_conditions {
   conditions {
     ops {
-      functionName: "Evaluate If Actor is Inside Region"
-      args {
-        call_value {
-          functionName: "All Actors With Tag"
-          args {
-            call_value {
-              functionName: "Get Map Item (SenseTagList)"
-              args {
-                string_value: "Smash Jacker"
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 1
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "AreOrAreNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Region)"
-          args {
-            string_value: "543ea6ee363735ec180067a0"
-          }
-        }
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Set Variable (bool)"
+      functionName: "Comparison (bool)"
       args {
         call_value {
           functionName: "Get Story Variable (bool)"
@@ -69,7 +18,18 @@ substitute = """triggers {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "Hired_Runner_Smash_Jacker"
+            string_value: "Met_Argyle"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
           }
         }
       }
@@ -86,15 +46,237 @@ substitute = """triggers {
       }
     }
   }
-  isActive: true
-  idRef {
-    id: "58d80c953037369c2670f987"
+    }
+    hiring_cost: -1
+    content_pack_source: ""
   }
-  elseActions {
+  roster_entries {
+    reference_id: "Runner_Clockwork"
+    hiring_conditions {
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Met_Clockwork"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
   }
-  is_oneshot: true"""
+    }
+    hiring_cost: -1
+    content_pack_source: ""
+  }
+  roster_entries {
+    reference_id: "Runner_Ricky"
+    hiring_conditions {
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Met_Ricky"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+    }
+    hiring_cost: -1
+    content_pack_source: ""
+  }
+  roster_entries {
+    reference_id: "Runner_SmashJacker"
+    hiring_conditions {
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Met_SmashJacker"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+    }
+    hiring_cost: -1
+    content_pack_source: ""
+  }
+  roster_entries {
+    reference_id: "Runner_Trent"
+    hiring_conditions {
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Met_Trent"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+    }
+    hiring_cost: -1
+    content_pack_source: ""
+  }
+  roster_entries {
+    reference_id: "Runner_Verum"
+    hiring_conditions {
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Met_Verum"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+    }
+    hiring_cost: -1
+    content_pack_source: ""
+  }"""
 
-original = re.compile('name: "Runner-SmashJacker Load"', re.M)
+original = re.compile('roster_overrides {', re.M)
 
 
 def inner_thing(fbase):
