@@ -7551,6 +7551,130 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "display deck storage"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "DataPayDay"
+      }
+    }
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate If Team Has Cyberdeck"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Screen Label Progress Bar (int)"
+      args {
+        string_value: "Storage Capacity"
+      }
+      args {
+        call_value {
+          functionName: "Append (string)"
+          args {
+            string_value: " / 7"
+          }
+          args {
+            call_value {
+              functionName: "Append (string)"
+              args {
+                call_value {
+                  functionName: "Convert (int) to (string)"
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Deck_Storage_FileCount"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                string_value: "Files: "
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Deck_Storage_Used"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Deck_Total_Storage"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "58eba37a66356154447f58fe"
+  }
+  elseActions {
+    ops {
+      functionName: "Remove Screen Label"
+      args {
+        string_value: "Storage Capacity"
+      }
+    }
+  }
+  is_oneshot: true
+}
 regions {
   name: "IC Den"
   position {
