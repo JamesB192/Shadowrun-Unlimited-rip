@@ -10470,6 +10470,73 @@ nodes {
         }
       }
     }
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Append (string)"
+          args {
+            string_value: " Spirit Services"
+          }
+          args {
+            call_value {
+              functionName: "Convert (int) to (string)"
+              args {
+                call_value {
+                  functionName: "Get Story Variable (int)"
+                  args {
+                    string_value: "51f15c62336331d02c00440e"
+                  }
+                  args {
+                    string_value: "Genera_Use"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 1
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+    }
   }
 }
 nodes {
@@ -10918,6 +10985,69 @@ nodes {
     responseText: "Nevermind."
     nextNodeIndex: -1
   }
+  branches {
+    responseText: "How crazy fast can I go."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "SuperSpeed"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "KarmicEnergy"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 240
+        }
+      }
+    }
+    nextNodeIndex: 26
+    hideIfUnavailable: true
+  }
   nodeType: ConversationNodeType_Simple
   actions {
     ops {
@@ -10943,15 +11073,23 @@ nodes {
       }
       args {
         call_value {
-          functionName: "Convert (int) to (string)"
+          functionName: "Append (string)"
+          args {
+            string_value: " Spirit Services"
+          }
           args {
             call_value {
-              functionName: "Get Story Variable (int)"
+              functionName: "Convert (int) to (string)"
               args {
-                string_value: "51f15c62336331d02c00440e"
-              }
-              args {
-                string_value: "Genera_Use"
+                call_value {
+                  functionName: "Get Story Variable (int)"
+                  args {
+                    string_value: "51f15c62336331d02c00440e"
+                  }
+                  args {
+                    string_value: "Genera_Use"
+                  }
+                }
               }
             }
           }
@@ -10977,52 +11115,6 @@ nodes {
       }
       args {
         float_value: 0
-      }
-    }
-    ops {
-      functionName: "Display Text over Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TextPopupStyle"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        string_value: "Spirit Services"
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 3
-      }
-      args {
-        float_value: 3
-      }
-      args {
-        float_value: 1
       }
     }
   }
@@ -11887,6 +11979,142 @@ nodes {
         }
         args {
           int_value: -30
+        }
+      }
+    }
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I don\'t think so."
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "523c29d3336331e437002bd9"
+  }
+  index: 26
+  text: "A blink pact would allow you to move at near instantaneous speeds for eight services."
+  branches {
+    responseText: "Deal!"
+    conditions {
+      ops {
+        functionName: "Invert Bool"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Actor Run Speed"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "RunSpeedMethod"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "SuperSpeed"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Remove Item from Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Greater Pact of Haste"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "KarmicEnergy"
+            }
+          }
+        }
+        args {
+          int_value: -240
         }
       }
     }
