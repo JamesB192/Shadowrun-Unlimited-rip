@@ -1835,52 +1835,6 @@ triggers {
         }
       }
     }
-    ops {
-      functionName: "Set Actor Run Speed"
-      args {
-        call_value {
-          functionName: "All Actors on Team"
-          args {
-            call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Nothing Selected"
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "RunSpeedMethod"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
   }
   isActive: true
   idRef {
@@ -7721,6 +7675,126 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "exit(entry box)"
+  events {
+    ops {
+      functionName: "On Region Exit"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "5911d56f3232340c17006c70"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Actor is a Persona"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Actor is Player Controlled"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5911d5a93232340c17006c71"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Actor Run Speed"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "RunSpeedMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5911d5a93232340c17006c71"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "IC Den"
   position {
@@ -7942,6 +8016,52 @@ regions {
     r: 0
     g: 0
     b: 0
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+}
+regions {
+  name: "entry box"
+  position {
+    x: -193
+    y: -115
+    width: 4
+    height: 4
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  idRef {
+    id: "5911d56f3232340c17006c70"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
     a: 1
   }
   ambience_template: ""
