@@ -70,6 +70,34 @@ nodes {
           }
         }
       }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Notoriety"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 30
+        }
+      }
     }
     nextNodeIndex: 1
     hideIfUnavailable: true
@@ -187,6 +215,34 @@ nodes {
         }
         args {
           int_value: 0
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Notoriety"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 30
         }
       }
     }
@@ -308,8 +364,71 @@ nodes {
           int_value: 0
         }
       }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Notoriety"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 30
+        }
+      }
     }
     nextNodeIndex: 6
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Notoriety"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 30
+        }
+      }
+    }
+    nextNodeIndex: 7
     hideIfUnavailable: true
   }
   nodeType: ConversationNodeType_Simple
@@ -571,7 +690,7 @@ nodes {
     id: "53ebdce9386461b016006b95"
   }
   index: 5
-  text: "{{GM}}You answer of series of routine questions, and the officer goes about his business.{{/GM}} \n\n{{GM}}Seems he never noticed your gun...{{/GM}}"
+  text: "{{GM}}You answer of series of routine questions, and the officer goes about his business.{{/GM}} \n\n{{GM}}Seems he never noticed your weapon(s)...{{/GM}}"
   branches {
     responseText: ""
     actions {
@@ -717,6 +836,27 @@ nodes {
     nextNodeIndex: -1
   }
   nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5252362f3363314c350041bb"
+  }
+  index: 7
+  text: "Hey! I Recognize you... You\'re a wanted felon! Freeze!\n\n{{GM}}The officers draw their guns with trained efficiency{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Angry Cops"
+          }
+        }
+      }
+    }
+  }
 }
 roots {
   responseText: ""
