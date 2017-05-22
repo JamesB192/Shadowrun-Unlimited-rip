@@ -275,10 +275,81 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
+    responseText: "I want to tear everything out."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "PrimeSafehouseUpgrade_1"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 1
+    hideIfUnavailable: true
+  }
+  branches {
     responseText: "Nevermind."
     nextNodeIndex: -1
   }
   nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "59231faa6539640d2e5a6dec"
+  }
+  index: 1
+  text: "please type Remodel to do so."
+  branches {
+    responseText: "Remodel"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "PrimeSafehouseUpgrade_1"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Nevermind."
+    nextNodeIndex: -1
+    inputBypass: true
+  }
+  nodeType: ConversationNodeType_InputKeyboard
 }
 roots {
   responseText: ""
