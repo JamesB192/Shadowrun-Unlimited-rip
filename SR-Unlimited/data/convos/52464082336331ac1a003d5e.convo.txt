@@ -53,35 +53,78 @@ nodes {
     responseText: "Use MagLock Skeleton Key"
     conditions {
       ops {
-        functionName: "Evaluate If Actor Has Item"
+        functionName: "OR"
         args {
           call_value {
-            functionName: "Specific Actor"
+            functionName: "Evaluate If Actor Has Item"
             args {
               call_value {
-                functionName: "Triggering Actor"
+                functionName: "Specific Actor"
+                args {
+                  call_value {
+                    functionName: "Triggering Actor"
+                  }
+                }
+                args {
+                }
               }
             }
             args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "HasOrHasNot"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Item)"
+                args {
+                  string_value: "ForgedKey"
+                }
+              }
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (int)"
+            functionName: "Comparison (int)"
             args {
-              string_value: "HasOrHasNot"
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "TestDifficulty"
+                }
+              }
             }
             args {
-              int_value: 1
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Comparison Ops"
+                }
+                args {
+                  int_value: 5
+                }
+              }
             }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
             args {
-              string_value: "ForgedKey"
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Rating_Passkey"
+                }
+              }
             }
           }
         }
