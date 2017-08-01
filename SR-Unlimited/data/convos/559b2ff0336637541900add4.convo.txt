@@ -4,93 +4,9 @@ idRef {
 ui_name: "Merchant-Ellie"
 nodes {
   idRef {
-    id: "559b3033336637541900addd"
-  }
-  index: 0
-  text: ""
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "ArenaRank"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 5
-            }
-          }
-        }
-        args {
-          int_value: 40
-        }
-      }
-    }
-    nextNodeIndex: 1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "559b307e336637541900ade0"
-  }
-  index: 1
-  text: "It no longer pains me to observe you."
-  branches {
-    responseText: "ink"
-    actions {
-      ops {
-        functionName: "Open Cyberware Screen From Actor"
-        args {
-          call_value {
-            functionName: "Get Map Item (Actor)"
-            args {
-              string_value: "559b2e43336637541900add1"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  branches {
-    responseText: "shop"
-    actions {
-      ops {
-        functionName: "Open Store Screen From Actor"
-        args {
-          call_value {
-            functionName: "Get Map Item (Actor)"
-            args {
-              string_value: "559b2e43336637541900add1"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
     id: "53f5f0ba386461ec5e000c26"
   }
-  index: 2
+  index: 0
   text: "What do you need?\n"
   branches {
     responseText: "What are the odds you could help me get my hands on some real magic."
@@ -160,7 +76,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 3
+    nextNodeIndex: 1
     hideIfUnavailable: true
   }
   branches {
@@ -231,7 +147,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 4
+    nextNodeIndex: 2
     hideIfUnavailable: true
   }
   branches {
@@ -329,7 +245,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 5
+    nextNodeIndex: 3
     hideIfUnavailable: true
   }
   branches {
@@ -427,7 +343,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 6
+    nextNodeIndex: 4
     hideIfUnavailable: true
   }
   branches {
@@ -440,18 +356,35 @@ nodes {
   idRef {
     id: "53f5f0d4386461ec5e000c2f"
   }
-  index: 3
+  index: 1
   text: "Sorry chum, I don\'t know what you\'re talking about...\n\n{{GM}}Required Street Cred: Veteran{{/GM}}"
   nodeType: ConversationNodeType_Simple
 }
 nodes {
   idRef {
-    id: "53f5f0ed386461ec5e000c36"
+    id: "559b307e336637541900ade0"
   }
-  index: 4
+  index: 2
   text: "No problem, I\'m here to serve."
   branches {
-    responseText: ""
+    responseText: "ink"
+    actions {
+      ops {
+        functionName: "Open Cyberware Screen From Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "55a289fb3366378829005ff4"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "shop"
     actions {
       ops {
         functionName: "Open Store Screen From Actor"
@@ -473,7 +406,7 @@ nodes {
   idRef {
     id: "53f5f243386461ec5e000c68"
   }
-  index: 5
+  index: 3
   text: "Good eye $(l.name). I\'ve heard of you. Are you interested in my wares?"
   branches {
     responseText: "Yeah."
@@ -502,11 +435,11 @@ nodes {
   idRef {
     id: "53f5f26f386461ec5e000c6e"
   }
-  index: 6
+  index: 4
   text: "No."
   branches {
     responseText: "It sure looks like it..."
-    nextNodeIndex: 7
+    nextNodeIndex: 5
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -514,53 +447,11 @@ nodes {
   idRef {
     id: "53f5f2bc386461ec5e000c71"
   }
-  index: 7
+  index: 5
   text: "No, now get lost.\n\n{{GM}}Required Street Cred: Veteran{{/GM}}"
   nodeType: ConversationNodeType_Simple
 }
 roots {
   responseText: ""
-  conditions {
-    ops {
-      functionName: "Comparison (bool)"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-  }
   nextNodeIndex: 0
-}
-roots {
-  responseText: ""
-  nextNodeIndex: 2
 }
