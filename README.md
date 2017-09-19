@@ -84,3 +84,27 @@ SR:Unlimited is in "/src"
 ### Building
 
 Figure it out my attempts at handholding worked really well from the feedback. Find the "project.cpack.txt". 
+
+
+### INSTALLATION:
+
+Download the zip, extract to: 
+
+PC
+C:\Users\<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks
+
+MAC
+<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks
+
+Linux
+/home/<USER>/Documents/Shadowrun Dragonfall Director's Cut/ContentPacks
+
+1. Start the `Shadowrun Returns Dragonfall - Directors Cut` `Editor`.
+1. Under the `File` menu item select `Open Content Pack`.
+1. Navigate to and Select the downloaded zip file.
+1. Under the `File` menu item select `Publish Content Pack Locally`.
+1. Wait for the editor to publish the content pack.
+1. Close the editor.
+1. (Re)start Dragonfall
+
+
