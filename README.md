@@ -107,4 +107,10 @@ Linux
 1. Close the editor.
 1. (Re)start Dragonfall
 
+------------ Helping ------------------------
 
+If you understand the Shadowrun Returns game editor, let JamesB192 or bdfworks know if you're ready to help with any bugs. We use github. If not familiar with it, try to get thru these tutorials on your own to see if its worth the difficulty for you; otherwise, might be better to stick to creating your own seperate mods we can add to it. (James doesn't have much time any more to commit to much help with the project, and bdfworks may still be too inexperienced with the github client to help much...sorry... :( ...)
+
+1. Create an account with github at github.com.
+2. Then follow the first tutorial: https://guides.github.com/activities/hello-world/
+3. Then learn how to work with someone else's project: https://guides.github.com/activities/forking/ (warning, its out of date, or was different for Win 7)
