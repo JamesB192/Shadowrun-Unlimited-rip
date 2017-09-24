@@ -88,7 +88,8 @@ Figure it out my attempts at handholding worked really well from the feedback. F
 
 ### INSTALLATION:
 
-Download the zip, extract to: 
+-Download the zip by clicking the green "clone or download" button above the list of files. (You may have to create a github account first...)
+-Then extract to: 
 
 PC
 C:\Users\<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks
