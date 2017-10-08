@@ -147,6 +147,52 @@ nodes {
         }
       }
     }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Genera_Use"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Argyle_Damage_Pay"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              int_value: 200
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 2
     hideIfUnavailable: true
   }
@@ -179,7 +225,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 8
+    nextNodeIndex: 4
   }
   branches {
     responseText: "Nevermind."
@@ -226,39 +272,9 @@ nodes {
     id: "52c980433363318c21000860"
   }
   index: 2
-  text: "There better be some action! I hate boring runs...  I charge a flat fee, plus a 10% cut of the run payment upon completion."
+  text: "There better be some action! I hate boring runs...  I charge a flat fee of $(story.genera_use) Nuyen, plus a 10% cut of the run payment upon completion."
   branches {
-    responseText: "{{GM}}200 Nuyen + 10% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Argyle_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-    }
+    responseText: "Sounds like a deal."
     actions {
       ops {
         functionName: "Add To Variable (int)"
@@ -304,322 +320,6 @@ nodes {
       }
     }
     nextNodeIndex: 3
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{GM}}250 Nuyen + 10% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Argyle_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 50
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Argyle"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 4
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{GM}}300 Nuyen + 10% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Argyle_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 100
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Argyle"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 5
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{GM}}350 Nuyen + 10% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Argyle_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 150
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Argyle"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 6
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{GM}}400 Nuyen + 10% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Argyle_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 200
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Argyle"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 7
     hideIfUnavailable: true
   }
   branches {
@@ -692,205 +392,9 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52c980433363318c21000866"
-  }
-  index: 4
-  text: "Whiz chummer. I\'ll be right there."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Enable/Disable Trigger"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "EnableOrDisable"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Trigger)"
-          args {
-            string_value: "52c97f793363318c21000815"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_Argyle"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-  }
-}
-nodes {
-  idRef {
-    id: "52c980433363318c21000869"
-  }
-  index: 5
-  text: "Whiz chummer. I\'ll be right there."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Enable/Disable Trigger"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "EnableOrDisable"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Trigger)"
-          args {
-            string_value: "52c97f793363318c21000815"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_Argyle"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-  }
-}
-nodes {
-  idRef {
-    id: "52c980433363318c2100086c"
-  }
-  index: 6
-  text: "Whiz chummer. I\'ll be right there."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Enable/Disable Trigger"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "EnableOrDisable"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Trigger)"
-          args {
-            string_value: "52c97f793363318c21000815"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_Argyle"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-  }
-}
-nodes {
-  idRef {
-    id: "52c980433363318c2100086f"
-  }
-  index: 7
-  text: "Whiz chummer. I\'ll be right there."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Enable/Disable Trigger"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "EnableOrDisable"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Trigger)"
-          args {
-            string_value: "52c97f793363318c21000815"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_Argyle"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-  }
-}
-nodes {
-  idRef {
     id: "52c980433363318c21000873"
   }
-  index: 8
+  index: 4
   text: "Well I didn\'t always used to look like this. When I was a young \'runner I was infected with the Kreiger strain of the HMHVV, that\'s the Human Metahuman Vampiric Virus if you didn\'t know. It didn\'t take long before I was transformed into a ghoul. But I was lucky. Most ghouls turn into feral beasts when they change, but a few like myself are able to retain their intelligence. \n\nI was depressed for a while, but I decided to get back to work which helps take my mind off things, unfortunately it\'s not easy to find people willing to hire someone like me."
   branches {
     responseText: ""

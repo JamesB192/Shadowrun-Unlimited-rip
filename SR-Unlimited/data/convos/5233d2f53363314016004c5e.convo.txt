@@ -102,6 +102,50 @@ nodes {
           }
         }
       }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Genera_Use"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Verum_Damage_Pay"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              int_value: 150
+            }
+          }
+        }
+      }
     }
     nextNodeIndex: 1
     hideIfUnavailable: true
@@ -174,7 +218,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 3
     hideIfUnavailable: true
   }
   branches {
@@ -206,7 +250,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 8
+    nextNodeIndex: 4
   }
   branches {
     responseText: "Nevermind."
@@ -232,39 +276,9 @@ nodes {
     id: "52c97bd7336331280d007c2b"
   }
   index: 1
-  text: "As long as you can afford me, my services are for sale. I charge a flat fee, plus a 10% cut of the run payment upon completion."
+  text: "As long as you can afford me, my services are for sale. I charge a flat fee of $(story.genera_use) Nuyen, plus a 10% cut of the run payment upon completion."
   branches {
-    responseText: "{{GM}}150 Nuyen + 10% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Verum_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-    }
+    responseText: "Sounds like a deal."
     actions {
       ops {
         functionName: "Add To Variable (int)"
@@ -310,322 +324,6 @@ nodes {
       }
     }
     nextNodeIndex: 2
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{GM}}200 Nuyen + 10% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Verum_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 50
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Verum"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-    }
-    nextNodeIndex: 3
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{GM}}250 Nuyen + 10% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Verum_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 100
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Verum"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-    }
-    nextNodeIndex: 4
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{GM}}300 Nuyen + 10% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Verum_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 150
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Verum"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-    }
-    nextNodeIndex: 5
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{GM}}350 Nuyen + 10% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Verum_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 200
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Verum"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-    }
-    nextNodeIndex: 6
     hideIfUnavailable: true
   }
   branches {
@@ -687,161 +385,9 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52c97bd7336331280d007c31"
-  }
-  index: 3
-  text: "Whiz chummer. I\'ll meet your outside your place."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_Verum"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-    ops {
-      functionName: "Send Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "VerumVanish"
-          }
-        }
-      }
-    }
-  }
-}
-nodes {
-  idRef {
-    id: "52c97bd7336331280d007c34"
-  }
-  index: 4
-  text: "Whiz chummer. I\'ll meet your outside your place."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_Verum"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-    ops {
-      functionName: "Send Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "VerumVanish"
-          }
-        }
-      }
-    }
-  }
-}
-nodes {
-  idRef {
-    id: "52c97bd7336331280d007c37"
-  }
-  index: 5
-  text: "Whiz chummer. I\'ll meet your outside your place."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_Verum"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-    ops {
-      functionName: "Send Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "VerumVanish"
-          }
-        }
-      }
-    }
-  }
-}
-nodes {
-  idRef {
-    id: "52c97bd7336331280d007c3a"
-  }
-  index: 6
-  text: "Whiz chummer. I\'ll meet your outside your place."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_Verum"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-    ops {
-      functionName: "Send Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "VerumVanish"
-          }
-        }
-      }
-    }
-  }
-}
-nodes {
-  idRef {
     id: "52c97bd7336331280d007c3e"
   }
-  index: 7
+  index: 3
   text: "Sorry Chummer, looks like you already have a full team."
   nodeType: ConversationNodeType_Simple
   actions {
@@ -862,7 +408,7 @@ nodes {
   idRef {
     id: "52c97bd7336331280d007c41"
   }
-  index: 8
+  index: 4
   text: "I used to have a gig working security for Knight Errant. After A while I couldn\'t take the corruption and back-biting. So a struck off of my own as freelancer, \'running the shadows. I\'m a can hold my own in a fight, and I don\'t mind getting my hands dirty. In this city, I don\'t have a hard time finding work."
   branches {
     responseText: ""

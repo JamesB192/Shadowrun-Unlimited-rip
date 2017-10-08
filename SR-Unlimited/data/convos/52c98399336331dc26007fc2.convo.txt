@@ -74,7 +74,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 10
+    nextNodeIndex: 6
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -279,6 +279,52 @@ nodes {
         }
       }
     }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Genera_Use"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SmashJacker_Damage_Pay"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              int_value: 200
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 3
     hideIfUnavailable: true
   }
@@ -311,7 +357,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 9
+    nextNodeIndex: 5
   }
   branches {
     responseText: "Nevermind."
@@ -345,39 +391,9 @@ nodes {
     id: "52c983b7336331dc26008012"
   }
   index: 3
-  text: "I could use the work. I charge a flat fee and 15% of the gross run payout upon completion."
+  text: "I could use the work. I charge a flat fee of $(story.genera_use) Nuyen and 15% of the gross run payout upon completion."
   branches {
-    responseText: "{{GM}}200 Nuyen + 15% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "SmashJacker_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-    }
+    responseText: "Sounds like a deal."
     actions {
       ops {
         functionName: "Add To Variable (int)"
@@ -426,322 +442,6 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
-    responseText: "{{GM}}250 Nuyen + 15% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "SmashJacker_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 50
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Smash_Jacker"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 5
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{GM}}300 Nuyen + 15% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "SmashJacker_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 100
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Smash_Jacker"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 6
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{GM}}350 Nuyen + 15% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "SmashJacker_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 150
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Smash_Jacker"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 7
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{GM}}400 Nuyen + 15% cut upon job completion{{/GM}}\n\nSounds like a deal."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "SmashJacker_Damage_Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 200
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "TeamCount"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Hired_Runner_Smash_Jacker"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 8
-    hideIfUnavailable: true
-  }
-  branches {
     responseText: "Nevermind."
     nextNodeIndex: -1
   }
@@ -776,117 +476,9 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52c983b7336331dc26008018"
-  }
-  index: 5
-  text: "Okay, I\'ll meet you outside."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_SmashJacker"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-  }
-}
-nodes {
-  idRef {
-    id: "52c983b7336331dc2600801b"
-  }
-  index: 6
-  text: "Okay, I\'ll meet you outside."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_SmashJacker"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-  }
-}
-nodes {
-  idRef {
-    id: "52c983b7336331dc2600801e"
-  }
-  index: 7
-  text: "Okay, I\'ll meet you outside."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_SmashJacker"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-  }
-}
-nodes {
-  idRef {
-    id: "52c983b7336331dc26008021"
-  }
-  index: 8
-  text: "Okay, I\'ll meet you outside."
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_SmashJacker"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-  }
-}
-nodes {
-  idRef {
     id: "52c983b7336331dc26008025"
   }
-  index: 9
+  index: 5
   text: "Once upon a time I was the daughter of a powerful Japanese businessman. I was loved, and had my whole life ahead of me. A great school, a trust-fund, a multi-million dollar inheritance. Life was good. That was until a few days after my sixteenth birthday when the goblinization struck. \n\nI was transformed from a beautiful girl into a monstrous troll. My father could not take the shame, and disowned me. I lost everything except a few thousand creds to help me start over and my beloved cyberdeck. I came to Seattle and have been \'running the shadows ever since."
   branches {
     responseText: ""
@@ -899,11 +491,11 @@ nodes {
   idRef {
     id: "52c983f0336331dc26008033"
   }
-  index: 10
+  index: 6
   text: "What do ya need?"
   branches {
     responseText: "You know where I can find a good \'runner?"
-    nextNodeIndex: 11
+    nextNodeIndex: 7
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -911,7 +503,7 @@ nodes {
   idRef {
     id: "52c983f0336331dc26008036"
   }
-  index: 11
+  index: 7
   text: "{{GM}}Street Cred too low{{/GM}}\n\nNope. Sorry stranger."
   nodeType: ConversationNodeType_Simple
 }
