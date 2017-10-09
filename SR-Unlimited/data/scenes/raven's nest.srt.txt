@@ -791,7 +791,7 @@ triggers {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "Runner_Slot_1"
+            string_value: "TeamCount"
           }
         }
       }
@@ -1537,87 +1537,6 @@ triggers {
   isActive: true
   idRef {
     id: "523c2c33336331e437002c16"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Lost Runners"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Runner_Slot_1"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_Ricky"
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_Verum"
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "52523b48336331fc1c0026cb"
   }
   elseActions {
   }
@@ -8350,15 +8269,15 @@ characters {
     interactionRadius: 1
     prerequisites {
       ops {
-        functionName: "Comparison (int)"
+        functionName: "Comparison (bool)"
         args {
           call_value {
-            functionName: "Get Story Variable (int)"
+            functionName: "Get Story Variable (bool)"
             args {
               string_value: "51f15c62336331d02c00440e"
             }
             args {
-              string_value: "Runner_Slot_1"
+              string_value: "Hired_Runner_Ricky"
             }
           }
         }
@@ -8366,7 +8285,7 @@ characters {
           call_value {
             functionName: "Get Preset Value (int)"
             args {
-              string_value: "Comparison Ops"
+              string_value: "IsOrIsNot"
             }
             args {
               int_value: 1
@@ -8374,7 +8293,15 @@ characters {
           }
         }
         args {
-          int_value: 1
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
         }
       }
       ops {
@@ -8410,6 +8337,7 @@ characters {
       conversationID: "520b24b83363311c35004b35"
       turnToFace: true
     }
+    interaction_info_text: ""
   }
   lod: 0
   character_instance {
