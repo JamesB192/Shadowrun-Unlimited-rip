@@ -52,6 +52,8 @@ original = re.compile('GeneralTags: "Clockwork"', re.M)
 
 
 def inner_thing(fbase):
+    terminate = "\n"
+    splitter = terminate + "}" + terminate
     result = []
     try:
         fp = open(fbase, "r")
@@ -59,7 +61,7 @@ def inner_thing(fbase):
     finally:
         fp.close
 
-    chunks = blob.split("\n}\n")
+    chunks = blob.split(splitter)
     for chunk in chunks:
         foo = original.search(chunk)
         if foo:
@@ -67,10 +69,10 @@ def inner_thing(fbase):
         else:
             result += [chunk]
 
+#    print(splitter.join(result))
     try:
         fp = open(fbase, "w")
-        fp.write("\n}\n".join(result))
-#        print("\n}\n".join(result))
+        fp.write(splitter.join(result))
     finally:
         fp.close
 
