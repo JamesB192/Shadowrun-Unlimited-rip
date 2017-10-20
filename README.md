@@ -1,13 +1,11 @@
 # Shadowrun-Unlimited-rip
 All content used without permission for the good of all players. Please keep the attributions below.
 
-Unofficial copy of Ryan "Southwind" W's User Generated Content (UGC) pack for
+Fork of Ryan "Southwind" W's User Generated Content (UGC) pack for
 Harebrained Scheme's "Shadowrun Dragonfall / Shadowrun Returns" game.
 
 ### References:
 
-
-Original UGC website: http://www.shadowrununlimited.com/
 
 Original UGC workshop site: http://steamcommunity.com/sharedfiles/filedetails/?id=317704781
 
@@ -58,18 +56,9 @@ for the Sega Genesis, so if you were a fan of that game, make sure to check this
 * Mizaroth for all his amazing map building."
 
 
-### Paths
-
-Removed obsolete and/or wrong build instructions.
-
-Resource pack is in "/Shadowrun Unlimited rip Resource Pack"
-
-SR: Unlimited is in "/src"
-
 ### Branches
 
 * "Stableish" is the current development branch for Dragon Fall Directors cut
-* "HK_fat" is the current working brach for Hong Kong
 * "SRR" is the current (not) working branch for Shadowrun Returns + Dragon Fall
 
 ===
@@ -104,7 +93,7 @@ Linux
 1. Close the editor.
 1. (Re)start Dragonfall
 
------------- Helping ------------------------
+### Helping
 
 If you understand the Shadowrun Returns game editor, let JamesB192 or bdfworks know if you're ready to help with any bugs. We use GitHub. If not familiar with it, try to get thru these tutorials on your own to see if its worth the difficulty for you; otherwise, might be better to stick to creating your own separate mods we can add to it. (James doesn't have much time anymore to commit to much help with the project, and bdfworks may still be too inexperienced with the GitHub client to help much...sorry... :( ...)
 
