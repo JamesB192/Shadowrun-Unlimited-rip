@@ -14977,13 +14977,41 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "unified Training innate"
+  name: "Body Training"
   events {
     ops {
       functionName: "On Map Start"
     }
   }
   conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "FitnessTraining"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
   }
   actions {
     ops {
@@ -15151,6 +15179,53 @@ triggers {
         }
       }
     }
+  }
+  isActive: true
+  idRef {
+    id: "529961613363310822005749"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Combat Training"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "CombatTraining"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
     ops {
       functionName: "Apply Skill Status Effect to Actor"
       args {
@@ -15200,7 +15275,7 @@ triggers {
             string_value: "BuffDebuffType"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
@@ -15208,6 +15283,53 @@ triggers {
         int_value: -1
       }
     }
+  }
+  isActive: true
+  idRef {
+    id: "5299617a336331082200574a"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Decker Training"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "DeckerTraining"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
     ops {
       functionName: "Apply Skill Status Effect to Actor"
       args {
@@ -15257,7 +15379,7 @@ triggers {
             string_value: "BuffDebuffType"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
@@ -15265,23 +15387,25 @@ triggers {
         int_value: -1
       }
     }
+  }
+  isActive: true
+  idRef {
+    id: "52996195336331082200574b"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Drone Training"
+  events {
     ops {
-      functionName: "Apply Skill Status Effect to Actor"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
       args {
         call_value {
           functionName: "Get Story Variable (int)"
@@ -15289,7 +15413,7 @@ triggers {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "FireArmsTraining"
+            string_value: "DroneTraining"
           }
         }
       }
@@ -15297,31 +15421,19 @@ triggers {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "ActorSkills"
+            string_value: "Comparison Ops"
           }
           args {
-            int_value: 0
+            int_value: 2
           }
         }
       }
       args {
-        string_value: "Firearms Training"
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "BuffDebuffType"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        int_value: -1
+        int_value: 0
       }
     }
+  }
+  actions {
     ops {
       functionName: "Apply Skill Status Effect to Actor"
       args {
@@ -15371,7 +15483,7 @@ triggers {
             string_value: "BuffDebuffType"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
@@ -15379,6 +15491,157 @@ triggers {
         int_value: -1
       }
     }
+  }
+  isActive: true
+  idRef {
+    id: "529961b0336331082200574c"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "FireArms Training"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "FireArmsTraining"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Apply Skill Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "FireArmsTraining"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorSkills"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Firearms Training"
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "529961c8336331082200574d"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Spell Training"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "SpellTraining"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
     ops {
       functionName: "Apply Skill Status Effect to Actor"
       args {
@@ -15428,7 +15691,7 @@ triggers {
             string_value: "BuffDebuffType"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
@@ -15436,6 +15699,53 @@ triggers {
         int_value: -1
       }
     }
+  }
+  isActive: true
+  idRef {
+    id: "529961e6336331082200574e"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Summon Training"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "SummonTraining"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  actions {
     ops {
       functionName: "Apply Skill Status Effect to Actor"
       args {
@@ -15485,7 +15795,7 @@ triggers {
             string_value: "BuffDebuffType"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
@@ -15496,7 +15806,7 @@ triggers {
   }
   isActive: true
   idRef {
-    id: "55a81abe336637c81c00344f"
+    id: "52996202336331082200574f"
   }
   elseActions {
   }
