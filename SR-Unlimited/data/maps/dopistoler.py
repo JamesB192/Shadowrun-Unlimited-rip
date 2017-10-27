@@ -23,9 +23,12 @@ arr = [ "sleekOffice_furniture_overturnedTable02",
 
 dir = ["N", "E", "S", "W"]
 
-array = {}
+array = []
+passes = 0
+yettodo = 25
 
-for count in range(0, 25):
+while yettodo > 0:
+    passes += 1
     randT = randint(0, 6)
     if(randT<2):
         randO = randint(0, 3)
@@ -33,22 +36,29 @@ for count in range(0, 25):
         randO = 2
 #       change these to be wright
     if((randT<2) & (randO & 1)):
-        randX = randint(0, 21)
-        randZ = randint(0, 21)
+        randX = randint(0, 6)
+        randZ = randint(0, 6)
         node = "%u,%u" % (randX, randZ)
-        if hasattr(array, node):
-            print ("collision")
+        if node in array:
+#            print ("collision")
+             passes += 0
         else:
-            array[node]=True
+            array+=[node]
             print (node)
+            yettodo -= 1;
 #            print (strung % (arr[randT], randX, randZ, dir[randO]))
     else:
-        randX = randint(0, 21)
-        randZ = randint(0, 21)
+        randX = randint(0, 6)
+        randZ = randint(0, 6)
         node = "%u,%u" % (randX, randZ)
-        if hasattr(array, node):
-            print ("collision")
+        if node in array:
+#            print ("collision")
+             passes += 0
         else:
-            array[node]=True
+            array+=[node]
             print (node)
+            yettodo -= 1;
 #            print (strung % (arr[randT], randX, randZ, dir[randO]))
+
+#print (dumps(array))
+#print (passes)
