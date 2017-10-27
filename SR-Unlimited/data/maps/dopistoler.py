@@ -25,7 +25,7 @@ dir = ["N", "E", "S", "W"]
 
 array = []
 passes = 0
-yettodo = 25
+yettodo = 50
 
 while yettodo > 0:
     passes += 1
@@ -36,29 +36,27 @@ while yettodo > 0:
         randO = 2
 #       change these to be wright
     if((randT<2) & (randO & 1)):
-        randX = randint(0, 6)
-        randZ = randint(0, 6)
+        randX = randint(2, 20)
+        randZ = randint(2, 19)
         node = "%u,%u" % (randX, randZ)
-        if node in array:
-#            print ("collision")
-             passes += 0
-        else:
+        if node not in array:
             array+=[node]
-            print (node)
+            node = "%u,%u" % (randX, randZ +1)
+            array+=[node]
+#            print (node)
             yettodo -= 1;
-#            print (strung % (arr[randT], randX, randZ, dir[randO]))
+            print (strung % (arr[randT], randX, randZ, dir[randO]))
     else:
-        randX = randint(0, 6)
-        randZ = randint(0, 6)
+        randX = randint(0, 19)
+        randZ = randint(0, 20)
         node = "%u,%u" % (randX, randZ)
-        if node in array:
-#            print ("collision")
-             passes += 0
-        else:
+        if node not in array:
             array+=[node]
-            print (node)
+            node = "%u,%u" % (randX + 1, randZ)
+            array+=[node]
+#            print (node)
             yettodo -= 1;
-#            print (strung % (arr[randT], randX, randZ, dir[randO]))
+            print (strung % (arr[randT], randX, randZ, dir[randO]))
 
 #print (dumps(array))
 #print (passes)
