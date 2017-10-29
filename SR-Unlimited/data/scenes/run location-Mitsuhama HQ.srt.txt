@@ -10095,7 +10095,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "iSpy"
+  name: "Security-Cameras"
   events {
     ops {
       functionName: "On Actor Awareness of Another Actor"
@@ -10178,16 +10178,15 @@ triggers {
         }
       }
     }
+  }
+  actions {
     ops {
-      functionName: "Comparison (bool)"
+      functionName: "Trigger: Run Alternate Trigger"
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "Get Map Item (Trigger)"
           args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 0
+            string_value: "52464108336331f02100572c"
           }
         }
       }
@@ -10195,7 +10194,7 @@ triggers {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "IsOrIsNot"
+            string_value: "WithOrWithout"
           }
           args {
             int_value: 1
@@ -10206,7 +10205,18 @@ triggers {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "bool"
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
           }
           args {
             int_value: 0
@@ -10214,8 +10224,6 @@ triggers {
         }
       }
     }
-  }
-  actions {
     ops {
       functionName: "Trigger: Run Alternate Trigger"
       args {
@@ -10261,13 +10269,13 @@ triggers {
       }
     }
   }
-  isActive: false
+  isActive: true
   idRef {
     id: "55a51824336637441c0013a7"
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "drone vent a2"
@@ -15092,7 +15100,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Security-Camera (1)"
+  name: "Security-Cameras check"
   events {
   }
   conditions {
@@ -15100,93 +15108,12 @@ triggers {
       functionName: "Comparison (int)"
       args {
         call_value {
-          functionName: "Arithmetic (int)"
+          functionName: "Get Story Variable (int)"
           args {
-            call_value {
-              functionName: "Arithmetic (int)"
-              args {
-                call_value {
-                  functionName: "Get Story Variable (int)"
-                  args {
-                    string_value: "51f15c62336331d02c00440e"
-                  }
-                  args {
-                    string_value: "TestDifficulty"
-                  }
-                }
-              }
-              args {
-                call_value {
-                  functionName: "Get Preset Value (int)"
-                  args {
-                    string_value: "Arithmetic Ops"
-                  }
-                  args {
-                    int_value: 0
-                  }
-                }
-              }
-              args {
-                call_value {
-                  functionName: "Get Story Variable (int)"
-                  args {
-                    string_value: "51f15c62336331d02c00440e"
-                  }
-                  args {
-                    string_value: "Skill_Test_Modifier"
-                  }
-                }
-              }
-            }
+            string_value: "51f15c62336331d02c00440e"
           }
           args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "Arithmetic Ops"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Random (int)"
-              args {
-                call_value {
-                  functionName: "Arithmetic (int)"
-                  args {
-                    int_value: -4
-                  }
-                  args {
-                    call_value {
-                      functionName: "Get Preset Value (int)"
-                      args {
-                        string_value: "Arithmetic Ops"
-                      }
-                      args {
-                        int_value: 1
-                      }
-                    }
-                  }
-                  args {
-                    call_value {
-                      functionName: "Get Story Variable (int)"
-                      args {
-                        string_value: "51f15c62336331d02c00440e"
-                      }
-                      args {
-                        string_value: "Current_Run_Resistance"
-                      }
-                    }
-                  }
-                }
-              }
-              args {
-                int_value: 0
-              }
-            }
+            string_value: "SkillTest"
           }
         }
       }
@@ -15448,12 +15375,12 @@ triggers {
             string_value: "TextPopupStyle"
           }
           args {
-            int_value: 1
+            int_value: 0
           }
         }
       }
       args {
-        string_value: "I spy with my little eye a Shadowrunner"
+        string_value: "Is anybody there?"
       }
       args {
         float_value: 0
@@ -15478,7 +15405,7 @@ triggers {
       }
     }
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Universal-Test"
@@ -16175,6 +16102,682 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "Security-Laser Tripwire (1)"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "59f61041616331c51f59c637"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "59f60fdb616331c51f59c636"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "59f60f78616331c51f59c635"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Tripwire Attribute Check"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Test"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "52c97baf3363311403000c65"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Security-Tripwire Attribute Check"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Tripwire Attribute Check"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Compare Actor Attribute"
+      args {
+        call_value {
+          functionName: "Active Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BaseOrCurrent"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorAttributes"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Actor Attribute"
+          args {
+            call_value {
+              functionName: "Active Actor"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "BaseOrCurrent"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "ActorAttributes"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Intelligence Test"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "52c5a9a53363311403000bb8"
+  }
+  elseActions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Quickness Test"
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Security-Tripwire Intelligence Test"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Intelligence Test"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "SkillTest"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Actor Attribute"
+          args {
+            call_value {
+              functionName: "Active Actor"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "BaseOrCurrent"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "ActorAttributes"
+              }
+              args {
+                int_value: 4
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Test_Pass"
+          }
+        }
+      }
+      args {
+        string_value: "(INTELLIGENCE) You are able to notice the tell-tale signs of a laser tripwire and carefully avoid setting off the alarm."
+      }
+    }
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Active Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "Test_Pass"
+          }
+        }
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "52c5aa1a3363311403000bb9"
+  }
+  elseActions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Test_Fail"
+          }
+        }
+      }
+      args {
+        string_value: "(INTELLIGENCE) You fail to notice the laser tripwire, break the circuit and trigger the alarm."
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Alarm"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Active Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Test_Fail"
+          }
+        }
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Security-Tripwire Quickness Test"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Quickness Test"
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "SkillTest"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Actor Attribute"
+          args {
+            call_value {
+              functionName: "Active Actor"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "BaseOrCurrent"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "ActorAttributes"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Test_Pass"
+          }
+        }
+      }
+      args {
+        string_value: "(QUICKNESS) You notice the beam of light at the last second, and dance over the tripwire avoiding an alarm."
+      }
+    }
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Active Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "Test_Pass"
+          }
+        }
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "52c5ab063363311403000bba"
+  }
+  elseActions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Test_Fail"
+          }
+        }
+      }
+      args {
+        string_value: "(QUICKNESS) You fail to notice the laser tripwire, and stumble through it, triggering the alarm."
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Alarm"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Display Text over Actor"
+      args {
+        call_value {
+          functionName: "Active Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Test_Fail"
+          }
+        }
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+  }
+  is_oneshot: false
+}
 regions {
   name: "region Chunnel"
   position {
@@ -16739,6 +17342,144 @@ regions {
   is_camera_region: false
   idRef {
     id: "55a40ce8336637e023004a82"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+}
+regions {
+  name: "pressure security office door"
+  position {
+    x: -49
+    y: 10
+    width: 6
+    height: 1
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  idRef {
+    id: "59f60f78616331c51f59c635"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+}
+regions {
+  name: "pressure inner lobby door"
+  position {
+    x: -38
+    y: 23
+    width: 1
+    height: 7
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  idRef {
+    id: "59f60fdb616331c51f59c636"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+}
+regions {
+  name: "pressure elevators"
+  position {
+    x: 7
+    y: 14
+    width: 1
+    height: 10
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  idRef {
+    id: "59f61041616331c51f59c637"
   }
   highlight_color {
     r: 0
@@ -20192,6 +20933,9 @@ variables {
 }
 mapEvents: "SunRising"
 mapEvents: "NightFall"
+mapEvents: "Alarm"
+mapEvents: "Test"
+mapEvents: "DoorBreak"
 mapEvents: "DoorDisableTest"
 mapEvents: "MatrixCameraShutdown"
 mapEvents: "MatrixCameraTest"
@@ -20227,6 +20971,7 @@ mapEvents: "Call From Julias"
 mapEvents: "Call From Mr. Bightmore"
 mapEvents: "Social Encounter"
 mapEvents: "Fast Talk Test"
+mapEvents: "Masking Test"
 mapEvents: "Matrix Browse-Edit"
 mapEvents: "Matrix-Edit"
 mapEvents: "Matrix Browse-Delete"
