@@ -1,138 +1,4 @@
 triggers {
-  name: "on(ready,insert) Insert"
-  events {
-    ops {
-      functionName: "On Map Start"
-    }
-    ops {
-      functionName: "Get Map Item (Event)"
-      args {
-        string_value: "insert"
-      }
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Teleport Actor"
-      args {
-        call_value {
-          functionName: "All Actors on Team"
-          args {
-            call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Nothing Selected"
-            }
-          }
-          args {
-            call_value {
-              functionName: "Nothing Selected"
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Current Location of Prop"
-          args {
-            call_value {
-              functionName: "Nearest Tagged Prop to Actor"
-              args {
-                call_value {
-                  functionName: "Tag From String"
-                  args {
-                    call_value {
-                      functionName: "Append (string)"
-                      args {
-                        call_value {
-                          functionName: "Convert (int) to (string)"
-                          args {
-                            call_value {
-                              functionName: "Get Story Variable (int)"
-                              args {
-                                string_value: "51f15c62336331d02c00440e"
-                              }
-                              args {
-                                string_value: "Travel"
-                              }
-                            }
-                          }
-                        }
-                      }
-                      args {
-                        string_value: "insert_"
-                      }
-                    }
-                  }
-                }
-              }
-              args {
-                call_value {
-                  functionName: "Get Map Item (Player)"
-                  args {
-                    int_value: 0
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "FacingDirection"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TeleportMethod"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Teleport Camera To Actor"
-      args {
-        call_value {
-          functionName: "Get Map Item (Player)"
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "53d13fe434623130130066ce"
-  }
-  elseActions {
-  }
-  is_oneshot: false
-}
-triggers {
   name: "HealthPactMapTrigger"
   events {
     ops {
@@ -1966,6 +1832,12 @@ triggers {
         string_value: "zonechange"
       }
     }
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "SunRising"
+      }
+    }
   }
   conditions {
     ops {
@@ -2016,12 +1888,12 @@ triggers {
             string_value: "Comparison Ops"
           }
           args {
-            int_value: 4
+            int_value: 2
           }
         }
       }
       args {
-        float_value: 3
+        float_value: 11
       }
     }
     ops {
@@ -2092,7 +1964,7 @@ triggers {
       }
     }
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "Runner-Ricky BattleCry"
@@ -4895,6 +4767,140 @@ triggers {
   is_oneshot: false
 }
 triggers {
+  name: "on(ready,insert) Insert"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "insert"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Nothing Selected"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Nothing Selected"
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Prop to Actor"
+              args {
+                call_value {
+                  functionName: "Tag From String"
+                  args {
+                    call_value {
+                      functionName: "Append (string)"
+                      args {
+                        call_value {
+                          functionName: "Convert (int) to (string)"
+                          args {
+                            call_value {
+                              functionName: "Get Story Variable (int)"
+                              args {
+                                string_value: "51f15c62336331d02c00440e"
+                              }
+                              args {
+                                string_value: "Travel"
+                              }
+                            }
+                          }
+                        }
+                      }
+                      args {
+                        string_value: "insert_"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Map Item (Player)"
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Teleport Camera To Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "53d13fe434623130130066ce"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
   name: "Tunnel Exit"
   events {
     ops {
@@ -5091,6 +5097,17 @@ triggers {
           functionName: "Get Map Item (InteractableObject)"
           args {
             string_value: "5411ebb831623594120007ba"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "540905e5316235341a0060d1"
           }
         }
       }
@@ -5334,7 +5351,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (CameraRegion)"
           args {
-            string_value: "55817bb86466325409000fe0"
+            string_value: "55972ead3366379800000a0b"
           }
         }
       }
@@ -5369,434 +5386,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (CameraRegion)"
           args {
-            string_value: "55817bb86466325409000fe0"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.45
-      }
-      args {
-        float_value: 0.55
-      }
-      args {
-        float_value: 0.6
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817bf86466325409000fe1"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -1.1
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817bf86466325409000fe1"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.45
-      }
-      args {
-        float_value: 0.55
-      }
-      args {
-        float_value: 0.6
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817e096466325409000fe5"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -1.1
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817e096466325409000fe5"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.45
-      }
-      args {
-        float_value: 0.55
-      }
-      args {
-        float_value: 0.6
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817b336466325409000fde"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -1.1
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817b336466325409000fde"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.45
-      }
-      args {
-        float_value: 0.55
-      }
-      args {
-        float_value: 0.6
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817c046466325409000fe2"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -1.1
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817c046466325409000fe2"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.45
-      }
-      args {
-        float_value: 0.55
-      }
-      args {
-        float_value: 0.6
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817dfe6466325409000fe4"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -1.1
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817dfe6466325409000fe4"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.45
-      }
-      args {
-        float_value: 0.55
-      }
-      args {
-        float_value: 0.6
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817e176466325409000fe6"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -1.1
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817e176466325409000fe6"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.45
-      }
-      args {
-        float_value: 0.55
-      }
-      args {
-        float_value: 0.6
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817c6c6466325409000fe3"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -1.1
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817c6c6466325409000fe3"
+            string_value: "55972ead3366379800000a0b"
           }
         }
       }
@@ -5808,459 +5398,6 @@ triggers {
   }
   elseActions {
     ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.1
-      }
-      args {
-        float_value: 0.15
-      }
-      args {
-        float_value: 0.2
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817bb86466325409000fe0"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.35
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: -0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817bb86466325409000fe0"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.1
-      }
-      args {
-        float_value: 0.15
-      }
-      args {
-        float_value: 0.2
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817bf86466325409000fe1"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.35
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: -0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817bf86466325409000fe1"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.1
-      }
-      args {
-        float_value: 0.15
-      }
-      args {
-        float_value: 0.2
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817e096466325409000fe5"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.35
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: -0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817e096466325409000fe5"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.1
-      }
-      args {
-        float_value: 0.15
-      }
-      args {
-        float_value: 0.2
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817b336466325409000fde"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.35
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: -0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817b336466325409000fde"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.1
-      }
-      args {
-        float_value: 0.15
-      }
-      args {
-        float_value: 0.2
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817c046466325409000fe2"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.35
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: -0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817c046466325409000fe2"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.1
-      }
-      args {
-        float_value: 0.15
-      }
-      args {
-        float_value: 0.2
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817dfe6466325409000fe4"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.35
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: -0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817dfe6466325409000fe4"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.1
-      }
-      args {
-        float_value: 0.15
-      }
-      args {
-        float_value: 0.2
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817e176466325409000fe6"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.35
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: -0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817e176466325409000fe6"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.1
-      }
-      args {
-        float_value: 0.15
-      }
-      args {
-        float_value: 0.2
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817c6c6466325409000fe3"
-          }
-        }
-      }
-    }
-    ops {
       functionName: "Set Directional Light Color"
       args {
         float_value: 0.35
@@ -6291,6 +5428,32 @@ triggers {
           functionName: "Get Map Item (CameraRegion)"
           args {
             string_value: "55817c6c6466325409000fe3"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Ambient Light Color"
+      args {
+        float_value: 0.45
+      }
+      args {
+        float_value: 0.55
+      }
+      args {
+        float_value: 0.6
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55972ead3366379800000a0b"
           }
         }
       }
@@ -21358,59 +20521,66 @@ triggers {
   }
   conditions {
     ops {
-      functionName: "Comparison (float)"
+      functionName: "OR"
       args {
         call_value {
-          functionName: "Get Story Variable (float)"
+          functionName: "Comparison (float)"
           args {
-            string_value: "51f15c62336331d02c00440e"
+            call_value {
+              functionName: "Get Story Variable (float)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "Daylight"
+              }
+            }
           }
           args {
-            string_value: "Daylight"
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Comparison Ops"
+              }
+              args {
+                int_value: 4
+              }
+            }
+          }
+          args {
+            float_value: 0
           }
         }
       }
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "Comparison (float)"
           args {
-            string_value: "Comparison Ops"
+            call_value {
+              functionName: "Get Story Variable (float)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "Daylight"
+              }
+            }
           }
           args {
-            int_value: 4
-          }
-        }
-      }
-      args {
-        float_value: 0
-      }
-    }
-    ops {
-      functionName: "Comparison (float)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (float)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Comparison Ops"
+              }
+              args {
+                int_value: 2
+              }
+            }
           }
           args {
-            string_value: "Daylight"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 2
+            float_value: 23
           }
         }
-      }
-      args {
-        float_value: 23
       }
     }
   }
@@ -21596,24 +20766,21 @@ triggers {
       }
     }
     ops {
-      functionName: "No Effect"
-    }
-    ops {
       functionName: "Set Ambient Light Color"
       args {
-        float_value: 0.5
+        float_value: 0.45
       }
       args {
-        float_value: 0.35
+        float_value: 0.55
       }
       args {
-        float_value: 0.2
+        float_value: 0.6
       }
       args {
         float_value: 0
       }
       args {
-        float_value: 7
+        float_value: 0
       }
       args {
         call_value {
@@ -21627,28 +20794,28 @@ triggers {
     ops {
       functionName: "Set Directional Light Color"
       args {
-        float_value: 0.2
+        float_value: 0.75
       }
       args {
-        float_value: -0.8
+        float_value: 0.9
       }
       args {
-        float_value: -0.4
+        float_value: 0.9
       }
       args {
         float_value: 0
       }
       args {
-        float_value: 0.4
+        float_value: -0.6
       }
       args {
-        float_value: 0.35
+        float_value: -1.1
       }
       args {
-        float_value: 0.35
+        float_value: -0.8
       }
       args {
-        float_value: 7
+        float_value: 0
       }
       args {
         call_value {
@@ -21657,6 +20824,34 @@ triggers {
             string_value: "55817b7b6466325409000fdf"
           }
         }
+      }
+    }
+    ops {
+      functionName: "Set Screen Label Progress Bar (int)"
+      args {
+        string_value: "daylight show"
+      }
+      args {
+        string_value: "Day $(story.Daylight)"
+      }
+      args {
+        call_value {
+          functionName: "Convert (float) to (int)"
+          args {
+            call_value {
+              functionName: "Get Story Variable (float)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "Daylight"
+              }
+            }
+          }
+        }
+      }
+      args {
+        int_value: 24
       }
     }
   }
@@ -21682,10 +20877,10 @@ triggers {
     ops {
       functionName: "Set Ambient Light Color"
       args {
-        float_value: 0.11
+        float_value: 0.1
       }
       args {
-        float_value: 0.35
+        float_value: 0.15
       }
       args {
         float_value: 0.2
@@ -21694,7 +20889,7 @@ triggers {
         float_value: 0
       }
       args {
-        float_value: 7
+        float_value: 0
       }
       args {
         call_value {
@@ -21708,28 +20903,28 @@ triggers {
     ops {
       functionName: "Set Directional Light Color"
       args {
-        float_value: -0.3
+        float_value: 0.75
       }
       args {
-        float_value: -0.75
+        float_value: 0.9
       }
       args {
-        float_value: -0.9
+        float_value: 0.9
       }
       args {
         float_value: 0
       }
       args {
-        float_value: 0.75
+        float_value: -0.6
       }
       args {
-        float_value: 0.25
+        float_value: -0.8
       }
       args {
-        float_value: 0.6
+        float_value: -0.4
       }
       args {
-        float_value: 7
+        float_value: 0
       }
       args {
         call_value {
@@ -21738,6 +20933,34 @@ triggers {
             string_value: "55817bb86466325409000fe0"
           }
         }
+      }
+    }
+    ops {
+      functionName: "Set Screen Label Progress Bar (int)"
+      args {
+        string_value: "daylight show"
+      }
+      args {
+        string_value: "Night $(story.Daylight)"
+      }
+      args {
+        call_value {
+          functionName: "Convert (float) to (int)"
+          args {
+            call_value {
+              functionName: "Get Story Variable (float)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "Daylight"
+              }
+            }
+          }
+        }
+      }
+      args {
+        int_value: 24
       }
     }
   }
@@ -21806,7 +21029,7 @@ regions {
     r: 0
     g: 0
     b: 0
-    a: 1
+    a: 0
   }
   visible_at_start: false
   is_closet: false
@@ -21817,16 +21040,16 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambient_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambience_template: ""
   combat_music: ""
@@ -21898,7 +21121,7 @@ regions {
     r: 0
     g: 0
     b: 0
-    a: 1
+    a: 0
   }
   visible_at_start: false
   is_closet: false
@@ -21909,16 +21132,16 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambient_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambience_template: ""
   combat_music: ""
@@ -21944,7 +21167,7 @@ regions {
     r: 0
     g: 0
     b: 0
-    a: 1
+    a: 0
   }
   visible_at_start: false
   is_closet: false
@@ -21955,16 +21178,16 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambient_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambience_template: ""
   combat_music: ""
@@ -22001,16 +21224,16 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambient_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambience_template: ""
   combat_music: ""
@@ -22047,16 +21270,16 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambient_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambience_template: ""
   combat_music: ""
@@ -22093,16 +21316,16 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambient_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambience_template: ""
   combat_music: ""
@@ -22128,7 +21351,7 @@ regions {
     r: 0
     g: 0
     b: 0
-    a: 1
+    a: 0
   }
   visible_at_start: false
   is_closet: false
@@ -22139,16 +21362,16 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambient_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambience_template: ""
   combat_music: ""
@@ -22185,16 +21408,16 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambient_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   }
   ambience_template: ""
   combat_music: ""
@@ -23944,7 +23167,7 @@ characters {
   gridPoint {
     x: -136
     y: 0
-    z: -44
+    z: -56
   }
   orientation: ORIENTATION_S
   idRef {
