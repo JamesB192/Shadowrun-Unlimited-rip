@@ -1,0 +1,49 @@
+id: "Adept_Boosted Intelligence"
+type: ItemType_Adept
+uirep {
+  icon: "icon_magicresistance3"
+  name: "Boosted Intelligence"
+  description: "Passive: The adept\'s Intelligence is increased by 1.  Must have an Essence of 6."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_ChiCasting
+forceRating: 5
+apCost: 0
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 6"
+prereqStrings: "Player.ATTRIBUTE.Attribute_Magic >= 6"
+baseHPDamage: 0
+baseAPDamage: 0
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: ""
+affectsFriendly: false
+affectsEnemy: false
+canTargetSelf: false
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 4
+isMagic: true
+effectDuration: 3
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "AdeptSpellBuffAction"
+  postActionFxName: ""
+  hitReactionFxName: "AdeptOffenseBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+passiveStatusEffects {
+  uirep {
+    icon: "icon_stride"
+    name: "Intelligence +1"
+  }
+  statMods {
+    attribute: Attribute_Intelligence
+    intModValue: 1
+  }
+}
+store_cost: 2500
+sorting_group: "Chi Casting (Adept)"
+damageType: VulnerabilityType_Buff

@@ -1,0 +1,50 @@
+id: "Adept Onslaught Shotguns"
+uirep {
+  icon: "icon_chionslaught"
+  name: "Chi Onslaught"
+  description: "Three shotgun blasts that strip 1 armor each and have increased crit chance.  Uses 5 ammo and has -15% accuracy, uses 6 ammo."
+}
+anim_action: AnimAction_Attack
+apCostMod: 1
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 4"
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 6"
+damageBucket {
+  successEntries {
+    weight: 0.4
+    value: 2
+  }
+  successEntries {
+    weight: 0.6
+    value: 1.5
+  }
+  failureEntries {
+    weight: 0.45
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.05
+    value: 0.5
+  }
+}
+attackRatingMod: -15
+offensiveAbility: true
+ammoCost: 5
+cooldown: 3
+additionalTargets: 0
+rpReduce: 1
+fxrep {
+  preActionFxName: ""
+  actionFxName: "ShotgunBurstFireAction"
+  postActionFxName: "ShotgunFireAction"
+  hitReactionFxName: "ShotgunHitReaction"
+  missReactionFxName: "ShotgunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

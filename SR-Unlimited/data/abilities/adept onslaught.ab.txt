@@ -1,0 +1,48 @@
+id: "Adept Onslaught"
+uirep {
+  icon: "icon_chionslaught"
+  name: "Chi Onslaught"
+  description: "Make 3 ranged attacks on three targets with a -10% to hit. Increases chance for critical DMG. Cooldown: 1"
+}
+anim_action: AnimAction_Attack
+apCostMod: 1
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 6"
+damageBucket {
+  successEntries {
+    weight: 0.4
+    value: 2
+  }
+  successEntries {
+    weight: 0.6
+    value: 1.5
+  }
+  failureEntries {
+    weight: 0.45
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.05
+    value: 0.5
+  }
+}
+attackRatingMod: -10
+offensiveAbility: true
+ammoCost: 3
+cooldown: 2
+additionalTargets: 2
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunChainFireAction"
+  postActionFxName: ""
+  hitReactionFxName: "GunBurstHitReaction"
+  missReactionFxName: "GunBurstMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

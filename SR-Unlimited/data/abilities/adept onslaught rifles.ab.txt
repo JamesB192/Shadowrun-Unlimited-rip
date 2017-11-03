@@ -1,0 +1,50 @@
+id: "Adept Onslaught Rifles"
+uirep {
+  icon: "icon_chionslaught"
+  name: "Chi Onslaught"
+  description: "Rifle burst with increased crit chance and penetrates 5 armor.  Uses 3 ammo and has -15% accuracy."
+}
+anim_action: AnimAction_Attack
+apCostMod: 1
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 2"
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 6"
+damageBucket {
+  successEntries {
+    weight: 0.4
+    value: 2
+  }
+  successEntries {
+    weight: 0.6
+    value: 1.5
+  }
+  failureEntries {
+    weight: 0.45
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.05
+    value: 0.5
+  }
+}
+attackRatingMod: -15
+offensiveAbility: true
+ammoCost: 3
+cooldown: 3
+additionalTargets: 0
+rpPenetrate: 5
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunBurstFireActionEmpty"
+  postActionFxName: ""
+  hitReactionFxName: "GunBurstHitReaction"
+  missReactionFxName: "GunBurstMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

@@ -1,0 +1,50 @@
+id: "Chi Focus Smg"
+uirep {
+  icon: "icon_chifocus"
+  name: "Chi Focus"
+  description: "An SMG burst with an increased crit chance and flushes enemies out of cover."
+}
+anim_action: AnimAction_Attack
+apCostMod: 1
+hpDamageMod: 0
+apDamageMod: 0
+accuracyMod: 0
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 1"
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 3"
+damageBucket {
+  successEntries {
+    weight: 0.4
+    value: 2
+  }
+  successEntries {
+    weight: 0.6
+    value: 1.5
+  }
+  failureEntries {
+    weight: 0.45
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.05
+    value: 0.5
+  }
+}
+offensiveAbility: true
+ammoCost: 4
+repetition: 2
+cooldown: 2
+additionalTargets: 0
+flushCover: true
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunBurstFireActionEmpty"
+  postActionFxName: ""
+  hitReactionFxName: "GunBurstHitReaction"
+  missReactionFxName: "GunBurstMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

@@ -1,0 +1,50 @@
+id: "Adept Onslaught Pistols"
+uirep {
+  icon: "icon_chionslaught"
+  name: "Chi Onslaught"
+  description: "Three ranged attacks on a single target with -15% accuracy. Increased crit chance and does AP damage."
+}
+anim_action: AnimAction_Attack
+apCostMod: 1
+hpDamageMod: 0
+apDamageMod: 1
+accuracyMod: 0
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 2"
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 6"
+damageBucket {
+  successEntries {
+    weight: 0.4
+    value: 2
+  }
+  successEntries {
+    weight: 0.6
+    value: 1.5
+  }
+  failureEntries {
+    weight: 0.45
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.05
+    value: 0.5
+  }
+}
+attackRatingMod: -15
+offensiveAbility: true
+ammoCost: 3
+repetition: 1
+cooldown: 2
+additionalTargets: 0
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunBurstFireActionEmpty"
+  postActionFxName: "GunSingleFireAction"
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"

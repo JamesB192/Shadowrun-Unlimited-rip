@@ -1,0 +1,49 @@
+id: "Adept_Stride"
+type: ItemType_Adept
+uirep {
+  icon: "icon_stride"
+  name: "Stride"
+  description: "Passive: The adept\'s Movement is increased by 3.  Must have an Essence of 5 or higher."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_ChiCasting
+forceRating: 5
+apCost: 0
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 4"
+prereqStrings: "Player.ATTRIBUTE.Attribute_Magic >= 5"
+baseHPDamage: 0
+baseAPDamage: 0
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: ""
+affectsFriendly: false
+affectsEnemy: false
+canTargetSelf: false
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 4
+isMagic: true
+effectDuration: 3
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "AdeptSpellBuffAction"
+  postActionFxName: ""
+  hitReactionFxName: "AdeptOffenseBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+passiveStatusEffects {
+  uirep {
+    icon: "icon_stride"
+    name: "+3 Movement"
+  }
+  statMods {
+    attribute: Attribute_Move_Speed
+    intModValue: 3
+  }
+}
+store_cost: 1000
+sorting_group: "Chi Casting (Adept)"
+damageType: VulnerabilityType_MoveRange

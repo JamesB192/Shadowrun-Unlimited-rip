@@ -1,0 +1,61 @@
+id: "Adept_Improved Melee"
+type: ItemType_Adept
+uirep {
+  icon: "icon_magicresistance2"
+  name: "Improved Close Combat"
+  description: "The adept\'s Close Combat Skill and Specializations are increased by 2 for 3 turns."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_ChiCasting
+forceRating: 5
+apCost: 1
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 6"
+baseHPDamage: 0
+baseAPDamage: 0
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: "Activate Melee"
+affectsFriendly: false
+affectsEnemy: false
+canTargetSelf: true
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 6
+isMagic: true
+effectDuration: 3
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "AdeptSpellBuffAction"
+  postActionFxName: ""
+  hitReactionFxName: "AdeptOffenseBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+activationStatusEffects {
+  uirep {
+    icon: "icon_magicresistance2"
+    name: "Ranged Combat +2"
+  }
+  statMods {
+    skill: Skill_CloseCombat
+    intModValue: 2
+  }
+  statMods {
+    specialization: Specialization_CC_Edged
+    intModValue: 2
+  }
+  statMods {
+    specialization: Specialization_CC_Unarmed
+    intModValue: 2
+  }
+  statMods {
+    specialization: Specialization_TW_Blades
+    intModValue: 2
+  }
+  fxScript: "AdeptOffenseBuffStatus"
+}
+store_cost: 2000
+sorting_group: "Chi Casting (Adept)"
+damageType: VulnerabilityType_Normal

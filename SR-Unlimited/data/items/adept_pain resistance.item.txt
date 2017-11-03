@@ -1,0 +1,49 @@
+id: "Adept_Pain Resistance"
+type: ItemType_Adept
+uirep {
+  icon: "icon_painresistance"
+  name: "Pain Resistance"
+  description: "Passive: Decreases any DMG the adept takes by 5.  Must have an Essence of 6."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_ChiCasting
+forceRating: 6
+apCost: 0
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 9"
+prereqStrings: "Player.ATTRIBUTE.Attribute_Magic >= 6"
+baseHPDamage: 0
+baseAPDamage: 0
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: ""
+affectsFriendly: false
+affectsEnemy: false
+canTargetSelf: false
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 4
+isMagic: true
+effectDuration: 3
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "AdeptSpellBuffAction"
+  postActionFxName: ""
+  hitReactionFxName: "AdeptDefenseBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+passiveStatusEffects {
+  uirep {
+    icon: "icon_painresistance"
+    name: "Resist Pain: Incoming DMG -5"
+  }
+  statMods {
+    attribute: Attribute_Damage_Reduction_Mod
+    intModValue: 5
+  }
+}
+store_cost: 1200
+sorting_group: "Chi Casting (Adept)"
+damageType: VulnerabilityType_Buff

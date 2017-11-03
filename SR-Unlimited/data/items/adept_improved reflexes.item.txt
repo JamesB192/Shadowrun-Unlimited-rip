@@ -1,0 +1,50 @@
+id: "Adept_Improved Reflexes"
+type: ItemType_Adept
+uirep {
+  icon: "icon_stride"
+  name: "Improved Reflexes"
+  description: "Passive: The adept\'s Dodge is increased by 1 and dodges the first attack of every round.  Must have an Essence of 6."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_ChiCasting
+forceRating: 9
+apCost: 0
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 9"
+prereqStrings: "Player.ATTRIBUTE.Attribute_Magic >= 6"
+baseHPDamage: 0
+baseAPDamage: 0
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: ""
+affectsFriendly: false
+affectsEnemy: false
+canTargetSelf: false
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 4
+isMagic: true
+effectDuration: 3
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "AdeptSpellBuffAction"
+  postActionFxName: ""
+  hitReactionFxName: "AdeptOffenseBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+passiveStatusEffects {
+  uirep {
+    icon: "icon_stride"
+    name: "Improved Reflexes: Dodge +1, Dodge Next Attack"
+  }
+  statMods {
+    skill: Skill_Dodge
+    intModValue: 1
+  }
+  statusConditions: Condition_AutoDodge
+}
+store_cost: 5000
+sorting_group: "Chi Casting (Adept)"
+damageType: VulnerabilityType_Normal

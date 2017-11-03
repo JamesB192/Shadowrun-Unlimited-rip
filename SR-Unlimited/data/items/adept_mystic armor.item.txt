@@ -1,0 +1,50 @@
+id: "Adept_Mystic Armor"
+type: ItemType_Adept
+uirep {
+  icon: "icon_mysticarmor"
+  name: "Mystic Armor"
+  description: "Passive: The adept has +3 Armor.  Must have an Essence of 6."
+}
+anim_type: AnimType_Spell
+coreAttribute: Attribute_Willpower
+coreSkill: Skill_ChiCasting
+forceRating: 6
+apCost: 1
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 8"
+prereqStrings: "Player.ATTRIBUTE.Attribute_Magic >= 6"
+baseHPDamage: 0
+baseAPDamage: 0
+noiseLevel: 0
+noiseRounds: 0
+modelessAbilities: ""
+affectsFriendly: false
+affectsEnemy: false
+canTargetSelf: false
+canTargetActor: false
+canTargetOccupiedGridPoint: false
+canTargetUnoccupiedGridPoint: false
+isBuff: true
+cooldown: 4
+isMagic: true
+effectDuration: 3
+fxrep {
+  preActionFxName: "GenericSpellPrepare"
+  actionFxName: "AdeptSpellBuffAction"
+  postActionFxName: ""
+  hitReactionFxName: "AdeptDefenseBuffHitReaction"
+  missReactionFxName: "GenericSpellMissReaction"
+}
+passiveStatusEffects {
+  uirep {
+    icon: "icon_mysticarmor"
+    name: "Mystic Armor: Armor +3"
+  }
+  stackingCategory: "MysticArmor"
+  statMods {
+    attribute: Attribute_Armor
+    intModValue: 3
+  }
+}
+store_cost: 1200
+sorting_group: "Chi Casting (Adept)"
+damageType: VulnerabilityType_Buff

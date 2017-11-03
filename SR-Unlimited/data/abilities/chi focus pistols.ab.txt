@@ -1,0 +1,48 @@
+id: "Chi Focus Pistols"
+uirep {
+  icon: "icon_chifocus"
+  name: "Chi Focus"
+  description: "Two ranged attacks on one target with an increased crit chance and do AP damage."
+}
+anim_action: AnimAction_Attack
+apCostMod: 1
+hpDamageMod: 0
+apDamageMod: 1
+accuracyMod: 0
+prereqStrings: "Item.FLAG.WEAPON_CUR_AMMO > 1"
+prereqStrings: "Player.SKILL.Skill_ChiCasting >= 3"
+damageBucket {
+  successEntries {
+    weight: 0.4
+    value: 2
+  }
+  successEntries {
+    weight: 0.6
+    value: 1.5
+  }
+  failureEntries {
+    weight: 0.45
+    value: 1
+  }
+  failureEntries {
+    weight: 0.5
+    value: 1
+  }
+  failureEntries {
+    weight: 0.05
+    value: 0.5
+  }
+}
+offensiveAbility: true
+ammoCost: 2
+repetition: 2
+cooldown: 2
+fxrep {
+  preActionFxName: ""
+  actionFxName: "GunSingleFireAction"
+  postActionFxName: "GunSingleFireAction"
+  hitReactionFxName: "GunHitReaction"
+  missReactionFxName: "GunMissReaction"
+}
+toHitFunction: "actorWeaponAttackToHit"
+damageFunction: "weaponDamage"
