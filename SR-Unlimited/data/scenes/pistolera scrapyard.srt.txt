@@ -1653,7 +1653,7 @@ triggers {
             string_value: "FactionList"
           }
           args {
-            int_value: 4
+            int_value: 1
           }
         }
       }
@@ -3929,6 +3929,9 @@ triggers {
     }
   }
   conditions {
+    ops {
+      functionName: "No Condition"
+    }
   }
   actions {
     ops {
@@ -3943,86 +3946,51 @@ triggers {
     id: "56f5b8e26466322c17005efe"
   }
   elseActions {
+    ops {
+      functionName: "Set Actor Unkillable"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Open Scene"
+      args {
+        call_value {
+          functionName: "Get Map Item (Scene)"
+          args {
+            string_value: "the barrens"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "No Effect"
+    }
   }
   is_oneshot: true
-}
-triggers {
-  name: "NewTrigger"
-  events {
-  }
-  conditions {
-  }
-  actions {
-  }
-  isActive: true
-  idRef {
-    id: "59f8ad9e6163312b5bac4421"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "NewTrigger"
-  events {
-  }
-  conditions {
-  }
-  actions {
-  }
-  isActive: true
-  idRef {
-    id: "59f8adaf6163312b5bac4422"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-regions {
-  name: "New Region"
-  position {
-    x: -4
-    y: -4
-    width: 30
-    height: 30
-  }
-  enabledAtStart: true
-  is_camera_region: true
-  idRef {
-    id: "59f28dd0616331c116f7ab4c"
-  }
-  highlight_color {
-    r: 0
-    g: 0
-    b: 0
-    a: 1
-  }
-  visible_at_start: false
-  is_closet: false
-  is_teleporter_region: false
-  directional_light_dir {
-    x: -0.5
-    y: -1
-    z: -0.75
-  }
-  directional_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
-  }
-  ambient_light_color {
-    r: 0.50196081
-    g: 0.50196081
-    b: 0.50196081
-    a: 1
-  }
-  ambience_template: ""
-  combat_music: ""
-  default_music: ""
-  loop_combat_music: true
-  loop_default_music: false
-  no_fow_in_region: false
 }
 regions {
   name: "New Region"
@@ -4070,12 +4038,58 @@ regions {
   loop_default_music: false
   no_fow_in_region: false
 }
+regions {
+  name: "Arena Camera Bind"
+  position {
+    x: -4
+    y: 34
+    width: 30
+    height: 30
+  }
+  enabledAtStart: true
+  is_camera_region: true
+  idRef {
+    id: "59fb2462616331b46a7f552b"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+}
 characters {
   name: "system_spawner_playerSpawner"
   gridPoint {
-    x: 13
+    x: -3
     y: 0
-    z: 12
+    z: 46
   }
   orientation: ORIENTATION_S
   idRef {
@@ -4180,7 +4194,7 @@ characters {
     char_name: "Pit Fighter"
     GeneralTags: "Arena"
     GeneralTags: "Gladiator3"
-    enabled_at_start: true
+    enabled_at_start: false
     pc_spawn_number: -1
     karma: 37
     has_fist: false
@@ -4274,7 +4288,7 @@ characters {
     char_name: "Pit Fighter"
     GeneralTags: "Arena"
     GeneralTags: "Gladiator5"
-    enabled_at_start: true
+    enabled_at_start: false
     pc_spawn_number: -1
     karma: 42
     has_fist: false
@@ -4368,7 +4382,7 @@ characters {
     char_name: "Pit Fighter"
     GeneralTags: "Arena"
     GeneralTags: "Gladiator2"
-    enabled_at_start: true
+    enabled_at_start: false
     pc_spawn_number: -1
     karma: 37
     has_fist: false
@@ -4462,7 +4476,7 @@ characters {
     char_name: "Pit Fighter"
     GeneralTags: "Arena"
     GeneralTags: "Gladiator4"
-    enabled_at_start: true
+    enabled_at_start: false
     pc_spawn_number: -1
     karma: 37
     has_fist: false
@@ -4553,7 +4567,7 @@ characters {
     char_name: "Pit Fighter"
     GeneralTags: "Arena"
     GeneralTags: "Gladiator1"
-    enabled_at_start: true
+    enabled_at_start: false
     pc_spawn_number: -1
     karma: 26
     hiring_set_randomizer: "human_samurai"
@@ -4565,7 +4579,7 @@ characters {
   gridPoint {
     x: 23
     y: 0
-    z: 16
+    z: 54
   }
   orientation: ORIENTATION_N
   GeneralTags: "Watching"
@@ -4655,7 +4669,7 @@ characters {
   gridPoint {
     x: 23
     y: 0
-    z: 17
+    z: 55
   }
   orientation: ORIENTATION_N
   GeneralTags: "Watching"
@@ -4745,7 +4759,7 @@ characters {
   gridPoint {
     x: 23
     y: 0
-    z: 18
+    z: 56
   }
   orientation: ORIENTATION_N
   GeneralTags: "Watching"
@@ -4835,7 +4849,7 @@ characters {
   gridPoint {
     x: 19
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -4925,7 +4939,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 18
+    z: 56
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -5015,7 +5029,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 17
+    z: 55
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -5105,7 +5119,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 16
+    z: 54
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -5195,7 +5209,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 15
+    z: 53
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -5285,7 +5299,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 14
+    z: 52
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -5375,7 +5389,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 13
+    z: 51
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -5465,7 +5479,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 6
+    z: 44
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -5555,7 +5569,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 5
+    z: 43
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -5645,7 +5659,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 4
+    z: 42
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -5735,7 +5749,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 3
+    z: 41
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -5825,7 +5839,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 2
+    z: 40
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -5915,7 +5929,7 @@ characters {
   gridPoint {
     x: -2
     y: 0
-    z: 1
+    z: 39
   }
   orientation: ORIENTATION_S
   GeneralTags: "Watching"
@@ -6005,7 +6019,7 @@ characters {
   gridPoint {
     x: 23
     y: 0
-    z: 15
+    z: 53
   }
   orientation: ORIENTATION_N
   GeneralTags: "Watching"
@@ -6095,7 +6109,7 @@ characters {
   gridPoint {
     x: 23
     y: 0
-    z: 14
+    z: 52
   }
   orientation: ORIENTATION_N
   GeneralTags: "Watching"
@@ -6185,7 +6199,7 @@ characters {
   gridPoint {
     x: 23
     y: 0
-    z: 7
+    z: 45
   }
   orientation: ORIENTATION_N
   GeneralTags: "Watching"
@@ -6275,7 +6289,7 @@ characters {
   gridPoint {
     x: 23
     y: 0
-    z: 6
+    z: 44
   }
   orientation: ORIENTATION_N
   GeneralTags: "Watching"
@@ -6365,7 +6379,7 @@ characters {
   gridPoint {
     x: 23
     y: 0
-    z: 5
+    z: 43
   }
   orientation: ORIENTATION_N
   GeneralTags: "Watching"
@@ -6455,7 +6469,7 @@ characters {
   gridPoint {
     x: 23
     y: 0
-    z: 4
+    z: 42
   }
   orientation: ORIENTATION_N
   GeneralTags: "Watching"
@@ -6545,7 +6559,7 @@ characters {
   gridPoint {
     x: 23
     y: 0
-    z: 3
+    z: 41
   }
   orientation: ORIENTATION_N
   GeneralTags: "Watching"
@@ -6635,7 +6649,7 @@ characters {
   gridPoint {
     x: 3
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -6725,7 +6739,7 @@ characters {
   gridPoint {
     x: 18
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -6815,7 +6829,7 @@ characters {
   gridPoint {
     x: 17
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -6905,7 +6919,7 @@ characters {
   gridPoint {
     x: 16
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -6995,7 +7009,7 @@ characters {
   gridPoint {
     x: 15
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -7085,7 +7099,7 @@ characters {
   gridPoint {
     x: 14
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -7175,7 +7189,7 @@ characters {
   gridPoint {
     x: 7
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -7265,7 +7279,7 @@ characters {
   gridPoint {
     x: 6
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -7355,7 +7369,7 @@ characters {
   gridPoint {
     x: 5
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -7445,7 +7459,7 @@ characters {
   gridPoint {
     x: 4
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -7535,7 +7549,7 @@ characters {
   gridPoint {
     x: 3
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -7625,7 +7639,7 @@ characters {
   gridPoint {
     x: 2
     y: 0
-    z: 23
+    z: 61
   }
   orientation: ORIENTATION_W
   GeneralTags: "Watching"
@@ -7715,7 +7729,7 @@ characters {
   gridPoint {
     x: 23
     y: 0
-    z: 2
+    z: 40
   }
   orientation: ORIENTATION_N
   GeneralTags: "Watching"
@@ -7805,7 +7819,7 @@ characters {
   gridPoint {
     x: 6
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -7895,7 +7909,7 @@ characters {
   gridPoint {
     x: 4
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -7985,7 +7999,7 @@ characters {
   gridPoint {
     x: 7
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -8075,7 +8089,7 @@ characters {
   gridPoint {
     x: 5
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -8165,7 +8179,7 @@ characters {
   gridPoint {
     x: 2
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -8255,7 +8269,7 @@ characters {
   gridPoint {
     x: 19
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -8345,7 +8359,7 @@ characters {
   gridPoint {
     x: 18
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -8435,7 +8449,7 @@ characters {
   gridPoint {
     x: 17
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -8525,7 +8539,7 @@ characters {
   gridPoint {
     x: 16
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -8615,7 +8629,7 @@ characters {
   gridPoint {
     x: 15
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -8705,7 +8719,7 @@ characters {
   gridPoint {
     x: 14
     y: 0
-    z: -2
+    z: 36
   }
   orientation: ORIENTATION_E
   GeneralTags: "Watching"
@@ -8788,6 +8802,176 @@ characters {
     karma: 6
     hiring_set_randomizer: "haven_civilian"
     is_prop_character: true
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -24
+    y: 0
+    z: 99
+  }
+  orientation: ORIENTATION_S
+  displayName: "Melee_Ganger1"
+  idRef {
+    id: "59fb2462616331b46a7f5527"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "Combat"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "51f5204e336331ec1a00451c"
+      turnToFace: true
+    }
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Gangers/HumanMaleGanger_Halloweener"
+    character_sheet_id: "Generic_Lv1_Human_Melee"
+    equipment_sheet_id: "Generic_Melee_Low"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+        ranged_combat: 1
+        close_combat: 2
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Guard - Seek And Destroy"
+      attitude: AttitudeAggressive
+      vulnerabilities {
+      }
+    }
+    team_id: "Gangers"
+    char_name: "Ganger"
+    enabled_at_start: false
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: "npc_humanmale_gino"
+    }
+    karma: 35
+    hiring_cost_override: 1000
+  }
+}
+variables {
+  int_value: 0
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "Arena2-Buff"
+    typeName: "int"
+  }
+}
+variables {
+  bool_value: false
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "Battle"
+    typeName: "bool"
+  }
+}
+variables {
+  int_value: 0
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "RandomWeapon"
+    typeName: "int"
+  }
+}
+variables {
+  int_value: 0
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "RandomOutfit"
+    typeName: "int"
+  }
+}
+variables {
+  int_value: 0
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "Random_Enemy"
+    typeName: "int"
+  }
+}
+variables {
+  string_value: ""
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "tagstring"
+    typeName: "string"
   }
 }
 mapEvents: "Animation A"

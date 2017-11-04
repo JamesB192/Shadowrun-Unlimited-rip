@@ -236,7 +236,7 @@ nodes {
     id: "53e2cf39386461d415003850"
   }
   index: 9
-  text: "So are you ready to enter the Pit?\n\n{{GM}}WARNING{{/GM}}\n{{GM}}Attempting to bring explosives, melee weapons, fetishes, or chi abilities into the pit will be considered cheating. The arena staff will seize these items as a penalty. Please use the stash provided to \"check\" your gear before the match.{{/GM}}"
+  text: "So are you ready to enter the Pit?\n\n{{GM}}WARNING{{/GM}}\n{{GM}}Attempting to bring melee weapons, fetishes, or chi abilities into the pit will be considered cheating. The arena staff will seize these items as a penalty. Please use the stash provided to \"check\" your gear before the match.{{/GM}}"
   branches {
     responseText: "Yeah, I\'m ready. Let\'s do this!"
     actions {
@@ -2930,23 +2930,45 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Add Item to Team"
+        functionName: "Add Item to Actor"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
             args {
-              string_value: "Berlin_Killing Hands"
+              string_value: "Berlin_Tb 1 Knife"
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (string)"
+            functionName: "Specific Actor"
             args {
-              string_value: "FactionList"
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
             }
             args {
-              int_value: 4
             }
           }
         }
@@ -2958,14 +2980,6 @@ nodes {
             }
             args {
               int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
             }
           }
         }
@@ -3006,23 +3020,45 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Add Item to Team"
+        functionName: "Add Item to Actor"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
             args {
-              string_value: "Sword 1 Rebar Pipe"
+              string_value: "Berlin_Tb 2 Shuriken"
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (string)"
+            functionName: "Specific Actor"
             args {
-              string_value: "FactionList"
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
             }
             args {
-              int_value: 4
             }
           }
         }
@@ -3034,14 +3070,6 @@ nodes {
             }
             args {
               int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
             }
           }
         }
@@ -3049,994 +3077,6 @@ nodes {
     }
     nextNodeIndex: 14
     comment: "weapon 1"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Sword 1 Baseball Bat"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 2"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Sword 1 Crowbar"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 3"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Berlin_Fist 1 Spiked Fist"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 4"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Berlin_Sword 1 Machete"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 5"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Berlin_Sword 1 KatanaFake"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 6"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Berlin_Fist 2 Punching Dagger"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 7"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Berlin_Sword 2 Axe"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 8"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Sword 2 Katana"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 9"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Sword 2 TedSword"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 10"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 11
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Berlin_Sword 3 JadeSword"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 11"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 12
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Berlin_Sword 3 Laser Axe"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 12"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 13
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Berlin_Fist 3 Cestus"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 13"
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "RandomWeapon"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 14
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Add Item to Team"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Sword 3 Katana"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 14
-    auxiliaryLink: true
-    comment: "weapon 14"
   }
   branches {
     responseText: ""
@@ -4154,28 +3194,77 @@ nodes {
   nodeType: ConversationNodeType_Simple
   actions {
     ops {
-      functionName: "Activate Actor Spawner By Tag"
+      functionName: "Set Variable (string)"
       args {
         call_value {
-          functionName: "Tag From String"
+          functionName: "Get Variable (string)"
+          args {
+            string_value: "tagstring"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Append (string)"
           args {
             call_value {
-              functionName: "Append (string)"
+              functionName: "Convert (int) to (string)"
               args {
                 call_value {
-                  functionName: "Convert (int) to (string)"
+                  functionName: "Get Variable (int)"
+                  args {
+                    string_value: "Random_Enemy"
+                  }
+                }
+              }
+            }
+          }
+          args {
+            string_value: "Gladiator"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Tag From String"
                   args {
                     call_value {
-                      functionName: "Get Variable (int)"
+                      functionName: "Get Variable (string)"
                       args {
-                        string_value: "Random_Enemy"
+                        string_value: "tagstring"
                       }
                     }
                   }
                 }
               }
               args {
-                string_value: "Gladiator"
+                call_value {
+                  functionName: "Triggering Actor"
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "59f9cabd616331163b1c7eb0"
               }
             }
           }
@@ -4185,7 +3274,18 @@ nodes {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "WithOrWithout"
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
           }
           args {
             int_value: 0
@@ -4436,7 +3536,73 @@ nodes {
             string_value: "ActorSkills"
           }
           args {
-            int_value: 1
+            int_value: 0
+          }
+        }
+      }
+      args {
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "BuffDebuffType"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+    ops {
+      functionName: "Apply Skill Status Effect to Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Actor to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "Arena"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Map Item (Player)"
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Variable (int)"
+          args {
+            string_value: "Arena2-Buff"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorSkills"
+          }
+          args {
+            int_value: 2
           }
         }
       }
@@ -4480,7 +3646,7 @@ nodes {
       }
     }
   }
-  comment: "Spawn here"
+  comment: "teleport / buff 1 here"
 }
 nodes {
   idRef {
@@ -4519,7 +3685,7 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Add Item to Team"
+        functionName: "Add Item to Actor"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
@@ -4530,12 +3696,34 @@ nodes {
         }
         args {
           call_value {
-            functionName: "Get Preset Value (string)"
+            functionName: "Specific Actor"
             args {
-              string_value: "FactionList"
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
             }
             args {
-              int_value: 4
             }
           }
         }
@@ -4547,14 +3735,6 @@ nodes {
             }
             args {
               int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
             }
           }
         }
@@ -4594,23 +3774,45 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Add Item to Team"
+        functionName: "Add Item to Actor"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
             args {
-              string_value: "arm1 SSC adeptstreetmonk"
+              string_value: "arm3 SSC adeptstreetmonk"
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (string)"
+            functionName: "Specific Actor"
             args {
-              string_value: "FactionList"
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
             }
             args {
-              int_value: 4
             }
           }
         }
@@ -4622,14 +3824,6 @@ nodes {
             }
             args {
               int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
             }
           }
         }
@@ -4670,23 +3864,45 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Add Item to Team"
+        functionName: "Add Item to Actor"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
             args {
-              string_value: "arm1 SSC adeptstealth"
+              string_value: "arm3 SSC adeptstealth"
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (string)"
+            functionName: "Specific Actor"
             args {
-              string_value: "FactionList"
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
             }
             args {
-              int_value: 4
             }
           }
         }
@@ -4698,14 +3914,6 @@ nodes {
             }
             args {
               int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
             }
           }
         }
@@ -4746,23 +3954,45 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Add Item to Team"
+        functionName: "Add Item to Actor"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
             args {
-              string_value: "arm1 SSC adeptninja"
+              string_value: "arm6 SSC adeptninja"
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (string)"
+            functionName: "Specific Actor"
             args {
-              string_value: "FactionList"
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
             }
             args {
-              int_value: 4
             }
           }
         }
@@ -4774,14 +4004,6 @@ nodes {
             }
             args {
               int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
             }
           }
         }
@@ -4822,23 +4044,45 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Add Item to Team"
+        functionName: "Add Item to Actor"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
             args {
-              string_value: "arm1 SSC samuraipunk"
+              string_value: "arm6 SSC samuraipunk"
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (string)"
+            functionName: "Specific Actor"
             args {
-              string_value: "FactionList"
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
             }
             args {
-              int_value: 4
             }
           }
         }
@@ -4850,14 +4094,6 @@ nodes {
             }
             args {
               int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
             }
           }
         }
@@ -4898,23 +4134,45 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Add Item to Team"
+        functionName: "Add Item to Actor"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
             args {
-              string_value: "arm3 SSC samuraimilitary"
+              string_value: "arm8 SSC samuraimilitary"
             }
           }
         }
         args {
           call_value {
-            functionName: "Get Preset Value (string)"
+            functionName: "Specific Actor"
             args {
-              string_value: "FactionList"
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
             }
             args {
-              int_value: 4
             }
           }
         }
@@ -4926,14 +4184,6 @@ nodes {
             }
             args {
               int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Default"
             }
           }
         }
@@ -4962,6 +4212,33 @@ nodes {
       }
       args {
         float_value: 0
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Tag From String"
+          args {
+            call_value {
+              functionName: "Get Variable (string)"
+              args {
+                string_value: "tagstring"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
       }
     }
   }
