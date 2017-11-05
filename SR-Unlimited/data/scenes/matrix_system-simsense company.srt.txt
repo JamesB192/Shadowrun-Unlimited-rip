@@ -17719,23 +17719,26 @@ triggers {
       }
     }
     ops {
-      functionName: "Enable/Disable Trigger"
+      functionName: "Set Variable (bool)"
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "Get Story Variable (bool)"
           args {
-            string_value: "EnableOrDisable"
+            string_value: "51f15c62336331d02c00440e"
           }
           args {
-            int_value: 1
+            string_value: "Matrix-LogOffGraceful"
           }
         }
       }
       args {
         call_value {
-          functionName: "Get Map Item (Trigger)"
+          functionName: "Get Preset Value (int)"
           args {
-            string_value: "5914a2da653737a016006e5f"
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -17748,6 +17751,58 @@ triggers {
   elseActions {
   }
   is_oneshot: false
+}
+triggers {
+  name: "graceful logout"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "51f91fd2336331a847005da6"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Matrix-LogOffGraceful"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "59ff64646537375421004f0d"
+  }
+  elseActions {
+  }
+  is_oneshot: true
 }
 regions {
   name: "Hub Camera"
