@@ -2456,49 +2456,6 @@ props {
   idRef {
     id: "52006f8c6131317405005e69"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Comparison (bool)"
-        args {
-          call_value {
-            functionName: "Get Variable (bool)"
-            args {
-              string_value: "Escape"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "IsOrIsNot"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    transitionPoint {
-      scene_name: "Back to the Shack"
-      confirmation_text: "You slip out the back door, careful to stay away from the motorcycles and squad cars."
-    }
-  }
   lod: 0
 }
 props {
@@ -3102,7 +3059,29 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
-    interactionIcon: InteractionIcon_LockedDoor
+    prerequisites {
+      ops {
+        functionName: "Invert Bool"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    doorPoint {
+      doorState: false
+      aiOnlyDoor: false
+      doorSound: ""
+      doorSoundBundle: ""
+    }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -3121,12 +3100,29 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Invert Bool"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
       doorSound: ""
       doorSoundBundle: ""
     }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -3176,79 +3172,6 @@ props {
   GeneralTags: "Exit"
   idRef {
     id: "520070886131317405005e70"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Comparison (bool)"
-        args {
-          call_value {
-            functionName: "Get Variable (bool)"
-            args {
-              string_value: "Escape"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "IsOrIsNot"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Compare Actor Race"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "IsOrIsNot"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Race"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    transitionPoint {
-      scene_name: "Back to the Shack"
-      confirmation_text: "You squeeze through the vent, which no human would fit through. You are rather proud of yourself."
-    }
   }
   lod: 0
 }
@@ -3671,24 +3594,12 @@ props {
     interactionRadius: 1
     prerequisites {
       ops {
-        functionName: "Actor is Player Controlled"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-            args {
-            }
-          }
-        }
+        functionName: "Invert Bool"
         args {
           call_value {
             functionName: "Get Preset Value (int)"
             args {
-              string_value: "IsOrIsNot"
+              string_value: "bool"
             }
             args {
               int_value: 1
@@ -3703,6 +3614,7 @@ props {
       doorSound: "DoorSlide"
       doorSoundBundle: "props"
     }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -5147,47 +5059,23 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate Team Survival Percentage"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 100
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Matrix"
-            }
-          }
-        }
-      }
-    }
     matrixNode {
-      hackingObjectID: "528196906665384008003451"
+      prerequisites_control_state: false
+      constant_matrix_fx: "matrixcontrolnode"
+      state_change_offline_fx: ""
+      state_change_offline_sound: ""
+      state_change_offline_sound_volume: 1
+      state_change_hackable_fx: "MatrixControlNodeHacked"
+      state_change_hackable_sound: "MatrixNodeHackReady"
+      state_change_hackable_sound_volume: 1
+      state_change_locked_fx: ""
+      state_change_locked_sound: ""
+      state_change_locked_sound_volume: 1
+      state_change_hacked_fx: ""
+      state_change_hacked_sound: ""
+      state_change_hacked_sound_volume: 1
     }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -5274,47 +5162,23 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate Team Survival Percentage"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 100
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Matrix"
-            }
-          }
-        }
-      }
-    }
     matrixNode {
-      hackingObjectID: "52099279613131100d003d7c"
+      prerequisites_control_state: false
+      constant_matrix_fx: "matrixcontrolnode"
+      state_change_offline_fx: ""
+      state_change_offline_sound: ""
+      state_change_offline_sound_volume: 1
+      state_change_hackable_fx: "MatrixControlNodeHacked"
+      state_change_hackable_sound: "MatrixNodeHackReady"
+      state_change_hackable_sound_volume: 1
+      state_change_locked_fx: ""
+      state_change_locked_sound: ""
+      state_change_locked_sound_volume: 1
+      state_change_hacked_fx: ""
+      state_change_hacked_sound: ""
+      state_change_hacked_sound_volume: 1
     }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -5349,47 +5213,23 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate Team Survival Percentage"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 100
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (string)"
-            args {
-              string_value: "FactionList"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (SceneDimension)"
-            args {
-              string_value: "Matrix"
-            }
-          }
-        }
-      }
-    }
     matrixNode {
-      hackingObjectID: "52099279613131100d003d76"
+      prerequisites_control_state: false
+      constant_matrix_fx: "matrixcontrolnode"
+      state_change_offline_fx: ""
+      state_change_offline_sound: ""
+      state_change_offline_sound_volume: 1
+      state_change_hackable_fx: "MatrixControlNodeHacked"
+      state_change_hackable_sound: "MatrixNodeHackReady"
+      state_change_hackable_sound_volume: 1
+      state_change_locked_fx: ""
+      state_change_locked_sound: ""
+      state_change_locked_sound_volume: 1
+      state_change_hacked_fx: ""
+      state_change_hacked_sound: ""
+      state_change_hacked_sound_volume: 1
     }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -5464,53 +5304,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003f4d"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Stuffers"
-            }
-          }
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Stuffers"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -5533,6 +5326,7 @@ props {
       inspectText: "This is a tasteful ad for one of the many adult-rated simchips on this shelf; Beauty and Her Beasts, the tale of an elven woman..."
       disableAfterInteracting: true
     }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -5703,14 +5497,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003f5e"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    pickupItem {
-      itemName: "HealthPack"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -5737,53 +5523,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003f62"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Stuffers"
-            }
-          }
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Stuffers"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -5796,50 +5535,6 @@ props {
   orientation: ORIENTATION_E
   idRef {
     id: "528aa29b666538f80c003f63"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Sword 1 Rebar Pipe"
-            }
-          }
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Sword 1 Rebar Pipe"
-      destroyOnPickup: false
-    }
   }
   lod: 0
 }
@@ -5894,14 +5589,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003f6a"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    pickupItem {
-      itemName: "HealthPack"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -5914,53 +5601,6 @@ props {
   orientation: ORIENTATION_E
   idRef {
     id: "528aa29b666538f80c003f6b"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Stuffers"
-            }
-          }
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Stuffers"
-      destroyOnPickup: false
-    }
   }
   lod: 0
 }
@@ -6014,53 +5654,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003f78"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Stuffers"
-            }
-          }
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Stuffers"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -6101,16 +5694,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003f7f"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    inspectInteraction {
-      dispalyTime: 3
-      fadeTime: 2
-      inspectText: "This shelf was filled with Strice Food\'s Amber Gel- the addictive stuffer that people just can\'t get enough of- unfortunately, this display is sold out."
-      disableAfterInteracting: true
-    }
-  }
   lod: 0
 }
 props {
@@ -6125,264 +5708,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003f83"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "OR"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 7
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "OR"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "OR"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 8
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-    }
-    interactionIcon: InteractionIcon_Generic
-  }
   lod: 0
 }
 props {
@@ -6395,14 +5720,6 @@ props {
   orientation: ORIENTATION_E
   idRef {
     id: "528aa29b666538f80c003f85"
-  }
-  interactionRoot {
-    isEnabled: false
-    interactionRadius: 1
-    conversationPoint {
-      conversationID: "5212f81b613131e412004ae2"
-      turnToFace: false
-    }
   }
   tablet_optional: true
   lod: 0
@@ -6418,93 +5735,6 @@ props {
   displayName: "Register1"
   idRef {
     id: "528aa29b666538f80c003f86"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Evaluate Goal"
-        args {
-          call_value {
-            functionName: "Get Map Item (Goal)"
-            args {
-              string_value: "Get Stuffers!"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "GoalStatus"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "IsOrIsNot"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Sh 1 Benelli Raffaello"
-      destroyOnPickup: false
-    }
   }
   lod: 0
 }
@@ -6544,53 +5774,6 @@ props {
   orientation: ORIENTATION_S
   idRef {
     id: "528aa29b666538f80c003f89"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Stuffers"
-            }
-          }
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Stuffers"
-      destroyOnPickup: false
-    }
   }
   lod: 0
 }
@@ -6669,14 +5852,6 @@ props {
   orientation: ORIENTATION_S
   idRef {
     id: "528aa29b666538f80c003f92"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    pickupItem {
-      itemName: "Player_ClasslessStarter"
-      destroyOnPickup: false
-    }
   }
   lod: 0
 }
@@ -6757,14 +5932,6 @@ props {
   displayName: "Computer Tech Desk"
   idRef {
     id: "528aa29b666538f80c003f9b"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    conversationPoint {
-      conversationID: "520087426131317405005edd"
-      turnToFace: false
-    }
   }
   lod: 0
 }
@@ -6857,53 +6024,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003fab"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Stuffers"
-            }
-          }
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Stuffers"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -6916,16 +6036,6 @@ props {
   orientation: ORIENTATION_E
   idRef {
     id: "528aa29b666538f80c003fac"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 3
-    inspectInteraction {
-      dispalyTime: 5
-      fadeTime: 1
-      inspectText: "It\'s not just soykaf... it\'s StarKaf."
-      disableAfterInteracting: false
-    }
   }
   lod: 0
 }
@@ -6956,12 +6066,29 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Invert Bool"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     doorPoint {
       doorState: false
       aiOnlyDoor: false
-      doorSound: "DoorSwing"
-      doorSoundBundle: "props"
+      doorSound: ""
+      doorSoundBundle: ""
     }
+    interaction_info_text: ""
   }
   lod: 0
 }
@@ -7042,30 +6169,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003fba"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate Nuyen"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-    }
-    interactionIcon: InteractionIcon_ItemPickup
-  }
   lod: 0
 }
 props {
@@ -7145,104 +6248,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003fc6"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-    }
-    pickupItem {
-      itemName: "SamuraiPunk"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -7270,60 +6275,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003fca"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 10
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Player_RiggerHawaiianShirt"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -7337,60 +6288,6 @@ props {
   displayName: "Adept Locker"
   idRef {
     id: "528aa29b666538f80c003fcb"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Player_AdeptNinja"
-      destroyOnPickup: false
-    }
   }
   lod: 0
 }
@@ -7418,60 +6315,6 @@ props {
   displayName: "Decker Locker"
   idRef {
     id: "528aa29b666538f80c003fcf"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 5
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Player_DeckerFedora"
-      destroyOnPickup: false
-    }
   }
   lod: 0
 }
@@ -7501,104 +6344,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003fd3"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 8
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-    }
-    pickupItem {
-      itemName: "MageDark"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -7612,14 +6357,6 @@ props {
   displayName: "Matrix Node"
   idRef {
     id: "528aa29b666538f80c003fd4"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 2
-    jackPoint {
-      LANIdentifier: "528aa091666538f80c003e46"
-      LANEquipment: ""
-    }
   }
   lod: 0
 }
@@ -7646,50 +6383,6 @@ props {
   orientation: ORIENTATION_S
   idRef {
     id: "528aa29b666538f80c003fd7"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Stuffers"
-            }
-          }
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Stuffers"
-      destroyOnPickup: false
-    }
   }
   lod: 0
 }
@@ -7730,30 +6423,6 @@ props {
   displayName: "Soykaf Machine"
   idRef {
     id: "528aa29b666538f80c003fdb"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate Nuyen"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-    }
-    interactionIcon: InteractionIcon_ItemPickup
   }
   lod: 0
 }
@@ -7808,50 +6477,6 @@ props {
   idRef {
     id: "528aa29b666538f80c003fe3"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "HealthPack"
-            }
-          }
-        }
-      }
-    }
-    pickupItem {
-      itemName: "HealthPack"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -7865,264 +6490,6 @@ props {
   displayName: "Magic Case"
   idRef {
     id: "528aa29b666538f80c003fe6"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "OR"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 7
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "OR"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "OR"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 8
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-    }
-    interactionIcon: InteractionIcon_Generic
   }
   lod: 0
 }
@@ -8228,49 +6595,6 @@ props {
   GeneralTags: "Exit"
   idRef {
     id: "528aa29b666538f80c003ff2"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Comparison (bool)"
-        args {
-          call_value {
-            functionName: "Get Variable (bool)"
-            args {
-              string_value: "Escape"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "IsOrIsNot"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    transitionPoint {
-      scene_name: "Back to the Shack"
-      confirmation_text: "You deftly climb the ladder onto the roof, hiding out until the squad cars have all left the scene."
-    }
   }
   lod: 0
 }
@@ -8467,14 +6791,6 @@ props {
   displayName: "Light"
   idRef {
     id: "528aa29b666538f80c004007"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    pickupItem {
-      itemName: "Player_AdeptNinja"
-      destroyOnPickup: false
-    }
   }
   lod: 0
 }
@@ -9120,14 +7436,6 @@ props {
   idRef {
     id: "528aa304666538f80c00404f"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 2
-    conversationPoint {
-      conversationID: "53052ca8613131701300169b"
-      turnToFace: false
-    }
-  }
   lod: 0
 }
 props {
@@ -9141,14 +7449,6 @@ props {
   displayName: "Employee PanicButton"
   idRef {
     id: "528aa304666538f80c004051"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    conversationPoint {
-      conversationID: "520071df6131317405005e76"
-      turnToFace: false
-    }
   }
   lod: 0
 }
@@ -9625,50 +7925,6 @@ props {
   idRef {
     id: "528aa42b666538f80c0040ab"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Evaluate If Actor Has Item"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "HasOrHasNot"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Sword 1 Baseball Bat"
-            }
-          }
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Sword 1 Baseball Bat"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -9824,61 +8080,6 @@ props {
   orientation: ORIENTATION_S
   idRef {
     id: "528aa42b666538f80c0040ba"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 8
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 2
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-    }
-    summonPoint {
-      hasCharacter: true
-      summon_icon: ""
-      max_summon_force: 1
-    }
   }
   lod: 0
   character_instance {
@@ -10103,61 +8304,6 @@ props {
   idRef {
     id: "53054def61313170130018e8"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Compare Actor Skill"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorSkills"
-            }
-            args {
-              int_value: 8
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 2
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-    }
-    summonPoint {
-      hasCharacter: true
-      summon_icon: ""
-      max_summon_force: 1
-    }
-  }
   lod: 0
   character_instance {
     prefab_name: "Seattle:Spirit/SpiritForgottenSouls"
@@ -10271,41 +8417,6 @@ props {
   idRef {
     id: "5308121a613131901e00722a"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    prerequisites {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Variable (int)"
-            args {
-              string_value: "Difficulty"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 2
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    pickupItem {
-      itemName: "Player_SamuraiTrenchcoat"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -10313,20 +8424,12 @@ props {
   gridPoint {
     x: -48
     y: 0
-    z: -10
+    z: -11
   }
   orientation: ORIENTATION_S
   displayName: "Moderate"
   idRef {
     id: "5308121b613131901e00722b"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    pickupItem {
-      itemName: "Player_SamuraiBunny"
-      destroyOnPickup: false
-    }
   }
   lod: 0
 }
@@ -10342,14 +8445,6 @@ props {
   idRef {
     id: "5308121b613131901e00722e"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    pickupItem {
-      itemName: "Player_SamuraiTrenchcoat"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -10364,14 +8459,6 @@ props {
   idRef {
     id: "5308135b613131901e007235"
   }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    pickupItem {
-      itemName: "Player_SamuraiTrenchcoat"
-      destroyOnPickup: false
-    }
-  }
   lod: 0
 }
 props {
@@ -10385,14 +8472,6 @@ props {
   displayName: "Easter Egg"
   idRef {
     id: "53081494613131901e007238"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 1
-    pickupItem {
-      itemName: "Pi 3 Ruger Thunderbolt (Silencer)"
-      destroyOnPickup: false
-    }
   }
   lod: 0
 }
@@ -10966,17 +9045,6 @@ props {
   displayName: "NU Cyberwear"
   idRef {
     id: "541da7cc613131e81a005c51"
-  }
-  interactionRoot {
-    isEnabled: true
-    interactionRadius: 2
-    prerequisites {
-      ops {
-        functionName: "No Condition"
-      }
-    }
-    interactionIcon: InteractionIcon_Generic
-    interaction_info_text: "Nu U Cyberware!"
   }
   lod: 0
   character_instance {
