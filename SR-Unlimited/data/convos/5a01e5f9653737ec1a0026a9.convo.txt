@@ -1,0 +1,54 @@
+idRef {
+  id: "5a01e5f9653737ec1a0026a9"
+}
+ui_name: "Stuffer Shack-Magic"
+nodes {
+  idRef {
+    id: "5a01e606653737ec1a0026af"
+  }
+  index: 0
+  text: "Magic or Magical Consumables?"
+  branches {
+    responseText: "Magic"
+    actions {
+      ops {
+        functionName: "Open Store Screen From Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "5a01dfb4653737183e0015f8"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Consumables"
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "No"
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "5a01dfb4653737183e0015f8"
+  }
+}
+nodes {
+  idRef {
+    id: "5a01e62f653737ec1a0026b6"
+  }
+  index: 1
+  text: "I am sorry, this option is not currently available..."
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "5a01dfb4653737183e0015f8"
+  }
+}
+roots {
+  nextNodeIndex: 0
+}

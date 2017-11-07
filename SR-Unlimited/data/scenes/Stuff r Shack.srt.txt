@@ -111,12 +111,6 @@ triggers {
 triggers {
   name: "Building Lighting"
   events {
-    ops {
-      functionName: "Get Map Item (Event)"
-      args {
-        string_value: "SunRising"
-      }
-    }
   }
   conditions {
     ops {
@@ -170,7 +164,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (CameraRegion)"
           args {
-            string_value: "55972ead3366379800000a0b"
+            string_value: "5a00665d6163311d0e6b8ea0"
           }
         }
       }
@@ -205,9 +199,23 @@ triggers {
         call_value {
           functionName: "Get Map Item (CameraRegion)"
           args {
-            string_value: "55972ead3366379800000a0b"
+            string_value: "5a00665d6163311d0e6b8ea0"
           }
         }
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "SunRising"
+          }
+        }
+      }
+      args {
+        float_value: 10
       }
     }
   }
@@ -246,7 +254,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (CameraRegion)"
           args {
-            string_value: "55817c6c6466325409000fe3"
+            string_value: "5a00665d6163311d0e6b8ea0"
           }
         }
       }
@@ -272,9 +280,23 @@ triggers {
         call_value {
           functionName: "Get Map Item (CameraRegion)"
           args {
-            string_value: "55972ead3366379800000a0b"
+            string_value: "5a00665d6163311d0e6b8ea0"
           }
         }
+      }
+    }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "SunRising"
+          }
+        }
+      }
+      args {
+        float_value: 10
       }
     }
   }
@@ -382,7 +404,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Trigger)"
           args {
-            string_value: "59f9030f6537373c3e000a6a"
+            string_value: "559728fb3366379800000a09"
           }
         }
       }
@@ -449,7 +471,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Trigger)"
           args {
-            string_value: "59f9030f6537373c3e000a6a"
+            string_value: "559728fb3366379800000a09"
           }
         }
       }
@@ -483,200 +505,6 @@ triggers {
           }
           args {
             int_value: 0
-          }
-        }
-      }
-    }
-  }
-  is_oneshot: false
-}
-triggers {
-  name: "daylight show"
-  events {
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (float)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (float)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Daylight"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 4
-          }
-        }
-      }
-      args {
-        float_value: 12
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Send Event After Delay"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "SunRising"
-          }
-        }
-      }
-      args {
-        float_value: 10
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.45
-      }
-      args {
-        float_value: 0.55
-      }
-      args {
-        float_value: 0.6
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817b7b6466325409000fdf"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -1.1
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817b7b6466325409000fdf"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "59f9030f6537373c3e000a6a"
-  }
-  elseActions {
-    ops {
-      functionName: "Send Event After Delay"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "SunRising"
-          }
-        }
-      }
-      args {
-        float_value: 10
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.1
-      }
-      args {
-        float_value: 0.15
-      }
-      args {
-        float_value: 0.2
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817bb86466325409000fe0"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: -0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817bb86466325409000fe0"
           }
         }
       }
@@ -2646,6 +2474,1056 @@ characters {
     pc_spawn_number: 2
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -39
+    y: 0
+    z: 37
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5a00f55f6537374032004c2c"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Objects/InvisibleActor"
+    character_sheet_id: "Lonestar_Lv1_Captain"
+    character_mod {
+      stats {
+        morale: 24
+        discipline: 0
+        awareness: 24
+        perception: 0
+        authority: 0
+        protect_tether_range: 5
+        move_speed: 6
+        vision_peripheral_distance: 2
+        vision_cone_distance: 18
+        vision_cone_angle: 90
+        is_fearless: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Mr Footage Capture Man"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 44
+    hiring_cost_override: 50
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -32
+    y: 0
+    z: -5
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5a00f5ce6537374032004c2d"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Matrix/MatrixICE_white_melee"
+    character_sheet_id: "IC_Lv1_White_Ranged"
+    character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "Berlin_Datajack"
+    }
+    equipment {
+      prefab_name: "trodes"
+    }
+    equipment {
+      prefab_name: "Berlin_BrightLight System"
+    }
+    equipment {
+      prefab_name: "Berlin_Vision Magnification Eyes"
+    }
+    equipment {
+      prefab_name: "Berlin_Vision Magnification Eyes 2"
+    }
+    equipment {
+      prefab_name: "cyber SSC alpha smartlink"
+    }
+    equipment {
+      prefab_name: "Ares_Weapon Focus"
+    }
+    equipment {
+      prefab_name: "Sword 1 Rebar Pipe"
+    }
+    equipment {
+      prefab_name: "Sword 1 Machete"
+    }
+    equipment {
+      prefab_name: "Sword 1 Crowbar"
+    }
+    equipment {
+      prefab_name: "Sword 1 Baseball Bat"
+    }
+    equipment {
+      prefab_name: "Prop Broom"
+    }
+    equipment {
+      prefab_name: "Berlin_Sword 2 Axe"
+    }
+    team_id: "LoneStar"
+    char_name: "White IC"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    portrait {
+      filename: "generic_static_blank"
+    }
+    dimension_name: "matrix"
+    karma: 29
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -10
+    y: 0
+    z: -4
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5a00ff08653737183e001586"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Wealthy/HumanMaleAutumn"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+    }
+    team_id: "Civilians"
+    char_name: "New Civilian"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -8
+    y: 0
+    z: -3
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5a00ff0b653737183e001587"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Wealthy/HumanMaleAutumn"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+    }
+    team_id: "Civilians"
+    char_name: "New Civilian"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -19
+    y: 0
+    z: 4
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5a00ff0f653737183e001588"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Wealthy/HumanMaleAutumn"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+    }
+    team_id: "Civilians"
+    char_name: "New Civilian"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -9
+    y: 0
+    z: 9
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5a00ff14653737183e001589"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Wealthy/HumanMaleAutumn"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+    }
+    team_id: "Civilians"
+    char_name: "New Civilian"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -32
+    y: 0
+    z: -4
+  }
+  orientation: ORIENTATION_S
+  displayName: "deck / matrix"
+  idRef {
+    id: "5a01d94d653737183e0015b1"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Wealthy/HumanMaleAutumn"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "SSC CyberdeckSony"
+    }
+    equipment {
+      prefab_name: "SSC PR Medic 1"
+    }
+    equipment {
+      prefab_name: "SSC PR Medic 2"
+    }
+    equipment {
+      prefab_name: "SSC PR Medic 3"
+    }
+    equipment {
+      prefab_name: "SSC PR Shield 1"
+    }
+    equipment {
+      prefab_name: "SSC PR Shield 2"
+    }
+    equipment {
+      prefab_name: "SSC PR Shield 3"
+    }
+    equipment {
+      prefab_name: "SSC PR Sniffer 1"
+    }
+    equipment {
+      prefab_name: "SSC PR Sniffer 2"
+    }
+    equipment {
+      prefab_name: "SSC PR Sniffer 3"
+    }
+    equipment {
+      prefab_name: "SSC CyberdeckKraftwerk1"
+    }
+    team_id: "Civilians"
+    char_name: "New Civilian"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -31
+    y: 0
+    z: -5
+  }
+  orientation: ORIENTATION_S
+  displayName: "rigger / drones"
+  idRef {
+    id: "5a01dd79653737183e0015d5"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Wealthy/HumanMaleAutumn"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "SSC DroneAttackC_Doberman"
+    }
+    equipment {
+      prefab_name: "SSC DroneSupportC_Smoker"
+    }
+    equipment {
+      prefab_name: "SSC DroneAttackB_Strato9"
+    }
+    equipment {
+      prefab_name: "SSC DroneSupportB_RoboDoc"
+    }
+    equipment {
+      prefab_name: "SSC DroneAttackA_SteelLynx"
+    }
+    equipment {
+      prefab_name: "SSC DroneSupportA_Sundowner"
+    }
+    equipment {
+      prefab_name: "SSC DroneAttackS_Guardian"
+    }
+    equipment {
+      prefab_name: "SSC DroneSupportS_Wolfhound"
+    }
+    equipment {
+      prefab_name: "Berlin_DroneRepairKit"
+    }
+    equipment {
+      prefab_name: "Berlin_DroneRepairKit_med"
+    }
+    equipment {
+      prefab_name: "Berlin_DroneRepairKit_hi"
+    }
+    team_id: "Civilians"
+    char_name: "New Civilian"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: "generic_machine"
+    }
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -31
+    y: 0
+    z: -4
+  }
+  orientation: ORIENTATION_S
+  displayName: "Magic"
+  idRef {
+    id: "5a01dfb4653737183e0015f8"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Wealthy/HumanMaleAutumn"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "SSC Stride"
+    }
+    equipment {
+      prefab_name: "SSC Pain Resistance"
+    }
+    equipment {
+      prefab_name: "SSC Mystic Armor"
+    }
+    equipment {
+      prefab_name: "SSC Magic Resistance 1"
+    }
+    equipment {
+      prefab_name: "SSC Magic Resistance 2"
+    }
+    equipment {
+      prefab_name: "Adept_Boosted Body"
+    }
+    equipment {
+      prefab_name: "Adept_Boosted Charisma"
+    }
+    equipment {
+      prefab_name: "Adept_Boosted Intelligence"
+    }
+    equipment {
+      prefab_name: "Adept_Boosted Quickness"
+    }
+    equipment {
+      prefab_name: "Adept_Boosted Strength"
+    }
+    equipment {
+      prefab_name: "Adept_Boosted Willpower"
+    }
+    equipment {
+      prefab_name: "Adept_Improved Ranged"
+    }
+    equipment {
+      prefab_name: "Adept_Improved Melee"
+    }
+    equipment {
+      prefab_name: "Adept_Improved Reflexes"
+    }
+    equipment {
+      prefab_name: "Adept_Improved Senses"
+    }
+    equipment {
+      prefab_name: "Adept_Rapid Healing"
+    }
+    equipment {
+      prefab_name: "Adept_Rapid Healing2"
+    }
+    equipment {
+      prefab_name: "SSC Spell Fog"
+    }
+    equipment {
+      prefab_name: "SSC Spell Haste 1"
+    }
+    equipment {
+      prefab_name: "SSC Spell Haste 2"
+    }
+    equipment {
+      prefab_name: "SSC Spell Haste 3"
+    }
+    equipment {
+      prefab_name: "SSC Spell Haste 4"
+    }
+    equipment {
+      prefab_name: "SSC Spell Mana Static"
+    }
+    equipment {
+      prefab_name: "SSC Spell Pebble"
+    }
+    equipment {
+      prefab_name: "SSC Spell Quiet Bomb 1"
+    }
+    equipment {
+      prefab_name: "SSC Spell Shadow"
+    }
+    equipment {
+      prefab_name: "SSC Spell Silence 1"
+    }
+    equipment {
+      prefab_name: "SSC Spell Slo-Mo"
+    }
+    equipment {
+      prefab_name: "SSC Spell Slow 1"
+    }
+    equipment {
+      prefab_name: "SSC Spell Slow 2"
+    }
+    equipment {
+      prefab_name: "SSC Spell Slow 3"
+    }
+    equipment {
+      prefab_name: "SSC Spell Aim 1"
+    }
+    equipment {
+      prefab_name: "SSC Spell Aim 2"
+    }
+    equipment {
+      prefab_name: "SSC Spell Aim 3"
+    }
+    equipment {
+      prefab_name: "SSC Spell Armor 1"
+    }
+    equipment {
+      prefab_name: "SSC Spell Armor 2"
+    }
+    equipment {
+      prefab_name: "SSC Spell Armor 3"
+    }
+    equipment {
+      prefab_name: "SSC Spell Blindness"
+    }
+    equipment {
+      prefab_name: "SSC Spell Confusion"
+    }
+    equipment {
+      prefab_name: "SSC Spell Dispel Magic 1"
+    }
+    equipment {
+      prefab_name: "SSC Spell Distraction 1"
+    }
+    equipment {
+      prefab_name: "SSC Spell Distraction 2"
+    }
+    equipment {
+      prefab_name: "SSC Spell Distraction 3"
+    }
+    equipment {
+      prefab_name: "SSC Spell Glue"
+    }
+    equipment {
+      prefab_name: "SSC Spell Heal 1"
+    }
+    equipment {
+      prefab_name: "Spell Heal 2"
+    }
+    equipment {
+      prefab_name: "SSC Spell Heal 3"
+    }
+    equipment {
+      prefab_name: "SSC Spell Heal 4"
+    }
+    equipment {
+      prefab_name: "SSC Spell Heal 5"
+    }
+    equipment {
+      prefab_name: "SSC Spell Heal Wound"
+    }
+    equipment {
+      prefab_name: "Mage Vision"
+    }
+    equipment {
+      prefab_name: "SSC Magic Resistance 3"
+    }
+    team_id: "Civilians"
+    char_name: "Calcifer"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: "generic_spirit_fire"
+    }
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -32
+    y: 0
+    z: -3
+  }
+  orientation: ORIENTATION_S
+  displayName: "missile"
+  idRef {
+    id: "5a01f4ac653737ec1a002708"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Wealthy/HumanMaleAutumn"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "Pi 2 Pain Inducer"
+    }
+    equipment {
+      prefab_name: "Cyberware Deactivator (Taser)"
+    }
+    equipment {
+      prefab_name: "Berlin_Tb 2 Shuriken"
+    }
+    equipment {
+      prefab_name: "Berlin_Tb 1 Knife"
+    }
+    equipment {
+      prefab_name: "Berlin_Pi 2 Pulsar"
+    }
+    equipment {
+      prefab_name: "Berlin_Pi 1 Taser"
+    }
+    equipment {
+      prefab_name: "pi SSC tiffaniself-defender"
+    }
+    equipment {
+      prefab_name: "pi SSC narcojectpistol"
+    }
+    equipment {
+      prefab_name: "pi SSC defiancesupershock"
+    }
+    team_id: "Civilians"
+    char_name: "New Civilian"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
 mapEvents: "SunRising"
 worldMapLocation {
   filename: ""
@@ -2656,11 +3534,11 @@ worldMapLocation {
 }
 mapName: "stuffer shack"
 parentStory: ""
-scene_title: "New Scene"
+scene_title: "the Stuffer Shack"
 scene_subtitle: ""
-scene_synopsis: ""
-scene_image: ""
-scene_continue_button_skip: false
+scene_synopsis: "Decks and programs are over at C12\nDrones and repair kits are on the next shelves.\nDisappointment and heartburn tied up with strings.\nThese are a few of the available things.\n\nFrom brooms to Pulsars that  blast\nCatchy tunes from days so long past\nMagic and fetishes tied up with strings\nThese are a few of the available things.\n\n(someone please write replacement text)"
+scene_image: "Loading_Screen__JB192"
+scene_continue_button_skip: true
 scene_restore_runner_health: false
 directional_light_dir {
   x: -0.5
@@ -2709,8 +3587,6 @@ team_affiliations {
 scene_dimensions {
   dimension_name: "Default"
 }
-character_roster {
-}
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
   prereq_description: ""
@@ -2719,7 +3595,7 @@ scene_hiring_prerequisites {
 }
 hiring_slot_count: 0
 hiring_minimum_karma: 0
-hiring_maximum_karma: 25
+hiring_maximum_karma: 0
 roster_overrides {
 }
 use_hiring_cost_warning: false
@@ -2728,6 +3604,6 @@ override_hiring_average_cost: false
 show_equip_screen_on_scene_load: false
 is_persistant: false
 is_persistant_has_value: false
-can_move_outside_camera_regions: true
-can_start_before_triggers: true
+can_move_outside_camera_regions: false
+can_start_before_triggers: false
 can_use_team_advancement: false
