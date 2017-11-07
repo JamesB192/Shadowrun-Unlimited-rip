@@ -1006,24 +1006,10 @@ nodes {
     id: "53e2d170386461d4150039aa"
   }
   index: 11
-  text: "Great, you\'ll get \302\245$(story.Arena2-Reward) just for fighting, and another \302\245$(story.ArenaReward) if you can pull off the win."
+  text: "Great, you\'ll get \302\245$(story.Arena2-Reward) just for fighting, and another \302\245$(story.Arena2-Reward) if you can pull off the win."
   branches {
     responseText: ""
     actions {
-      ops {
-        functionName: "Send Event After Delay"
-        args {
-          call_value {
-            functionName: "Get Map Item (Event)"
-            args {
-              string_value: "Fight Start"
-            }
-          }
-        }
-        args {
-          float_value: 2
-        }
-      }
       ops {
         functionName: "Fade Camera Out"
         args {
@@ -1031,6 +1017,77 @@ nodes {
         }
         args {
           float_value: 0
+        }
+      }
+      ops {
+        functionName: "Teleport Actor"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "59f9cabd616331163b1c7eb0"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
         }
       }
       ops {
@@ -1057,7 +1114,7 @@ nodes {
               call_value {
                 functionName: "Get Map Item (Prop)"
                 args {
-                  string_value: "55e5ed30646632ac28003ff9"
+                  string_value: "59f9caad616331163b1c7eaf"
                 }
               }
             }
@@ -1070,7 +1127,7 @@ nodes {
               string_value: "FacingDirection"
             }
             args {
-              int_value: 0
+              int_value: 1
             }
           }
         }
@@ -1192,7 +1249,7 @@ nodes {
               string_value: "FactionList"
             }
             args {
-              int_value: 5
+              int_value: 2
             }
           }
         }
@@ -1229,7 +1286,7 @@ nodes {
               string_value: "FactionList"
             }
             args {
-              int_value: 0
+              int_value: 2
             }
           }
         }
@@ -1251,7 +1308,7 @@ nodes {
               string_value: "FactionList"
             }
             args {
-              int_value: 5
+              int_value: 2
             }
           }
         }
@@ -3025,7 +3082,7 @@ nodes {
           call_value {
             functionName: "Get Map Item (Item)"
             args {
-              string_value: "Berlin_Tb 2 Shuriken"
+              string_value: "pi SSC streetlinespecial"
             }
           }
         }
@@ -3133,7 +3190,7 @@ nodes {
               }
             }
             args {
-              int_value: 14
+              int_value: 4
             }
           }
         }
@@ -3162,7 +3219,7 @@ nodes {
           }
         }
         args {
-          string_value: "Conditional Fail: Blame Southwind"
+          string_value: "Conditional Fail: Blame JamesB192l"
         }
         args {
           float_value: 0
@@ -3190,6 +3247,276 @@ nodes {
     nextNodeIndex: 14
     auxiliaryLink: true
     comment: "weapon Wrong"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "RandomWeapon"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "sh SSC winchestermodel21"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 14
+    auxiliaryLink: true
+    comment: "weapon 2"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "RandomWeapon"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "smg SSC ak97carbine"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 14
+    auxiliaryLink: true
+    comment: "weapon 3"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "RandomWeapon"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "ar SSC ak97"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Nearest Tagged Actor to Prop"
+                args {
+                  call_value {
+                    functionName: "Tag From String"
+                    args {
+                      call_value {
+                        functionName: "Get Variable (string)"
+                        args {
+                          string_value: "tagstring"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (Prop)"
+                    args {
+                      string_value: "59f9cabd616331163b1c7eb0"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 14
+    auxiliaryLink: true
+    comment: "weapon 4"
   }
   nodeType: ConversationNodeType_Simple
   actions {
