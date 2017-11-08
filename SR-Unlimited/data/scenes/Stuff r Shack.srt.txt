@@ -513,7 +513,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "HealthPactMapTrigger"
+  name: "free move"
   events {
     ops {
       functionName: "On Map Start"
@@ -523,12 +523,15 @@ triggers {
   }
   actions {
     ops {
-      functionName: "Send Event"
+      functionName: "Enable/Disable Manual Turn Mode"
       args {
         call_value {
-          functionName: "Get Map Item (Event)"
+          functionName: "Get Preset Value (int)"
           args {
-            string_value: "HealthPact"
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
           }
         }
       }
@@ -3681,21 +3684,21 @@ allow_drawn_weapons: false
 team_affiliations {
   team_name: "Shadowrunners"
   affiliation: 0
-  affiliation: 1
-  affiliation: 1
+  affiliation: 0
+  affiliation: 0
   affiliation: 0
 }
 team_affiliations {
   team_name: "Gangers"
-  affiliation: 1
   affiliation: 0
-  affiliation: 1
+  affiliation: 0
+  affiliation: 0
   affiliation: 0
 }
 team_affiliations {
   team_name: "LoneStar"
-  affiliation: 1
-  affiliation: 1
+  affiliation: 0
+  affiliation: 0
   affiliation: 0
   affiliation: 0
 }
@@ -3708,8 +3711,6 @@ team_affiliations {
 }
 scene_dimensions {
   dimension_name: "Default"
-}
-character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
