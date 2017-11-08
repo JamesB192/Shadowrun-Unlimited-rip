@@ -2350,12 +2350,6 @@ triggers {
   conditions {
   }
   actions {
-  }
-  isActive: true
-  idRef {
-    id: "5a0346b16163312c59ae24a2"
-  }
-  elseActions {
     ops {
       functionName: "Set Actor In Passive Mode"
       args {
@@ -2366,7 +2360,13 @@ triggers {
           }
           args {
             call_value {
-              functionName: "Nothing Selected"
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
             }
           }
         }
@@ -2393,7 +2393,13 @@ triggers {
           }
           args {
             call_value {
-              functionName: "Nothing Selected"
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
             }
           }
         }
@@ -2402,6 +2408,70 @@ triggers {
         int_value: 5
       }
     }
+    ops {
+      functionName: "Set Actor In Passive Mode"
+      args {
+        call_value {
+          functionName: "All Actors With Tag Pattern"
+          args {
+            string_value: "customer"
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Actor Wander Range"
+      args {
+        call_value {
+          functionName: "All Actors With Tag Pattern"
+          args {
+            string_value: "customer"
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        int_value: 39
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5a0346b16163312c59ae24a2"
+  }
+  elseActions {
   }
   is_oneshot: false
 }
@@ -2844,6 +2914,7 @@ characters {
     z: 4
   }
   orientation: ORIENTATION_S
+  GeneralTags: "customer"
   idRef {
     id: "5a00ff0f653737183e001588"
   }
@@ -2912,6 +2983,7 @@ characters {
     }
     team_id: "Civilians"
     char_name: "New Civilian"
+    GeneralTags: "customer"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
@@ -2926,6 +2998,7 @@ characters {
     z: 9
   }
   orientation: ORIENTATION_S
+  GeneralTags: "customer"
   idRef {
     id: "5a00ff14653737183e001589"
   }
@@ -2994,6 +3067,7 @@ characters {
     }
     team_id: "Civilians"
     char_name: "New Civilian"
+    GeneralTags: "customer"
     pc_spawn_number: -1
     hiring_type: HiringType_None
     karma: 6
