@@ -9,7 +9,7 @@ nodes {
   index: 0
   text: "Cyberdecks or Matrix Software?"
   branches {
-    responseText: "Yes"
+    responseText: "Decks"
     actions {
       ops {
         functionName: "Open Store Screen From Actor"
@@ -23,42 +23,77 @@ nodes {
         }
       }
     }
-    nextNodeIndex: -1
+    nextNodeIndex: 0
+    auxiliaryLink: true
   }
   branches {
-    responseText: "Both"
-    nextNodeIndex: 1
+    responseText: "ESP Shield\n{{CC}}750 Nuyen{{/CC}}"
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 750
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 750
+        }
+      }
+      ops {
+        functionName: "Add Item to Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "SSC ESP Shield"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 0
+    auxiliaryLink: true
   }
   branches {
     responseText: "No"
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-  sourceInSceneRef {
-    id: "5a00f5ce6537374032004c2d"
-  }
-}
-nodes {
-  idRef {
-    id: "5a01db5b653737183e0015be"
-  }
-  index: 1
-  text: "Ambitious"
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Open Store Screen From Actor"
-        args {
-          call_value {
-            functionName: "Get Map Item (Actor)"
-            args {
-              string_value: "5a01d94d653737183e0015b1"
-            }
-          }
-        }
-      }
-    }
     nextNodeIndex: -1
   }
   nodeType: ConversationNodeType_Simple
