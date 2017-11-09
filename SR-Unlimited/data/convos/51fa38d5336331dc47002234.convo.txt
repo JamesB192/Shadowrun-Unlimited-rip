@@ -845,7 +845,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: -1
+    nextNodeIndex: 1
     hideIfUnavailable: true
   }
   branches {
@@ -951,7 +951,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 1
+    nextNodeIndex: 2
     hideIfUnavailable: true
   }
   branches {
@@ -1057,7 +1057,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 2
+    nextNodeIndex: 3
     hideIfUnavailable: true
   }
   branches {
@@ -1120,7 +1120,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 4
+    nextNodeIndex: 5
     hideIfUnavailable: true
   }
   branches {
@@ -1183,12 +1183,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     hideIfUnavailable: true
   }
   branches {
     responseText: "I need to upgrade my deck\'s storage capacity.\n"
-    nextNodeIndex: 8
+    nextNodeIndex: 9
   }
   branches {
     responseText: "{{CC}}$100{{/CC}}What\'s my Notoriety?"
@@ -1303,7 +1303,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 9
+    nextNodeIndex: 10
     hideIfUnavailable: true
   }
   branches {
@@ -1532,7 +1532,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 10
+    nextNodeIndex: 11
     hideIfUnavailable: true
   }
   branches {
@@ -1620,7 +1620,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     hideIfUnavailable: true
   }
   branches {
@@ -1736,7 +1736,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 12
+    nextNodeIndex: 13
     hideIfUnavailable: true
   }
   branches {
@@ -1852,7 +1852,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 13
+    nextNodeIndex: 14
     hideIfUnavailable: true
   }
   branches {
@@ -1968,7 +1968,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
   }
   branches {
@@ -2084,7 +2084,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 16
     hideIfUnavailable: true
   }
   branches {
@@ -2172,94 +2172,6 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 16
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}$50{{/CC}}What\'s my current Heat level?"
-    conditions {
-      ops {
-        functionName: "Evaluate Nuyen"
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 50
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "StoryStep"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Heat"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 5
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Remove Nuyen"
-        args {
-          int_value: 50
-        }
-      }
-    }
     nextNodeIndex: 17
     hideIfUnavailable: true
   }
@@ -2332,34 +2244,6 @@ nodes {
             }
             args {
               int_value: 5
-            }
-          }
-        }
-        args {
-          int_value: 15
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Heat"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 2
             }
           }
         }
@@ -2452,6 +2336,122 @@ nodes {
           }
         }
         args {
+          int_value: 15
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Heat"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 50
+        }
+      }
+    }
+    nextNodeIndex: 19
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{CC}}$50{{/CC}}What\'s my current Heat level?"
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 50
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f169b733633124330018bf"
+            }
+            args {
+              string_value: "StoryStep"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 7
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Heat"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
           int_value: 25
         }
       }
@@ -2492,7 +2492,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 19
+    nextNodeIndex: 20
     hideIfUnavailable: true
   }
   branches {
@@ -2580,41 +2580,6 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 20
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "Can you wipe my Notoriety?"
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Street_Cred"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          int_value: 100
-        }
-      }
-    }
     nextNodeIndex: 21
     hideIfUnavailable: true
   }
@@ -2642,34 +2607,6 @@ nodes {
             }
             args {
               int_value: 4
-            }
-          }
-        }
-        args {
-          int_value: 200
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Street_Cred"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
             }
           }
         }
@@ -2704,6 +2641,69 @@ nodes {
               string_value: "Comparison Ops"
             }
             args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 200
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Street_Cred"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 100
+        }
+      }
+    }
+    nextNodeIndex: 23
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Can you wipe my Notoriety?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Street_Cred"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
               int_value: 3
             }
           }
@@ -2713,7 +2713,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 23
+    nextNodeIndex: 24
     hideIfUnavailable: true
   }
   branches {
@@ -3442,9 +3442,209 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52523515336331fc1c002217"
+    id: "5a047c306537377c3a004ee1"
   }
   index: 1
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "srtest-invested"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 10000
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "srtest-invested"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 10000
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (float)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (float)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "RandomFloat"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (float)"
+            args {
+              call_value {
+                functionName: "Arithmetic (float)"
+                args {
+                  call_value {
+                    functionName: "Convert (int) to (float)"
+                    args {
+                      call_value {
+                        functionName: "Get Story Variable (int)"
+                        args {
+                          string_value: "51f15c62336331d02c00440e"
+                        }
+                        args {
+                          string_value: "srtest-invested"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 3
+                    }
+                  }
+                }
+                args {
+                  float_value: 10000
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (float)"
+                args {
+                  call_value {
+                    functionName: "Random (float)"
+                    args {
+                      float_value: 0
+                    }
+                    args {
+                      float_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Random (float)"
+                    args {
+                      float_value: 1
+                    }
+                    args {
+                      float_value: 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Nuyen"
+        args {
+          call_value {
+            functionName: "Convert (float) to (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (float)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "RandomFloat"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52523515336331fc1c002217"
+  }
+  index: 2
   text: "I might have a few contracts that require attention. Let me check..."
   branches {
     responseText: ""
@@ -3545,11 +3745,11 @@ nodes {
   idRef {
     id: "52c185e03363311c050082ea"
   }
-  index: 2
+  index: 3
   text: "First things first. Here\'s Mars\' number. A lot of runs are going to take you place you can\'t get to on foot, and you don\'t really want to use taxi\'s as getaway vehicles. If you ever need a driver just give him a call, and he\'ll help you out, for a fee of course.\n\nAlso if you\'re ever infiltrating a high security location, it can pay off to visit an employee at their home and see if you can\'t score their key, or passcode. You\'ll need a driver to get there, but that\'s where Mars comes in to play.\n"
   branches {
     responseText: "Thanks Frosty."
-    nextNodeIndex: 3
+    nextNodeIndex: 4
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -3557,7 +3757,7 @@ nodes {
   idRef {
     id: "52c187353363311c050082ed"
   }
-  index: 3
+  index: 4
   text: "Hey, if it makes it easier for you to succeed, it means it\'s better for business."
   branches {
     responseText: ""
@@ -3570,11 +3770,11 @@ nodes {
   idRef {
     id: "5230ba5c336331b419001651"
   }
-  index: 4
+  index: 5
   text: "As a matter of fact, I heard something that may interest you. A member of Joshua\'s team, a cybered dwarf named Piper, was spotted down in the Redmond Barrens recently."
   branches {
     responseText: "That\'s not a lot to go on..."
-    nextNodeIndex: 5
+    nextNodeIndex: 6
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -3582,7 +3782,7 @@ nodes {
   idRef {
     id: "5230ba5c336331b419001654"
   }
-  index: 5
+  index: 6
   text: "He may know something about what they stole that night, and something tells me that\'s the key to all this. I would ask around. Talk to any contacts you have in Redmond. Maybe someone\'s seen him."
   branches {
     responseText: "Well it\'s the best lead I have. Maybe if I recover whatever they stole, I can use it to get Soka to show his ugly face. Thanks a lot Frosty."
@@ -3714,7 +3914,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 6
+    nextNodeIndex: 7
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -3722,7 +3922,7 @@ nodes {
   idRef {
     id: "5230ba5c336331b419001657"
   }
-  index: 6
+  index: 7
   text: "Don\'t mention it."
   nodeType: ConversationNodeType_Simple
 }
@@ -3730,7 +3930,7 @@ nodes {
   idRef {
     id: "5230ba5c336331b41900165a"
   }
-  index: 7
+  index: 8
   text: "Not yet, sorry. You keep working, and I\'ll keep digging around. Check back after you do some more jobs."
   nodeType: ConversationNodeType_Simple
 }
@@ -3738,7 +3938,7 @@ nodes {
   idRef {
     id: "52e0ad10336331640d007560"
   }
-  index: 8
+  index: 9
   text: "I don\'t service \'decks. I just sell some decking equipment. I don\'t much care for getting my hands dirty. Go look up Quick Jack down in Redmond. He\'ll set you straight."
   branches {
     responseText: ""
@@ -3751,7 +3951,7 @@ nodes {
   idRef {
     id: "5233cbcd33633138200063e4"
   }
-  index: 9
+  index: 10
   text: "Your Notoriety is getting up there, although you\'re far from notorious. You shouldn\'t have too much of an issue with the Lone Stars, but I would keep an eye in this. Come and see me if it gets much higher."
   branches {
     responseText: ""
@@ -3764,7 +3964,7 @@ nodes {
   idRef {
     id: "5233cae33363313820005b51"
   }
-  index: 10
+  index: 11
   text: "Your Notoriety is very low. You shouldn\'t have any issues with Lone Star or Renraku."
   branches {
     responseText: ""
@@ -3777,7 +3977,7 @@ nodes {
   idRef {
     id: "5233cc4533633138200063ea"
   }
-  index: 11
+  index: 12
   text: "You my friend are making quite a splash with law enforcement. You\'ve made it on the Lone Star\'s current most wanted list. You better get that Notoriety taken care of before Renraku catches wind..."
   branches {
     responseText: ""
@@ -3790,7 +3990,7 @@ nodes {
   idRef {
     id: "5233cf1b336331f82200098c"
   }
-  index: 12
+  index: 13
   text: "You\'ve started to make a name for yourself. Nothing special, but your name has been dropped in certain circles. No one is singing tales of your exploits yet {{GM}}Greenhorn{{/CC}}, but you\'re definitely on the radar."
   branches {
     responseText: ""
@@ -3803,7 +4003,7 @@ nodes {
   idRef {
     id: "5233cd443363313820006585"
   }
-  index: 13
+  index: 14
   text: "Let\'s just say, you haven\'t made much of an impression. I can\'t tell you what most people think of you, because not a lot of people know you even exist. You\'re pretty much a {{GM}}Nobody{{/GM}}. Sorry Chummer."
   branches {
     responseText: ""
@@ -3816,7 +4016,7 @@ nodes {
   idRef {
     id: "5233d061336331f82200099e"
   }
-  index: 14
+  index: 15
   text: "You\'ve been around the block enough that you\'ve earned your fair share of respect. Most everyone would consider you a {{GM}}Veteran{{/GM}} \'runner, it\'s pretty clear you know what you\'re doing out there."
   branches {
     responseText: ""
@@ -3829,7 +4029,7 @@ nodes {
   idRef {
     id: "5233d473336331f8220009a4"
   }
-  index: 15
+  index: 16
   text: "Well you\'ve definitely made an impression. On the streets, people consider you one of the {{GM}}Elite{{/GM}} \'runners."
   branches {
     responseText: ""
@@ -3842,7 +4042,7 @@ nodes {
   idRef {
     id: "5233c962336331f8220009aa"
   }
-  index: 16
+  index: 17
   text: "There\'s Fast-Jack, Harlequin, Ghost-Who-Walks-Inside, and then there\'s you. Maybe it\'s just a lot of hype, but right now people are considering you one of the {{GM}}Legendary{{/GM}} \'runners. You gotta love publicity, eh chummer?"
   branches {
     responseText: ""
@@ -3855,7 +4055,7 @@ nodes {
   idRef {
     id: "5233cc3c336331f822000d30"
   }
-  index: 17
+  index: 18
   text: "You don\'t got much to worry about chummer. Just the usual buzz from the Lone Star channels."
   branches {
     responseText: ""
@@ -3868,7 +4068,7 @@ nodes {
   idRef {
     id: "5233cc72336331f822000ef1"
   }
-  index: 18
+  index: 19
   text: "Your recent exploits have caught their attention. The Lone Star have definitely perked up, but I think you should be okay. Maybe just lay low for a few days if you want to play it safe."
   branches {
     responseText: ""
@@ -3881,7 +4081,7 @@ nodes {
   idRef {
     id: "5233cca9336331f822000efd"
   }
-  index: 19
+  index: 20
   text: "With the recent crime wave, mostly your doing, the local law enforcement are hitting the pavement hard. I\'ve seen it worse, but it couldn\'t hurt to lay low if you want to avoid a run-in with the \'Stars."
   branches {
     responseText: ""
@@ -3894,7 +4094,7 @@ nodes {
   idRef {
     id: "5233cdb6336331f822000f09"
   }
-  index: 20
+  index: 21
   text: "Well you really kicked the hornet\'s nest this time. The \'Stars are patrolling the streets and stopping everyone. I\'ve even heard rumors of Renraku Samurai\'s being seen outside of the Arcology. It definitely ain\'t safe for criminal types out there right now. Spend a few days in your safe house, wait until this heat dies down a little. Unless of course you don\'t mind being harassed by the \'Stars everywhere you go."
   branches {
     responseText: ""
@@ -3907,7 +4107,7 @@ nodes {
   idRef {
     id: "5230ba5c336331b419001660"
   }
-  index: 21
+  index: 22
   text: "With your Street Cred levels it\'s going to cost 1000 nuyen."
   branches {
     responseText: "Deal"
@@ -3967,7 +4167,7 @@ nodes {
   idRef {
     id: "52523c37336331fc1c0027b4"
   }
-  index: 22
+  index: 23
   text: "With your Street Cred levels it\'s going to cost 5000 nuyen."
   branches {
     responseText: "Deal"
@@ -4027,7 +4227,7 @@ nodes {
   idRef {
     id: "52523c78336331fc1c0027ba"
   }
-  index: 23
+  index: 24
   text: "With your Street Cred levels it\'s going to cost 10,000 nuyen."
   branches {
     responseText: "Deal"
@@ -4087,7 +4287,7 @@ nodes {
   idRef {
     id: "53369acc3363313406005b4a"
   }
-  index: 24
+  index: 25
   text: ""
   branches {
     responseText: "Hey. Are you Frosty?"
@@ -4157,7 +4357,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 25
+    nextNodeIndex: 26
     hideIfUnavailable: true
   }
   branches {
@@ -4211,7 +4411,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 27
+    nextNodeIndex: 28
     hideIfUnavailable: true
   }
   branches {
@@ -4649,7 +4849,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 36
+    nextNodeIndex: 37
     hideIfUnavailable: true
   }
   branches {
@@ -4720,7 +4920,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 40
+    nextNodeIndex: 41
     hideIfUnavailable: true
   }
   nodeType: ConversationNodeType_Simple
@@ -4729,7 +4929,7 @@ nodes {
   idRef {
     id: "53369acd3363313406005b4d"
   }
-  index: 25
+  index: 26
   text: "Depends who\'s asking."
   branches {
     responseText: "I\'ll take that as a yes. Eric Gunderson wanted me to deliver this letter to you."
@@ -4804,7 +5004,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 26
+    nextNodeIndex: 27
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -4812,7 +5012,7 @@ nodes {
   idRef {
     id: "53369ace3363313406005b50"
   }
-  index: 26
+  index: 27
   text: "{{GM}}She takes the envelope from you, tears it open and begins reading the contents. After a few moments she stuffs the letter into her pocket{{/GM}}\n\n Come with me."
   branches {
     responseText: ""
@@ -4980,15 +5180,15 @@ nodes {
   idRef {
     id: "53369ad73363313406005b6f"
   }
-  index: 27
+  index: 28
   text: "Well according to this letter, Joshua was your brother and you\'re on some sort of suicidal revenge mission. That and Renraku is trying to track you down, so they can kidnap and torture you, so on and so forth. Now my only question is, are you for real? Will you turn the tables and leave that Soka bastard bleeding in the streets?"
   branches {
     responseText: "That\'s the plan. Unless I catch him inside. Then I\'ll spill his guts on the floor."
-    nextNodeIndex: 28
+    nextNodeIndex: 29
   }
   branches {
     responseText: "It\'s not just Soka. It\'s Renraku. Soka is just the ugly face of the beast. I need to make them pay for what they did."
-    nextNodeIndex: 32
+    nextNodeIndex: 33
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -4996,11 +5196,11 @@ nodes {
   idRef {
     id: "53369ad73363313406005b72"
   }
-  index: 28
+  index: 29
   text: "A sense of humor? I like that. Reminds me of Joshua. Here\'s the deal; Eric used up the last of his markers just so I\'d give you the time of day. Now that we\'ve talked, I want to help you. But I can tell your pretty green. You may have shot up some gangers or whatever, but have you ever been on a real Shadowrun?"
   branches {
     responseText: "No. Up until now I\'ve been a glorified babysitting, courier boy."
-    nextNodeIndex: 29
+    nextNodeIndex: 30
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -5008,11 +5208,11 @@ nodes {
   idRef {
     id: "53369ad73363313406005b75"
   }
-  index: 29
+  index: 30
   text: "Thought so. These days I rarely put my ass on the line running the shadows. Now I like to play the puppet master. Get paid and avoid the bullets. So long story short; I want you to work for me. "
   branches {
     responseText: "But my Renraku issue..."
-    nextNodeIndex: 30
+    nextNodeIndex: 31
   }
   nodeType: ConversationNodeType_Simple
   actions {
@@ -5098,7 +5298,7 @@ nodes {
   idRef {
     id: "53369ad73363313406005b78"
   }
-  index: 30
+  index: 31
   text: "I have a job that needs an extra pair of hands. Safety in numbers and all that. You take the job, and I\'ll clear your data trail, and see about finding you some more leads. Deal?"
   branches {
     responseText: "We have a deal."
@@ -5205,7 +5405,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 31
+    nextNodeIndex: 32
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -5213,7 +5413,7 @@ nodes {
   idRef {
     id: "53369ad73363313406005b7b"
   }
-  index: 31
+  index: 32
   text: "Good. You will be joining a team of runners a lot more experienced than you, so do what they say. I\'ll message them when we\'re done here, and they should meet you across the street. Just look for the armored van. Mars will fill you in on the details. Now get going. Oh and don\'t mind Argyle. You\'ll see what I mean."
   nodeType: ConversationNodeType_Simple
   actions {
@@ -5299,11 +5499,11 @@ nodes {
   idRef {
     id: "53369ad73363313406005b7e"
   }
-  index: 32
+  index: 33
   text: "That\'s a tall order. Not many look forward to taking on a megacorp, even when the pay is premium. Here\'s the deal; Eric used the last of his markers just so I\'d give you the time of day. Now that we\'ve talked, I want to help you. But I can tell your pretty green. Sure you may have shot up some gangers, but have you ever been on a real Shadowrun?"
   branches {
     responseText: "No. Up until now I\'ve been a glorified babysitting, courier boy."
-    nextNodeIndex: 33
+    nextNodeIndex: 34
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -5311,11 +5511,11 @@ nodes {
   idRef {
     id: "53369ad73363313406005b81"
   }
-  index: 33
+  index: 34
   text: "Thought so. These days I rarely put my ass on the line running the shadows. Now I like to play the puppet master. Get paid and avoid the bullets. So long story short; I want you to work for me. "
   branches {
     responseText: "But my Renraku issue..."
-    nextNodeIndex: 34
+    nextNodeIndex: 35
   }
   nodeType: ConversationNodeType_Simple
   actions {
@@ -5401,7 +5601,7 @@ nodes {
   idRef {
     id: "53369ad73363313406005b84"
   }
-  index: 34
+  index: 35
   text: "I have a job that needs an extra pair of hands. Safety in numbers and all that. You take the job, and I\'ll clear your data trail and help find you some more leads. Deal?"
   branches {
     responseText: "We have a deal."
@@ -5508,7 +5708,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 35
+    nextNodeIndex: 36
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -5516,7 +5716,7 @@ nodes {
   idRef {
     id: "53369ad73363313406005b87"
   }
-  index: 35
+  index: 36
   text: "Good. You will be joining a team of runners a lot more experienced than you, so do what they say. I\'ll message them when we\'re done here, and they should meet you across the street. Just look for the armored van. Mars will fill you in on the details. Now get going.  Oh and don\'t mind Argyle. You\'ll see what I mean."
   nodeType: ConversationNodeType_Simple
   actions {
@@ -5602,11 +5802,11 @@ nodes {
   idRef {
     id: "53369ae63363313406005b96"
   }
-  index: 36
+  index: 37
   text: "Well done. I\'m impressed. Now I\'ll do as promised. You won\'t have to worry about the Lone Star and Renraku for a little while, but remember as you complete runs, your Notoriety will slowly increase. The higher your Notoriety, the more you\'re on the Lone Star radar. Once your Notoriety gets too high, Lone Star will just attempt an arrest on sight."
   branches {
     responseText: "Will you clear my Notoriety for me again if I get into trouble?"
-    nextNodeIndex: 37
+    nextNodeIndex: 38
   }
   nodeType: ConversationNodeType_Simple
   actions {
@@ -5633,11 +5833,11 @@ nodes {
   idRef {
     id: "53369ae63363313406005b99"
   }
-  index: 37
+  index: 38
   text: "Sure I will. But only the first time is free. I charge a fee of 1000 nuyen, but if it makes the difference between a peaceful stroll through the city, and dodging Renraku strike teams it\'s a small price to pay. As your Street Cred increases, it will take more more to wipe your trail, so my fee will go up eventually."
   branches {
     responseText: "Can you explain to me about Street Cred?"
-    nextNodeIndex: 38
+    nextNodeIndex: 39
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -5645,11 +5845,11 @@ nodes {
   idRef {
     id: "53369ae63363313406005b9c"
   }
-  index: 38
+  index: 39
   text: "Simply put; Street Cred is your reputation among the underworld of Seattle. Like Notoriety, it accumulates as you complete runs. Certain fixers and merchants who deal with highly illegal items or dangerous, high profile runs will refuse to work with \'runners until they have built up a decent reputation. "
   branches {
     responseText: "Makes sense. And what about Heat?"
-    nextNodeIndex: 39
+    nextNodeIndex: 40
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -5657,7 +5857,7 @@ nodes {
   idRef {
     id: "53369ae63363313406005b9f"
   }
-  index: 39
+  index: 40
   text: "Heat is increased when you complete runs, but also whenever you trigger an alarm. Come talk to me at anytime, and for a small price I can dig up your Notoriety, Street Cred, and Heat ratings. Now it\'s time to get back to work.  I\'ll see what I can dig up on Rentaku, and that Soka guy. See if I can\'t figure something out."
   branches {
     responseText: ""
@@ -6015,7 +6215,7 @@ nodes {
   idRef {
     id: "53369a923363316c1d00453c"
   }
-  index: 40
+  index: 41
   text: "Get lost."
   nodeType: ConversationNodeType_Simple
 }
@@ -6121,6 +6321,6 @@ roots {
       }
     }
   }
-  nextNodeIndex: 24
+  nextNodeIndex: 25
   hideIfUnavailable: true
 }
