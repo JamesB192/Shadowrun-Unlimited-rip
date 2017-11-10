@@ -1495,38 +1495,10 @@ triggers {
   name: "Respawn (No Insurance)"
   events {
     ops {
-      functionName: "On Actor Downed"
+      functionName: "On Actor Death"
     }
   }
   conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "DocWagon"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
     ops {
       functionName: "Comparison (Actor)"
       args {
@@ -4733,6 +4705,52 @@ regions {
   default_music: "Seattle-Bar13"
   loop_combat_music: true
   loop_default_music: true
+  no_fow_in_region: false
+}
+regions {
+  name: "New Region"
+  position {
+    x: 12
+    y: -49
+    width: 6
+    height: 15
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  idRef {
+    id: "5a05ddbc663061a254f55f79"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: true
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
   no_fow_in_region: false
 }
 characters {
