@@ -750,41 +750,13 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Respawn (No Insurance)"
+  name: "onDeath(PC0)"
   events {
     ops {
-      functionName: "On Actor Downed"
+      functionName: "On Actor Death"
     }
   }
   conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "DocWagon"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
     ops {
       functionName: "Comparison (Actor)"
       args {
@@ -823,7 +795,7 @@ triggers {
   }
   isActive: true
   idRef {
-    id: "525234553363318c10004ae9"
+    id: "5252345d3363318c10004aea"
   }
   elseActions {
   }
@@ -9578,6 +9550,7 @@ characters {
       }
       specializations {
       }
+      archetypeName: "Player"
     }
     team_id: "Shadowrunners"
     char_name: "Invisible Runner"
@@ -11189,6 +11162,9 @@ scene_hiring_prerequisites {
   prereq_conditions {
   }
 }
+hiring_slot_count: 0
+hiring_minimum_karma: 0
+hiring_maximum_karma: 25
 roster_overrides {
 }
 use_hiring_cost_warning: true

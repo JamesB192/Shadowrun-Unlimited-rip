@@ -2158,41 +2158,13 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Medical-Respawn (No Insurance)"
+  name: "onDeath(PC0)"
   events {
     ops {
-      functionName: "On Actor Downed"
+      functionName: "On Actor Death"
     }
   }
   conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "DocWagon"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        int_value: 0
-      }
-    }
     ops {
       functionName: "Comparison (Actor)"
       args {
@@ -39551,6 +39523,7 @@ characters {
       }
       specializations {
       }
+      archetypeName: "Player"
       vulnerabilities {
       }
     }
