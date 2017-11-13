@@ -4083,6 +4083,61 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "interract(surface exit)"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5a00cc1c6537378c21004e4f"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Travel"
+          }
+        }
+      }
+      args {
+        int_value: 800
+      }
+    }
+    ops {
+      functionName: "Open Scene"
+      args {
+        call_value {
+          functionName: "Get Map Item (Scene)"
+          args {
+            string_value: "puyullup barrens"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5a09f771653737fc3700518a"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
 regions {
   name: "New Region"
   position {
