@@ -13,50 +13,63 @@ strung = """props {
   lod: 0
 }"""
 
-arr = [ "sleekOffice_furniture_overturnedTable02",
-  "sleekOffice_furniture_overturnedTable01",
-  "sleekOffice_furniture_glowingTable05",
-  "sleekOffice_furniture_glowingTable04",
-  "sleekOffice_furniture_glowingTable03",
-  "sleekOffice_furniture_glowingTable02",
-  "sleekOffice_furniture_glowingTable01"]
+arr = [["sleekOffice_furniture_overturnedTable02", 1, 1],
+       ["sleekOffice_furniture_overturnedTable01", 1, 1],
+       ["sleekOffice_furniture_glowingTable05", 1, 1],
+       ["sleekOffice_furniture_glowingTable04", 1, 1],
+       ["sleekOffice_furniture_glowingTable03", 1, 1],
+       ["sleekOffice_furniture_glowingTable02", 1, 2],
+       ["sleekOffice_furniture_glowingTable01", 1, 2]]
 
 dir = ["N", "E", "S", "W"]
 
 array = []
 passes = 0
-yettodo = 50
+yettodo = 20
+rend = len(arr) - 1
+# print (rend)
 
 while yettodo > 0:
     passes += 1
-    randT = randint(0, 6)
-    if(randT<2):
-        randO = randint(0, 3)
-    else:
-        randO = 2
-#       change these to be wright
-    if((randT<2) & (randO & 1)):
-        randX = randint(2, 20)
-        randZ = randint(2, 19)
-        node = "%u,%u" % (randX, randZ)
-        if node not in array:
-            array+=[node]
-            node = "%u,%u" % (randX, randZ +1)
-            array+=[node]
-#            print (node)
-            yettodo -= 1;
-            print (strung % (arr[randT], randX, randZ, dir[randO]))
-    else:
-        randX = randint(0, 19)
-        randZ = randint(0, 20)
-        node = "%u,%u" % (randX, randZ)
-        if node not in array:
-            array+=[node]
-            node = "%u,%u" % (randX + 1, randZ)
-            array+=[node]
-#            print (node)
-            yettodo -= 1;
-            print (strung % (arr[randT], randX, randZ, dir[randO]))
+    randT = randint(0, rend)
+#    if((arr[randT][1]+arr[randT][2]) != 2):
+    randO = randint(0, 3)
+#    else:
+#        randO = 2
 
-#print (dumps(array))
-#print (passes)
+
+#       change these to be wright
+    clear = True
+    if((randO & 1)):
+        randX = randint(3, 20-arr[randT][1])
+        randZ = randint(3, 20-arr[randT][2])
+        for tX in range(randX, (randX+arr[randT][1]-1)):
+            for tZ in range(randZ, (randZ+arr[randT][2]-1)):
+                node = "%u,%u" % (tX, tZ)
+                if node in array:
+                    clear = False
+        if clear:
+            for tX in range(randX, (randX+arr[randT][2]-1)):
+                for tZ in range(randZ, (randZ+arr[randT][1]-1)):
+                    node = "%u,%u" % (tX, tZ)
+                    array += [node]
+            yettodo -= 1
+            print (strung % (arr[randT][0], randX, randZ, dir[randO]))
+    else:
+        randX = randint(3, 20-arr[randT][2])
+        randZ = randint(3, 20-arr[randT][1])
+        for tX in range(randX, (randX+arr[randT][2]-1)):
+            for tZ in range(randZ, (randZ+arr[randT][1]-1)):
+                node = "%u,%u" % (tX, tZ)
+                if node in array:
+                    clear = False
+        if clear:
+            for tX in range(randX, (randX+arr[randT][2]-1)):
+                for tZ in range(randZ, (randZ+arr[randT][1]-1)):
+                    node = "%u,%u" % (tX, tZ)
+                    array += [node]
+            yettodo -= 1
+            print (strung % (arr[randT][0], randX, randZ, dir[randO]))
+
+# print (dumps(array))
+# print (passes)
