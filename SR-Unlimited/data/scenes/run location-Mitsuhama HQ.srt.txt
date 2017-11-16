@@ -5262,178 +5262,6 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Building Lighting"
-  events {
-    ops {
-      functionName: "Get Map Item (Event)"
-      args {
-        string_value: "SunRising"
-      }
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "RisingOrSetting"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 4
-          }
-        }
-      }
-      args {
-        int_value: 12
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.45
-      }
-      args {
-        float_value: 0.55
-      }
-      args {
-        float_value: 0.6
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55972ead3366379800000a0b"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -1.1
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55972ead3366379800000a0b"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "559728fb3366379800000a09"
-  }
-  elseActions {
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.35
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: -0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55817c6c6466325409000fe3"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.45
-      }
-      args {
-        float_value: 0.55
-      }
-      args {
-        float_value: 0.6
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55972ead3366379800000a0b"
-          }
-        }
-      }
-    }
-  }
-  is_oneshot: false
-}
-triggers {
   name: "NewTrigger"
   events {
     ops {
@@ -20618,6 +20446,20 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "SunRising"
+          }
+        }
+      }
+      args {
+        float_value: 10
+      }
+    }
   }
   isActive: true
   idRef {
@@ -20685,12 +20527,32 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "SunRising"
+          }
+        }
+      }
+      args {
+        float_value: 10
+      }
+    }
   }
   is_oneshot: false
 }
 triggers {
   name: "daylight show"
   events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "zonechange"
+      }
+    }
   }
   conditions {
     ops {
@@ -20723,20 +20585,6 @@ triggers {
     }
   }
   actions {
-    ops {
-      functionName: "Send Event After Delay"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "SunRising"
-          }
-        }
-      }
-      args {
-        float_value: 10
-      }
-    }
     ops {
       functionName: "Set Ambient Light Color"
       args {
@@ -20798,6 +20646,128 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Ambient Light Color"
+      args {
+        float_value: 0.45
+      }
+      args {
+        float_value: 0.55
+      }
+      args {
+        float_value: 0.6
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55972ead3366379800000a0b"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Directional Light Color"
+      args {
+        float_value: 0.75
+      }
+      args {
+        float_value: 0.9
+      }
+      args {
+        float_value: 0.9
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: -0.6
+      }
+      args {
+        float_value: -1.1
+      }
+      args {
+        float_value: -0.8
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55972ead3366379800000a0b"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Ambient Light Color"
+      args {
+        float_value: 0.5
+      }
+      args {
+        float_value: 0.35
+      }
+      args {
+        float_value: 0.2
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55817aaa6466325409000fdd"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Directional Light Color"
+      args {
+        float_value: 0.4
+      }
+      args {
+        float_value: 0.35
+      }
+      args {
+        float_value: 0.35
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0.2
+      }
+      args {
+        float_value: -0.8
+      }
+      args {
+        float_value: -0.4
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55817aaa6466325409000fdd"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -20805,17 +20775,64 @@ triggers {
   }
   elseActions {
     ops {
-      functionName: "Send Event After Delay"
+      functionName: "Set Ambient Light Color"
+      args {
+        float_value: 0.05
+      }
+      args {
+        float_value: 0.1
+      }
+      args {
+        float_value: 0.05
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
       args {
         call_value {
-          functionName: "Get Map Item (Event)"
+          functionName: "Get Map Item (CameraRegion)"
           args {
-            string_value: "SunRising"
+            string_value: "55817b7b6466325409000fdf"
           }
         }
       }
+    }
+    ops {
+      functionName: "Set Directional Light Color"
       args {
-        float_value: 10
+        float_value: 0.2
+      }
+      args {
+        float_value: 0.15
+      }
+      args {
+        float_value: 0.15
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: -0.85
+      }
+      args {
+        float_value: -1
+      }
+      args {
+        float_value: -0.4
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55817b7b6466325409000fdf"
+          }
+        }
       }
     }
     ops {
@@ -20839,7 +20856,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (CameraRegion)"
           args {
-            string_value: "55817bb86466325409000fe0"
+            string_value: "55972ead3366379800000a0b"
           }
         }
       }
@@ -20874,7 +20891,68 @@ triggers {
         call_value {
           functionName: "Get Map Item (CameraRegion)"
           args {
-            string_value: "55817bb86466325409000fe0"
+            string_value: "55972ead3366379800000a0b"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Ambient Light Color"
+      args {
+        float_value: 0.11
+      }
+      args {
+        float_value: 0.22
+      }
+      args {
+        float_value: 0.2
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55817aaa6466325409000fdd"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Directional Light Color"
+      args {
+        float_value: 0.75
+      }
+      args {
+        float_value: 0.25
+      }
+      args {
+        float_value: 0.6
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: -0.3
+      }
+      args {
+        float_value: -0.75
+      }
+      args {
+        float_value: -0.9
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (CameraRegion)"
+          args {
+            string_value: "55817b7b6466325409000fdf"
           }
         }
       }
@@ -20975,7 +21053,7 @@ regions {
   no_fow_in_region: false
 }
 regions {
-  name: "CameraBind"
+  name: "outside nice"
   position {
     x: 22
     y: -146
