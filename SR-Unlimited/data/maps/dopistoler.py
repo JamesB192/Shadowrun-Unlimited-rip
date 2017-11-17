@@ -19,14 +19,14 @@ arr = [["sleekOffice_furniture_overturnedTable02", 1, 1],
        ["sleekOffice_furniture_glowingTable05", 1, 1],
        ["sleekOffice_furniture_glowingTable04", 1, 1],
        ["sleekOffice_furniture_glowingTable03", 1, 1],
-       ["sleekOffice_furniture_glowingTable02", 1, 2],
-       ["sleekOffice_furniture_glowingTable01", 1, 2]]
+       ["sleekOffice_furniture_glowingTable02", 2, 1],
+       ["sleekOffice_furniture_glowingTable01", 2, 1]]
 
 dir = ["N", "E", "S", "W"]
 
 array = []
 passes = 0
-yettodo = 20
+yettodo = 30
 rend = len(arr) - 1
 # print (rend)
 
