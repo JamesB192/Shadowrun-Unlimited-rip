@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from random import randint
 from json import dumps
+from sys import stderr
 
 strung = """props {
   name: "%s"
@@ -43,14 +44,15 @@ while yettodo > 0:
     if((randO & 1)):
         randX = randint(3, 20-arr[randT][1])
         randZ = randint(3, 20-arr[randT][2])
-        for tX in range(randX, (randX+arr[randT][1]-1)):
-            for tZ in range(randZ, (randZ+arr[randT][2]-1)):
+        for tX in range(randX, (randX+arr[randT][1])):
+            for tZ in range(randZ, (randZ+arr[randT][2])):
                 node = "%u,%u" % (tX, tZ)
                 if node in array:
+                    print ("collision: ", node, file=stderr)
                     clear = False
         if clear:
-            for tX in range(randX, (randX+arr[randT][2]-1)):
-                for tZ in range(randZ, (randZ+arr[randT][1]-1)):
+            for tX in range(randX, (randX+arr[randT][2])):
+                for tZ in range(randZ, (randZ+arr[randT][1])):
                     node = "%u,%u" % (tX, tZ)
                     array += [node]
             yettodo -= 1
@@ -58,18 +60,19 @@ while yettodo > 0:
     else:
         randX = randint(3, 20-arr[randT][2])
         randZ = randint(3, 20-arr[randT][1])
-        for tX in range(randX, (randX+arr[randT][2]-1)):
-            for tZ in range(randZ, (randZ+arr[randT][1]-1)):
+        for tX in range(randX, (randX+arr[randT][2])):
+            for tZ in range(randZ, (randZ+arr[randT][1])):
                 node = "%u,%u" % (tX, tZ)
                 if node in array:
+                    print ("collision: ", node, file=stderr)
                     clear = False
         if clear:
-            for tX in range(randX, (randX+arr[randT][2]-1)):
-                for tZ in range(randZ, (randZ+arr[randT][1]-1)):
+            for tX in range(randX, (randX+arr[randT][2])):
+                for tZ in range(randZ, (randZ+arr[randT][1])):
                     node = "%u,%u" % (tX, tZ)
                     array += [node]
             yettodo -= 1
             print (strung % (arr[randT][0], randX, randZ, dir[randO]))
 
-# print (dumps(array))
-# print (passes)
+print (dumps(array), file=stderr)
+print ("passes: ", passes, file=stderr)
