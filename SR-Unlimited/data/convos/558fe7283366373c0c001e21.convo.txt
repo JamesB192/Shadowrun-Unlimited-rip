@@ -728,6 +728,71 @@ nodes {
     hideIfUnavailable: true
     comment: "telestrian"
   }
+  branches {
+    responseText: "Travel to system."
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Mitsuhama HQ"
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid has identified this system as belonging to Telestrian R&D."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix-Mitsuhama HQ"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "Mitsuhama HQ"
+  }
   nodeType: ConversationNodeType_Simple
 }
 nodes {
