@@ -5374,6 +5374,12 @@ triggers {
     ops {
       functionName: "On Map Start"
     }
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "SunRising"
+      }
+    }
   }
   conditions {
     ops {
@@ -5424,12 +5430,12 @@ triggers {
             string_value: "Comparison Ops"
           }
           args {
-            int_value: 4
+            int_value: 2
           }
         }
       }
       args {
-        float_value: 3
+        float_value: 11
       }
     }
   }
@@ -5457,6 +5463,23 @@ triggers {
     id: "52bdb351336331c025006d96"
   }
   elseActions {
+    ops {
+      functionName: "Set Environmental Effect Amount"
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "EnvironmentalEffects"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
   }
   is_oneshot: true
 }
@@ -14964,6 +14987,47 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Set Prop Visible by Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "pole_light"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        float_value: -1
+      }
+      args {
+        call_value {
+          functionName: "Everywhere"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DoesOrDoesNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -15027,6 +15091,47 @@ triggers {
           functionName: "Get Map Item (CameraRegion)"
           args {
             string_value: "51f834a23363316838000c06"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Prop Visible by Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "pole_light"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        float_value: -1
+      }
+      args {
+        call_value {
+          functionName: "Everywhere"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DoesOrDoesNot"
+          }
+          args {
+            int_value: 1
           }
         }
       }
