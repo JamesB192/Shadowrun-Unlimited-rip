@@ -3,13 +3,13 @@ import sys
 
 
 def inner_thing(fbase):
-    fnum = 111
+    fnum = -1
     try:
         fp = open(fbase, "r")
         blob = fp.read(4000000)
         chunks = blob.split("\n}\n")
         for chunk in chunks:
-            fh = "parts/part-%u" % fnum
+            fh = "parts/part%u" % fnum
             fnum += 1
             try:
                 fq = open(fh, "w")
