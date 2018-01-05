@@ -1,0 +1,588 @@
+triggers {
+  name: "Exit"
+  events {
+    ops {
+      functionName: "On Region Enter"
+      args {
+        call_value {
+          functionName: "Get Map Item (Region)"
+          args {
+            string_value: "51f8932133633174450002d1"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f169b733633124330018bf"
+          }
+          args {
+            string_value: "Travel"
+          }
+        }
+      }
+      args {
+        int_value: 6
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "51f563e8336331181d003fbf"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Stash"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "52522ea4336331080c0003fe"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Open Equip Screen"
+    }
+  }
+  isActive: true
+  idRef {
+    id: "52522e85336331e416004087"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: ""
+  events {
+  }
+  conditions {
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "5a4b8e04653737cc2d005b31"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Starting Gear"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f169b733633124330018bf"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Set Actor In Passive Mode"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5a4b94f6653737cc2d005b34"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "51f89c8833633174450002ef"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: ".. Cash"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add Nuyen"
+      args {
+        int_value: 1000
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5a4b8e0f653737cc2d005b32"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: ".. Clothing"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Fade Camera Out"
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Remove Item from Actor by Item Type"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ItemType"
+          }
+          args {
+            int_value: 18
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "SINless"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Fade Camera In"
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 2
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "53282a4933633120210051a0"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: ".. commlink"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Commlink"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5a4b99b0653737cc2d005b99"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+regions {
+  name: "Exit"
+  position {
+    x: 9
+    y: -1
+    width: -3
+    height: 3
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  idRef {
+    id: "51f8932133633174450002d1"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
+}
+regions {
+  name: "New Region"
+  position {
+    x: 6
+    y: -1
+    width: 3
+    height: 7
+  }
+  enabledAtStart: true
+  is_camera_region: true
+  idRef {
+    id: "520d1eeb336331a83b003911"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: false
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: "Seattle-Set5-Legwork"
+  loop_combat_music: true
+  loop_default_music: true
+  no_fow_in_region: false
+}
+characters {
+  name: "system_spawner_playerSpawner"
+  gridPoint {
+    x: 6
+    y: 0
+    z: 3
+  }
+  orientation: ORIENTATION_W
+  GeneralTags: "butt"
+  idRef {
+    id: "58d2a5223037368247af1000"
+  }
+  lod: 0
+  character_instance {
+    character_mod {
+      archetypeName: "Player"
+    }
+    team_id: "Shadowrunners"
+    char_name: "New Actor"
+    GeneralTags: "butt"
+    enabled_at_start: true
+    pc_spawn_number: 0
+  }
+}
+variables {
+  bool_value: false
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "check"
+    typeName: "bool"
+  }
+}
+mapEvents: "Newloot"
+worldMapLocation {
+  filename: ""
+  location {
+    x: 0
+    y: 0
+  }
+}
+mapName: "6_Months_Later"
+parentStory: ""
+scene_title: "Welcome to the sprawl"
+scene_subtitle: ""
+scene_synopsis: "Six months ago, while giving you a tour of the city, your brother Joshua was murdered before your eyes; his assailant, a mysterious samurai in red armor, taunted you. Months later deep in melancholy a group of the self-same samurai attempted to abduct you from your Beaverton apartment. They failed solely because of a fortuitous vid-call from a from Eric Gunderson, a former associate of Joshua.Sometimes you wonder what happened to your coworker who was waiting for you at your apartment before going out to a concert (and apparently dinner). Fleeing the scene, you make your way to see Gunderson.\n\nIt wasn\'t easy. You got mugged twice your first month,  and the second time the old man kicked your ass because you didn\'t have anything worth taking. The second month, you caught a severe case of the flu and nearly died in an alley before a street doc traded you some medicine for one of your kidneys. You lost count of the times you almost died.\n\nIt was worth it. When you walked into Seattle, six weeks after Eric\'s call, you weren\'t the same person that watched Joshua die. You were harder, better, faster, stronger. You checked into a coffin motel to get ready for your meeting with Eric. You\'ve got your gear, your trench, and your Streetline Special.\n\nIt\'s time to get to work, chummer."
+scene_image: "loadingimage_a1_hotel_s1"
+scene_continue_button_skip: false
+scene_restore_runner_health: false
+directional_light_dir {
+  x: -0.5
+  y: -1
+  z: -0.75
+}
+directional_light_color {
+  r: 0.50196081
+  g: 0.50196081
+  b: 0.50196081
+}
+ambient_light_color {
+  r: 0.50196081
+  g: 0.50196081
+  b: 0.50196081
+}
+allow_drawn_weapons: false
+team_affiliations {
+  team_name: "Shadowrunners"
+  affiliation: 0
+  affiliation: 1
+  affiliation: 1
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "Gangers"
+  affiliation: 1
+  affiliation: 0
+  affiliation: 1
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "LoneStar"
+  affiliation: 1
+  affiliation: 1
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "Civilians"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+}
+scene_dimensions {
+  dimension_name: "Default"
+  initial_alarm_state: 0
+}
+show_hiring_screen_on_scene_load: false
+scene_hiring_prerequisites {
+  prereq_description: ""
+  prereq_conditions {
+  }
+}
+hiring_slot_count: 0
+hiring_minimum_karma: 0
+hiring_maximum_karma: 0
+roster_overrides {
+}
+use_hiring_cost_warning: true
+hiring_average_cost: 750
+override_hiring_average_cost: true
+show_equip_screen_on_scene_load: false
+is_persistant: false
+is_persistant_has_value: false
+can_move_outside_camera_regions: false
+can_start_before_triggers: false
+can_use_team_advancement: false
