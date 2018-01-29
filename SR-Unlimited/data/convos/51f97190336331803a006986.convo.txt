@@ -32,7 +32,7 @@ nodes {
     id: "52e0ac46336331640d006fe4"
   }
   index: 1
-  text: "Okay, the going rate is 10 MP of storage for 500 nuyen. Each deck can only be upgraded to roughly three times it\'s base storage capacity."
+  text: "Okay, the going rate is 10 MP of storage for 500 nuyen."
   branches {
     responseText: "Yeah, I want to upgrade my storage."
     nextNodeIndex: 2
@@ -57,65 +57,10 @@ nodes {
     id: "52e0a23b336331640d00771e"
   }
   index: 3
-  text: "Just a basic Sony unit. You can have a max of 75 MP worth of storage, and you currently have $(story.Deck_Total_Storage) MP."
+  text: "Just a basic Sony unit. You currently have $(story.Deck_Total_Storage) MP."
   branches {
     responseText: "I want an additional 10 MP of storage."
     conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Total_Storage"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Arithmetic (int)"
-            args {
-              call_value {
-                functionName: "Get Story Variable (int)"
-                args {
-                  string_value: "51f15c62336331d02c00440e"
-                }
-                args {
-                  string_value: "Deck_Storage_MaxCapacity"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "Arithmetic Ops"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              int_value: 9
-            }
-          }
-        }
-      }
       ops {
         functionName: "Evaluate Nuyen"
         args {
@@ -215,68 +160,6 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
-    responseText: "I guess I can\'t upgrade my current storage anymore."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Total_Storage"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Arithmetic (int)"
-            args {
-              call_value {
-                functionName: "Get Story Variable (int)"
-                args {
-                  string_value: "51f15c62336331d02c00440e"
-                }
-                args {
-                  string_value: "Deck_Storage_MaxCapacity"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "Arithmetic Ops"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              int_value: 9
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    hideIfUnavailable: true
-  }
-  branches {
     responseText: "Sorry chummer, I can\'t afford it."
     conditions {
       ops {
@@ -311,7 +194,7 @@ nodes {
     id: "52e0a4fd336331640d00780f"
   }
   index: 4
-  text: "Okay, the going rate is 10 MP of storage for 500 nuyen. Each deck can only be upgraded to roughly three times it\'s base storage capacity."
+  text: "Okay, the going rate is 10 MP of storage for 500 nuyen."
   branches {
     responseText: "Yeah, I want to upgrade my storage."
     nextNodeIndex: 5
@@ -336,7 +219,7 @@ nodes {
     id: "52e0a4fd336331640d007823"
   }
   index: 6
-  text: "Just a basic Sony unit. You can have a max of 75 MP worth of storage, and you currently have $(story.Deck_Total_Storage) MP."
+  text: "Just a basic Sony unit. You currently have $(story.Deck_Total_Storage) MP."
   branches {
     responseText: "I want an additional 10 MP of storage."
     conditions {
@@ -497,68 +380,6 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
-    responseText: "I guess I can\'t upgrade my current storage anymore."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Total_Storage"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Arithmetic (int)"
-            args {
-              call_value {
-                functionName: "Get Story Variable (int)"
-                args {
-                  string_value: "51f15c62336331d02c00440e"
-                }
-                args {
-                  string_value: "Deck_Storage_MaxCapacity"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "Arithmetic Ops"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              int_value: 9
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    hideIfUnavailable: true
-  }
-  branches {
     responseText: "Sorry chummer, I can\'t afford it."
     conditions {
       ops {
@@ -593,7 +414,7 @@ nodes {
     id: "52e0a4fe336331640d007843"
   }
   index: 7
-  text: "Okay, the going rate is 10 MP of storage for 500 nuyen. Each deck can only be upgraded to roughly three times it\'s base storage capacity."
+  text: "Okay, the going rate is 10 MP of storage for 500 nuyen."
   branches {
     responseText: "Yeah, I want to upgrade my storage."
     nextNodeIndex: 8
@@ -657,65 +478,10 @@ nodes {
     id: "52e0a4fe336331640d00785f"
   }
   index: 9
-  text: "I see you have a Kraftwerks deck. Not great, but not terrible.... You can have a max storage of 150 MP, and you\'re currently running with $(story.Deck_Total_Storage) MP worth of storage space."
+  text: "I see you have a Kraftwerks deck. Not great, but not terrible.... You\'re currently running with $(story.Deck_Total_Storage) MP worth of storage space."
   branches {
     responseText: "I want an additional 10 MP of storage."
     conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Total_Storage"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Arithmetic (int)"
-            args {
-              call_value {
-                functionName: "Get Story Variable (int)"
-                args {
-                  string_value: "51f15c62336331d02c00440e"
-                }
-                args {
-                  string_value: "Deck_Storage_MaxCapacity"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "Arithmetic Ops"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              int_value: 9
-            }
-          }
-        }
-      }
       ops {
         functionName: "Evaluate Nuyen"
         args {
@@ -816,68 +582,6 @@ nodes {
     auxiliaryLink: true
   }
   branches {
-    responseText: "I guess I can\'t upgrade my current storage anymore."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Total_Storage"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Arithmetic (int)"
-            args {
-              call_value {
-                functionName: "Get Story Variable (int)"
-                args {
-                  string_value: "51f15c62336331d02c00440e"
-                }
-                args {
-                  string_value: "Deck_Storage_MaxCapacity"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "Arithmetic Ops"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              int_value: 9
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    hideIfUnavailable: true
-  }
-  branches {
     responseText: "Sorry chummer, I can\'t afford it."
     conditions {
       ops {
@@ -919,7 +623,7 @@ nodes {
     id: "52e0a4fe336331640d007877"
   }
   index: 11
-  text: "Okay, the going rate is 10 MP of storage for 500 nuyen. Each deck can only be upgraded to roughly three times it\'s base storage capacity."
+  text: "Okay, the going rate is 10 MP of storage for 500 nuyen."
   branches {
     responseText: "Yeah, I want to upgrade my storage."
     nextNodeIndex: 12
@@ -983,65 +687,10 @@ nodes {
     id: "52e0a4fe336331640d00789b"
   }
   index: 13
-  text: "Oh a VirtuaX. That\'s a pretty sweet deck. You can have a max of 300 MP of storage, and you\'re currently running with $(story.Deck_Total_Storage) MP worth of storage space."
+  text: "Oh a VirtuaX. That\'s a pretty sweet deck. You\'re currently running with $(story.Deck_Total_Storage) MP worth of storage space."
   branches {
     responseText: "I want an additional 10 MP of storage."
     conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Total_Storage"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Arithmetic (int)"
-            args {
-              call_value {
-                functionName: "Get Story Variable (int)"
-                args {
-                  string_value: "51f15c62336331d02c00440e"
-                }
-                args {
-                  string_value: "Deck_Storage_MaxCapacity"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "Arithmetic Ops"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              int_value: 9
-            }
-          }
-        }
-      }
       ops {
         functionName: "Evaluate Nuyen"
         args {
@@ -1238,7 +887,7 @@ nodes {
     id: "52e0a4ff336331640d0078ab"
   }
   index: 14
-  text: "Okay, the going rate is 10 MP of storage for 500 nuyen. Each deck can only be upgraded to roughly three times it\'s base storage capacity."
+  text: "Okay, the going rate is 10 MP of storage for 500 nuyen."
   branches {
     responseText: "Yeah, I want to upgrade my storage."
     nextNodeIndex: 15
@@ -1302,65 +951,10 @@ nodes {
     id: "52e0a4ff336331640d0078d7"
   }
   index: 16
-  text: "Wow is this a Fairlight Excalibur?! You can have a max of 600 MP of storage, and you\'re currently running with $(story.Deck_Total_Storage) MP worth of storage space."
+  text: "Wow is this a Fairlight Excalibur?! You\'re currently running with $(story.Deck_Total_Storage) MP worth of storage space."
   branches {
     responseText: "I want an additional 10 MP of storage."
     conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Total_Storage"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 4
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Arithmetic (int)"
-            args {
-              call_value {
-                functionName: "Get Story Variable (int)"
-                args {
-                  string_value: "51f15c62336331d02c00440e"
-                }
-                args {
-                  string_value: "Deck_Storage_MaxCapacity"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "Arithmetic Ops"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              int_value: 9
-            }
-          }
-        }
-      }
       ops {
         functionName: "Evaluate Nuyen"
         args {
@@ -1459,68 +1053,6 @@ nodes {
     nextNodeIndex: 16
     hideIfUnavailable: true
     auxiliaryLink: true
-  }
-  branches {
-    responseText: "I guess I can\'t upgrade my current storage anymore."
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Deck_Total_Storage"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Arithmetic (int)"
-            args {
-              call_value {
-                functionName: "Get Story Variable (int)"
-                args {
-                  string_value: "51f15c62336331d02c00440e"
-                }
-                args {
-                  string_value: "Deck_Storage_MaxCapacity"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "Arithmetic Ops"
-                }
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-              int_value: 9
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    hideIfUnavailable: true
   }
   branches {
     responseText: "Sorry chummer, I can\'t afford it."
