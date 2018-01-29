@@ -13151,12 +13151,109 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Add Item to Team"
+        functionName: "Add Item to Actor"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
             args {
               string_value: "Berlin_Aztechnology Disguise"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "disguise-worn"
+            }
+          }
+        }
+        args {
+          int_value: 8
+        }
+      }
+    }
+    nextNodeIndex: 11
+    hideIfUnavailable: true
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "{{CC}}Cultist robes{{/CC}}"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "disguise-has_cultist"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add Item to Team"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Cult Follower"
             }
           }
         }
@@ -13205,100 +13302,11 @@ nodes {
           }
         }
         args {
-          int_value: 8
-        }
-      }
-    }
-    nextNodeIndex: 15
-    hideIfUnavailable: true
-    auxiliaryLink: true
-  }
-  branches {
-    responseText: "{{CC}}Cultist robes{{/CC}}"
-    conditions {
-      ops {
-        functionName: "Comparison (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "disguise-has_cultist"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "IsOrIsNot"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Select Item on Actor"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Cult Follower"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "disguise-worn"
-            }
-          }
-        }
-        args {
           int_value: 7
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 11
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -13344,7 +13352,7 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Select Item on Actor"
+        functionName: "Add Item to Team"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
@@ -13355,16 +13363,31 @@ nodes {
         }
         args {
           call_value {
-            functionName: "Specific Actor"
+            functionName: "Get Preset Value (string)"
             args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
+              string_value: "FactionList"
             }
             args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
             }
           }
         }
@@ -13387,7 +13410,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 11
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -13491,7 +13514,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 11
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -13537,7 +13560,7 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Select Item on Actor"
+        functionName: "Add Item to Team"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
@@ -13548,16 +13571,31 @@ nodes {
         }
         args {
           call_value {
-            functionName: "Specific Actor"
+            functionName: "Get Preset Value (string)"
             args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
+              string_value: "FactionList"
             }
             args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
             }
           }
         }
@@ -13580,7 +13618,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 11
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -13626,7 +13664,7 @@ nodes {
     }
     actions {
       ops {
-        functionName: "Select Item on Actor"
+        functionName: "Add Item to Team"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
@@ -13637,16 +13675,31 @@ nodes {
         }
         args {
           call_value {
-            functionName: "Specific Actor"
+            functionName: "Get Preset Value (string)"
             args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
+              string_value: "FactionList"
             }
             args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
             }
           }
         }
@@ -13669,7 +13722,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 11
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -13677,7 +13730,7 @@ nodes {
     responseText: "Ofiice Drone"
     actions {
       ops {
-        functionName: "Select Item on Actor"
+        functionName: "Add Item to Team"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
@@ -13688,16 +13741,31 @@ nodes {
         }
         args {
           call_value {
-            functionName: "Specific Actor"
+            functionName: "Get Preset Value (string)"
             args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
+              string_value: "FactionList"
             }
             args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
             }
           }
         }
@@ -13720,14 +13788,14 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 11
     auxiliaryLink: true
   }
   branches {
     responseText: "Sinless Rags"
     actions {
       ops {
-        functionName: "Select Item on Actor"
+        functionName: "Add Item to Team"
         args {
           call_value {
             functionName: "Get Map Item (Item)"
@@ -13738,16 +13806,31 @@ nodes {
         }
         args {
           call_value {
-            functionName: "Specific Actor"
+            functionName: "Get Preset Value (string)"
             args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
+              string_value: "FactionList"
             }
             args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
             }
           }
         }
@@ -13770,7 +13853,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 11
     auxiliaryLink: true
   }
   branches {
