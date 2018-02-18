@@ -14,7 +14,7 @@ nodes {
   }
   branches {
     responseText: "Whatever you\'re selling, I\'m not interested."
-    nextNodeIndex: 21
+    nextNodeIndex: 20
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -33,11 +33,11 @@ nodes {
   }
   branches {
     responseText: "Us people?"
-    nextNodeIndex: 11
+    nextNodeIndex: 10
   }
   branches {
     responseText: "Whatever you\'re selling, I\'m not interested."
-    nextNodeIndex: 20
+    nextNodeIndex: 19
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -139,11 +139,76 @@ nodes {
   }
   branches {
     responseText: "I assume you\'re planning to pay me for this?"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "537249303032660016001cfa"
+            }
+            args {
+              string_value: "Pay"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 3000
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  int_value: 300
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 2
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Story Variable (int)"
+                    args {
+                      string_value: "51f15c62336331d02c00440e"
+                    }
+                    args {
+                      string_value: "Custom_Skill-Negotiation"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 7
   }
   branches {
     responseText: "Take on an army to save a few mangy mutts?  You\'re crazy lady."
-    nextNodeIndex: 10
+    nextNodeIndex: 9
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -205,7 +270,7 @@ nodes {
     id: "52a61ff63363311c1d003b69"
   }
   index: 7
-  text: "Oh yes, of course.\nMy father may have been greedy corporate slime, but he at least had the decency to leave me a large trust fund for these sorts of things.\nI\'m offering \302\2453000 nuyen."
+  text: "Oh yes, of course.\nMy father may have been greedy corporate slime, but he at least had the decency to leave me a large trust fund for these sorts of things.\nI\'m offering \302\245$(story.Pay)."
   branches {
     responseText: "Deal"
     conditions {
@@ -289,23 +354,6 @@ nodes {
               string_value: "51f169b733633124330018bf"
             }
             args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          int_value: 3000
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
               string_value: "RunDifficulty"
             }
           }
@@ -316,118 +364,6 @@ nodes {
       }
     }
     nextNodeIndex: 8
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}Negotiation{{/CC}}\n{{GM}}You haggle with Arbor{{/GM}}\nI think you can afford a little more."
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Employed"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "RunDifficulty"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "537249303032660016001cfa"
-            }
-            args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Arithmetic (int)"
-            args {
-              int_value: 3000
-            }
-            args {
-              call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "Arithmetic Ops"
-                }
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Arithmetic (int)"
-                args {
-                  int_value: 300
-                }
-                args {
-                  call_value {
-                    functionName: "Get Preset Value (int)"
-                    args {
-                      string_value: "Arithmetic Ops"
-                    }
-                    args {
-                      int_value: 2
-                    }
-                  }
-                }
-                args {
-                  call_value {
-                    functionName: "Get Story Variable (int)"
-                    args {
-                      string_value: "51f15c62336331d02c00440e"
-                    }
-                    args {
-                      string_value: "Custom_Skill-Negotiation"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 9
     hideIfUnavailable: true
   }
   branches {
@@ -575,98 +511,9 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52a621df3363311c1d003b7a"
-  }
-  index: 9
-  text: "I can go as high as $(story.Pay) nuyen."
-  branches {
-    responseText: "Deal"
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-    }
-    nextNodeIndex: 8
-    auxiliaryLink: true
-  }
-  branches {
-    responseText: "Sorry, not interested."
-    actions {
-      ops {
-        functionName: "Set Variable (string)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (string)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Information"
-            }
-          }
-        }
-        args {
-          string_value: ""
-        }
-      }
-      ops {
-        functionName: "Set Screen Label"
-        args {
-          string_value: "Journal"
-        }
-        args {
-          call_value {
-            functionName: "Get Story Variable (string)"
-            args {
-              string_value: "text"
-            }
-            args {
-              string_value: "Information"
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Story_Mission"
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
     id: "52a653c230616320280045c5"
   }
-  index: 10
+  index: 9
   text: ""
   nodeType: ConversationNodeType_Simple
 }
@@ -674,11 +521,11 @@ nodes {
   idRef {
     id: "52a61f3f306163202800449b"
   }
-  index: 11
+  index: 10
   text: "Uh... Sorry.  You are a...\n\n{{GM}}She wiggles two fingers on each hand{{/GM}}\n\n\"runner\" though correct? You have a dangerous look about you. My name is Arbor."
   branches {
     responseText: "I might be. What\'s it to you?"
-    nextNodeIndex: 12
+    nextNodeIndex: 11
   }
   branches {
     responseText: "Don\'t waste your time, I\'m not interested."
@@ -693,11 +540,11 @@ nodes {
   idRef {
     id: "52a6337330616320280044cf"
   }
-  index: 12
+  index: 11
   text: "The UCAS military controls a large swath of beautiful forest south of Seattle.  I\'ve taken it upon myself to make sure they are good custodians of the land, and lately... Well, they haven\'t been."
   branches {
     responseText: "You\'re against the UCAS military huh?"
-    nextNodeIndex: 13
+    nextNodeIndex: 12
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -708,11 +555,11 @@ nodes {
   idRef {
     id: "52a6343030616320280044d2"
   }
-  index: 13
+  index: 12
   text: "That\'s right!"
   branches {
     responseText: "Okay..."
-    nextNodeIndex: 14
+    nextNodeIndex: 13
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -723,7 +570,7 @@ nodes {
   idRef {
     id: "52a6344a30616320280044d5"
   }
-  index: 14
+  index: 13
   text: "You see, the military has recently been hunting a pack of wild wolves that roam the woods.  There are so few of the poor things around here to begin with, I don\'t understand why they can\'t just leave them alone.\nI\'d like to hire you to help me \n{{GM}}The finger quotes are back{{/GM}}\n\"convince\" them to leave these majestic animals alone."
   branches {
     responseText: "That\'s terrible! Let\'s go!"
@@ -746,15 +593,15 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 14
   }
   branches {
     responseText: "I assume you\'re planning to pay me for this?"
-    nextNodeIndex: 16
+    nextNodeIndex: 15
   }
   branches {
     responseText: "Take on an army to save a few mangy mutts?  You\'re crazy lady."
-    nextNodeIndex: 19
+    nextNodeIndex: 18
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -765,7 +612,7 @@ nodes {
   idRef {
     id: "52a635f730616320280044db"
   }
-  index: 15
+  index: 14
   text: "That\'s the spirit! I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
   branches {
     responseText: ""
@@ -796,7 +643,7 @@ nodes {
   idRef {
     id: "52a622463363311c1d003bca"
   }
-  index: 16
+  index: 15
   text: "Oh yes, of course.\nMy father may have been greedy corporate slime, but he at least had the decency to leave me a large trust fund for these sorts of things.\nI\'m offering \302\2453000 nuyen."
   branches {
     responseText: "Deal"
@@ -907,7 +754,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 17
+    nextNodeIndex: 16
     hideIfUnavailable: true
   }
   branches {
@@ -1019,7 +866,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
   }
   branches {
@@ -1138,7 +985,7 @@ nodes {
   idRef {
     id: "52a622463363311c1d003bcd"
   }
-  index: 17
+  index: 16
   text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
   branches {
     responseText: ""
@@ -1169,7 +1016,7 @@ nodes {
   idRef {
     id: "52a622463363311c1d003bd1"
   }
-  index: 18
+  index: 17
   text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
   branches {
     responseText: ""
@@ -1200,7 +1047,7 @@ nodes {
   idRef {
     id: "52a636a13061632028004502"
   }
-  index: 19
+  index: 18
   text: ""
   nodeType: ConversationNodeType_Simple
 }
@@ -1208,14 +1055,14 @@ nodes {
   idRef {
     id: "52a61f55306163202800449e"
   }
-  index: 20
+  index: 19
   text: ""
 }
 nodes {
   idRef {
     id: "52a61903306163202800444b"
   }
-  index: 21
+  index: 20
   text: ""
   nodeType: ConversationNodeType_Simple
 }
@@ -1223,7 +1070,7 @@ nodes {
   idRef {
     id: "52a61ed33061632028004488"
   }
-  index: 22
+  index: 21
   text: "I\'ve got nothing to say to you after the way that last job ended."
   branches {
     responseText: ""
@@ -1238,7 +1085,7 @@ nodes {
   idRef {
     id: "52a75b40306163242900446a"
   }
-  index: 23
+  index: 22
   text: "You should climb in the car when you\'re ready."
   branches {
     responseText: ""
@@ -1250,11 +1097,11 @@ nodes {
   idRef {
     id: "52a75ed430616324290044ea"
   }
-  index: 24
+  index: 23
   text: "Hoi Chumper!"
   branches {
     responseText: "Chummer, lady, it\'s chummer."
-    nextNodeIndex: 25
+    nextNodeIndex: 24
   }
   branches {
     responseText: "You\'re insane, stay away from me!"
@@ -1269,15 +1116,15 @@ nodes {
   idRef {
     id: "52a75f5830616324290044ef"
   }
-  index: 25
+  index: 24
   text: "Ah right, sorry, I\'ll get it right next time!\nListen, I\'ve got another \"run\" for you."
   branches {
     responseText: "Please tell me I don\'t have to pet any hell hounds."
-    nextNodeIndex: 26
+    nextNodeIndex: 25
   }
   branches {
     responseText: "Sorry lady, you\'re going to get someone killed, and it\'s not going to be me."
-    nextNodeIndex: 43
+    nextNodeIndex: 33
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -1288,11 +1135,11 @@ nodes {
   idRef {
     id: "52a7601f30616324290044f8"
   }
-  index: 26
+  index: 25
   text: "Oh, no, nothing like that.  Don\'t worry, this one is easy!\n\n{{GM}}You have a feeling it isn\'t going to be easy{{/GM}}\n"
   branches {
     responseText: "Sure it is..."
-    nextNodeIndex: 27
+    nextNodeIndex: 26
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -1303,11 +1150,11 @@ nodes {
   idRef {
     id: "52a760be30616324290044fb"
   }
-  index: 27
+  index: 26
   text: "Apparently those UCAS boys haven\'t learned to live in harmony with the forest yet!\nI noticed some orange flags tied around my favorite grove of trees, and found out they plan to chop them down to build an air strip!\nThe nerve! Those trees are older than the UCAS!"
   branches {
     responseText: "I don\'t like where this is going..."
-    nextNodeIndex: 28
+    nextNodeIndex: 27
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -1318,7 +1165,7 @@ nodes {
   idRef {
     id: "52a7617b3061632429004500"
   }
-  index: 28
+  index: 27
   text: "Don\'t worry, I don\'t expect you to take on a large chunk of the UCAS military in a giant gun fight or anything!\nI just want you to scare off some lumberjacks."
   branches {
     responseText: "Sound\'s easy enough! Let\'s go!"
@@ -1358,15 +1205,15 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 29
+    nextNodeIndex: 28
   }
   branches {
     responseText: "Things that involve you seem to get complicated fast.  How much are you offering?"
-    nextNodeIndex: 30
+    nextNodeIndex: 29
   }
   branches {
     responseText: "Sorry lady, you\'re going to get someone killed, and it\'s not going to be me."
-    nextNodeIndex: 42
+    nextNodeIndex: 32
   }
   nodeType: ConversationNodeType_Simple
   actions {
@@ -1393,7 +1240,7 @@ nodes {
   idRef {
     id: "52a761fd3061632429004504"
   }
-  index: 29
+  index: 28
   text: "Wow, I don\'t know why my friends said I would have trouble hiring shadowrunners.  You\'re really easy to work with! I\'ve hired the taxi again, we can head out when you\'re ready."
   branches {
     responseText: ""
@@ -1422,10 +1269,219 @@ nodes {
 }
 nodes {
   idRef {
+    id: "5a886a2f343032c025002f22"
+  }
+  index: 29
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Actor Attribute"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f169b733633124330018bf"
+            }
+            args {
+              string_value: "Pay"
+            }
+          }
+        }
+        args {
+          int_value: 5000
+        }
+      }
+    }
+    nextNodeIndex: 30
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Actor Attribute"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "BaseOrCurrent"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "ActorAttributes"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f169b733633124330018bf"
+            }
+            args {
+              string_value: "Pay"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 100
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  int_value: 48
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Story Variable (int)"
+                    args {
+                      string_value: "51f15c62336331d02c00440e"
+                    }
+                    args {
+                      string_value: "Custom_Skill-Negotiation"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 30
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
     id: "52a6231c3363311c1d003bf9"
   }
   index: 30
-  text: "These trees are really important to me. I can pay you \302\2455000 nuyen."
+  text: "These trees are really important to me. I can pay you \302\245$(story.Pay)."
   branches {
     responseText: "Deal"
     conditions {
@@ -1536,1126 +1592,6 @@ nodes {
       }
     }
     nextNodeIndex: 31
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}Charisma{{/CC}}\n\n{{GM}}You haggle with Arbor, and settle on 5100 Nuyen{{/GM}}\n\nDeal."
-    conditions {
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Employed"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "RunDifficulty"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          int_value: 5100
-        }
-      }
-    }
-    nextNodeIndex: 32
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}Charisma{{/CC}}\n\n{{GM}}You haggle with Arbor, and settle on 5200 Nuyen{{/GM}}\n\nDeal."
-    conditions {
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Employed"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "RunDifficulty"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          int_value: 5200
-        }
-      }
-    }
-    nextNodeIndex: 33
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}Charisma{{/CC}}\n\n{{GM}}You haggle with Arbor, and settle on 5300 Nuyen{{/GM}}\n\nDeal."
-    conditions {
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Employed"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "RunDifficulty"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          int_value: 5300
-        }
-      }
-    }
-    nextNodeIndex: 34
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}Charisma{{/CC}}\n\n{{GM}}You haggle with Arbor, and settle on 5400 Nuyen{{/GM}}\n\nDeal."
-    conditions {
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 6
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Employed"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "RunDifficulty"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          int_value: 5400
-        }
-      }
-    }
-    nextNodeIndex: 35
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}Charisma{{/CC}}\n\n{{GM}}You haggle with Arbor, and settle on 5500 Nuyen{{/GM}}\n\nDeal."
-    conditions {
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 7
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Employed"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "RunDifficulty"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          int_value: 5500
-        }
-      }
-    }
-    nextNodeIndex: 36
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}Charisma{{/CC}}\n\n{{GM}}You haggle with Arbor, and settle on 5600 Nuyen{{/GM}}\n\nDeal."
-    conditions {
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 8
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          int_value: 5600
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "RunDifficulty"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Employed"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 37
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}Charisma{{/CC}}\n\n{{GM}}You haggle with Arbor, and settle on 5700 Nuyen{{/GM}}\n\nDeal."
-    conditions {
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 9
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Employed"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          int_value: 5700
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "RunDifficulty"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    nextNodeIndex: 38
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}Charisma{{/CC}}\n\n{{GM}}You haggle with Arbor, and settle on 5800 Nuyen{{/GM}}\n\nDeal."
-    conditions {
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 10
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Employed"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          int_value: 5800
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "RunDifficulty"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    nextNodeIndex: 39
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}Charisma{{/CC}}\n\n{{GM}}You haggle with Arbor, and settle on 5900 Nuyen{{/GM}}\n\nDeal."
-    conditions {
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 11
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Employed"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          int_value: 5900
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "RunDifficulty"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    nextNodeIndex: 40
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: "{{CC}}Charisma{{/CC}}\n\n{{GM}}You haggle with Arbor, and settle on 6000 Nuyen{{/GM}}\n\nDeal."
-    conditions {
-      ops {
-        functionName: "Compare Actor Attribute"
-        args {
-          call_value {
-            functionName: "Triggering Actor"
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "BaseOrCurrent"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "ActorAttributes"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          int_value: 12
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Employed"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Pay"
-            }
-          }
-        }
-        args {
-          int_value: 6000
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "RunDifficulty"
-            }
-          }
-        }
-        args {
-          int_value: 4
-        }
-      }
-    }
-    nextNodeIndex: 41
     hideIfUnavailable: true
   }
   branches {
@@ -2803,319 +1739,9 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52a6231c3363311c1d003c00"
-  }
-  index: 32
-  text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "52a6231c3363311c1d003c04"
-  }
-  index: 33
-  text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "52a6231c3363311c1d003c08"
-  }
-  index: 34
-  text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "52a6231c3363311c1d003c0c"
-  }
-  index: 35
-  text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "52a6231c3363311c1d003c10"
-  }
-  index: 36
-  text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "52a6231c3363311c1d003c14"
-  }
-  index: 37
-  text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "52a6231c3363311c1d003c18"
-  }
-  index: 38
-  text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "52a6231c3363311c1d003c1c"
-  }
-  index: 39
-  text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "52a6231c3363311c1d003c20"
-  }
-  index: 40
-  text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "52a6231c3363311c1d003c24"
-  }
-  index: 41
-  text: "I\'ve hired a car to take us there. It\'s across the street, you can\'t miss it. Make sure you have your team ready before we head out."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 3
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
     id: "52a762563061632429004509"
   }
-  index: 42
+  index: 32
   text: ""
   nodeType: ConversationNodeType_Simple
 }
@@ -3123,7 +1749,7 @@ nodes {
   idRef {
     id: "52a7601a30616324290044f6"
   }
-  index: 43
+  index: 33
   text: ""
   nodeType: ConversationNodeType_Simple
 }
@@ -3131,7 +1757,7 @@ nodes {
   idRef {
     id: "52af3d85306163600a000f05"
   }
-  index: 44
+  index: 34
   text: "Hoi Chummer!"
   branches {
     responseText: "Wow, you\'re getting the hang of this!"
@@ -3154,11 +1780,11 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 45
+    nextNodeIndex: 35
   }
   branches {
     responseText: "Stay away from me lady!"
-    nextNodeIndex: 92
+    nextNodeIndex: 82
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3169,11 +1795,11 @@ nodes {
   idRef {
     id: "52af3dff306163600a000f0e"
   }
-  index: 45
+  index: 35
   text: "Thanks Drak-head!"
   branches {
     responseText: "Maybe you should stick to chummer..."
-    nextNodeIndex: 46
+    nextNodeIndex: 36
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3184,15 +1810,15 @@ nodes {
   idRef {
     id: "52af3ee4306163600a000f68"
   }
-  index: 46
+  index: 36
   text: "{{GM}}Her mood suddenly darkens.{{/GM}}\n\nListen, about the way that last job ended...\nWe did a lot more harm than good to the forest.\nThe fire destroyed hundreds of acres."
   branches {
     responseText: "You couldn\'t have known what would happen."
-    nextNodeIndex: 47
+    nextNodeIndex: 37
   }
   branches {
     responseText: "Perhaps it\'s best not to challenge professional militaries."
-    nextNodeIndex: 70
+    nextNodeIndex: 60
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -3200,11 +1826,11 @@ nodes {
   idRef {
     id: "52af4e85306163600a000fca"
   }
-  index: 47
+  index: 37
   text: "I should have guessed. I didn\'t think it all the way through and now we\'re responsible for the outcome."
   branches {
     responseText: "Wait, \"we\"?"
-    nextNodeIndex: 48
+    nextNodeIndex: 38
   }
   branches {
     responseText: "You\'re right, is there any way we can repair the damage?"
@@ -3227,7 +1853,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 60
+    nextNodeIndex: 50
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3238,11 +1864,11 @@ nodes {
   idRef {
     id: "52af4f4e306163600a000fd4"
   }
-  index: 48
+  index: 38
   text: "Yup! I need your help to make this better."
   branches {
     responseText: "I don\'t like where this is going..."
-    nextNodeIndex: 49
+    nextNodeIndex: 39
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3253,11 +1879,11 @@ nodes {
   idRef {
     id: "52af4f67306163600a000fda"
   }
-  index: 49
+  index: 39
   text: "The most beautiful thing about the forest is that it\'s constantly growing.  Even after something so devastating it\'s already on the mend.\nUnfortunately it will take it hundreds of years to get back to its former glory, but not if I help it along a little bit."
   branches {
     responseText: "And how do you propose to do that?"
-    nextNodeIndex: 50
+    nextNodeIndex: 40
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3268,11 +1894,11 @@ nodes {
   idRef {
     id: "52af5071306163600a001041"
   }
-  index: 50
+  index: 40
   text: "I\'m a shaman. If I can find a new sapling I can coax nature spirits to help it grow a bit faster than normal."
   branches {
     responseText: "And I suppose it\'s my job to make sure you don\'t get shot while doing this?"
-    nextNodeIndex: 51
+    nextNodeIndex: 41
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3283,11 +1909,11 @@ nodes {
   idRef {
     id: "52af50d0306163600a001044"
   }
-  index: 51
+  index: 41
   text: "Right!\nThe UCAS is still a bit upset about the whole thing."
   branches {
     responseText: "\"a bit upset\", right..."
-    nextNodeIndex: 52
+    nextNodeIndex: 42
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3298,11 +1924,11 @@ nodes {
   idRef {
     id: "52af5100306163600a001047"
   }
-  index: 52
+  index: 42
   text: "Remember that Seattle is isolated from the rest of the UCAS.  It is tolerated by the NaN and Sidhe tribes, but they take a dim view of the destruction of swathes of forest.  The UCAS can get away with normal development, but something as obvious as torching acres of forest with bombing runs results in a lot of \"feedback\" from their neighbors."
   branches {
     responseText: "Great, so we not only burned down a forest, we triggered an international incident..."
-    nextNodeIndex: 53
+    nextNodeIndex: 43
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3313,11 +1939,11 @@ nodes {
   idRef {
     id: "52af5204306163600a00104a"
   }
-  index: 53
+  index: 43
   text: "Yup, they\'re pretty pissed at us!  On the plus side, that pressure means that they\'re almost as eager to re-grow the forest as we are, as long as you can get us safely in and out of there, I don\'t think they\'ll do any harm to the tree we help."
   branches {
     responseText: "It\'s not the tree I\'m worried about.  I\'ve had enough of provoking armies, you\'re on your own for this one."
-    nextNodeIndex: 54
+    nextNodeIndex: 44
   }
   branches {
     responseText: "I guess we do have an obligation to fix what we helped destroy."
@@ -3357,11 +1983,11 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 55
+    nextNodeIndex: 45
   }
   branches {
     responseText: "Sounds crazy, I hope it at least pays well?"
-    nextNodeIndex: 56
+    nextNodeIndex: 46
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3372,7 +1998,7 @@ nodes {
   idRef {
     id: "52af54e1306163600a001144"
   }
-  index: 54
+  index: 44
   text: "Bummer, let me know if you change your mind..."
   branches {
     responseText: ""
@@ -3403,7 +2029,7 @@ nodes {
   idRef {
     id: "52af54fe306163600a001148"
   }
-  index: 55
+  index: 45
   text: "Great! We can take the car when you\'re ready."
   branches {
     responseText: ""
@@ -3454,11 +2080,11 @@ nodes {
   idRef {
     id: "52af52f8306163600a0010bb"
   }
-  index: 56
+  index: 46
   text: "I\'ve got an idea! This time I\'m not the client, the tree is. I\'ll let it decide how much you should get paid! Your job payout will be determined by the amount you are able to help the tree."
   branches {
     responseText: "Sorry lady, I only work for metahuman clients, no vegetables."
-    nextNodeIndex: 57
+    nextNodeIndex: 47
   }
   branches {
     responseText: "You\'re crazy, but at least you\'ve paid on time.  Lets see what happens."
@@ -3481,7 +2107,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 59
+    nextNodeIndex: 49
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -3489,11 +2115,11 @@ nodes {
   idRef {
     id: "52af53d1306163600a0010c1"
   }
-  index: 57
+  index: 47
   text: "Bummer, let me know if you change your mind..."
   branches {
     responseText: "Bummer, let me know if you change your mind..."
-    nextNodeIndex: 58
+    nextNodeIndex: 48
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -3501,14 +2127,14 @@ nodes {
   idRef {
     id: "52af5620306163600a00124d"
   }
-  index: 58
+  index: 48
   text: ""
 }
 nodes {
   idRef {
     id: "52af53ce306163600a0010bf"
   }
-  index: 59
+  index: 49
   text: "Great! We can take the car when you\'re ready."
   branches {
     responseText: ""
@@ -3559,11 +2185,11 @@ nodes {
   idRef {
     id: "52af56bc306163600a0013ad"
   }
-  index: 60
+  index: 50
   text: "The most beautiful thing about the forest is that it\'s constantly growing.  Even after something so devastating it\'s already on the mend.\nUnfortunately it will take it hundreds of years to get back to its former glory, but not if I help it along a little bit."
   branches {
     responseText: "And how do you propose to do that?"
-    nextNodeIndex: 61
+    nextNodeIndex: 51
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3574,11 +2200,11 @@ nodes {
   idRef {
     id: "52af56bc306163600a0013b0"
   }
-  index: 61
+  index: 51
   text: "I\'m a shaman. If I can find a new sapling I can coax nature spirits to help it grow a bit faster than normal."
   branches {
     responseText: "And I suppose it\'s my job to make sure you don\'t get shot while doing this?"
-    nextNodeIndex: 62
+    nextNodeIndex: 52
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3589,11 +2215,11 @@ nodes {
   idRef {
     id: "52af56bc306163600a0013b3"
   }
-  index: 62
+  index: 52
   text: "Right!\nThe UCAS is still a bit upset about the whole thing."
   branches {
     responseText: "\"a bit upset\", right..."
-    nextNodeIndex: 63
+    nextNodeIndex: 53
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3604,11 +2230,11 @@ nodes {
   idRef {
     id: "52af56bc306163600a0013b6"
   }
-  index: 63
+  index: 53
   text: "Remember that Seattle is isolated from the rest of the UCAS.  It is tolerated by the NaN and Sidhe tribes, but they take a dim view of the destruction of swathes of forest.  The UCAS can get away with normal development, but something as obvious as torching acres of forest with bombing runs results in a lot of \"feedback\" from their neighbors."
   branches {
     responseText: "Great, so we not only burned down a forest, we triggered an international incident..."
-    nextNodeIndex: 64
+    nextNodeIndex: 54
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3619,11 +2245,11 @@ nodes {
   idRef {
     id: "52af56bc306163600a0013b9"
   }
-  index: 64
+  index: 54
   text: "Yup, they\'re pretty pissed at us!  On the plus side, that pressure means that they\'re almost as eager to re-grow the forest as we are, as long as you can get us safely in and out of there, I don\'t think they\'ll do any harm to the tree we help."
   branches {
     responseText: "It\'s not the tree I\'m worried about.  I\'ve had enough of provoking armies, you\'re on your own for this one."
-    nextNodeIndex: 65
+    nextNodeIndex: 55
   }
   branches {
     responseText: "I guess we do have an obligation to fix what we helped destroy."
@@ -3663,11 +2289,11 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 66
+    nextNodeIndex: 56
   }
   branches {
     responseText: "Sounds crazy, I hope it at least pays well?"
-    nextNodeIndex: 67
+    nextNodeIndex: 57
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3678,7 +2304,7 @@ nodes {
   idRef {
     id: "52af56bc306163600a0013bc"
   }
-  index: 65
+  index: 55
   text: "Bummer, let me know if you change your mind..."
   branches {
     responseText: ""
@@ -3712,7 +2338,7 @@ nodes {
   idRef {
     id: "52af56bc306163600a0013c0"
   }
-  index: 66
+  index: 56
   text: "Great! We can take the car when you\'re ready."
   branches {
     responseText: ""
@@ -3763,11 +2389,11 @@ nodes {
   idRef {
     id: "52af56bc306163600a0013c4"
   }
-  index: 67
+  index: 57
   text: "I\'ve got an idea! This time I\'m not the client, the tree is. I\'ll let it decide how much you should get paid! Your job payout will be determined by the amount you are able to help the tree."
   branches {
     responseText: "Sorry lady, I only work for metahuman clients, no vegetables."
-    nextNodeIndex: 68
+    nextNodeIndex: 58
   }
   branches {
     responseText: "You\'re crazy, but at least you\'ve paid on time.  Lets see what happens."
@@ -3790,7 +2416,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 69
+    nextNodeIndex: 59
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3801,7 +2427,7 @@ nodes {
   idRef {
     id: "52af56bc306163600a0013c7"
   }
-  index: 68
+  index: 58
   text: "Bummer, let me know if you change your mind..."
   branches {
     responseText: ""
@@ -3813,7 +2439,7 @@ nodes {
   idRef {
     id: "52af56bc306163600a0013cd"
   }
-  index: 69
+  index: 59
   text: "Great! We can take the car when you\'re ready."
   branches {
     responseText: ""
@@ -3864,11 +2490,11 @@ nodes {
   idRef {
     id: "52af4ec1306163600a000fcc"
   }
-  index: 70
+  index: 60
   text: "No, someone still needs to stand up to them.  \nThe problem is that I didn\'t think it all the way through and now we\'re responsible for the outcome."
   branches {
     responseText: "Wait, \"we\"?"
-    nextNodeIndex: 71
+    nextNodeIndex: 61
   }
   branches {
     responseText: "You\'re right, is there any way we can repair the damage?"
@@ -3891,7 +2517,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 82
+    nextNodeIndex: 72
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3902,11 +2528,11 @@ nodes {
   idRef {
     id: "52af5679306163600a001334"
   }
-  index: 71
+  index: 61
   text: "Yup!\nI need your help to make this better."
   branches {
     responseText: "I don\'t like where this is going..."
-    nextNodeIndex: 72
+    nextNodeIndex: 62
   }
   nodeType: ConversationNodeType_Simple
   sourceInSceneRef {
@@ -3916,6 +2542,311 @@ nodes {
 nodes {
   idRef {
     id: "52af5679306163600a001337"
+  }
+  index: 62
+  text: "The most beautiful thing about the forest is that it\'s constantly growing.  Even after something so devastating it\'s already on the mend.\nUnfortunately it will take it hundreds of years to get back to its former glory, but not if I help it along a little bit."
+  branches {
+    responseText: "And how do you propose to do that?"
+    nextNodeIndex: 63
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+}
+nodes {
+  idRef {
+    id: "52af5679306163600a00133a"
+  }
+  index: 63
+  text: "I\'m a shaman. If I can find a new sapling I can coax nature spirits to help it grow a bit faster than normal."
+  branches {
+    responseText: "And I suppose it\'s my job to make sure you don\'t get shot while doing this?"
+    nextNodeIndex: 64
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+}
+nodes {
+  idRef {
+    id: "52af5679306163600a00133d"
+  }
+  index: 64
+  text: "Right!\nThe UCAS is still a bit upset about the whole thing."
+  branches {
+    responseText: "\"a bit upset\", right..."
+    nextNodeIndex: 65
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+}
+nodes {
+  idRef {
+    id: "52af5679306163600a001340"
+  }
+  index: 65
+  text: "Remember that Seattle is isolated from the rest of the UCAS.  It is tolerated by the NaN and Sidhe tribes, but they take a dim view of the destruction of swathes of forest.  The UCAS can get away with normal development, but something as obvious as torching acres of forest with bombing runs results in a lot of \"feedback\" from their neighbors."
+  branches {
+    responseText: "Great, so we not only burned down a forest, we triggered an international incident..."
+    nextNodeIndex: 66
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+}
+nodes {
+  idRef {
+    id: "52af5679306163600a001343"
+  }
+  index: 66
+  text: "Yup, they\'re pretty pissed at us!  On the plus side, that pressure means that they\'re almost as eager to re-grow the forest as we are, as long as you can get us safely in and out of there, I don\'t think they\'ll do any harm to the tree we help."
+  branches {
+    responseText: "It\'s not the tree I\'m worried about.  I\'ve had enough of provoking armies, you\'re on your own for this one."
+    nextNodeIndex: 67
+  }
+  branches {
+    responseText: "I guess we do have an obligation to fix what we helped destroy."
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "52a11bd53061635408002ea7"
+            }
+            args {
+              string_value: "ArborsEmbraceOpinion"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Information"
+            }
+          }
+        }
+        args {
+          string_value: "Protect Arbor while she nurtures the saplings."
+        }
+      }
+    }
+    nextNodeIndex: 68
+  }
+  branches {
+    responseText: "Sounds crazy, I hope it at least pays well?"
+    nextNodeIndex: 69
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+}
+nodes {
+  idRef {
+    id: "52af5679306163600a001346"
+  }
+  index: 67
+  text: "Bummer, let me know if you change your mind..."
+  branches {
+    responseText: ""
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "52a11bd53061635408002ea7"
+          }
+          args {
+            string_value: "ArborsEmbraceOpinion"
+          }
+        }
+      }
+      args {
+        int_value: -1
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "52af5679306163600a00134a"
+  }
+  index: 68
+  text: "Great! We can take the car when you\'re ready."
+  branches {
+    responseText: ""
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "52a11bd53061635408002ea7"
+            }
+            args {
+              string_value: "ArborArdourProgress"
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+      ops {
+        functionName: "Set Screen Label"
+        args {
+          string_value: "Journal"
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "text"
+            }
+            args {
+              string_value: "Information"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+}
+nodes {
+  idRef {
+    id: "52af5679306163600a00134e"
+  }
+  index: 69
+  text: "I\'ve got an idea! This time I\'m not the client, the tree is. I\'ll let it decide how much you should get paid! Your job payout will be determined by the amount you are able to help the tree."
+  branches {
+    responseText: "Sorry lady, I only work for metahuman clients, no vegetables."
+    nextNodeIndex: 70
+  }
+  branches {
+    responseText: "You\'re crazy, but at least you\'ve paid on time.  Lets see what happens."
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Information"
+            }
+          }
+        }
+        args {
+          string_value: "Protect Arbor while she nurtures the saplings."
+        }
+      }
+    }
+    nextNodeIndex: 71
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+}
+nodes {
+  idRef {
+    id: "52af5679306163600a001351"
+  }
+  index: 70
+  text: "Bummer, let me know if you change your mind..."
+  branches {
+    responseText: ""
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52af5679306163600a001357"
+  }
+  index: 71
+  text: "Great! We can take the car when you\'re ready."
+  branches {
+    responseText: ""
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "52a11bd53061635408002ea7"
+            }
+            args {
+              string_value: "ArborArdourProgress"
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+      ops {
+        functionName: "Set Screen Label"
+        args {
+          string_value: "Journal"
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "text"
+            }
+            args {
+              string_value: "Information"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52a7c864306163242900466b"
+  }
+}
+nodes {
+  idRef {
+    id: "52af56e5306163600a0013f5"
   }
   index: 72
   text: "The most beautiful thing about the forest is that it\'s constantly growing.  Even after something so devastating it\'s already on the mend.\nUnfortunately it will take it hundreds of years to get back to its former glory, but not if I help it along a little bit."
@@ -3930,7 +2861,7 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52af5679306163600a00133a"
+    id: "52af56e5306163600a0013f8"
   }
   index: 73
   text: "I\'m a shaman. If I can find a new sapling I can coax nature spirits to help it grow a bit faster than normal."
@@ -3945,7 +2876,7 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52af5679306163600a00133d"
+    id: "52af56e5306163600a0013fb"
   }
   index: 74
   text: "Right!\nThe UCAS is still a bit upset about the whole thing."
@@ -3960,7 +2891,7 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52af5679306163600a001340"
+    id: "52af56e5306163600a0013fe"
   }
   index: 75
   text: "Remember that Seattle is isolated from the rest of the UCAS.  It is tolerated by the NaN and Sidhe tribes, but they take a dim view of the destruction of swathes of forest.  The UCAS can get away with normal development, but something as obvious as torching acres of forest with bombing runs results in a lot of \"feedback\" from their neighbors."
@@ -3975,7 +2906,7 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52af5679306163600a001343"
+    id: "52af56e5306163600a001401"
   }
   index: 76
   text: "Yup, they\'re pretty pissed at us!  On the plus side, that pressure means that they\'re almost as eager to re-grow the forest as we are, as long as you can get us safely in and out of there, I don\'t think they\'ll do any harm to the tree we help."
@@ -4034,7 +2965,7 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52af5679306163600a001346"
+    id: "52af56e5306163600a001404"
   }
   index: 77
   text: "Bummer, let me know if you change your mind..."
@@ -4068,7 +2999,7 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52af5679306163600a00134a"
+    id: "52af56e5306163600a001408"
   }
   index: 78
   text: "Great! We can take the car when you\'re ready."
@@ -4113,13 +3044,10 @@ nodes {
     nextNodeIndex: -1
   }
   nodeType: ConversationNodeType_Simple
-  sourceInSceneRef {
-    id: "52a7c864306163242900466b"
-  }
 }
 nodes {
   idRef {
-    id: "52af5679306163600a00134e"
+    id: "52af56e5306163600a00140c"
   }
   index: 79
   text: "I\'ve got an idea! This time I\'m not the client, the tree is. I\'ll let it decide how much you should get paid! Your job payout will be determined by the amount you are able to help the tree."
@@ -4157,7 +3085,7 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52af5679306163600a001351"
+    id: "52af56e5306163600a00140f"
   }
   index: 80
   text: "Bummer, let me know if you change your mind..."
@@ -4169,7 +3097,7 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52af5679306163600a001357"
+    id: "52af56e5306163600a001415"
   }
   index: 81
   text: "Great! We can take the car when you\'re ready."
@@ -4220,311 +3148,9 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52af56e5306163600a0013f5"
-  }
-  index: 82
-  text: "The most beautiful thing about the forest is that it\'s constantly growing.  Even after something so devastating it\'s already on the mend.\nUnfortunately it will take it hundreds of years to get back to its former glory, but not if I help it along a little bit."
-  branches {
-    responseText: "And how do you propose to do that?"
-    nextNodeIndex: 83
-  }
-  nodeType: ConversationNodeType_Simple
-  sourceInSceneRef {
-    id: "52a7c864306163242900466b"
-  }
-}
-nodes {
-  idRef {
-    id: "52af56e5306163600a0013f8"
-  }
-  index: 83
-  text: "I\'m a shaman. If I can find a new sapling I can coax nature spirits to help it grow a bit faster than normal."
-  branches {
-    responseText: "And I suppose it\'s my job to make sure you don\'t get shot while doing this?"
-    nextNodeIndex: 84
-  }
-  nodeType: ConversationNodeType_Simple
-  sourceInSceneRef {
-    id: "52a7c864306163242900466b"
-  }
-}
-nodes {
-  idRef {
-    id: "52af56e5306163600a0013fb"
-  }
-  index: 84
-  text: "Right!\nThe UCAS is still a bit upset about the whole thing."
-  branches {
-    responseText: "\"a bit upset\", right..."
-    nextNodeIndex: 85
-  }
-  nodeType: ConversationNodeType_Simple
-  sourceInSceneRef {
-    id: "52a7c864306163242900466b"
-  }
-}
-nodes {
-  idRef {
-    id: "52af56e5306163600a0013fe"
-  }
-  index: 85
-  text: "Remember that Seattle is isolated from the rest of the UCAS.  It is tolerated by the NaN and Sidhe tribes, but they take a dim view of the destruction of swathes of forest.  The UCAS can get away with normal development, but something as obvious as torching acres of forest with bombing runs results in a lot of \"feedback\" from their neighbors."
-  branches {
-    responseText: "Great, so we not only burned down a forest, we triggered an international incident..."
-    nextNodeIndex: 86
-  }
-  nodeType: ConversationNodeType_Simple
-  sourceInSceneRef {
-    id: "52a7c864306163242900466b"
-  }
-}
-nodes {
-  idRef {
-    id: "52af56e5306163600a001401"
-  }
-  index: 86
-  text: "Yup, they\'re pretty pissed at us!  On the plus side, that pressure means that they\'re almost as eager to re-grow the forest as we are, as long as you can get us safely in and out of there, I don\'t think they\'ll do any harm to the tree we help."
-  branches {
-    responseText: "It\'s not the tree I\'m worried about.  I\'ve had enough of provoking armies, you\'re on your own for this one."
-    nextNodeIndex: 87
-  }
-  branches {
-    responseText: "I guess we do have an obligation to fix what we helped destroy."
-    actions {
-      ops {
-        functionName: "Add To Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborsEmbraceOpinion"
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-      ops {
-        functionName: "Set Variable (string)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (string)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Information"
-            }
-          }
-        }
-        args {
-          string_value: "Protect Arbor while she nurtures the saplings."
-        }
-      }
-    }
-    nextNodeIndex: 88
-  }
-  branches {
-    responseText: "Sounds crazy, I hope it at least pays well?"
-    nextNodeIndex: 89
-  }
-  nodeType: ConversationNodeType_Simple
-  sourceInSceneRef {
-    id: "52a7c864306163242900466b"
-  }
-}
-nodes {
-  idRef {
-    id: "52af56e5306163600a001404"
-  }
-  index: 87
-  text: "Bummer, let me know if you change your mind..."
-  branches {
-    responseText: ""
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-  sourceInSceneRef {
-    id: "52a7c864306163242900466b"
-  }
-  actions {
-    ops {
-      functionName: "Add To Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "52a11bd53061635408002ea7"
-          }
-          args {
-            string_value: "ArborsEmbraceOpinion"
-          }
-        }
-      }
-      args {
-        int_value: -1
-      }
-    }
-  }
-}
-nodes {
-  idRef {
-    id: "52af56e5306163600a001408"
-  }
-  index: 88
-  text: "Great! We can take the car when you\'re ready."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Set Screen Label"
-        args {
-          string_value: "Journal"
-        }
-        args {
-          call_value {
-            functionName: "Get Story Variable (string)"
-            args {
-              string_value: "text"
-            }
-            args {
-              string_value: "Information"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "52af56e5306163600a00140c"
-  }
-  index: 89
-  text: "I\'ve got an idea! This time I\'m not the client, the tree is. I\'ll let it decide how much you should get paid! Your job payout will be determined by the amount you are able to help the tree."
-  branches {
-    responseText: "Sorry lady, I only work for metahuman clients, no vegetables."
-    nextNodeIndex: 90
-  }
-  branches {
-    responseText: "You\'re crazy, but at least you\'ve paid on time.  Lets see what happens."
-    actions {
-      ops {
-        functionName: "Set Variable (string)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (string)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Information"
-            }
-          }
-        }
-        args {
-          string_value: "Protect Arbor while she nurtures the saplings."
-        }
-      }
-    }
-    nextNodeIndex: 91
-  }
-  nodeType: ConversationNodeType_Simple
-  sourceInSceneRef {
-    id: "52a7c864306163242900466b"
-  }
-}
-nodes {
-  idRef {
-    id: "52af56e5306163600a00140f"
-  }
-  index: 90
-  text: "Bummer, let me know if you change your mind..."
-  branches {
-    responseText: ""
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-}
-nodes {
-  idRef {
-    id: "52af56e5306163600a001415"
-  }
-  index: 91
-  text: "Great! We can take the car when you\'re ready."
-  branches {
-    responseText: ""
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "52a11bd53061635408002ea7"
-            }
-            args {
-              string_value: "ArborArdourProgress"
-            }
-          }
-        }
-        args {
-          int_value: 5
-        }
-      }
-      ops {
-        functionName: "Set Screen Label"
-        args {
-          string_value: "Journal"
-        }
-        args {
-          call_value {
-            functionName: "Get Story Variable (string)"
-            args {
-              string_value: "text"
-            }
-            args {
-              string_value: "Information"
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-  }
-  nodeType: ConversationNodeType_Simple
-  sourceInSceneRef {
-    id: "52a7c864306163242900466b"
-  }
-}
-nodes {
-  idRef {
     id: "52af3df3306163600a000f0a"
   }
-  index: 92
+  index: 82
   text: ""
   nodeType: ConversationNodeType_Simple
 }
@@ -4532,11 +3158,11 @@ nodes {
   idRef {
     id: "52af571d306163600a00159e"
   }
-  index: 93
+  index: 83
   text: "Hoi Chummer!\nI\'ve found another sapling that needs help, will you help protect me while it grows?"
   branches {
     responseText: "No way I\'m doing that again!"
-    nextNodeIndex: 94
+    nextNodeIndex: 84
   }
   branches {
     responseText: "I have time, let\'s do it. Does the tree decide how much I get paid again?"
@@ -4559,7 +3185,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 95
+    nextNodeIndex: 85
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -4567,14 +3193,14 @@ nodes {
   idRef {
     id: "52af575c306163600a0015a2"
   }
-  index: 94
+  index: 84
   text: ""
 }
 nodes {
   idRef {
     id: "52af577c306163600a0015a4"
   }
-  index: 95
+  index: 85
   text: "It sure does! We can take the car when you\'re ready."
   branches {
     responseText: ""
@@ -4622,7 +3248,7 @@ nodes {
   idRef {
     id: "52a62a53336331a02a004bd8"
   }
-  index: 96
+  index: 86
   text: "I hope you will change your mind."
   nodeType: ConversationNodeType_Simple
 }
@@ -4630,7 +3256,7 @@ nodes {
   idRef {
     id: "52a61cd7336331a02a004bde"
   }
-  index: 97
+  index: 87
   text: "I hope you will change your mind."
   nodeType: ConversationNodeType_Simple
 }
@@ -4638,7 +3264,7 @@ nodes {
   idRef {
     id: "52a61d54336331a02a004be1"
   }
-  index: 98
+  index: 88
   text: "I hope you will change your mind."
   nodeType: ConversationNodeType_Simple
 }
@@ -4646,7 +3272,7 @@ nodes {
   idRef {
     id: "52a61d69336331a02a004be4"
   }
-  index: 99
+  index: 89
   text: "I hope you will change your mind."
   nodeType: ConversationNodeType_Simple
 }
@@ -4761,7 +3387,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 22
+  nextNodeIndex: 21
   hideIfUnavailable: true
 }
 roots {
@@ -4937,7 +3563,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 23
+  nextNodeIndex: 22
   hideIfUnavailable: true
 }
 roots {
@@ -5008,7 +3634,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 24
+  nextNodeIndex: 23
   hideIfUnavailable: true
 }
 roots {
@@ -5079,7 +3705,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 44
+  nextNodeIndex: 34
   hideIfUnavailable: true
 }
 roots {
@@ -5150,7 +3776,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 93
+  nextNodeIndex: 83
   hideIfUnavailable: true
 }
 roots {
@@ -5297,7 +3923,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 96
+  nextNodeIndex: 86
   hideIfUnavailable: true
 }
 roots {
@@ -5444,7 +4070,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 97
+  nextNodeIndex: 87
   hideIfUnavailable: true
 }
 roots {
@@ -5591,7 +4217,7 @@ roots {
       }
     }
   }
-  nextNodeIndex: 98
+  nextNodeIndex: 88
   hideIfUnavailable: true
 }
 roots {
@@ -5738,6 +4364,6 @@ roots {
       }
     }
   }
-  nextNodeIndex: 99
+  nextNodeIndex: 89
   hideIfUnavailable: true
 }
