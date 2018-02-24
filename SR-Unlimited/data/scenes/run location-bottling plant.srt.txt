@@ -38210,7 +38210,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Matrix-Pre-Hacked: Employee"
+  name: "Matrix-Pre-Hacked: Employee (skeleton crew)"
   events {
     ops {
       functionName: "On Map Start"
@@ -38237,7 +38237,7 @@ triggers {
             string_value: "Comparison Ops"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
@@ -38248,7 +38248,26 @@ triggers {
   }
   actions {
     ops {
-      functionName: "No Effect"
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "Skeleton"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
     }
   }
   isActive: true
@@ -50687,7 +50706,7 @@ characters {
     GeneralTags: "Skeleton"
     GeneralTags: "Guard"
     patrolRoute: "New Patrol Route"
-    enabled_at_start: true
+    enabled_at_start: false
     pc_spawn_number: -1
     hiring_type: HiringType_None
     ready_priority: -3
