@@ -1,0 +1,133 @@
+idRef {
+  id: "5a8f60fd343032583b002317"
+}
+ui_name: "Stuffer Shack-Dog"
+nodes {
+  idRef {
+    id: "5a8f6103343032583b00231d"
+  }
+  index: 0
+  text: "There is a forlorn looking dog here with a sign about its\' neck that reads.\n\n{{CC}}{{GM}}Abandoned dog. Please adopt me.{{/GM}}{{/CC}}"
+  branches {
+    responseText: "{{GM}}Ignore{{/GM}}"
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Adopt the dog. {{CC}}250 nuyen{{/CC}}"
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 250
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Change Actor Team"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Actor)"
+                args {
+                  string_value: "5a8f5e93343032583b002315"
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "has-dog"
+            }
+          }
+        }
+        args {
+          int_value: 64
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 250
+        }
+      }
+      ops {
+        functionName: "Change Actor Control"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Actor)"
+                args {
+                  string_value: "5a8f5e93343032583b002315"
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "PlayerOrAI"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  nextNodeIndex: 0
+}
