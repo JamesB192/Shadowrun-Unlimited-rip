@@ -1797,6 +1797,173 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "on(Display Favors)"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Display Favors"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Screen Label Progress Bar (int)"
+      args {
+        string_value: "Favors"
+      }
+      args {
+        call_value {
+          functionName: "Convert (int) to (string)"
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Get Story Variable (int)"
+                  args {
+                    string_value: "51f15c62336331d02c00440e"
+                  }
+                  args {
+                    string_value: "KarmicEnergy"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 3
+                  }
+                }
+              }
+              args {
+                int_value: 30
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            call_value {
+              functionName: "Get Story Variable (int)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "KarmicEnergy"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Arithmetic (int)"
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "KarmicEnergy"
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "Arithmetic Ops"
+                      }
+                      args {
+                        int_value: 3
+                      }
+                    }
+                  }
+                  args {
+                    int_value: 30
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 2
+                  }
+                }
+              }
+              args {
+                int_value: 30
+              }
+            }
+          }
+        }
+      }
+      args {
+        int_value: 30
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5b23e51634303238230079e1"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Conversation End"
+  events {
+    ops {
+      functionName: "On Conversation Complete"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Remove Screen Label"
+      args {
+        string_value: "Favors"
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5b23e62e34303238230079e2"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "New Region"
   position {
@@ -2027,180 +2194,10 @@ characters {
     pc_spawn_number: 3
   }
 }
-variables {
-  bool_value: false
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "ThePower"
-    typeName: "bool"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "Potential"
-    typeName: "int"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "TruePotential"
-    typeName: "int"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "INTPotential"
-    typeName: "int"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "STRPotential"
-    typeName: "int"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "WILLPotential"
-    typeName: "int"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "CHAPotential"
-    typeName: "int"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "QUICKPotential"
-    typeName: "int"
-  }
-}
-variables {
-  bool_value: false
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "INTPower"
-    typeName: "bool"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "TrueINTPotential"
-    typeName: "int"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "TrueWILLPotential"
-    typeName: "int"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "TrueSTRPotential"
-    typeName: "int"
-  }
-}
-variables {
-  bool_value: false
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "STRpower"
-    typeName: "bool"
-  }
-}
-variables {
-  bool_value: false
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "WILLpower"
-    typeName: "bool"
-  }
-}
-variables {
-  bool_value: false
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "CHApower"
-    typeName: "bool"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "TrueCHApotential"
-    typeName: "int"
-  }
-}
-variables {
-  bool_value: false
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "QUICKpower"
-    typeName: "bool"
-  }
-}
-variables {
-  int_value: 0
-  variableref_value {
-    scope: TsVariableScope_Scene
-    name: "TrueQUICKpotential"
-    typeName: "int"
-  }
-}
-mapEvents: "PowerCheck"
-mapEvents: "CalculatePotential"
-mapEvents: "TheBargain"
 mapEvents: "HealthDeal"
 mapEvents: "HealthPact"
-mapEvents: "CalculateServices"
 mapEvents: "GeasPact"
-mapEvents: "TrimEttiquette"
-mapEvents: "TrimEttiquette 2"
-mapEvents: "TrimEttiquette 3"
-mapEvents: "TrimEttiquette 4"
-mapEvents: "TrimEttiquette 5"
-mapEvents: "TrimEttiquette 6"
-mapEvents: "TrimEttiquette 7"
-mapEvents: "TrimEttiquette 8"
-mapEvents: "Calculate Int Potential"
-mapEvents: "Calculate Will Potential"
-mapEvents: "Calculate STR Potential"
-mapEvents: "INT Check"
-mapEvents: "WILL Check"
-mapEvents: "STR Check"
-mapEvents: "CHA Check"
-mapEvents: "QUICK Check"
-mapEvents: "Calculate CHA Potential"
-mapEvents: "Calculate QUICK Potential"
-mapEvents: "Bargain INT"
-mapEvents: "Bargain STR"
-mapEvents: "Bargain CHA"
-mapEvents: "Bargain WILL"
-mapEvents: "Bargain QUICK"
+mapEvents: "Display Favors"
 worldMapLocation {
   filename: ""
   location {
@@ -2262,6 +2259,8 @@ team_affiliations {
 }
 scene_dimensions {
   dimension_name: "Default"
+}
+character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
