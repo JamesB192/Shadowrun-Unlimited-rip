@@ -18587,11 +18587,28 @@ props {
   interactionRoot {
     isEnabled: true
     interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Evaluate Turn Mode"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     summonPoint {
       hasCharacter: true
       summon_icon: ""
       max_summon_force: 1
     }
+    interaction_info_text: ""
   }
   lod: 0
   character_instance {
@@ -20240,6 +20257,69 @@ props {
   GeneralTags: "insert_-906"
   idRef {
     id: "55989a2a336637d81500143b"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -25
+    y: 0
+    z: -17
+  }
+  orientation: ORIENTATION_S
+  displayName: "fire summon"
+  idRef {
+    id: "5b37d18f343032001500b5df"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 7
+    prerequisites {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Actor Unspent Karma"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Evaluate Turn Mode"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Summon
+    interaction_info_text: "Fire Barrel"
   }
   lod: 0
 }
