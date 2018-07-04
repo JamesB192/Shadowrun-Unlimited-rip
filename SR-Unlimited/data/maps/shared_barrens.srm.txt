@@ -24687,7 +24687,7 @@ props {
 props {
   name: "barrens_ground_sidewalk08"
   gridPoint {
-    x: 34
+    x: 33
     y: 0
     z: 213
   }
@@ -24728,7 +24728,7 @@ props {
   gridPoint {
     x: 34
     y: 0
-    z: 213
+    z: 212
   }
   orientation: ORIENTATION_S
   idRef {
@@ -34616,6 +34616,72 @@ props {
   displayName: "drop Matrix"
   idRef {
     id: "55450717646632580b005e15"
+  }
+  lod: 0
+}
+props {
+  name: "system_invisible_nonsolidProp"
+  gridPoint {
+    x: -14.5
+    y: 0
+    z: 188.5
+  }
+  orientation: ORIENTATION_S
+  displayName: "fire barrel sumon"
+  idRef {
+    id: "5b3d1d39343032f02d001b59"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 7
+    prerequisites {
+      ops {
+        functionName: "Evaluate Turn Mode"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TurnBasedOrFreeMove"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Actor Unspent Karma"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    interactionIcon: InteractionIcon_Summon
+    interaction_info_text: ""
   }
   lod: 0
 }
