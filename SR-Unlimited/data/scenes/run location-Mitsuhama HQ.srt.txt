@@ -22327,7 +22327,7 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Access Node-Spoof_Pass(A)"
+  name: "Access Node-Spoof_Pass (A)"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -22379,7 +22379,7 @@ triggers {
                     string_value: "BaseOrCurrent"
                   }
                   args {
-                    int_value: 1
+                    int_value: 0
                   }
                 }
               }
@@ -22694,7 +22694,7 @@ triggers {
       functionName: "Delete Props by Tag"
       args {
         call_value {
-          functionName: "Tag From String"
+          functionName: "Get Map Item (SenseTagList)"
           args {
             string_value: "Barrier"
           }
@@ -22705,10 +22705,23 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Current Location of Actor"
+          functionName: "Current Location of Prop"
           args {
             call_value {
-              functionName: "Last Created Persona"
+              functionName: "Nearest Tagged Prop to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "Peaceful"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Last Created Persona"
+                }
+              }
             }
           }
         }
@@ -22776,7 +22789,7 @@ triggers {
                     string_value: "BaseOrCurrent"
                   }
                   args {
-                    int_value: 1
+                    int_value: 0
                   }
                 }
               }
@@ -22955,10 +22968,10 @@ triggers {
         float_value: 0.17
       }
       args {
-        float_value: 0
+        float_value: 1
       }
       args {
-        float_value: 1
+        float_value: 0
       }
       args {
         float_value: 0
@@ -23041,7 +23054,7 @@ triggers {
                     string_value: "BaseOrCurrent"
                   }
                   args {
-                    int_value: 1
+                    int_value: 0
                   }
                 }
               }
@@ -23356,7 +23369,7 @@ triggers {
       functionName: "Delete Props by Tag"
       args {
         call_value {
-          functionName: "Tag From String"
+          functionName: "Get Map Item (SenseTagList)"
           args {
             string_value: "BarrierB"
           }
@@ -23367,10 +23380,23 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Current Location of Actor"
+          functionName: "Current Location of Prop"
           args {
             call_value {
-              functionName: "Last Created Persona"
+              functionName: "Nearest Tagged Prop to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "Peaceful"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Last Created Persona"
+                }
+              }
             }
           }
         }
