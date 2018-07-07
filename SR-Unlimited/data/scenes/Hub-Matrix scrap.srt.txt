@@ -8140,18 +8140,9 @@ triggers {
   }
   actions {
     ops {
-      functionName: "Fade Camera Out"
+      functionName: "Apply Camera Shake"
       args {
-        float_value: 0.5
-      }
-      args {
-        float_value: 0
-      }
-    }
-    ops {
-      functionName: "Fade Camera In"
-      args {
-        float_value: 0.5
+        float_value: 0.4
       }
       args {
         call_value {
@@ -8193,14 +8184,6 @@ triggers {
       functionName: "Set Variable (int)"
       args {
         call_value {
-          functionName: "Get Variable (int)"
-          args {
-            string_value: "Check"
-          }
-        }
-      }
-      args {
-        call_value {
           functionName: "Get Story Variable (int)"
           args {
             string_value: "51f15c62336331d02c00440e"
@@ -8209,6 +8192,9 @@ triggers {
             string_value: "Deck_Storage_Used"
           }
         }
+      }
+      args {
+        int_value: 0
       }
     }
     ops {
@@ -8226,6 +8212,12 @@ triggers {
       }
       args {
         int_value: 0
+      }
+    }
+    ops {
+      functionName: "Set Camera Post Process Effect"
+      args {
+        int_value: 7
       }
     }
     ops {
