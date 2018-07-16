@@ -7440,7 +7440,7 @@ triggers {
             string_value: "FactionList"
           }
           args {
-            int_value: -1
+            int_value: 0
           }
         }
       }
@@ -7560,7 +7560,7 @@ triggers {
             string_value: "FactionList"
           }
           args {
-            int_value: -1
+            int_value: 0
           }
         }
       }
@@ -7582,7 +7582,7 @@ triggers {
             string_value: "FactionList"
           }
           args {
-            int_value: -1
+            int_value: 0
           }
         }
       }
@@ -9271,6 +9271,32 @@ triggers {
     }
   }
   conditions {
+    ops {
+      functionName: "Actor is Player Controlled"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
   }
   actions {
     ops {
@@ -9405,7 +9431,7 @@ triggers {
             string_value: "FactionList"
           }
           args {
-            int_value: -1
+            int_value: 0
           }
         }
       }
@@ -9449,7 +9475,7 @@ triggers {
             string_value: "FactionList"
           }
           args {
-            int_value: -1
+            int_value: 0
           }
         }
       }
@@ -9471,7 +9497,7 @@ triggers {
             string_value: "FactionList"
           }
           args {
-            int_value: -1
+            int_value: 0
           }
         }
       }
@@ -10321,7 +10347,7 @@ triggers {
                 string_value: "FactionList"
               }
               args {
-                int_value: -1
+                int_value: 0
               }
             }
           }
@@ -13873,102 +13899,6 @@ triggers {
       }
     }
     ops {
-      functionName: "Teleport Actor"
-      args {
-        call_value {
-          functionName: "All Actors With Tag"
-          args {
-            call_value {
-              functionName: "Get Map Item (SenseTagList)"
-              args {
-                string_value: "Purge"
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Current Location of Prop"
-          args {
-            call_value {
-              functionName: "Nearest Tagged Prop to Actor"
-              args {
-                call_value {
-                  functionName: "Tag From String"
-                  args {
-                    call_value {
-                      functionName: "Append (string)"
-                      args {
-                        call_value {
-                          functionName: "Convert (int) to (string)"
-                          args {
-                            call_value {
-                              functionName: "Random (int)"
-                              args {
-                                int_value: 0
-                              }
-                              args {
-                                int_value: 6
-                              }
-                            }
-                          }
-                        }
-                      }
-                      args {
-                        string_value: "LZ_"
-                      }
-                    }
-                  }
-                }
-              }
-              args {
-                call_value {
-                  functionName: "Get Map Item (Player)"
-                  args {
-                    int_value: 0
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "FacingDirection"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "TeleportMethod"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
       functionName: "Heal Actor Over Time"
       args {
         call_value {
@@ -14022,6 +13952,127 @@ triggers {
           }
           args {
             int_value: 2
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "General_Use3"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            int_value: 0
+          }
+          args {
+            int_value: 6
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "All Actors With Tag"
+          args {
+            call_value {
+              functionName: "Get Map Item (SenseTagList)"
+              args {
+                string_value: "Purge"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Nearest Tagged Prop to Actor"
+              args {
+                call_value {
+                  functionName: "Tag From String"
+                  args {
+                    call_value {
+                      functionName: "Append (string)"
+                      args {
+                        call_value {
+                          functionName: "Convert (int) to (string)"
+                          args {
+                            call_value {
+                              functionName: "Get Story Variable (int)"
+                              args {
+                                string_value: "51f15c62336331d02c00440e"
+                              }
+                              args {
+                                string_value: "General_Use3"
+                              }
+                            }
+                          }
+                        }
+                      }
+                      args {
+                        string_value: "LZ_"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Map Item (Player)"
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
           }
         }
       }
@@ -14964,10 +15015,176 @@ triggers {
   name: "purge spawn"
   events {
     ops {
-      functionName: "On Actor Death"
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Current_Run-Objective"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "Purge"
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "purge spawn"
+          }
+        }
+      }
     }
     ops {
-      functionName: "On Map Start"
+      functionName: "Send Event After Delay"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "purge tag"
+          }
+        }
+      }
+      args {
+        float_value: 0.2
+      }
+    }
+    ops {
+      functionName: "Log Debug Message"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Log Levels"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: "Spawning a new wave of Ghouls"
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5b49fb933430326c4400408f"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "purge tag"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "purge tag"
+      }
+    }
+    ops {
+      functionName: "On Actor Death"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Invert Bool"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Clear All Waypoints"
+    }
+    ops {
+      functionName: "Set Waypoint on Actor"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Random Actor on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 2
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5b49fdc03430326c44004090"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "purge respawn"
+  events {
+    ops {
+      functionName: "On Actor Death"
     }
   }
   conditions {
@@ -15062,44 +15279,13 @@ triggers {
         float_value: 0.2
       }
     }
-  }
-  isActive: true
-  idRef {
-    id: "5b49fb933430326c4400408f"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "purge tag"
-  events {
     ops {
-      functionName: "Get Map Item (Event)"
-      args {
-        string_value: "purge tag"
-      }
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (bool)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (bool)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "comm-augmentedReality"
-          }
-        }
-      }
+      functionName: "Log Debug Message"
       args {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "IsOrIsNot"
+            string_value: "Log Levels"
           }
           args {
             int_value: 1
@@ -15107,79 +15293,17 @@ triggers {
         }
       }
       args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Invert Bool"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Set Waypoint on Actor"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "PrimaryOrSecondary"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Random Actor on Team"
-          args {
-            call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 2
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
-          }
-        }
+        string_value: "Spawning a new wave of Ghouls"
       }
     }
   }
   isActive: true
   idRef {
-    id: "5b49fdc03430326c44004090"
+    id: "5b4cbece343032604b00208d"
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 regions {
   name: "Camera Region"
@@ -16424,10 +16548,11 @@ characters {
       attitude: AttitudeCautious
       attackRandom: AttackStyle_CycleAll
     }
-    team_id: "LoneStar"
+    team_id: "purge ghoul"
     char_name: "Feral Ghoul A"
     GeneralTags: "GhoulA"
     GeneralTags: "Purge"
+    enabled_at_start: false
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -16517,10 +16642,11 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "LoneStar"
+    team_id: "purge ghoul"
     char_name: "Feral Ghoul B"
     GeneralTags: "GhoulB"
     GeneralTags: "Purge"
+    enabled_at_start: false
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -16610,10 +16736,11 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "LoneStar"
+    team_id: "purge ghoul"
     char_name: "Feral Ghoul C"
     GeneralTags: "GhoulC"
     GeneralTags: "Purge"
+    enabled_at_start: false
     pc_spawn_number: -1
     portrait {
       filename: ""
@@ -16660,7 +16787,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "LoneStar"
+    team_id: "stealthy"
     char_name: "Feral Ghoul 6 guard"
     GeneralTags: "GhoulA"
     GeneralTags: "Purge"
@@ -16696,7 +16823,7 @@ characters {
       attitude: AttitudeCautious
       attackRandom: AttackStyle_CycleAll
     }
-    team_id: "LoneStar"
+    team_id: "stealthy"
     char_name: "Feral Ghoul 6 guard"
     GeneralTags: "GhoulA"
     GeneralTags: "Purge"
@@ -16732,7 +16859,7 @@ characters {
       attitude: AttitudeCautious
       attackRandom: AttackStyle_CycleAll
     }
-    team_id: "LoneStar"
+    team_id: "stealthy"
     char_name: "Feral Ghoul 4 guard"
     GeneralTags: "GhoulA"
     GeneralTags: "Purge"
@@ -16768,7 +16895,7 @@ characters {
       attitude: AttitudeCautious
       attackRandom: AttackStyle_CycleAll
     }
-    team_id: "LoneStar"
+    team_id: "stealthy"
     char_name: "Feral Ghoul 2 guard"
     GeneralTags: "GhoulA"
     GeneralTags: "Purge"
@@ -16804,7 +16931,7 @@ characters {
       attitude: AttitudeCautious
       attackRandom: AttackStyle_CycleAll
     }
-    team_id: "LoneStar"
+    team_id: "stealthy"
     char_name: "Feral Ghoul 3 guard"
     GeneralTags: "GhoulA"
     GeneralTags: "Purge"
@@ -16840,7 +16967,7 @@ characters {
       attitude: AttitudeCautious
       attackRandom: AttackStyle_CycleAll
     }
-    team_id: "LoneStar"
+    team_id: "stealthy"
     char_name: "Feral Ghoul 0 guard"
     GeneralTags: "GhoulA"
     GeneralTags: "Purge"
@@ -16873,10 +17000,25 @@ characters {
     character_sheet_id: "Ghoul_Lv1"
     equipment_sheet_id: "Ghoul_Lv1_Gear"
     character_mod {
+      stats {
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
       attitude: AttitudeCautious
       attackRandom: AttackStyle_CycleAll
+      vulnerabilities {
+      }
     }
-    team_id: "LoneStar"
+    team_id: "stealthy"
     char_name: "Feral Ghoul 1 guard"
     GeneralTags: "GhoulA"
     GeneralTags: "Purge"
@@ -17015,13 +17157,13 @@ team_affiliations {
   team_name: "stealthy"
   affiliation: 1
   affiliation: 0
-  affiliation: 1
+  affiliation: 0
   affiliation: 0
 }
 team_affiliations {
   team_name: "purge ghoul"
   affiliation: 1
-  affiliation: 1
+  affiliation: 0
   affiliation: 0
   affiliation: 0
 }
