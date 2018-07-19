@@ -17,6 +17,7 @@ def inner_thing(fbase):
         fp.close
 
     count = 0
+    uncount = 0
     chunks = blob.split(splitter)
     for chunk in chunks:
         foo = dosubby2.original.search(chunk)
@@ -25,9 +26,9 @@ def inner_thing(fbase):
             result += [dosubby2.substitute]
         else:
             result += [chunk]
-#            count += 1
+            uncount += 1
 #    print(splitter.join(result))
-    print('%d\t%s' % (count, fbase))
+    print('%4d\t%4d\t%s' % (count, uncount, fbase))
     try:
         fp = open(fbase, "w")
         fp.write(splitter.join(result))
