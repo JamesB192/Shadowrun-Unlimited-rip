@@ -1,9 +1,10 @@
 #!/usr/bin/python
 import dosubby2
-# import os
-# import re
-# import stat
-import sys
+import os
+import re
+import stat
+# import sys
+
 
 def inner_thing(fbase):
     terminate = "\n"
@@ -21,7 +22,7 @@ def inner_thing(fbase):
         foo = dosubby2.original.search(chunk)
         if foo:
             count += 1
-            result += [dsubby2.substitute]
+            result += [dosubby2.substitute]
         else:
             result += [chunk]
 #            count += 1
@@ -34,5 +35,15 @@ def inner_thing(fbase):
         fp.close
 
 
-fname = sys.argv[1]
-inner_thing(fname)
+def descend(dir):
+    txt = re.compile('.*\.txt')
+    for f in os.listdir(dir):
+        mode = os.stat(f).st_mode
+        if stat.S_ISREG(mode) and txt.search(f):
+            inner_thing(f)
+
+
+if __name__ == '__main__':
+#    fname = sys.argv[1]
+#    inner_thing(fname)
+    descend(".")
