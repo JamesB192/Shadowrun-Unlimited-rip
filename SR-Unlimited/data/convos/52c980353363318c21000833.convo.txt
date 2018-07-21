@@ -80,6 +80,37 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
+    responseText: "Hey Argyle, what\'s you story?"
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Met_Argyle"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 2
+  }
+  branches {
     responseText: "Hey Argyle, I\'m looking for a good Fighter to help me out with a run. Are you interested?"
     conditions {
       ops {
@@ -146,6 +177,42 @@ nodes {
           }
         }
       }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Hired_Runner_Argyle"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
     }
     actions {
       ops {
@@ -193,39 +260,8 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 2
+    nextNodeIndex: 3
     hideIfUnavailable: true
-  }
-  branches {
-    responseText: "Hey Argyle, what\'s you story?"
-    actions {
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Met_Argyle"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: 4
   }
   branches {
     responseText: "Nevermind."
@@ -269,9 +305,22 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52c980433363318c21000860"
+    id: "52c980433363318c21000873"
   }
   index: 2
+  text: "Well I didn\'t always used to look like this. When I was a young \'runner I was infected with the Kreiger strain of the HMHVV, that\'s the Human Metahuman Vampiric Virus if you didn\'t know. It didn\'t take long before I was transformed into a ghoul. But I was lucky. Most ghouls turn into feral beasts when they change, but a few like myself are able to retain their intelligence. \n\nI was depressed for a while, but I decided to get back to work which helps take my mind off things, unfortunately it\'s not easy to find people willing to hire someone like me."
+  branches {
+    responseText: ""
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c980433363318c21000860"
+  }
+  index: 3
   text: "There better be some action! I hate boring runs...  I charge a flat fee of $(story.genera_use) Nuyen, plus a 10% cut of the run payment upon completion."
   branches {
     responseText: "Sounds like a deal."
@@ -319,7 +368,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 3
+    nextNodeIndex: 4
     hideIfUnavailable: true
   }
   branches {
@@ -345,27 +394,10 @@ nodes {
   idRef {
     id: "52c980433363318c21000863"
   }
-  index: 3
+  index: 4
   text: "Whiz chummer. I\'ll be right there."
   nodeType: ConversationNodeType_Simple
   actions {
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Contract_Argyle"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
     ops {
       functionName: "Enable/Disable Trigger"
       args {
@@ -389,19 +421,6 @@ nodes {
       }
     }
   }
-}
-nodes {
-  idRef {
-    id: "52c980433363318c21000873"
-  }
-  index: 4
-  text: "Well I didn\'t always used to look like this. When I was a young \'runner I was infected with the Kreiger strain of the HMHVV, that\'s the Human Metahuman Vampiric Virus if you didn\'t know. It didn\'t take long before I was transformed into a ghoul. But I was lucky. Most ghouls turn into feral beasts when they change, but a few like myself are able to retain their intelligence. \n\nI was depressed for a while, but I decided to get back to work which helps take my mind off things, unfortunately it\'s not easy to find people willing to hire someone like me."
-  branches {
-    responseText: ""
-    nextNodeIndex: 0
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
 }
 roots {
   responseText: ""
