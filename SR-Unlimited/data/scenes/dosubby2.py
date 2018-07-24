@@ -115,7 +115,7 @@ substitutea = [
                     }
                   }
                   args {
-                    int_value: 150
+                    int_value: 50
                   }
                 }
               }
