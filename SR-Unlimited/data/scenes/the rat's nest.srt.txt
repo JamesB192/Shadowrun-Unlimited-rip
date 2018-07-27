@@ -14273,7 +14273,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "clean nvs"
+  name: "clean nvs N"
   events {
     ops {
       functionName: "On Actor Death"
@@ -14281,47 +14281,13 @@ triggers {
   }
   conditions {
     ops {
-      functionName: "Evaluate Tag for Actor"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Triggering Actor"
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "HasOrHasNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (SenseTagList)"
-          args {
-            string_value: "Arena"
-          }
-        }
-      }
-    }
-    ops {
       functionName: "Evaluate Tag Pattern for Actor"
       args {
         call_value {
           functionName: "Specific Actor"
           args {
             call_value {
-              functionName: "Triggering Actor"
+              functionName: "Triggering Target Actor"
             }
           }
           args {
@@ -14340,11 +14306,66 @@ triggers {
         }
       }
       args {
-        string_value: "nord"
+        string_value: "sud?"
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "Battle"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
       }
     }
   }
   actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "Battle"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
     ops {
       functionName: "Kill Actor"
       args {
@@ -14354,7 +14375,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (SenseTagList)"
               args {
-                string_value: "Arena"
+                string_value: "NvS"
               }
             }
           }
@@ -14448,7 +14469,7 @@ triggers {
         float_value: 3
       }
       args {
-        float_value: 0
+        float_value: 1
       }
     }
     ops {
@@ -14463,7 +14484,7 @@ triggers {
       }
     }
     ops {
-      functionName: "Remove Camera Point of Interest (Point)"
+      functionName: "Teleport Camera To Point"
       args {
         call_value {
           functionName: "Current Location of Prop"
@@ -14471,47 +14492,66 @@ triggers {
             call_value {
               functionName: "Get Map Item (Prop)"
               args {
-                string_value: "53e1367338646168110040af"
+                string_value: "53e136733864616811004671"
               }
             }
           }
         }
       }
     }
+  }
+  isActive: true
+  idRef {
+    id: "58e3a6e53037362461140be2"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "clean nvs S"
+  events {
     ops {
-      functionName: "Set Actor In Passive Mode"
+      functionName: "On Actor Death"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Evaluate Tag Pattern for Actor"
       args {
         call_value {
-          functionName: "All Actors on Team"
+          functionName: "Specific Actor"
           args {
             call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 0
-              }
+              functionName: "Triggering Target Actor"
             }
           }
           args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
           }
           args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: "nord?"
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "Battle"
           }
         }
       }
@@ -14522,17 +14562,46 @@ triggers {
             string_value: "IsOrIsNot"
           }
           args {
-            int_value: 0
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
           }
         }
       }
     }
   }
-  isActive: false
-  idRef {
-    id: "58e3a6e53037362461140be2"
-  }
-  elseActions {
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "Battle"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
     ops {
       functionName: "Kill Actor"
       args {
@@ -14542,7 +14611,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (SenseTagList)"
               args {
-                string_value: "Arena"
+                string_value: "NvS"
               }
             }
           }
@@ -14636,7 +14705,7 @@ triggers {
         float_value: 3
       }
       args {
-        float_value: 0
+        float_value: 1
       }
     }
     ops {
@@ -14651,7 +14720,7 @@ triggers {
       }
     }
     ops {
-      functionName: "Remove Camera Point of Interest (Point)"
+      functionName: "Teleport Camera To Point"
       args {
         call_value {
           functionName: "Current Location of Prop"
@@ -14659,62 +14728,19 @@ triggers {
             call_value {
               functionName: "Get Map Item (Prop)"
               args {
-                string_value: "53e1367338646168110040af"
+                string_value: "53e136733864616811004671"
               }
             }
           }
         }
       }
     }
-    ops {
-      functionName: "Set Actor In Passive Mode"
-      args {
-        call_value {
-          functionName: "All Actors on Team"
-          args {
-            call_value {
-              functionName: "Get Preset Value (string)"
-              args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "AllOrAny"
-              }
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
-              }
-            }
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
+  }
+  isActive: true
+  idRef {
+    id: "5b5f8e7a343032843200205e"
+  }
+  elseActions {
   }
   is_oneshot: false
 }
@@ -20427,12 +20453,12 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 66
+    x: 68
     y: 0
     z: -82
   }
   orientation: ORIENTATION_S
-  GeneralTags: "Arena"
+  GeneralTags: "NvS"
   GeneralTags: "nord3"
   displayName: "LSN Dwarf"
   idRef {
@@ -20497,8 +20523,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
+      archetypeName: "gumbo_Auto"
+      attitude: AttitudeBoss
       vulnerabilities {
       }
     }
@@ -20507,22 +20533,23 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Pit Fighter"
-    GeneralTags: "Arena"
+    GeneralTags: "NvS"
     GeneralTags: "nord3"
     enabled_at_start: false
     pc_spawn_number: -1
     karma: 26
+    hiring_set_randomizer: "dwarf_adept"
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 67
+    x: 69
     y: 0
     z: -83
   }
   orientation: ORIENTATION_S
-  GeneralTags: "Arena"
+  GeneralTags: "NvS"
   GeneralTags: "nord5"
   displayName: "LSN Troll"
   idRef {
@@ -20587,8 +20614,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
+      archetypeName: "gumbo_Auto"
+      attitude: AttitudeBoss
       vulnerabilities {
       }
     }
@@ -20597,22 +20624,23 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Pit Fighter"
-    GeneralTags: "Arena"
+    GeneralTags: "NvS"
     GeneralTags: "nord5"
     enabled_at_start: false
     pc_spawn_number: -1
     karma: 26
+    hiring_set_randomizer: "troll_samurai"
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 66
+    x: 68
     y: 0
     z: -83
   }
   orientation: ORIENTATION_S
-  GeneralTags: "Arena"
+  GeneralTags: "NvS"
   GeneralTags: "nord2"
   displayName: "LSN Elf"
   idRef {
@@ -20677,8 +20705,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
+      archetypeName: "gumbo_Auto"
+      attitude: AttitudeBoss
       vulnerabilities {
       }
     }
@@ -20687,22 +20715,23 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Pit Fighter"
-    GeneralTags: "Arena"
+    GeneralTags: "NvS"
     GeneralTags: "nord2"
     enabled_at_start: false
     pc_spawn_number: -1
     karma: 26
+    hiring_set_randomizer: "elf_adept"
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 67
+    x: 69
     y: 0
     z: -84
   }
   orientation: ORIENTATION_S
-  GeneralTags: "Arena"
+  GeneralTags: "NvS"
   GeneralTags: "nord4"
   displayName: "LSN Ork"
   idRef {
@@ -20767,8 +20796,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
+      archetypeName: "gumbo_Auto"
+      attitude: AttitudeBoss
       vulnerabilities {
       }
     }
@@ -20777,22 +20806,23 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Pit Fighter"
-    GeneralTags: "Arena"
+    GeneralTags: "NvS"
     GeneralTags: "nord4"
     enabled_at_start: false
     pc_spawn_number: -1
     karma: 26
+    hiring_set_randomizer: "ork_adept"
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 66
+    x: 68
     y: 0
     z: -84
   }
   orientation: ORIENTATION_S
-  GeneralTags: "Arena"
+  GeneralTags: "NvS"
   GeneralTags: "nord1"
   displayName: "LSN Human"
   idRef {
@@ -20857,8 +20887,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
+      archetypeName: "gumbo_Auto"
+      attitude: AttitudeBoss
       vulnerabilities {
       }
     }
@@ -20867,22 +20897,23 @@ characters {
     }
     team_id: "LoneStar"
     char_name: "Pit Fighter"
-    GeneralTags: "Arena"
+    GeneralTags: "NvS"
     GeneralTags: "nord1"
     enabled_at_start: false
     pc_spawn_number: -1
     karma: 26
+    hiring_set_randomizer: "human_adept"
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 77
+    x: 74
     y: 0
     z: -82
   }
   orientation: ORIENTATION_N
-  GeneralTags: "Arena"
+  GeneralTags: "NvS"
   GeneralTags: "sud3"
   displayName: "GBS Dwarf"
   idRef {
@@ -20947,7 +20978,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
+      archetypeName: "gumbo_Auto"
       attitude: AttitudeAggressive
       vulnerabilities {
       }
@@ -20957,22 +20988,23 @@ characters {
     }
     team_id: "Gangers"
     char_name: "Pit Fighter"
-    GeneralTags: "Arena"
+    GeneralTags: "NvS"
     GeneralTags: "sud3"
     enabled_at_start: false
     pc_spawn_number: -1
     karma: 26
+    hiring_set_randomizer: "human_adept"
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 78
+    x: 75
     y: 0
     z: -83
   }
   orientation: ORIENTATION_N
-  GeneralTags: "Arena"
+  GeneralTags: "NvS"
   GeneralTags: "sud5"
   displayName: "GBS Troll"
   idRef {
@@ -21037,8 +21069,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
+      archetypeName: "gumbo_Auto"
+      attitude: AttitudeBoss
       vulnerabilities {
       }
     }
@@ -21047,22 +21079,23 @@ characters {
     }
     team_id: "Gangers"
     char_name: "Pit Fighter"
-    GeneralTags: "Arena"
+    GeneralTags: "NvS"
     GeneralTags: "sud5"
     enabled_at_start: false
     pc_spawn_number: -1
     karma: 26
+    hiring_set_randomizer: "troll_samurai"
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 77
+    x: 74
     y: 0
     z: -83
   }
   orientation: ORIENTATION_N
-  GeneralTags: "Arena"
+  GeneralTags: "NvS"
   GeneralTags: "sud2"
   displayName: "GBS Elf"
   idRef {
@@ -21127,8 +21160,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
+      archetypeName: "gumbo_Auto"
+      attitude: AttitudeBoss
       vulnerabilities {
       }
     }
@@ -21137,22 +21170,23 @@ characters {
     }
     team_id: "Gangers"
     char_name: "Pit Fighter"
-    GeneralTags: "Arena"
+    GeneralTags: "NvS"
     GeneralTags: "sud2"
     enabled_at_start: false
     pc_spawn_number: -1
     karma: 26
+    hiring_set_randomizer: "elf_adept"
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 78
+    x: 75
     y: 0
     z: -84
   }
   orientation: ORIENTATION_N
-  GeneralTags: "Arena"
+  GeneralTags: "NvS"
   GeneralTags: "sud4"
   displayName: "GBS Ork"
   idRef {
@@ -21217,8 +21251,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
+      archetypeName: "gumbo_Auto"
+      attitude: AttitudeBoss
       vulnerabilities {
       }
     }
@@ -21227,22 +21261,23 @@ characters {
     }
     team_id: "Gangers"
     char_name: "Pit Fighter"
-    GeneralTags: "Arena"
+    GeneralTags: "NvS"
     GeneralTags: "sud4"
     enabled_at_start: false
     pc_spawn_number: -1
     karma: 26
+    hiring_set_randomizer: "ork_adept"
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: 77
+    x: 74
     y: 0
     z: -84
   }
   orientation: ORIENTATION_N
-  GeneralTags: "Arena"
+  GeneralTags: "NvS"
   GeneralTags: "sud1"
   displayName: "GBS Human"
   idRef {
@@ -21307,8 +21342,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
+      archetypeName: "gumbo_Auto"
+      attitude: AttitudeBoss
       vulnerabilities {
       }
     }
@@ -21317,11 +21352,12 @@ characters {
     }
     team_id: "Gangers"
     char_name: "Pit Fighter"
-    GeneralTags: "Arena"
+    GeneralTags: "NvS"
     GeneralTags: "sud1"
     enabled_at_start: false
     pc_spawn_number: -1
     karma: 26
+    hiring_set_randomizer: "human_adept"
   }
 }
 characters {

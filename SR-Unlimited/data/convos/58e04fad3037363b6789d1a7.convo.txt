@@ -66,7 +66,7 @@ nodes {
               string_value: "bool"
             }
             args {
-              int_value: 1
+              int_value: 0
             }
           }
         }
@@ -8320,8 +8320,191 @@ nodes {
   index: 10
   text: "Wager on a fight between a bum and a culitst?"
   branches {
-    responseText: "Just watch"
+    responseText: "Wager on the cultist. {{CC}}10+\302\245{{/CC}}"
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 10
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Variable (string)"
+            args {
+              string_value: "Gladiator_chit"
+            }
+          }
+        }
+        args {
+          string_value: "nord"
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Battle"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     nextNodeIndex: 11
+  }
+  branches {
+    responseText: "Wager on the bum. {{CC}}10+\302\245{{/CC}}"
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 10
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Variable (string)"
+            args {
+              string_value: "Gladiator_chit"
+            }
+          }
+        }
+        args {
+          string_value: "sud"
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Battle"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 12
+  }
+  branches {
+    responseText: "Just watch {{CC}}1+\302\245{{/CC}}"
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Battle"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 13
   }
   branches {
     responseText: "No"
@@ -8339,85 +8522,31 @@ nodes {
   nodeType: ConversationNodeType_Simple
   actions {
     ops {
-      functionName: "Set Variable (string)"
-      args {
-        call_value {
-          functionName: "Get Variable (string)"
-          args {
-            string_value: "MacCabe-color"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Append (string)"
-          args {
-            call_value {
-              functionName: "Convert (int) to (string)"
-              args {
-                call_value {
-                  functionName: "Random (int)"
-                  args {
-                    int_value: 1
-                  }
-                  args {
-                    int_value: 5
-                  }
-                }
-              }
-            }
-          }
-          args {
-            string_value: "nord"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Variable (string)"
-      args {
-        call_value {
-          functionName: "Get Variable (string)"
-          args {
-            string_value: "MacCabe-evens"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Append (string)"
-          args {
-            call_value {
-              functionName: "Convert (int) to (string)"
-              args {
-                call_value {
-                  functionName: "Random (int)"
-                  args {
-                    int_value: 1
-                  }
-                  args {
-                    int_value: 5
-                  }
-                }
-              }
-            }
-          }
-          args {
-            string_value: "sud"
-          }
-        }
-      }
-    }
-    ops {
       functionName: "Activate Actor Spawner By Tag"
       args {
         call_value {
           functionName: "Tag From String"
           args {
             call_value {
-              functionName: "Get Variable (string)"
+              functionName: "Append (string)"
               args {
-                string_value: "MacCabe-evens"
+                call_value {
+                  functionName: "Convert (int) to (string)"
+                  args {
+                    call_value {
+                      functionName: "Random (int)"
+                      args {
+                        int_value: 1
+                      }
+                      args {
+                        int_value: 5
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                string_value: "nord"
               }
             }
           }
@@ -8442,9 +8571,25 @@ nodes {
           functionName: "Tag From String"
           args {
             call_value {
-              functionName: "Get Variable (string)"
+              functionName: "Append (string)"
               args {
-                string_value: "MacCabe-color"
+                call_value {
+                  functionName: "Convert (int) to (string)"
+                  args {
+                    call_value {
+                      functionName: "Random (int)"
+                      args {
+                        int_value: 1
+                      }
+                      args {
+                        int_value: 5
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                string_value: "sud"
               }
             }
           }
@@ -8482,37 +8627,57 @@ nodes {
       }
     }
     ops {
-      functionName: "Set Actor In Passive Mode"
+      functionName: "Teleport Camera To Point"
       args {
         call_value {
-          functionName: "All Actors on Team"
+          functionName: "Current Location of Prop"
           args {
             call_value {
-              functionName: "Get Preset Value (string)"
+              functionName: "Get Map Item (Prop)"
               args {
-                string_value: "FactionList"
-              }
-              args {
-                int_value: 0
+                string_value: "53e1367338646168110040af"
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "58e388ad303736ac57b35a82"
+  }
+  index: 12
+  text: "whatevs"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Tag From String"
           args {
             call_value {
-              functionName: "Get Preset Value (int)"
+              functionName: "Append (string)"
               args {
-                string_value: "AllOrAny"
+                call_value {
+                  functionName: "Convert (int) to (string)"
+                  args {
+                    call_value {
+                      functionName: "Random (int)"
+                      args {
+                        int_value: 1
+                      }
+                      args {
+                        int_value: 5
+                      }
+                    }
+                  }
+                }
               }
               args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Map Item (SceneDimension)"
-              args {
-                string_value: "Default"
+                string_value: "nord"
               }
             }
           }
@@ -8522,10 +8687,219 @@ nodes {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "IsOrIsNot"
+            string_value: "WithOrWithout"
           }
           args {
-            int_value: 1
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Tag From String"
+          args {
+            call_value {
+              functionName: "Append (string)"
+              args {
+                call_value {
+                  functionName: "Convert (int) to (string)"
+                  args {
+                    call_value {
+                      functionName: "Random (int)"
+                      args {
+                        int_value: 1
+                      }
+                      args {
+                        int_value: 5
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                string_value: "sud"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Camera Point of Interest (Point)"
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "53e1367338646168110040af"
+              }
+            }
+          }
+        }
+      }
+      args {
+        float_value: -1
+      }
+    }
+    ops {
+      functionName: "Teleport Camera To Point"
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "53e1367338646168110040af"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "58e388ad303736ac57b35a82"
+  }
+  index: 13
+  text: "whatevs"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Tag From String"
+          args {
+            call_value {
+              functionName: "Append (string)"
+              args {
+                call_value {
+                  functionName: "Convert (int) to (string)"
+                  args {
+                    call_value {
+                      functionName: "Random (int)"
+                      args {
+                        int_value: 1
+                      }
+                      args {
+                        int_value: 5
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                string_value: "nord"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Activate Actor Spawner By Tag"
+      args {
+        call_value {
+          functionName: "Tag From String"
+          args {
+            call_value {
+              functionName: "Append (string)"
+              args {
+                call_value {
+                  functionName: "Convert (int) to (string)"
+                  args {
+                    call_value {
+                      functionName: "Random (int)"
+                      args {
+                        int_value: 1
+                      }
+                      args {
+                        int_value: 5
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                string_value: "sud"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Camera Point of Interest (Point)"
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "53e1367338646168110040af"
+              }
+            }
+          }
+        }
+      }
+      args {
+        float_value: -1
+      }
+    }
+    ops {
+      functionName: "Teleport Camera To Point"
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "53e1367338646168110040af"
+              }
+            }
           }
         }
       }
