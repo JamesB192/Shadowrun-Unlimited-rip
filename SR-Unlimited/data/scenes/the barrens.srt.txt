@@ -25582,13 +25582,10 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "invisible runnner?"
+  name: "spawn invisible runnner"
   events {
     ops {
-      functionName: "Get Map Item (Event)"
-      args {
-        string_value: "populate-runs"
-      }
+      functionName: "On Map Start"
     }
   }
   conditions {
@@ -25703,30 +25700,22 @@ triggers {
         }
       }
     }
-  }
-  actions {
     ops {
-      functionName: "Activate Actor Spawner"
+      functionName: "Invert Bool"
       args {
         call_value {
-          functionName: "Get Map Item (Actor Reference)"
+          functionName: "Get Story Variable (bool)"
           args {
-            string_value: "525230de3363315c1e00731c"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
+            string_value: "51f15c62336331d02c00440e"
           }
           args {
-            int_value: 0
+            string_value: "riskPermaDeath"
           }
         }
       }
     }
+  }
+  actions {
     ops {
       functionName: "Change Actor Team"
       args {
@@ -25736,7 +25725,7 @@ triggers {
             call_value {
               functionName: "Get Map Item (Actor)"
               args {
-                string_value: "525230de3363315c1e00731c"
+                string_value: "5263ff8e3363311c210066c7"
               }
             }
           }
