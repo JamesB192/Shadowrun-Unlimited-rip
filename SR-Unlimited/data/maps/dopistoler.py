@@ -28,7 +28,7 @@ array = []
 passes = 0
 yettodo = 30
 rend = len(arr) - 1
-# print (rend)
+# print(rend)
 
 while yettodo > 0:
     passes += 1
@@ -48,7 +48,7 @@ while yettodo > 0:
             for tZ in range(randZ, (randZ+arr[randT][2])):
                 node = "%u,%u" % (tX, tZ)
                 if node in array:
-                    print ("collision: ", node, file=stderr)
+                    print("collision: ", node, file=stderr)
                     clear = False
         if clear:
             for tX in range(randX, (randX+arr[randT][2])):
@@ -56,7 +56,7 @@ while yettodo > 0:
                     node = "%u,%u" % (tX, tZ)
                     array += [node]
             yettodo -= 1
-            print (strung % (arr[randT][0], randX, randZ, dir[randO]))
+            print(strung % (arr[randT][0], randX, randZ, dir[randO]))
     else:
         randX = randint(3, 20-arr[randT][2])
         randZ = randint(3, 20-arr[randT][1])
@@ -64,7 +64,7 @@ while yettodo > 0:
             for tZ in range(randZ, (randZ+arr[randT][1])):
                 node = "%u,%u" % (tX, tZ)
                 if node in array:
-                    print ("collision: ", node, file=stderr)
+                    print("collision: ", node, file=stderr)
                     clear = False
         if clear:
             for tX in range(randX, (randX+arr[randT][2])):
@@ -72,7 +72,7 @@ while yettodo > 0:
                     node = "%u,%u" % (tX, tZ)
                     array += [node]
             yettodo -= 1
-            print (strung % (arr[randT][0], randX, randZ, dir[randO]))
+            print(strung % (arr[randT][0], randX, randZ, dir[randO]))
 
-print (dumps(array), file=stderr)
-print ("passes: ", passes, file=stderr)
+print(dumps(array), file=stderr)
+print("passes: ", passes, file=stderr)

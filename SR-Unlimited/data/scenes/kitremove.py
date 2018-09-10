@@ -24,10 +24,10 @@ def inner_thing(fbase):
 
     chunks = blob.split(splitter)
     for chunk in chunks:
-#        foo = original.search(chunk)
-#        if foo:
-#            result += [substitute]
-#        else:
+        # foo = original.search(chunk)
+        # if foo:
+        #     result += [substitute]
+        # else:
             result += [chunk]
 
 #    print(splitter.join(result))
@@ -43,6 +43,7 @@ def descend():
         mode = os.stat(f).st_mode
         if stat.S_ISREG(mode) and True:
             inner_thing(f)
+
 
 # fname = "yakuza lab.srm.txt"
 fname = sys.argv[1]

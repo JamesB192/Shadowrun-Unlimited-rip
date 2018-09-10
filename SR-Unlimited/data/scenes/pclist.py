@@ -29,6 +29,7 @@ def descend():
         if stat.S_ISREG(mode) and True:
             inner_thing(f)
 
+
 # fname = "yakuza lab.srm.txt"
 fname = sys.argv[1]
 

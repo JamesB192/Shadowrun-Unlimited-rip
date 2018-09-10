@@ -21,15 +21,15 @@ def inner_thing(fbase):
     finally:
         fp.close
 
-    count = 0;
+    count = 0
     chunks = blob.split(splitter)
     for chunk in chunks:
         foo = original.search(chunk)
         if foo:
             count += 1
 #            tmp1    =  string.replace(chunk, ': 100', ': 500')
-#            tmp1    =  string.replace(chunk, ': 50',  ': 250')
-#            tmp1    =  string.replace(chunk, ': 25',  ': 100')
+#            tmp1    =  string.replace(chunk, ':  50', ': 250')
+#            tmp1    =  string.replace(chunk, ':  25', ': 100')
             tmp1    =  string.replace(chunk, ': 200', ': 1000')
             result += [tmp1]
         else:
@@ -50,6 +50,7 @@ def descend():
         mode = os.stat(f).st_mode
         if stat.S_ISREG(mode) and True:
             inner_thing(f)
+
 
 # fname = "yakuza lab.srm.txt"
 fname = sys.argv[1]

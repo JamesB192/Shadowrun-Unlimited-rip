@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 from random import randrange
 
+
 def grow(capital, rateDip, rateRise):
     rate = randrange(rateDip, rateRise, 1)
     rate += randrange(rateDip, rateRise, 1)
     intrest = int((capital * rate) / (3642475 * 2))
     print("%4.1f\t%4d" % (rate/100, intrest))
     return (rate, int(intrest))
+
 
 invested = 10 ** 4
 r = i = []
