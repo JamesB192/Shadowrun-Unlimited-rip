@@ -7,7 +7,6 @@ Harebrained Scheme's "Shadowrun Dragonfall / Shadowrun Returns" game.
 
 ### References:
 
-
 Original UGC workshop site: http://steamcommunity.com/sharedfiles/filedetails/?id=317704781
 
 Previous UGC workshop site (deprecated): http://steamcommunity.com/sharedfiles/filedetails/?id=297402271
@@ -19,7 +18,7 @@ Information on the game: http://www.shadowrun.com/shadowrun-returns/
 
 Game developer site: http://harebrained-schemes.com/
 
-===
+---
 
 Shadowrun Unlimited is an expansive mod for Shadowrun Returns. It is an entirely original story and aims to create a "sandbox" Shadowrun experience. It is heavily influenced by Shadowrun 
 for the Sega Genesis, so if you were a fan of that game, make sure to check this out. The project has been named "Unlimited" because it doesn't have a specific "end" point, and will continue to expand and evolve over time until it is a fully realized Shadowrun simulation."
@@ -56,13 +55,12 @@ for the Sega Genesis, so if you were a fan of that game, make sure to check this
 * Asmodean13- the "Arbor's Embrace story"
 * Mizaroth for all his amazing map building."
 
-
 ### Branches
 
 * "Stableish" is the current development branch for Dragon Fall Directors cut
 * "SRR" is the current (not) working branch for Shadowrun Returns + Dragon Fall
 
-===
+---
 
 * "SRHK" was an attempt at running SR: Unlimited on Hong Kong
 * "autobuild" was an attempt to version & build via a command line scripts
@@ -71,32 +69,36 @@ for the Sega Genesis, so if you were a fan of that game, make sure to check this
 
 Figure it out my attempts at handholding worked really well from the feedback. Find the "project.cpack.txt". 
 
+---
 
-### INSTALLATION:
+### INSTALLATION
 
--Download the zip by clicking the green "clone or download" button above the list of files. (You may have to create a GitHub account first...)
--Then extract to: 
+1. Download the zip by clicking the green "Clone or download" button above the list of files on the right.
+2. Extract archive to: 
+* PC: `C:\Users\<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks`
+* MAC: `<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks`
+* Linux: `/home/<USER>/Documents/Shadowrun Dragonfall Director's Cut/ContentPacks`
+3. Start the `Shadowrun Returns Dragonfall - Director's Cut` `Editor`.
+- It can be started from the game menu `Content -> Run Shadowrun Editor`.
+4. Under the `File` menu item select `Open Content Pack`.
+5. Navigate to the extracted files and select `\Shadowrun-Unlimited-rip-stableish\SR-Unlimited\project.cpack.txt`.
+6. Under the `File` menu item select `Publish Content Pack Locally`.
+7. Wait for the editor to publish the content pack.
+8. Close the editor.
+9. (Re)start Dragonfall
 
-PC
-C:\Users\<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks
+In case you get `File not found` errors during publishing, try the following:
+1. Under the `File` menu item select `Edit Content Pack Search Path`.
+2. Add the following path:
+- If using Steam: `C:\Steam\steamapps\common\Shadowrun Dragonfall Director's Cut\Dragonfall_Data\StreamingAssets\ContentPacks`
+- If using GOG: `<...>\GOG Games\Shadowrun Dragonfall\Dragonfall_Data\StreamingAssets\ContentPacks`
+3. Retry the publishing.
 
-MAC
-<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks
-
-Linux
-/home/<USER>/Documents/Shadowrun Dragonfall Director's Cut/ContentPacks
-
-1. Start the `Shadowrun Returns Dragonfall - Directors Cut` `Editor`.
-1. Under the `File` menu item select `Open Content Pack`.
-1. Navigate to and Select the downloaded zip file.
-1. Under the `File` menu item select `Publish Content Pack Locally`.
-1. Wait for the editor to publish the content pack.
-1. Close the editor.
-1. (Re)start Dragonfall
+---
 
 ### Helping
 
-If you understand the Shadowrun Returns game editor, let JamesB192 or bdfworks know if you're ready to help with any bugs. We use GitHub. If not familiar with it, try to get thru these tutorials on your own to see if its worth the difficulty for you; otherwise, might be better to stick to creating your own separate mods we can add to it. (James doesn't have much time anymore to commit to much help with the project, and bdfworks may still be too inexperienced with the GitHub client to help much...sorry... :( ...)
+If you understand the Shadowrun Returns game editor, let [JamesB192](https://github.com/JamesB192) or [bdfworks](https://github.com/bdfworks) know if you're ready to help with any bugs. We use GitHub. If not familiar with it, try to get thru these tutorials on your own to see if its worth the difficulty for you; otherwise, might be better to stick to creating your own separate mods we can add to it. (James doesn't have much time anymore to commit to much help with the project, and bdfworks may still be too inexperienced with the GitHub client to help much...sorry... :( ...)
 
 1. Create an account with GitHub at github.com.
 2. Then follow the first tutorial: https://guides.github.com/activities/hello-world/
