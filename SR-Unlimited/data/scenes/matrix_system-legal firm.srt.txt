@@ -7433,7 +7433,7 @@ triggers {
   }
   conditions {
     ops {
-      functionName: "Comparison (bool)"
+      functionName: "OR"
       args {
         call_value {
           functionName: "Get Story Variable (bool)"
@@ -7447,23 +7447,31 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "Comparison (string)"
           args {
-            string_value: "IsOrIsNot"
+            call_value {
+              functionName: "Get Story Variable (string)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "Current_Run-Objective"
+              }
+            }
           }
           args {
-            int_value: 1
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "IsOrIsNot"
+              }
+              args {
+                int_value: 0
+              }
+            }
           }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
           args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
+            string_value: "Download"
           }
         }
       }
@@ -7611,7 +7619,7 @@ triggers {
   }
   conditions {
     ops {
-      functionName: "Comparison (bool)"
+      functionName: "OR"
       args {
         call_value {
           functionName: "Get Story Variable (bool)"
@@ -7625,23 +7633,66 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "AND"
           args {
-            string_value: "IsOrIsNot"
+            call_value {
+              functionName: "Comparison (string)"
+              args {
+                call_value {
+                  functionName: "Get Story Variable (string)"
+                  args {
+                    string_value: "51f15c62336331d02c00440e"
+                  }
+                  args {
+                    string_value: "Current_Run-Objective"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "IsOrIsNot"
+                  }
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+              args {
+                string_value: "Edit"
+              }
+            }
           }
           args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
+            call_value {
+              functionName: "Comparison (string)"
+              args {
+                call_value {
+                  functionName: "Get Story Variable (string)"
+                  args {
+                    string_value: "51f15c62336331d02c00440e"
+                  }
+                  args {
+                    string_value: "Current_Run-Objective"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "IsOrIsNot"
+                  }
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+              args {
+                string_value: "Delete"
+              }
+            }
           }
         }
       }
@@ -20431,6 +20482,8 @@ scene_dimensions {
   dimension_name: "New Dimension 2"
   initial_alarm_state: 0
   turns_per_round: 1
+}
+character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {
