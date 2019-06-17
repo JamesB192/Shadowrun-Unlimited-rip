@@ -1,0 +1,400 @@
+idRef {
+  id: "5cfb0f85396639e01e002442"
+}
+ui_name: "Informant Corp"
+nodes {
+  idRef {
+    id: "5cfb1031396639e01e002452"
+  }
+  index: 0
+  text: "Why yes I am? I assume you\'re the one Frosty sent?"
+  branches {
+    responseText: "I\'m $(l.name).I understand you know about corporations."
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5cfb1403396639e01e002502"
+  }
+  index: 1
+  text: "Yes, and I\'ll part with it for free the first time as a favor to Frosty. After that it isn\'t free."
+  branches {
+    responseText: "A Mtsuhama RHQ employee has a sculpture I need.\n\n{{GM}}Yu give him a description.{{/GM}}"
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5cfb14f3396639e01e002537"
+  }
+  index: 2
+  text: "I know the item in question. It\'s not on the top floor of the building as you\'d expect. It\'s actually in the \"wellness center\". It can only be reached from the right elevator. The manager of it keeps it in his desk most of the time. His office is on the west side. There is new security to worry about, including card readers that you can\'t go anyplace without beating."
+  branches {
+    responseText: "Have anything else for me?"
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5cfc0cf9396639a42e00451b"
+  }
+  index: 3
+  text: "What else do you want to know?"
+  branches {
+    responseText: "Is there a quick way out?"
+    nextNodeIndex: 4
+  }
+  branches {
+    responseText: "Have they installed new security hardware?"
+    nextNodeIndex: 5
+  }
+  branches {
+    responseText: "Is the security force itself any different."
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Nothing more."
+    nextNodeIndex: 12
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5cfc0e0c396639a42e004547"
+  }
+  index: 4
+  text: "There is a helicopter on the roof. The left elevator has a panel hiding the access. As a favor to frosty I can give you today\'s code."
+  branches {
+    responseText: "Thank you."
+    nextNodeIndex: 3
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add Item to Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Elev_Codes_1"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5cfc2161396639a42e004641"
+  }
+  index: 5
+  text: "Yes. Code readers on the elevators. "
+  branches {
+    responseText: "Anyway you can think of to get past the code readers?"
+    nextNodeIndex: 6
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5cfc2221396639a42e004675"
+  }
+  index: 6
+  text: "Four ways I can think of. Fool the guards, disable the readers, the Matrix, or just get a real one. "
+  branches {
+    responseText: "How would you fool the guards?"
+    nextNodeIndex: 7
+  }
+  branches {
+    responseText: "How would I disable the card readers?"
+    nextNodeIndex: 8
+  }
+  branches {
+    responseText: "For the Matrix I assume just download a code."
+    nextNodeIndex: 10
+  }
+  branches {
+    responseText: "How would I get a real one?"
+    nextNodeIndex: 11
+  }
+  branches {
+    responseText: "No more question about the code readers."
+    nextNodeIndex: 3
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5cfc22d5396639a42e004699"
+  }
+  index: 7
+  text: "On the bottom floor on the right is a maintenance room locked with magic. Get past it and grab some uniforms, there should be ones with cards. If an alarm is sounded you should be able to convince the guards it wasn\'t you."
+  branches {
+    responseText: "Solid plan. Even if the alarm sounds if you can fast talk well you\'ll still be fine. Any other ways?"
+    nextNodeIndex: 6
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5cfc2538396639a42e004710"
+  }
+  index: 8
+  text: "They are on a separate power system. In the garage level to the right is a room with a system for controlling power and a jack point. The power system can be shut down there without jacking in."
+  branches {
+    responseText: "Seems like a dumb way to do things. What keeps people out of the room."
+    nextNodeIndex: 9
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5cfc26b9396639a42e004735"
+  }
+  index: 9
+  text: "Apparently the job was given to someones nephew. They got the obvious result of that kind of nepotism. The only thing between you and it is a regular locked door, like many others in the building."
+  branches {
+    responseText: "Nepotism like that is great for me. Any other ideas?"
+    nextNodeIndex: 6
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5cfc28fa396639a42e00476d"
+  }
+  index: 10
+  text: "Yes, it\'s kept the same place as the door lock overrides. But it can only be downloaded from outside, guess they don\'t want their employees letting friends in."
+  branches {
+    responseText: "Easy if you are or have a decker. Any other ideas."
+    nextNodeIndex: 6
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d02aa1e3966397015004cbb"
+  }
+  index: 11
+  text: "I don\'t know. How do you usually get security cards? Just steal one from an employee or kill a guard."
+  branches {
+    responseText: "Simple enough. What are my other option?"
+    nextNodeIndex: 6
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d00b445396639fc29001aa6"
+  }
+  index: 12
+  text: "If you need me in the future you can reach me the same way."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Corp_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5cfb12c0396639e01e00246e"
+  }
+  index: 13
+  text: "Yes I am, and I assume our from Frosty. I wish she had told me how frightfuly rude you are."
+  branches {
+    responseText: "She said you had info on the megacorps."
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: "Are you Mike Score?"
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Corp_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 0
+}
+roots {
+  responseText: "Mister Score I presume?"
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Corp_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 0
+  auxiliaryLink: true
+}
+roots {
+  responseText: "Oi frag face, you Mike Score?"
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Corp_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 13
+}

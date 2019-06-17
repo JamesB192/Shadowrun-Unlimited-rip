@@ -584,29 +584,26 @@ triggers {
         }
       }
     }
-    ops {
-      functionName: "On Item Interaction"
-      args {
-        call_value {
-          functionName: "Get Map Item (InteractableObject)"
-          args {
-            string_value: "53e136733864616811004190"
-          }
-        }
-      }
-    }
   }
   conditions {
     ops {
-      functionName: "Comparison (int)"
+      functionName: "Comparison (bool)"
       args {
-        int_value: 19
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Called_Andy"
+          }
+        }
       }
       args {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "Comparison Ops"
+            string_value: "IsOrIsNot"
           }
           args {
             int_value: 1
@@ -615,12 +612,12 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Get Story Variable (int)"
+          functionName: "Get Preset Value (int)"
           args {
-            string_value: "51f15c62336331d02c00440e"
+            string_value: "bool"
           }
           args {
-            string_value: "StoryStep"
+            int_value: 0
           }
         }
       }
@@ -13824,15 +13821,23 @@ triggers {
   }
   conditions {
     ops {
-      functionName: "Comparison (int)"
+      functionName: "Comparison (bool)"
       args {
-        int_value: 19
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Called_Andy"
+          }
+        }
       }
       args {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "Comparison Ops"
+            string_value: "IsOrIsNot"
           }
           args {
             int_value: 1
@@ -13841,12 +13846,12 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Get Story Variable (int)"
+          functionName: "Get Preset Value (int)"
           args {
-            string_value: "51f15c62336331d02c00440e"
+            string_value: "bool"
           }
           args {
-            string_value: "StoryStep"
+            int_value: 0
           }
         }
       }
@@ -14032,17 +14037,69 @@ triggers {
   }
   conditions {
     ops {
-      functionName: "Comparison (Actor)"
+      functionName: "Evaluate Team Survival Percentage"
       args {
         call_value {
-          functionName: "Triggering Target Actor"
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 100
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add Item to Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Soka_Recording"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
         }
       }
       args {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "IsOrIsNot"
+            string_value: "WithOrWithout"
           }
           args {
             int_value: 1
@@ -14051,19 +14108,45 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Get Map Item (Actor)"
+          functionName: "Get Map Item (SceneDimension)"
           args {
-            string_value: "5a46b4bc653737342c002e41"
+            string_value: "Default"
           }
         }
       }
     }
-  }
-  actions {
     ops {
-      functionName: "End Story With Epilogue"
+      functionName: "Set Variable (string)"
       args {
-        string_value: "vSoka"
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "PlotInformation"
+          }
+        }
+      }
+      args {
+        string_value: "Give Piper his recording."
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Plot Information"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "PlotInformation"
+          }
+        }
       }
     }
   }
@@ -15515,6 +15598,66 @@ triggers {
         float_value: 0
       }
     }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Runs_Vigor"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "Current_Fixer"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: "Vigor"
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Runs_Vigor"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5cf9cb7b39663998390060e7"
+  }
+  elseActions {
   }
   is_oneshot: true
 }
@@ -20033,7 +20176,7 @@ characters {
   gridPoint {
     x: -62.270004
     y: 0
-    z: -84.380005
+    z: -89.380005
   }
   orientation: ORIENTATION_E
   GeneralTags: "step20"
@@ -20088,11 +20231,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -62
+    x: -68
     y: 0
-    z: -87
+    z: -82
   }
-  orientation: ORIENTATION_E
+  orientation: ORIENTATION_S
   GeneralTags: "step20"
   displayName: "red sam"
   idRef {
@@ -20101,8 +20244,7 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
-    character_sheet_id: "Lonestar_Lv6_Heavy_SMG"
-    equipment_sheet_id: "Lonestar_Lv6_SMG_Gear"
+    character_sheet_id: "Lonestar_Lv5_Captain"
     equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     character_mod {
       stats {
@@ -20165,26 +20307,33 @@ characters {
       vulnerabilities {
       }
     }
+    equipment {
+      prefab_name: "Berlin_Ex 2 ArmTech MGL-6"
+    }
+    equipment {
+      prefab_name: "Berlin_AR 2 FN HAR"
+    }
     team_id: "LoneStar"
-    char_name: "New Actor"
+    char_name: "Renraku Samuri Heavy Weapons"
     GeneralTags: "step20"
     enabled_at_start: false
     pc_spawn_number: -1
-    cyberware_body: "tattoo_body_earth"
+    cyberware_body: "Dermal Plating Mk 2"
+    cyberware_left_arm: "Muscle Augmentation"
     portrait {
       filename: ""
     }
-    karma: 105
+    karma: 98
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -61
+    x: -68
     y: 0
-    z: -87
+    z: -80
   }
-  orientation: ORIENTATION_E
+  orientation: ORIENTATION_S
   GeneralTags: "step20"
   displayName: "red sam"
   idRef {
@@ -20193,9 +20342,9 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
-    character_sheet_id: "Lonestar_Lv6_Heavy_SMG"
-    equipment_sheet_id: "Lonestar_Lv6_SMG_Gear"
+    character_sheet_id: "Lonestar_Lv5_Human_Mage"
     equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
+    equipment_sheet_id: "Errant_Lv4_Shaman"
     character_mod {
       stats {
         body: 0
@@ -20225,10 +20374,10 @@ characters {
         ranged_combat: 0
         close_combat: 0
         throwing_weapons: 0
-        spellcasting: 0
+        spellcasting: -4
         decking: 0
-        conjuring: 0
-        spirit_summoning: 0
+        conjuring: 5
+        spirit_summoning: 4
         drone_control: 0
         biotech: 0
         dodge: 0
@@ -20248,7 +20397,7 @@ characters {
         smg: 0
         edged: 0
         unarmed: 0
-        spirit_control: 0
+        spirit_control: 4
         esp_control: 0
         drone_combat: 0
       }
@@ -20256,6 +20405,9 @@ characters {
       attitude: AttitudeAggressive
       vulnerabilities {
       }
+    }
+    equipment {
+      prefab_name: "Berlin_IdolDragonslayer"
     }
     team_id: "LoneStar"
     char_name: "New Actor"
@@ -20266,15 +20418,15 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 105
+    karma: 114
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -62
+    x: -63
     y: 0
-    z: -88
+    z: -94
   }
   orientation: ORIENTATION_E
   GeneralTags: "step20"
@@ -20286,8 +20438,6 @@ characters {
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
     character_sheet_id: "Lonestar_Lv6_Heavy_SMG"
-    equipment_sheet_id: "Lonestar_Lv6_SMG_Gear"
-    equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     character_mod {
       stats {
         body: 0
@@ -20314,7 +20464,7 @@ characters {
         vision_cone_angle: 0
       }
       skills {
-        ranged_combat: 0
+        ranged_combat: 1
         close_combat: 0
         throwing_weapons: 0
         spellcasting: 0
@@ -20335,9 +20485,9 @@ characters {
       }
       specializations {
         pistol: 0
-        rifle: 0
+        rifle: 2
         shotgun: 0
-        smg: 0
+        smg: -2
         edged: 0
         unarmed: 0
         spirit_control: 0
@@ -20349,24 +20499,27 @@ characters {
       vulnerabilities {
       }
     }
+    equipment {
+      prefab_name: "Berlin_SR 2 Walther MA-2100"
+    }
     team_id: "LoneStar"
-    char_name: "New Actor"
+    char_name: "Red Samuri Sniper"
     GeneralTags: "step20"
     enabled_at_start: false
     pc_spawn_number: -1
-    cyberware_body: "tattoo_body_earth"
+    cyberware_eyes: "Vision Magnification Eyes 2"
     portrait {
       filename: ""
     }
-    karma: 105
+    karma: 111
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -61
+    x: -60
     y: 0
-    z: -88
+    z: -94
   }
   orientation: ORIENTATION_E
   GeneralTags: "step20"
@@ -20378,8 +20531,6 @@ characters {
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
     character_sheet_id: "Lonestar_Lv6_Heavy_SMG"
-    equipment_sheet_id: "Lonestar_Lv6_SMG_Gear"
-    equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     character_mod {
       stats {
         body: 0
@@ -20427,9 +20578,9 @@ characters {
       }
       specializations {
         pistol: 0
-        rifle: 0
+        rifle: 2
         shotgun: 0
-        smg: 0
+        smg: -2
         edged: 0
         unarmed: 0
         spirit_control: 0
@@ -20441,12 +20592,16 @@ characters {
       vulnerabilities {
       }
     }
+    equipment {
+      prefab_name: "Berlin_SR 2 Walther MA-2100"
+    }
     team_id: "LoneStar"
     char_name: "New Actor"
     GeneralTags: "step20"
     enabled_at_start: false
     pc_spawn_number: -1
-    cyberware_body: "tattoo_body_earth"
+    cyberware_eyes: "Vision Magnification Eyes 2"
+    cyberware_left_arm: "Berlin_Induction Datajack"
     portrait {
       filename: ""
     }
@@ -20456,11 +20611,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -61
+    x: -68
     y: 0
-    z: -86
+    z: -84
   }
-  orientation: ORIENTATION_E
+  orientation: ORIENTATION_S
   GeneralTags: "step20"
   displayName: "red mage"
   idRef {
@@ -20470,7 +20625,6 @@ characters {
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
     character_sheet_id: "Lonestar_Lv5_Human_Mage"
-    equipment_sheet_id: "Lonestar_Lv6_SMG_Gear"
     equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     equipment_sheet_id: "Lonestar_Lv6_Mage_Gear"
     character_mod {
@@ -20543,7 +20697,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 89
+    karma: 94
   }
 }
 characters {
@@ -21507,7 +21661,7 @@ characters {
   gridPoint {
     x: -61
     y: 0
-    z: -84
+    z: -89
   }
   orientation: ORIENTATION_E
   GeneralTags: "step20"
@@ -21523,14 +21677,14 @@ characters {
     character_mod {
       stats {
         body: 0
-        quickness: 0
-        strength: 0
+        quickness: 1
+        strength: 1
         charisma: 0
         intelligence: 0
         willpower: 0
         essence: 0
         magic: 0
-        hp: 0
+        hp: 10
         ap: 0
         armor: 0
         force: 0
@@ -21571,7 +21725,7 @@ characters {
         pistol: 0
         rifle: 0
         shotgun: 0
-        smg: 0
+        smg: 2
         edged: 6
         unarmed: 0
         spirit_control: 0
@@ -21595,7 +21749,7 @@ characters {
     portrait {
       filename: "backerpc_humanmale_davidfry_joshuamorgan"
     }
-    karma: 147
+    karma: 166
   }
 }
 variables {

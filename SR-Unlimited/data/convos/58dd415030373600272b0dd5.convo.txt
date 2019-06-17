@@ -33,7 +33,7 @@ nodes {
   index: 2
   text: "Drek. $(l.name), You picked an awful to to go walkabout. You skipped out and left with with two tickets to Space Amazons."
   branches {
-    responseText: "And here I thought you were selling me out to Renraku. Tell Soka who I am sure you do not know that I have the box."
+    responseText: "And here I thought you were selling me out to Renraku. Tell Soka who I am sure you do not know that I have the box. I\'ll even describe it so he knows it\'s real."
     nextNodeIndex: 3
   }
   nodeType: ConversationNodeType_Simple
@@ -45,7 +45,7 @@ nodes {
   index: 3
   text: "Listen, I don\'t know..."
   branches {
-    responseText: "_He_ can pick it up _in person_ at the Rats Nest Fight Club tommorow at Nine PM."
+    responseText: "_He_ can pick it up _in person_ at the Rats Nest Fight Club tomorrow at Nine PM. It\'s a small green box with black trim. It has scratches on all sides revealing dark wood. It has no obvious ltch or way to open it but it does ave a large amber crystal on one side that glow with gold colored, constantly shifting runes.\n\n{{GM}}You flash a picture of it at the screen.{{/CC}}"
     nextNodeIndex: 4
   }
   nodeType: ConversationNodeType_Simple
@@ -55,28 +55,63 @@ nodes {
     id: "58dd443a30373600272b0df7"
   }
   index: 4
-  text: "Okay, but I didn;t want to they were, uh  going to kill my family.\n\n{{GM}}Click{{/GM}}"
+  text: "Okay, but I didn\'t want to they were, uh  going to kill my family.\n\n{{GM}}Click{{/GM}}"
   nodeType: ConversationNodeType_Simple
   actions {
     ops {
-      functionName: "Set Variable (int)"
+      functionName: "Set Variable (bool)"
       args {
         call_value {
-          functionName: "Get Story Variable (int)"
+          functionName: "Get Story Variable (bool)"
           args {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "StoryStep"
+            string_value: "Called_Andy"
           }
         }
       }
       args {
-        int_value: 19
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
       }
     }
   }
 }
 roots {
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Call_Andy"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
   nextNodeIndex: 0
 }
