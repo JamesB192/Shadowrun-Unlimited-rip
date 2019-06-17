@@ -9,7 +9,7 @@ nodes {
   index: 0
   text: "Why yes I am? I assume you\'re the one Frosty sent?"
   branches {
-    responseText: "I\'m $(l.name).I understand you know about corporations."
+    responseText: "I\'m $(s.name).I understand you know about corporations."
     nextNodeIndex: 1
   }
   nodeType: ConversationNodeType_Simple
@@ -21,7 +21,7 @@ nodes {
   index: 1
   text: "Yes, and I\'ll part with it for free the first time as a favor to Frosty. After that it isn\'t free."
   branches {
-    responseText: "A Mtsuhama RHQ employee has a sculpture I need.\n\n{{GM}}Yu give him a description.{{/GM}}"
+    responseText: "A Mtsuhama RHQ employee has a sculpture I need.\n\n{{GM}}You give him a description.{{/GM}}"
     nextNodeIndex: 2
   }
   nodeType: ConversationNodeType_Simple
@@ -54,11 +54,11 @@ nodes {
   }
   branches {
     responseText: "Is the security force itself any different."
-    nextNodeIndex: -1
+    nextNodeIndex: 12
   }
   branches {
     responseText: "Nothing more."
-    nextNodeIndex: 12
+    nextNodeIndex: 16
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -69,54 +69,139 @@ nodes {
   index: 4
   text: "There is a helicopter on the roof. The left elevator has a panel hiding the access. As a favor to frosty I can give you today\'s code."
   branches {
-    responseText: "Thank you."
-    nextNodeIndex: 3
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Add Item to Team"
-      args {
-        call_value {
-          functionName: "Get Map Item (Item)"
-          args {
-            string_value: "Elev_Codes_1"
+    responseText: "I\'ve already got them."
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
           }
         }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (string)"
-          args {
-            string_value: "FactionList"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
           }
         }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (SceneDimension)"
-          args {
-            string_value: "Default"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Elev_Codes_1"
+            }
           }
         }
       }
     }
+    nextNodeIndex: 3
+    hideIfUnavailable: true
+    auxiliaryLink: true
   }
+  branches {
+    responseText: "Thank you."
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Elev_Codes_1"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add Item to Team"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Elev_Codes_1"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 3
+    hideIfUnavailable: true
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
 }
 nodes {
   idRef {
@@ -225,9 +310,73 @@ nodes {
 }
 nodes {
   idRef {
-    id: "5d00b445396639fc29001aa6"
+    id: "5d04934739663984100045c1"
   }
   index: 12
+  text: "Yes. They add a few roof guards. The alarm reinforcements now include a Knight-Errent Captain, Magical Support, and someone on loan from a soutce I don\'t know yet. But that\'s not the worst part."
+  branches {
+    responseText: "Yeah. What is?"
+    nextNodeIndex: 13
+  }
+  branches {
+    responseText: "Well, don\'t keep me in suspense."
+    nextNodeIndex: 14
+  }
+  branches {
+    responseText: "Unless you\'re about to say they have a nuke it won\'t be a problem for me."
+    nextNodeIndex: 15
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d0528173966398410004731"
+  }
+  index: 13
+  text: "They installed a rapid response system. So they will get to wherever the elevator is quite quickly."
+  branches {
+    responseText: "Great so I\'ll only have a little time once the alarm goes off. So what else?"
+    nextNodeIndex: 3
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d0529453966398410004800"
+  }
+  index: 14
+  text: "As I was going to the worst is the rapid response system. So they will get to wherever the elevator is quite quickly."
+  branches {
+    responseText: "Yeah for me. Guess I better avoid setting off alarms then. Anything else?"
+    nextNodeIndex: 3
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d052a853966398410004910"
+  }
+  index: 15
+  text: "You might change your tune when you hear about the rapid response system. They can get to where the elevator is quite quickly."
+  branches {
+    responseText: "That will complicate things. Thanks for the heads up. What else you got?"
+    nextNodeIndex: 3
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "That just means they\'ll die faster. Anything else?"
+    nextNodeIndex: 3
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d00b445396639fc29001aa6"
+  }
+  index: 16
   text: "If you need me in the future you can reach me the same way."
   nodeType: ConversationNodeType_Simple
   actions {
@@ -256,13 +405,47 @@ nodes {
         }
       }
     }
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+      args {
+        string_value: "Time to break into Mitsuhama RHQ in the Northside."
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Journal"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "text"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+    }
   }
 }
 nodes {
   idRef {
     id: "5cfb12c0396639e01e00246e"
   }
-  index: 13
+  index: 17
   text: "Yes I am, and I assume our from Frosty. I wish she had told me how frightfuly rude you are."
   branches {
     responseText: "She said you had info on the megacorps."
@@ -312,6 +495,7 @@ roots {
     }
   }
   nextNodeIndex: 0
+  hideIfUnavailable: true
 }
 roots {
   responseText: "Mister Score I presume?"
@@ -354,6 +538,7 @@ roots {
     }
   }
   nextNodeIndex: 0
+  hideIfUnavailable: true
   auxiliaryLink: true
 }
 roots {
@@ -396,5 +581,78 @@ roots {
       }
     }
   }
-  nextNodeIndex: 13
+  nextNodeIndex: 17
+  hideIfUnavailable: true
+}
+roots {
+  responseText: "Still willing to do Frosty that favor and tell me about Mitsuhama?"
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Story_Mission"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 10
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Corp_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 2
+  hideIfUnavailable: true
+  auxiliaryLink: true
 }
