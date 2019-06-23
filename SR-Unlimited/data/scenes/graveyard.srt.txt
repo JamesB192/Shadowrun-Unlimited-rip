@@ -4,6 +4,14 @@ triggers {
     ops {
       functionName: "On Map Start"
     }
+    ops {
+      functionName: "On New Round"
+      args {
+        call_value {
+          functionName: "Nothing Selected"
+        }
+      }
+    }
   }
   conditions {
   }
@@ -1779,7 +1787,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Chet Spawn 1 Trigger"
+  name: "on(Chet Check) Chet Spawn 1"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -1789,34 +1797,6 @@ triggers {
     }
   }
   conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "StoryStep"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        int_value: 14
-      }
-    }
     ops {
       functionName: "Comparison (bool)"
       args {
@@ -1853,136 +1833,6 @@ triggers {
         }
       }
     }
-  }
-  actions {
-    ops {
-      functionName: "Send Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Chet Spawn 1"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "52841a20336331f82d001b23"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Chet Spawn 2 Trigger"
-  events {
-    ops {
-      functionName: "Get Map Item (Event)"
-      args {
-        string_value: "Chet Check"
-      }
-    }
-  }
-  conditions {
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "StoryStep"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-      args {
-        int_value: 14
-      }
-    }
-    ops {
-      functionName: "Comparison (bool)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (bool)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Run_Factor_3"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-    }
-  }
-  actions {
-    ops {
-      functionName: "Send Event"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "Chet Spawn 2"
-          }
-        }
-      }
-    }
-  }
-  isActive: true
-  idRef {
-    id: "52841a8f336331f82d001b24"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
-  name: "Chet Spawn 1"
-  events {
-    ops {
-      functionName: "Get Map Item (Event)"
-      args {
-        string_value: "Chet Spawn 1"
-      }
-    }
-  }
-  conditions {
   }
   actions {
     ops {
@@ -2288,16 +2138,52 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Chet Spawn 2"
+  name: "on(Chet Check) Chet Spawn 2"
   events {
     ops {
       functionName: "Get Map Item (Event)"
       args {
-        string_value: "Chet Spawn 2"
+        string_value: "Chet Check"
       }
     }
   }
   conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Run_Factor_3"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
   }
   actions {
     ops {
@@ -3400,7 +3286,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "Night Check"
+  name: "on(Night Check) Chet Check"
   events {
     ops {
       functionName: "Get Map Item (Event)"
@@ -3457,17 +3343,296 @@ triggers {
     id: "52841ca6336331541e004f3d"
   }
   elseActions {
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "5d0f9057393563642c004787"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Display Text at Screen Position"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TextPopupStyle"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        string_value: "I should hide somewhere until nightfall. Let the Yakua guards pass by and ambush Chet. Yeah."
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 0
+      }
+      args {
+        float_value: 5
+      }
+      args {
+        float_value: 3
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Set Variable (float)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (float)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Daylight"
+          }
+        }
+      }
+      args {
+        float_value: 14
+      }
+    }
+    ops {
+      functionName: "Trigger: Run Alternate Trigger"
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "59f9030f6537373c3e000a6a"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Teleport Actor"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Current Location of Prop"
+          args {
+            call_value {
+              functionName: "Get Map Item (Prop)"
+              args {
+                string_value: "5d0f9148393563642c004789"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TeleportMethod"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
   }
   is_oneshot: true
 }
 triggers {
-  name: "Night Check Trigger"
+  name: "on(start) Night Check"
   events {
     ops {
       functionName: "On Map Start"
     }
   }
   conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 14
+      }
+    }
   }
   actions {
     ops {
