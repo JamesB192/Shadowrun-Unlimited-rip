@@ -1054,7 +1054,7 @@ nodes {
         }
       }
       args {
-        string_value: "I need to retrieve the item from the top floor of Mitsuhama HQ. Maybe a fixer who knows decking knows someone."
+        string_value: "I need to retrieve the item from the Mitsuhama HQ. Maybe a fixer who knows decking knows someone."
       }
     }
     ops {
@@ -1210,7 +1210,49 @@ nodes {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
+            string_value: "Information"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Current_Run_Description"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
             string_value: "Run_Location"
+          }
+        }
+      }
+      args {
+        string_value: "Mitsuhama HQ"
+      }
+    }
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Current_Run-Location"
           }
         }
       }
@@ -1230,7 +1272,7 @@ nodes {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "Current_Run_Description"
+            string_value: "Information"
           }
         }
       }
@@ -4944,6 +4986,26 @@ nodes {
     }
   }
 }
+nodes {
+  idRef {
+    id: "5d0ae2d2396639b01700440e"
+  }
+  index: 50
+  text: "You got it?"
+  branches {
+    responseText: "Not yet."
+    nextNodeIndex: 51
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d0ae314396639b01700449f"
+  }
+  index: 51
+  text: "Then get to it."
+  nodeType: ConversationNodeType_Simple
+}
 roots {
   responseText: ""
   conditions {
@@ -7541,4 +7603,72 @@ roots {
     }
   }
   nextNodeIndex: 46
+}
+roots {
+  responseText: ""
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Story_Mission"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 10
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor Has Item"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Sculpture"
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 50
 }

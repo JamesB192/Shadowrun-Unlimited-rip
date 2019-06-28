@@ -264,7 +264,7 @@ nodes {
   index: 1
   text: ""
   branches {
-    responseText: "The Guard belief shows in his face and that he\'s longer reaching for a gun. You see $(s.him) mutter into a communication system, to tell the other guards you\'re alright"
+    responseText: "The Guard belief shows in $(s.his) face and that $(s.he)\'s no longer reaching for a gun. You see $(s.him) mutter into a communication system, to tell the other guards you\'re alright"
     conditions {
       ops {
         functionName: "Comparison (int)"
@@ -387,11 +387,94 @@ nodes {
           }
         }
       }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Bluff_Successful"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Clear Actor Orders"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Enable/Disable Trigger"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "EnableOrDisable"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "52c5a49c336331b01900140c"
+            }
+          }
+        }
+      }
     }
     nextNodeIndex: -1
+    hideIfUnavailable: true
   }
   branches {
-    responseText: "The disbelief is clear in his face and action, $(s.he) shouts into a collar mike for backup and that your team is a fake."
+    responseText: "The disbelief is clear in $(s.his) face and action, $(s.he) shouts into a collar mike for backup and that your team is a fake."
     conditions {
       ops {
         functionName: "Comparison (int)"
@@ -458,6 +541,7 @@ nodes {
       }
     }
     nextNodeIndex: -1
+    hideIfUnavailable: true
   }
   nodeType: ConversationNodeType_Simple
   actions {
@@ -601,33 +685,6 @@ nodes {
 }
 roots {
   conditions {
-    ops {
-      functionName: "Match (string)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (string)"
-          args {
-          }
-          args {
-            string_value: "Run_Location"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        string_value: "Mitsuhama HQ"
-      }
-    }
     ops {
       functionName: "Comparison (int)"
       args {

@@ -14149,6 +14149,58 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5d0eec30396639001f0010a2"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "58dbf37d303736104a89d1b0"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "58de4c2e303736f53bb68215"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -20344,7 +20396,6 @@ characters {
     prefab_name: "Seattle:Story/RenrakuSamurai"
     character_sheet_id: "Lonestar_Lv5_Human_Mage"
     equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
-    equipment_sheet_id: "Errant_Lv4_Shaman"
     character_mod {
       stats {
         body: 0
@@ -20355,9 +20406,9 @@ characters {
         willpower: 0
         essence: 0
         magic: 0
-        hp: 0
+        hp: 10
         ap: 0
-        armor: 0
+        armor: 3
         force: 0
         morale: 0
         discipline: 0
@@ -20409,8 +20460,17 @@ characters {
     equipment {
       prefab_name: "Berlin_IdolDragonslayer"
     }
+    equipment {
+      prefab_name: "Berlin_Spell Toxic Bolt 2"
+    }
+    equipment {
+      prefab_name: "Spell Slow 2"
+    }
+    equipment {
+      prefab_name: "Berlin_Spell Slow 1"
+    }
     team_id: "LoneStar"
-    char_name: "New Actor"
+    char_name: "Red Samuri Shaman"
     GeneralTags: "step20"
     enabled_at_start: false
     pc_spawn_number: -1
@@ -20464,7 +20524,7 @@ characters {
         vision_cone_angle: 0
       }
       skills {
-        ranged_combat: 1
+        ranged_combat: 0
         close_combat: 0
         throwing_weapons: 0
         spellcasting: 0
@@ -20485,7 +20545,7 @@ characters {
       }
       specializations {
         pistol: 0
-        rifle: 2
+        rifle: 1
         shotgun: 0
         smg: -2
         edged: 0
@@ -20511,101 +20571,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 111
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -60
-    y: 0
-    z: -94
-  }
-  orientation: ORIENTATION_E
-  GeneralTags: "step20"
-  displayName: "red sam"
-  idRef {
-    id: "58de2f2e303736f53bb681f4"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Story/RenrakuSamurai"
-    character_sheet_id: "Lonestar_Lv6_Heavy_SMG"
-    character_mod {
-      stats {
-        body: 0
-        quickness: 0
-        strength: 0
-        charisma: 0
-        intelligence: 0
-        willpower: 0
-        essence: 0
-        magic: 0
-        hp: 0
-        ap: 0
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-        vision_peripheral_distance: 0
-        vision_cone_distance: 0
-        vision_cone_angle: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 0
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 2
-        shotgun: 0
-        smg: -2
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    equipment {
-      prefab_name: "Berlin_SR 2 Walther MA-2100"
-    }
-    team_id: "LoneStar"
-    char_name: "New Actor"
-    GeneralTags: "step20"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    cyberware_eyes: "Vision Magnification Eyes 2"
-    cyberware_left_arm: "Berlin_Induction Datajack"
-    portrait {
-      filename: ""
-    }
-    karma: 105
+    karma: 103
   }
 }
 characters {
@@ -20689,7 +20655,7 @@ characters {
       }
     }
     team_id: "LoneStar"
-    char_name: "New Actor"
+    char_name: "Red Samuri Mage"
     GeneralTags: "step20"
     enabled_at_start: false
     pc_spawn_number: -1
@@ -20697,7 +20663,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 94
+    karma: 89
   }
 }
 characters {

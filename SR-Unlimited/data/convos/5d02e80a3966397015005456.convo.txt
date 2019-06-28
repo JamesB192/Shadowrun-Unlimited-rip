@@ -13,12 +13,14 @@ nodes {
     nextNodeIndex: 1
   }
   branches {
-    responseText: "Go for $(l.name)\'s phone."
-    nextNodeIndex: 2
+    responseText: "Go for $(s.name)\'s phone."
+    nextNodeIndex: 1
+    auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Answer, but say nothing...{{/GM}}"
-    nextNodeIndex: 3
+    nextNodeIndex: 1
+    auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -55,72 +57,36 @@ nodes {
         }
       }
     }
-  }
-}
-nodes {
-  idRef {
-    id: "5d02e9ad3966397015005470"
-  }
-  index: 2
-  text: "I finally found the picture!! And oh yeah, this is Piper.\n\n{{GM}}He hangs up before you can reply.{{/GM}}"
-  nodeType: ConversationNodeType_Simple
-  actions {
     ops {
-      functionName: "Set Variable (bool)"
+      functionName: "Set Variable (string)"
       args {
         call_value {
-          functionName: "Get Story Variable (bool)"
+          functionName: "Get Story Variable (string)"
           args {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "Piper_Called"
+            string_value: "PlotInformation"
           }
         }
       }
       args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
-          }
-        }
+        string_value: "Go see Piper."
       }
     }
-  }
-}
-nodes {
-  idRef {
-    id: "5d02e9ad3966397015005470"
-  }
-  index: 3
-  text: "I finally found the picture!! And oh yeah, this is Piper.\n\n{{GM}}He hangs up before you can reply.{{/GM}}"
-  nodeType: ConversationNodeType_Simple
-  actions {
     ops {
-      functionName: "Set Variable (bool)"
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Journal"
+      }
       args {
         call_value {
-          functionName: "Get Story Variable (bool)"
+          functionName: "Get Story Variable (string)"
           args {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "Piper_Called"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
+            string_value: "PlotInformation"
           }
         }
       }
@@ -138,7 +104,7 @@ roots {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "SideStory_1_Step"
+            string_value: "StoryStep"
           }
         }
       }
@@ -155,6 +121,42 @@ roots {
       }
       args {
         int_value: 21
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Piper_Called"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
       }
     }
   }

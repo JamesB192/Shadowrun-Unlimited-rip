@@ -53,15 +53,63 @@ nodes {
         }
       }
       ops {
-        functionName: "Set Alarm State"
+        functionName: "Send Event"
         args {
           call_value {
-            functionName: "Get Preset Value (int)"
+            functionName: "Get Map Item (Event)"
             args {
-              string_value: "bool"
+              string_value: "Alarm"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
             }
             args {
-              int_value: 1
+              string_value: "Respons_Delay"
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Information"
+            }
+          }
+        }
+        args {
+          string_value: "I have the sculture time to take it to Vigor."
+        }
+      }
+      ops {
+        functionName: "Set Screen Label"
+        args {
+          string_value: "Journal"
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "text"
+            }
+            args {
+              string_value: "Information"
             }
           }
         }
@@ -98,7 +146,7 @@ roots {
             string_value: "HasOrHasNot"
           }
           args {
-            int_value: 1
+            int_value: 0
           }
         }
       }
