@@ -48,8 +48,90 @@ nodes {
     nextNodeIndex: -1
   }
   branches {
-    responseText: "I need a DocWagon contract {{GM}}Allows respawns upon death{{/GM}}."
+    responseText: "{{GM}}under construction{{/GM}}\nMedical Supplies 2"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Actor Skill"
+                args {
+                  call_value {
+                    functionName: "Triggering Actor"
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "BaseOrCurrent"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "ActorSkills"
+                    }
+                    args {
+                      int_value: 18
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "rapport_doc1"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 1
+  }
+  branches {
+    responseText: "I need a DocWagon contract {{GM}}Allows respawns upon death{{/GM}}."
+    nextNodeIndex: 6
   }
   branches {
     responseText: "Nevermind."
@@ -59,12 +141,685 @@ nodes {
 }
 nodes {
   idRef {
-    id: "51f53ad2336331181d003e04"
+    id: "5dcba61e343032242600697c"
   }
   index: 1
+  text: ""
+  branches {
+    responseText: "BuMoNa trauma kit "
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "ft3dice-hardness"
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "ft3dice-poolsize"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Actor Skill"
+                args {
+                  call_value {
+                    functionName: "Triggering Actor"
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "BaseOrCurrent"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "ActorSkills"
+                    }
+                    args {
+                      int_value: 18
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "rapport_doc1"
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Trigger: Run Alternate Trigger By Name"
+        args {
+          string_value: "ft3dice-start"
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WaitOrNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Genera_Use"
+            }
+          }
+        }
+        args {
+          int_value: 3
+        }
+      }
+    }
+    nextNodeIndex: 2
+  }
+  branches {
+    responseText: "{{GM}}Parent{{/GM}}"
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "goodbye"
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5dcbb0333430322426006ae6"
+  }
+  index: 2
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "ft3dice-ones"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "ft3dice-poolsize"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 3
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "ft3dice-successes"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 4
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "ft3dice-successes"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Genera_Use"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Genera_Use"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Variable (int)"
+                args {
+                  string_value: "ft3dice-successes"
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Genera_Use"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  call_value {
+                    functionName: "Arithmetic (int)"
+                    args {
+                      int_value: 99
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "Arithmetic Ops"
+                        }
+                        args {
+                          int_value: 0
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Story Variable (int)"
+                        args {
+                          string_value: "51f15c62336331d02c00440e"
+                        }
+                        args {
+                          string_value: "Genera_Use"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Absolute Value (int)"
+                    args {
+                      call_value {
+                        functionName: "Arithmetic (int)"
+                        args {
+                          int_value: 99
+                        }
+                        args {
+                          call_value {
+                            functionName: "Get Preset Value (int)"
+                            args {
+                              string_value: "Arithmetic Ops"
+                            }
+                            args {
+                              int_value: 1
+                            }
+                          }
+                        }
+                        args {
+                          call_value {
+                            functionName: "Get Story Variable (int)"
+                            args {
+                              string_value: "51f15c62336331d02c00440e"
+                            }
+                            args {
+                              string_value: "Genera_Use"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Genera_Use"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  call_value {
+                    functionName: "Arithmetic (int)"
+                    args {
+                      int_value: 1
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "Arithmetic Ops"
+                        }
+                        args {
+                          int_value: 0
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Story Variable (int)"
+                        args {
+                          string_value: "51f15c62336331d02c00440e"
+                        }
+                        args {
+                          string_value: "Genera_Use"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Absolute Value (int)"
+                    args {
+                      call_value {
+                        functionName: "Arithmetic (int)"
+                        args {
+                          int_value: 1
+                        }
+                        args {
+                          call_value {
+                            functionName: "Get Preset Value (int)"
+                            args {
+                              string_value: "Arithmetic Ops"
+                            }
+                            args {
+                              int_value: 1
+                            }
+                          }
+                        }
+                        args {
+                          call_value {
+                            functionName: "Get Story Variable (int)"
+                            args {
+                              string_value: "51f15c62336331d02c00440e"
+                            }
+                            args {
+                              string_value: "Genera_Use"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 3
+                }
+              }
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 5
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5dcbb05e3430322426006ae9"
+  }
+  index: 3
+  text: "I hate you forever. Leave now."
+  branches {
+    responseText: "{{GM}}Kicked out{{/GM}}"
+    actions {
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "puyullup barrens"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "rapport_doc1"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Arithmetic (int)"
+                  args {
+                    int_value: 19
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "Arithmetic Ops"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "rapport_doc1"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 3
+              }
+            }
+          }
+          args {
+            int_value: 20
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5dcbb20f3430322426006b0b"
+  }
+  index: 4
+  text: "There are none available on the local market at this time."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5dcbb5213430322426006b71"
+  }
+  index: 5
+  text: "If I were allowed to sell that it would take me $(story.Genera_Use) day(s) to track down."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "51f53ad2336331181d003e04"
+  }
+  index: 6
   text: "I can only offer you Basic coverage. Basic coverage allows our team of paramedics to revive you once per map. It includes a 250\302\245 surcharge to the paramedics for reviving you."
   branches {
-    responseText: "{{CC}}$100 Upkeep every day{{/CC}} The Basic package."
+    responseText: "{{CC}}100\302\245 Upkeep every day{{/CC}} The Basic package."
     conditions {
       ops {
         functionName: "Comparison (int)"
@@ -226,11 +981,11 @@ nodes {
   idRef {
     id: "52bdadd1336331141b00289f"
   }
-  index: 2
+  index: 7
   text: "It\'s actually Dr. Castle, Sara is my first name. Is there something I can help you with?"
   branches {
     responseText: "Sorry. I here to deliver a package from Lucy, from the Organ Grinders in Redmond."
-    nextNodeIndex: 3
+    nextNodeIndex: 8
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -238,7 +993,7 @@ nodes {
   idRef {
     id: "52bdae1e336331141b0028a2"
   }
-  index: 3
+  index: 8
   text: "Oh yes! I\'ve been expecting you. Hand it over then."
   branches {
     responseText: "Here you are. And my payment?"
@@ -323,7 +1078,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 4
+    nextNodeIndex: 9
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -331,7 +1086,7 @@ nodes {
   idRef {
     id: "52bdae70336331141b0028a5"
   }
-  index: 4
+  index: 9
   text: "You must be new to this kind of thing. If I were you, I would head outside and call your handler on your commlink and he should transfer the payment."
   branches {
     responseText: "Will do."
@@ -486,6 +1241,6 @@ roots {
       }
     }
   }
-  nextNodeIndex: 2
+  nextNodeIndex: 7
   hideIfUnavailable: true
 }
