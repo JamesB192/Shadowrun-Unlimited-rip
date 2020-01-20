@@ -1087,7 +1087,7 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
-    responseText: "Runners"
+    responseText: "Informants"
     conditions {
       ops {
         functionName: "Evaluate If Actor Has Item"
@@ -1151,12 +1151,40 @@ nodes {
           int_value: 0
         }
       }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "StoryStep"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 20
+        }
+      }
     }
     nextNodeIndex: 2
     hideIfUnavailable: true
   }
   branches {
-    responseText: "Fixers"
+    responseText: "Runners"
     conditions {
       ops {
         functionName: "Evaluate If Actor Has Item"
@@ -1225,12 +1253,81 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
-    responseText: "{{GM}}Increase Non-Combat Skills{{/GM}}"
+    responseText: "Fixers"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Commlink"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "comm-jammed"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
     nextNodeIndex: 4
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{GM}}Increase Non-Combat Skills{{/GM}}"
+    nextNodeIndex: 5
   }
   branches {
     responseText: "Asset Management"
-    nextNodeIndex: 11
+    nextNodeIndex: 12
   }
   branches {
     responseText: "Call a Taxi"
@@ -1816,9 +1913,244 @@ nodes {
 }
 nodes {
   idRef {
-    id: "53ed4fab386461800400898e"
+    id: "5d1e6658396639fc27000875"
   }
   index: 2
+  text: "Informants"
+  branches {
+    responseText: "Corps - Mike Score"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Corp_Number"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Start Conversation Between Actors"
+        args {
+          call_value {
+            functionName: "Get Map Item (Conversation)"
+            args {
+              string_value: "5cfb0f85396639e01e002442"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Player)"
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Nearest Tagged Actor to Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "Mike_Score"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Play Animation From Manifest"
+        args {
+          call_value {
+            functionName: "Get Map Item (Player)"
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Animation)"
+            args {
+              string_value: "Seattle:General/standing_idle_talking"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Security - Gouhin"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Security_Number"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Start Conversation"
+        args {
+          call_value {
+            functionName: "Get Map Item (Conversation)"
+            args {
+              string_value: "5dfd34273966397410002d16"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Nearest Tagged Actor to Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "Gouhin"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Play Animation From Manifest"
+        args {
+          call_value {
+            functionName: "Get Map Item (Player)"
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Animation)"
+            args {
+              string_value: "Seattle:General/standing_idle_talking"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Back to parent"
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "53ed4fab386461800400898e"
+  }
+  index: 3
   text: "Runners"
   branches {
     responseText: "Call Ricky the Raccoon shaman."
@@ -3013,7 +3345,7 @@ nodes {
   idRef {
     id: "53ed4fc2386461800400899c"
   }
-  index: 3
+  index: 4
   text: "Fixers"
   branches {
     responseText: "Call Eric Gunderson."
@@ -3450,31 +3782,31 @@ nodes {
   idRef {
     id: "5442e76c363735140a006f7d"
   }
-  index: 4
+  index: 5
   text: ""
   branches {
     responseText: "Negotiation: $(story.Custom_Skill-Negotiation)"
-    nextNodeIndex: 5
-  }
-  branches {
-    responseText: "Lockpicking: $(story.Custom_Skill-Lockpicking)"
     nextNodeIndex: 6
   }
   branches {
-    responseText: "Electronics: $(story.Custom_Skill-Electronics)"
+    responseText: "Lockpicking: $(story.Custom_Skill-Lockpicking)"
     nextNodeIndex: 7
   }
   branches {
-    responseText: "Fast Talking: $(story.Custom_Skill-Fast_Talking)"
+    responseText: "Electronics: $(story.Custom_Skill-Electronics)"
     nextNodeIndex: 8
   }
   branches {
-    responseText: "Stealth: $(story.Custom_Skill-Stealth)"
+    responseText: "Fast Talking: $(story.Custom_Skill-Fast_Talking)"
     nextNodeIndex: 9
   }
   branches {
-    responseText: "Dispelling: $(story.Custom_Skill-Dispelling)"
+    responseText: "Stealth: $(story.Custom_Skill-Stealth)"
     nextNodeIndex: 10
+  }
+  branches {
+    responseText: "Dispelling: $(story.Custom_Skill-Dispelling)"
+    nextNodeIndex: 11
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
@@ -3491,7 +3823,7 @@ nodes {
   idRef {
     id: "5442e77a363735140a006f81"
   }
-  index: 5
+  index: 6
   text: "{{GM}}Negotiation{{/GM}}\n\nThis skill will allow you to negotiate larger pay-outs for runs.\n\nRequires an equal level of {{CC}}Charisma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Negotiation)"
   branches {
     responseText: "Buy a point of Negotiation"
@@ -3662,12 +3994,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 5
+    nextNodeIndex: 6
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 4
+    nextNodeIndex: 5
     auxiliaryLink: true
   }
   branches {
@@ -3680,7 +4012,7 @@ nodes {
   idRef {
     id: "5442e77a363735140a006f81"
   }
-  index: 6
+  index: 7
   text: "{{GM}}Lockpicking{{/GM}}\n\nThis skill will allow you to bypass tumbler-locked doors.\n\nRequires an equal level of {{CC}}Quickness{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Lockpicking)"
   branches {
     responseText: "Buy a point of Lockpicking"
@@ -3851,12 +4183,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 6
+    nextNodeIndex: 7
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 4
+    nextNodeIndex: 5
     auxiliaryLink: true
   }
   branches {
@@ -3869,7 +4201,7 @@ nodes {
   idRef {
     id: "5442e77a363735140a006f81"
   }
-  index: 7
+  index: 8
   text: "{{GM}}Electronics{{/GM}}\n\nThis skill is used to rewire or repair electronics. Primarily used to bypass MagLocked doors.\n\nRequires an equal level of {{CC}}Intelligence{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Electronics)"
   branches {
     responseText: "Buy a point of Electronics"
@@ -4040,12 +4372,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 8
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 4
+    nextNodeIndex: 5
     auxiliaryLink: true
   }
   branches {
@@ -4058,7 +4390,7 @@ nodes {
   idRef {
     id: "5442e77a363735140a006f81"
   }
-  index: 8
+  index: 9
   text: "{{GM}}Fast Talking{{/GM}}\n\nThis skill is used to lie convincingly. Primarily used to bypass guards and civilians non-violently.\n\nRequires an equal level of {{CC}}Charisma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Fast_Talking)"
   branches {
     responseText: "Buy a point of Fast-talk"
@@ -4229,12 +4561,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 8
+    nextNodeIndex: 9
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 4
+    nextNodeIndex: 5
     auxiliaryLink: true
   }
   branches {
@@ -4247,7 +4579,7 @@ nodes {
   idRef {
     id: "5442e77a363735140a006f81"
   }
-  index: 9
+  index: 10
   text: "{{GM}}Stealth{{/GM}}\n\nThis skill is used to sneak by guards who might otherwise hear you.\n\nRequires an equal level of {{CC}}Quickness{{/CC}} and {{CC}}Karma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Stealth)"
   branches {
     responseText: "Buy a point of Stealth"
@@ -4418,12 +4750,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 9
+    nextNodeIndex: 10
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 4
+    nextNodeIndex: 5
     auxiliaryLink: true
   }
   branches {
@@ -4441,7 +4773,7 @@ nodes {
   idRef {
     id: "559672b8336637c8150085e0"
   }
-  index: 10
+  index: 11
   text: "{{GM}}Dispelling{{/GM}}\n\nThis skill is used to unravel magical barriers.\n\nRequires an equal levels of {{CC}}Willpower{{/CC}}, {{CC}}Spell casting{{/CC}} and {{CC}}Karma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Dispelling)"
   branches {
     responseText: "Buy a point of Dispelling"
@@ -4696,12 +5028,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 10
+    nextNodeIndex: 11
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 4
+    nextNodeIndex: 5
     auxiliaryLink: true
   }
   branches {
@@ -4714,7 +5046,7 @@ nodes {
   idRef {
     id: "5589c5146466321815003a2f"
   }
-  index: 11
+  index: 12
   text: "{{GM}}Manage your stuff.{{/GM}}"
   branches {
     responseText: "Discard commlink {{GM}}Dangerous{{/GM}}"
@@ -4754,7 +5086,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 12
+    nextNodeIndex: 13
   }
   branches {
     responseText: "Enable Augmented Reality overlay"
@@ -5025,7 +5357,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 13
+    nextNodeIndex: 14
     hideIfUnavailable: true
   }
   branches {
@@ -5417,7 +5749,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -5453,12 +5785,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 16
     hideIfUnavailable: true
   }
   branches {
     responseText: "Risk Perma Death?"
-    nextNodeIndex: 16
+    nextNodeIndex: 17
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
@@ -5475,7 +5807,7 @@ nodes {
   idRef {
     id: "5589c58f6466321815003b16"
   }
-  index: 12
+  index: 13
   text: "Discarding the commlink is a bad idea type Discard into the field below to do it."
   branches {
     responseText: "Discard"
@@ -5537,11 +5869,11 @@ nodes {
   idRef {
     id: "557d399e646632940c0008a9"
   }
-  index: 13
+  index: 14
   text: "Cyberdeck file cull v0.4\nMMLIV Microdeck Inc.\nRedmond, UCAS"
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     auxiliaryLink: true
   }
   branches {
@@ -5624,7 +5956,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     comment: "01"
   }
@@ -5704,7 +6036,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "02"
@@ -5785,7 +6117,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "03"
@@ -5866,7 +6198,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "04"
@@ -5947,7 +6279,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "05"
@@ -6028,7 +6360,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "06"
@@ -6109,7 +6441,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "07"
@@ -6190,7 +6522,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "08"
@@ -6271,7 +6603,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "09"
@@ -6352,7 +6684,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "10"
@@ -6433,7 +6765,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "11"
@@ -6514,7 +6846,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "12"
@@ -6595,7 +6927,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "13"
@@ -6676,7 +7008,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "14"
@@ -6757,7 +7089,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "15"
@@ -6830,11 +7162,11 @@ nodes {
   idRef {
     id: "59ebc5af653737c44d0053ff"
   }
-  index: 14
+  index: 15
   text: ""
   branches {
     responseText: ""
-    nextNodeIndex: 13
+    nextNodeIndex: 14
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
@@ -6972,7 +7304,7 @@ nodes {
   idRef {
     id: "5a5b9ea86537374c340045c3"
   }
-  index: 15
+  index: 16
   text: ""
   branches {
     responseText: "{{CC}}Aztlan Wage Slave{{/CC}}"
@@ -7067,7 +7399,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -7171,7 +7503,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -7275,7 +7607,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -7379,7 +7711,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -7483,7 +7815,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -7587,7 +7919,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -7653,7 +7985,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     auxiliaryLink: true
   }
   branches {
@@ -7718,12 +8050,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     auxiliaryLink: true
   }
   branches {
@@ -7736,7 +8068,7 @@ nodes {
   idRef {
     id: "5aa17a64343032fc140065cc"
   }
-  index: 16
+  index: 17
   text: "Given the seemingly endless hate on for the invisible runner.\nIf enabled will never spawn the invisible runner in updated maps.\nYou will then need to use the handy dandy \'rewind\' feature, if the DocWagon does not come for you due to not hiring additional runners.\n\nEnabled: $(story.riskPermadeath)"
   branches {
     responseText: "Enable Perma Death"
@@ -7805,7 +8137,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -7876,13 +8208,13 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     hideIfUnavailable: true
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 11
+    nextNodeIndex: 12
     auxiliaryLink: true
   }
   branches {

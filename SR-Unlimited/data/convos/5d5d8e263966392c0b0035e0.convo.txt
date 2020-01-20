@@ -1,0 +1,5973 @@
+idRef {
+  id: "5d5d8e263966392c0b0035e0"
+}
+ui_name: "Mansion-Disguise"
+nodes {
+  idRef {
+    id: "5d5d8e4f3966392c0b0035e6"
+  }
+  index: 0
+  text: "You roll up to the side gate of the target. You plan to bluff your way through using a pest van and your uniforms. The gate guard looks at you then demands to see ID or paperwork. Mars hands over the paperwork as you try to lull any suspicions he has."
+  branches {
+    responseText: "You know how it is, your ordered somewhere and you trust the boss to get the paperwork right. {{CC}}test Fast-Talk{{/CC}}"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Skill_Test_Modifier"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 2
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  call_value {
+                    functionName: "Get Story Variable (int)"
+                    args {
+                      string_value: "51f15c62336331d02c00440e"
+                    }
+                    args {
+                      string_value: "Insertion_Time"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Test"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "{{CC}}Etiquette: Security{{/CC}}The boss says jump and we\'re airborne before we say \"how high?\". I\'m following orders just like you. You can radio in to your boss and he can call mine, or we can both save time and headache and just let me through.{{CC}}test Fast-Talk easier (-3){{/CC}}"
+    conditions {
+      ops {
+        functionName: "Compare Actor Skill"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "BaseOrCurrent"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "ActorSkills"
+            }
+            args {
+              int_value: 14
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Skill_Test_Modifier"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 2
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  call_value {
+                    functionName: "Get Story Variable (int)"
+                    args {
+                      string_value: "51f15c62336331d02c00440e"
+                    }
+                    args {
+                      string_value: "Insertion_Time"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Test"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 4
+  }
+  branches {
+    responseText: "{{GM}}You slip a 2000\302\245 cred stick among the papers.{{/GM}} My boss messed up the paperwork, but I\'m the one who\'ll catch hell and maybe be fired. I need this job. So do me a solid and let me through?{{CC}}test Fast-Talk easier. (-1){{/CC}}"
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 2000
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Skill_Test_Modifier"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 2
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  call_value {
+                    functionName: "Get Story Variable (int)"
+                    args {
+                      string_value: "51f15c62336331d02c00440e"
+                    }
+                    args {
+                      string_value: "Insertion_Time"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Test"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 2000
+        }
+      }
+    }
+    nextNodeIndex: 7
+  }
+  branches {
+    responseText: "{{GM}}You slip a 5000\302\245 cred stick among the papers.{{/GM}} My boss messed up the paperwork, but I\'m the one who\'ll catch hell and maybe be fired. I need this job. So do me a solid and let me through?{{CC}}test Fast-Talk easier. (-2){{/CC}}"
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 5000
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Skill_Test_Modifier"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 2
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  call_value {
+                    functionName: "Get Story Variable (int)"
+                    args {
+                      string_value: "51f15c62336331d02c00440e"
+                    }
+                    args {
+                      string_value: "Insertion_Time"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Test"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 5000
+        }
+      }
+    }
+    nextNodeIndex: 10
+  }
+  branches {
+    responseText: "{{GM}}You slip a 10000\302\245 cred stick among the papers.{{/GM}} My boss messed up the paperwork, but I\'m the one who\'ll catch hell and maybe be fired. I need this job. So do me a solid and let me through?{{CC}}test Fast-Talk much easier. (-4){{/CC}}"
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 10000
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Skill_Test_Modifier"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 2
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 2
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  call_value {
+                    functionName: "Get Story Variable (int)"
+                    args {
+                      string_value: "51f15c62336331d02c00440e"
+                    }
+                    args {
+                      string_value: "Insertion_Time"
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Test"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 10000
+        }
+      }
+    }
+    nextNodeIndex: 13
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d5dafb43966392c0b003685"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "{{GM}}The guard is suspicious, but disarmed by your words, and lets you in.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Fast_Talking"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "SkillTest"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5d8cd33966392c0b0035df"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{GM}}The guard looks at the papers, then you, and says \"No dice chummer go away.\"{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Fast_Talking"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "SkillTest"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 2
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d5db47d3966392c0b003717"
+  }
+  index: 2
+  text: "Now you need to decide what to do next."
+  branches {
+    responseText: "Have Mars ram the gate. {{CC}}Get in, but set the alarm off{{/CC}}"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "locationSeen"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Alarm"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Delete Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d24ed26396639f02c001c5c"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Delete Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d24ed18396639f02c001c5a"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Nothing Selected"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5d8cd33966392c0b0035df"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Tag to Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Tag to Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Not Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 3
+  }
+  branches {
+    responseText: "Have Mar leave and park nearby."
+    actions {
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Tag from Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Item from Team"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Maintenance"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Team Alliance"
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeamAlliance"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Nothing Selected"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5dadab3966392c0b003679"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Start Conversation"
+        args {
+          call_value {
+            functionName: "Get Map Item (Conversation)"
+            args {
+              string_value: "5dc096fc396639ec2c006c6a"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "5d9525f03966398420006500"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5e011a7a3966393c10007a65"
+  }
+  index: 3
+  text: "Don\'t worry about me. If major trouble comes I just go to a nearby corner and wait for you."
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "5d9525f03966398420006500"
+  }
+}
+nodes {
+  idRef {
+    id: "5d5dafb43966392c0b003685"
+  }
+  index: 4
+  text: ""
+  branches {
+    responseText: "{{GM}}The guard looks at the papers, then you, and says \"No dice chummer go away.\"{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Fast_Talking"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 5
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{GM}}The guard is suspicious, but disarmed by your words, and lets you in.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Fast_Talking"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5d8cd33966392c0b0035df"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d5db47d3966392c0b003717"
+  }
+  index: 5
+  text: "Now you need to decide what to do next."
+  branches {
+    responseText: "Have Mar leave and park nearby."
+    actions {
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Item from Team"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Maintenance"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Team Alliance"
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeamAlliance"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Tag from Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Nothing Selected"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5dadab3966392c0b003679"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Start Conversation"
+        args {
+          call_value {
+            functionName: "Get Map Item (Conversation)"
+            args {
+              string_value: "5dc096fc396639ec2c006c6a"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "5d9525f03966398420006500"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Have Mars ram the gate. {{CC}}Get in, but set the alarm off{{/CC}}"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "locationSeen"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Alarm"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Delete Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d24ed26396639f02c001c5c"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Delete Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d24ed18396639f02c001c5a"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Nothing Selected"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5d8cd33966392c0b0035df"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Tag to Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Tag to Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Not Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 6
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5e011a7a3966393c10007a65"
+  }
+  index: 6
+  text: "Don\'t worry about me. If major trouble comes I just go to a nearby corner and wait for you."
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "5d9525f03966398420006500"
+  }
+}
+nodes {
+  idRef {
+    id: "5d5dafb43966392c0b003685"
+  }
+  index: 7
+  text: ""
+  branches {
+    responseText: "{{GM}}The guard pockets the cred stick and says \"Not enough, now get lost chummer.\"{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Fast_Talking"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 8
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{GM}}The guard pockets the cred stick a lets you through.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Fast_Talking"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5d8cd33966392c0b0035df"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d5db47d3966392c0b003717"
+  }
+  index: 8
+  text: "Now you need to decide what to do next."
+  branches {
+    responseText: "Have Mar leave and park nearby."
+    actions {
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Item from Team"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Maintenance"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Team Alliance"
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeamAlliance"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Tag from Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Nothing Selected"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5dadab3966392c0b003679"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Start Conversation"
+        args {
+          call_value {
+            functionName: "Get Map Item (Conversation)"
+            args {
+              string_value: "5dc096fc396639ec2c006c6a"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "5d9525f03966398420006500"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Have Mars ram the gate. {{CC}}Get in, but set the alarm off{{/CC}}"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "locationSeen"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Alarm"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Delete Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d24ed26396639f02c001c5c"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Delete Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d24ed18396639f02c001c5a"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Nothing Selected"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5d8cd33966392c0b0035df"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Tag to Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Tag to Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Not Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 9
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5e011a7a3966393c10007a65"
+  }
+  index: 9
+  text: "Don\'t worry about me. If major trouble comes I just go to a nearby corner and wait for you."
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "5d9525f03966398420006500"
+  }
+}
+nodes {
+  idRef {
+    id: "5d5dafb43966392c0b003685"
+  }
+  index: 10
+  text: ""
+  branches {
+    responseText: "{{GM}}The guard pockets the cred stick and says \"Not enough, now get lost chummer.\"{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Fast_Talking"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 11
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{GM}}The guard pockets the cred stick a lets you through.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Fast_Talking"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5d8cd33966392c0b0035df"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d5db47d3966392c0b003717"
+  }
+  index: 11
+  text: "Now you need to decide what to do next."
+  branches {
+    responseText: "Have Mars ram the gate. {{CC}}Get in, but set the alarm off{{/CC}}"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "locationSeen"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Alarm"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Delete Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d24ed26396639f02c001c5c"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Delete Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d24ed18396639f02c001c5a"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Nothing Selected"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5d8cd33966392c0b0035df"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Tag to Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Tag to Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Not Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 12
+  }
+  branches {
+    responseText: "Have Mar leave and park nearby."
+    actions {
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Item from Team"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Maintenance"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Team Alliance"
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeamAlliance"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Tag from Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Nothing Selected"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5dadab3966392c0b003679"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Start Conversation"
+        args {
+          call_value {
+            functionName: "Get Map Item (Conversation)"
+            args {
+              string_value: "5dc096fc396639ec2c006c6a"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "5d9525f03966398420006500"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5e011a7a3966393c10007a65"
+  }
+  index: 12
+  text: "Don\'t worry about me. If major trouble comes I just go to a nearby corner and wait for you."
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "5d9525f03966398420006500"
+  }
+}
+nodes {
+  idRef {
+    id: "5d5dafb43966392c0b003685"
+  }
+  index: 13
+  text: ""
+  branches {
+    responseText: "{{GM}}The guard pockets the cred stick and says \"Not enough, now get lost chummer.\"{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Fast_Talking"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 14
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "{{GM}}The guard pockets the cred stick a lets you through.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Fast_Talking"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5d8cd33966392c0b0035df"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d5db47d3966392c0b003717"
+  }
+  index: 14
+  text: "Now you need to decide what to do next."
+  branches {
+    responseText: "Have Mars ram the gate. {{CC}}Get in, but set the alarm off{{/CC}}"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "locationSeen"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Alarm"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Delete Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d24ed26396639f02c001c5c"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Delete Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d24ed18396639f02c001c5a"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Nothing Selected"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5d8cd33966392c0b0035df"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Tag to Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add Tag to Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Not Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 15
+  }
+  branches {
+    responseText: "Have Mar leave and park nearby."
+    actions {
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5dadab3966392c0b003679"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Prop Visible"
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "DoesOrDoesNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Item from Team"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Maintenance"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Team Alliance"
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeamAlliance"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Tag from Prop"
+        args {
+          call_value {
+            functionName: "Get Map Item (SenseTagList)"
+            args {
+              string_value: "Visible"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Prop)"
+            args {
+              string_value: "5d5d8cd33966392c0b0035df"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Clear Camera Points of Interest"
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Check Next Objective"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor near Point"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Nothing Selected"
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d5dadab3966392c0b003679"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Start Conversation"
+        args {
+          call_value {
+            functionName: "Get Map Item (Conversation)"
+            args {
+              string_value: "5dc096fc396639ec2c006c6a"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Actor)"
+            args {
+              string_value: "5d9525f03966398420006500"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5e011a7a3966393c10007a65"
+  }
+  index: 15
+  text: "Don\'t worry about me. If major trouble comes I just go to a nearby corner and wait for you."
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "5d9525f03966398420006500"
+  }
+}
+roots {
+  nextNodeIndex: 0
+}

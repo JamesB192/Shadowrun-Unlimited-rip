@@ -5119,6 +5119,17 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Exit"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -5314,6 +5325,17 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Exit"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -5369,6 +5391,17 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Exit"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -5420,6 +5453,17 @@ triggers {
           functionName: "Get Map Item (Scene)"
           args {
             string_value: "the docks3"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Exit"
           }
         }
       }
@@ -26833,6 +26877,17 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Exit"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -29223,6 +29278,53 @@ triggers {
   isActive: true
   idRef {
     id: "5cfc3f31396639a42e0048ea"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Exit"
+  events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Exit"
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Alarm_Already_Active"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5e13c7df396639dc480007ca"
   }
   elseActions {
   }
@@ -41074,6 +41176,7 @@ mapEvents: "Test"
 mapEvents: "Tripwire Attribute Check"
 mapEvents: "Witness"
 mapEvents: "zonechange"
+mapEvents: "Exit"
 senseTags: "guard"
 worldMapLocation {
   filename: ""
@@ -41184,6 +41287,8 @@ scene_dimensions {
   dimension_name: "Matrix"
   initial_alarm_state: 0
   turns_per_round: 3
+}
+character_roster {
 }
 show_hiring_screen_on_scene_load: false
 scene_hiring_prerequisites {

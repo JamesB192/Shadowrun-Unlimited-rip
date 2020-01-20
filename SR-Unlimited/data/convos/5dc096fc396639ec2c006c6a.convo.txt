@@ -1,0 +1,65 @@
+idRef {
+  id: "5dc096fc396639ec2c006c6a"
+}
+ui_name: "Mansion-Mar\'s Intro"
+nodes {
+  idRef {
+    id: "5dc09723396639ec2c006c70"
+  }
+  index: 0
+  text: "Here it is. I\'ll drop you at the corner and wait for you. Don\'t worry if cops come. I have my ways. {{GM}}He flashes you an enigmatic smile.{{/GM}}"
+  branches {
+    responseText: ""
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "AtStart"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "5d9525f03966398420006500"
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Current_Run-Step"
+          }
+        }
+      }
+      args {
+        int_value: 2
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Check Next Objective"
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  nextNodeIndex: 0
+}

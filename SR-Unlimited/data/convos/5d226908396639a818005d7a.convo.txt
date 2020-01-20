@@ -1,0 +1,417 @@
+idRef {
+  id: "5d226908396639a818005d7a"
+}
+ui_name: "Mansion-Rock-Rope"
+nodes {
+  idRef {
+    id: "5d22691f396639a818005d80"
+  }
+  index: 0
+  text: "You can climb over easily, but need a way to climb back."
+  branches {
+    responseText: "{{GM}}Leave a {{CC}}rope{{/CC}}. It may be seen, but hopefully not quickly.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Rope"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Evidence"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Rock-rope"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Item from Team"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Rope"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Variable (int)"
+            args {
+              string_value: "NoEvidence"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Teleport Actor"
+        args {
+          call_value {
+            functionName: "All Actors Which Overlap"
+            args {
+              call_value {
+                functionName: "All Actors on Team"
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (string)"
+                    args {
+                      string_value: "FactionList"
+                    }
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SceneDimension)"
+                    args {
+                      string_value: "Default"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "All Actors Within Area"
+                args {
+                  call_value {
+                    functionName: "Area: Radius Arount Point"
+                    args {
+                      int_value: 7
+                    }
+                    args {
+                      call_value {
+                        functionName: "Current Location of Prop"
+                        args {
+                          call_value {
+                            functionName: "Get Map Item (Prop)"
+                            args {
+                              string_value: "5d2259f9396639a818005d6e"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d2274ff396639a818005db9"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "{{GM}}Just hop over.{{/GM}}"
+    actions {
+      ops {
+        functionName: "Teleport Actor"
+        args {
+          call_value {
+            functionName: "All Actors Which Overlap"
+            args {
+              call_value {
+                functionName: "All Actors on Team"
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (string)"
+                    args {
+                      string_value: "FactionList"
+                    }
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SceneDimension)"
+                    args {
+                      string_value: "Default"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "All Actors Within Area"
+                args {
+                  call_value {
+                    functionName: "Area: Radius Arount Point"
+                    args {
+                      int_value: 7
+                    }
+                    args {
+                      call_value {
+                        functionName: "Current Location of Prop"
+                        args {
+                          call_value {
+                            functionName: "Get Map Item (Prop)"
+                            args {
+                              string_value: "5d2259f9396639a818005d6e"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d2274ff396639a818005db9"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  nextNodeIndex: 0
+}

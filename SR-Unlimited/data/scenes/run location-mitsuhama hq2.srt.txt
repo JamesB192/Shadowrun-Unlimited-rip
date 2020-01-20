@@ -5505,6 +5505,17 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Exit"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -5700,6 +5711,17 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Exit"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -5755,6 +5777,17 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Exit"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -5806,6 +5839,17 @@ triggers {
           functionName: "Get Map Item (Scene)"
           args {
             string_value: "the docks3"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Exit"
           }
         }
       }
@@ -13603,6 +13647,44 @@ triggers {
     }
   }
   conditions {
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
   }
   actions {
     ops {
@@ -27669,6 +27751,17 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Exit"
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -33649,12 +33742,43 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "NewTrigger"
+  name: "Exit"
   events {
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Exit"
+      }
+    }
   }
   conditions {
   }
   actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Alarm_Already_Active"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
   }
   isActive: true
   idRef {
@@ -36552,6 +36676,22 @@ triggers {
   elseActions {
   }
   is_oneshot: false
+}
+triggers {
+  name: "NewTrigger"
+  events {
+  }
+  conditions {
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "5e13caf1396639dc480007d1"
+  }
+  elseActions {
+  }
+  is_oneshot: true
 }
 regions {
   name: "region Chunnel"
@@ -48978,6 +49118,7 @@ mapEvents: "Test"
 mapEvents: "Tripwire Attribute Check"
 mapEvents: "Witness"
 mapEvents: "zonechange"
+mapEvents: "Exit"
 senseTags: "guard"
 senseTags: "Back_Up_2"
 senseTags: "Extra"

@@ -14,7 +14,7 @@ nodes {
   }
   branches {
     responseText: "Just checking in."
-    nextNodeIndex: 6
+    nextNodeIndex: 12
   }
   nodeType: ConversationNodeType_Simple
 }
@@ -165,6 +165,130 @@ nodes {
     nextNodeIndex: 4
     hideIfUnavailable: true
   }
+  branches {
+    responseText: "I need a ride to a job at a mansion Anyway you can scrounge up some sort of disguise?"
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Mansion"
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "StoryStep"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          int_value: 25
+        }
+      }
+    }
+    nextNodeIndex: 6
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "I need a ride to a job at a mansion Anyway you can scrounge up some sort of disguise?"
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Mansion"
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "StoryStep"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 25
+        }
+      }
+    }
+    nextNodeIndex: 9
+    hideIfUnavailable: true
+  }
   nodeType: ConversationNodeType_Simple
 }
 nodes {
@@ -293,9 +417,1119 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52c190363363311c050080a0"
+    id: "5e07069a396639a03a001acd"
   }
   index: 6
+  text: "I could and even some faked paperwork, even a few uniforms. It won\'t be cheap though. 2000\302\245 for a disguise or just a ride, my rate is 250\302\245, non-negotiable."
+  branches {
+    responseText: "Let\'s do the disguise."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 2000
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Disguised-Run"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 7
+  }
+  branches {
+    responseText: "Just a ride."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 250
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Disguised-Run"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 8
+  }
+  branches {
+    responseText: "Maybe later."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5e070f3f396639a03a001ba5"
+  }
+  index: 7
+  text: "Now when are we going. We could go mid-morning, early afternoon or midnight."
+  branches {
+    responseText: "Mid-morning."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 2000
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Early afternoon."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 2000
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Midnight."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 2000
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "On second thought, not yet"
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5e070f3f396639a03a001ba5"
+  }
+  index: 8
+  text: "Now when are we going. We could go mid-morning, early afternoon or midnight."
+  branches {
+    responseText: "Mid-morning."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 250
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Early afternoon."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 250
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Midnight."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 250
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "On second thought, not yet"
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5e07069a396639a03a001acd"
+  }
+  index: 9
+  text: "I could and even some faked paperwork, even a few uniforms. It won\'t be cheap though. 2000\302\245 for a disguise or just a ride, my rate is 250\302\245, non-negotiable."
+  branches {
+    responseText: "Let\'s do the disguise."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 2000
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Disguised-Run"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 10
+  }
+  branches {
+    responseText: "Just a ride."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 250
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Disguised-Run"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 11
+  }
+  branches {
+    responseText: "Maybe later."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5e070f3f396639a03a001ba5"
+  }
+  index: 10
+  text: "Now when are we going. We could go mid-morning, early afternoon or midnight."
+  branches {
+    responseText: "Mid-morning."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 2000
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Objective"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Objective_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run_Description"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run_Info_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Early afternoon."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 2000
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run_Description"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run_Info_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Objective"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Objective_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Midnight."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 2000
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Objective"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Objective_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run_Description"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run_Info_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "On second thought, not yet"
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5e070f3f396639a03a001ba5"
+  }
+  index: 11
+  text: "Now when are we going. We could go mid-morning, early afternoon or midnight."
+  branches {
+    responseText: "Mid-morning."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 250
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Objective"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Objective_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run_Description"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run_Info_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Early afternoon."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 250
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Objective"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Objective_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run_Description"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run_Info_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Midnight."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Insertion_Time"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 250
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Step"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Objective"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Objective_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run_Description"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run_Info_B"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-Mansion 3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "On second thought, not yet"
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c190363363311c050080a0"
+  }
+  index: 12
   text: "Right. Talk to you later..."
   nodeType: ConversationNodeType_Simple
 }

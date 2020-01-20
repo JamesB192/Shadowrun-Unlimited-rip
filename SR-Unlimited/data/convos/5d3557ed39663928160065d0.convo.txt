@@ -1,0 +1,1874 @@
+idRef {
+  id: "5d3557ed39663928160065d0"
+}
+ui_name: "Mansion-Window"
+nodes {
+  idRef {
+    id: "5d35581339663928160065d7"
+  }
+  index: 0
+  text: "This is the only ground floor window. The security is good, but no unbeatable."
+  branches {
+    responseText: "Try to rig a bypass for the security then enter. {{CC}}test Electronics{{/CC}}"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Skill_Test_Modifier"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Test"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "WindowBypass"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "Ignore the alarm and just force the window. {{CC}}Sets the alarm off{{/CC}}"
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Alarm"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "WindowBypass"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 2
+  }
+  branches {
+    responseText: "Not now"
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d4f83db396639002e0076dd"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: "Success!"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Electronics"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "SkillTest"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Inside"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Inside"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor"
+        args {
+          call_value {
+            functionName: "All Actors on Team"
+            args {
+              call_value {
+                functionName: "Get Preset Value (string)"
+                args {
+                  string_value: "FactionList"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Map Item (SceneDimension)"
+                args {
+                  string_value: "Default"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d22c5c7396639a818005ee6"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 5
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Teleport Actor"
+        args {
+          call_value {
+            functionName: "All Actors Which Overlap"
+            args {
+              call_value {
+                functionName: "All Actors on Team"
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (string)"
+                    args {
+                      string_value: "FactionList"
+                    }
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SceneDimension)"
+                    args {
+                      string_value: "Default"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "All Actors Within Area"
+                args {
+                  call_value {
+                    functionName: "Area: Radius Arount Point"
+                    args {
+                      int_value: 7
+                    }
+                    args {
+                      call_value {
+                        functionName: "Current Location of Prop"
+                        args {
+                          call_value {
+                            functionName: "Get Map Item (Prop)"
+                            args {
+                              string_value: "5d30e56639663928160063d7"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d22c5c7396639a818005ee6"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "inside"
+  }
+  branches {
+    responseText: "Sucess!"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Electronics"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "SkillTest"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Inside"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Inside"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Teleport Actor"
+        args {
+          call_value {
+            functionName: "All Actors Which Overlap"
+            args {
+              call_value {
+                functionName: "All Actors on Team"
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (string)"
+                    args {
+                      string_value: "FactionList"
+                    }
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SceneDimension)"
+                    args {
+                      string_value: "Default"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "All Actors Within Area"
+                args {
+                  call_value {
+                    functionName: "Area: Radius Arount Point"
+                    args {
+                      int_value: 7
+                    }
+                    args {
+                      call_value {
+                        functionName: "Current Location of Prop"
+                        args {
+                          call_value {
+                            functionName: "Get Map Item (Prop)"
+                            args {
+                              string_value: "5d22c5c7396639a818005ee6"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d30e56639663928160063d7"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "outside"
+  }
+  branches {
+    responseText: "Oops! Tripped a silent alarm."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Electronics"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "SkillTest"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Inside"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Alarm"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Inside"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Teleport Actor"
+        args {
+          call_value {
+            functionName: "All Actors Which Overlap"
+            args {
+              call_value {
+                functionName: "All Actors on Team"
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (string)"
+                    args {
+                      string_value: "FactionList"
+                    }
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SceneDimension)"
+                    args {
+                      string_value: "Default"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "All Actors Within Area"
+                args {
+                  call_value {
+                    functionName: "Area: Radius Arount Point"
+                    args {
+                      int_value: 7
+                    }
+                    args {
+                      call_value {
+                        functionName: "Current Location of Prop"
+                        args {
+                          call_value {
+                            functionName: "Get Map Item (Prop)"
+                            args {
+                              string_value: "5d22c5c7396639a818005ee6"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d30e56639663928160063d7"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "outside"
+  }
+  branches {
+    responseText: "Oops! Tripped a silent alarm."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Custom_Skill-Electronics"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "SkillTest"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Inside"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Inside"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          string_value: "You rolled a"
+        }
+        args {
+          float_value: 0.25
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 1
+        }
+      }
+      ops {
+        functionName: "Display Text at Screen Position"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TextPopupStyle"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Convert (int) to (string)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "SkillTest"
+                }
+              }
+            }
+          }
+        }
+        args {
+          float_value: 0.29
+        }
+        args {
+          float_value: 0.17
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 1
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 0
+        }
+        args {
+          float_value: 4
+        }
+        args {
+          float_value: 3
+        }
+        args {
+          float_value: 0
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Alarm"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Teleport Actor"
+        args {
+          call_value {
+            functionName: "All Actors Which Overlap"
+            args {
+              call_value {
+                functionName: "All Actors on Team"
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (string)"
+                    args {
+                      string_value: "FactionList"
+                    }
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SceneDimension)"
+                    args {
+                      string_value: "Default"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "All Actors Within Area"
+                args {
+                  call_value {
+                    functionName: "Area: Radius Arount Point"
+                    args {
+                      int_value: 7
+                    }
+                    args {
+                      call_value {
+                        functionName: "Current Location of Prop"
+                        args {
+                          call_value {
+                            functionName: "Get Map Item (Prop)"
+                            args {
+                              string_value: "5d30e56639663928160063d7"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d22c5c7396639a818005ee6"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "inside"
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5e15043c396639e43f000804"
+  }
+  index: 2
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Inside"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Teleport Actor"
+        args {
+          call_value {
+            functionName: "All Actors Which Overlap"
+            args {
+              call_value {
+                functionName: "All Actors on Team"
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (string)"
+                    args {
+                      string_value: "FactionList"
+                    }
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SceneDimension)"
+                    args {
+                      string_value: "Default"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "All Actors Within Area"
+                args {
+                  call_value {
+                    functionName: "Area: Radius Arount Point"
+                    args {
+                      int_value: 7
+                    }
+                    args {
+                      call_value {
+                        functionName: "Current Location of Prop"
+                        args {
+                          call_value {
+                            functionName: "Get Map Item (Prop)"
+                            args {
+                              string_value: "5d22c5c7396639a818005ee6"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d30e56639663928160063d7"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    comment: "Outside"
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Variable (bool)"
+            args {
+              string_value: "Inside"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Teleport Actor"
+        args {
+          call_value {
+            functionName: "All Actors Which Overlap"
+            args {
+              call_value {
+                functionName: "All Actors on Team"
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (string)"
+                    args {
+                      string_value: "FactionList"
+                    }
+                    args {
+                      int_value: 0
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Map Item (SceneDimension)"
+                    args {
+                      string_value: "Default"
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "All Actors Within Area"
+                args {
+                  call_value {
+                    functionName: "Area: Radius Arount Point"
+                    args {
+                      int_value: 7
+                    }
+                    args {
+                      call_value {
+                        functionName: "Current Location of Prop"
+                        args {
+                          call_value {
+                            functionName: "Get Map Item (Prop)"
+                            args {
+                              string_value: "5d30e56639663928160063d7"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "AllOrAny"
+                    }
+                    args {
+                      int_value: 1
+                    }
+                  }
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "AllOrAny"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Current Location of Prop"
+            args {
+              call_value {
+                functionName: "Get Map Item (Prop)"
+                args {
+                  string_value: "5d22c5c7396639a818005ee6"
+                }
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "FacingDirection"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "TeleportMethod"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    comment: "Inside"
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}
