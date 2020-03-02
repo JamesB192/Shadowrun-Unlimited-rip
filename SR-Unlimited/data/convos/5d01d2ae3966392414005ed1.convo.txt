@@ -1,0 +1,164 @@
+idRef {
+  id: "5d01d2ae3966392414005ed1"
+}
+ui_name: "Story_Sculpture"
+nodes {
+  idRef {
+    id: "5d01d33e3966392414005edb"
+  }
+  index: 0
+  text: "{{GM}}The sculpture you\'re is sitting there in all it \"glory\". There seems to be a pressure  pad and motion censor under it. Taking it will raise an alarm.{{/GM}}"
+  branches {
+    responseText: "Grab it."
+    actions {
+      ops {
+        functionName: "Add Item to Team"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Sculpture"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Send Event"
+        args {
+          call_value {
+            functionName: "Get Map Item (Event)"
+            args {
+              string_value: "Alarm"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Respons_Delay"
+            }
+          }
+        }
+        args {
+          int_value: 4
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Information"
+            }
+          }
+        }
+        args {
+          string_value: "I have the sculture time to take it to Vigor."
+        }
+      }
+      ops {
+        functionName: "Set Screen Label"
+        args {
+          string_value: "Journal"
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "text"
+            }
+            args {
+              string_value: "Information"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+  }
+  branches {
+    responseText: "Leave it for now."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  conditions {
+    ops {
+      functionName: "Evaluate If Actor Has Item"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Sculpture"
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 0
+}

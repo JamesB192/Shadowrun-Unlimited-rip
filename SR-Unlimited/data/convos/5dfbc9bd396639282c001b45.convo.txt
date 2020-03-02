@@ -1,0 +1,80 @@
+idRef {
+  id: "5dfbc9bd396639282c001b45"
+}
+ui_name: "Vigor-Call-Sory_Step22"
+nodes {
+  idRef {
+    id: "5dfbcad4396639282c001b4b"
+  }
+  index: 0
+  text: "Press to begin playback"
+  branches {
+    responseText: "..."
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5dfbcb20396639282c001b4e"
+  }
+  index: 1
+  text: "Come see me. We have something to discuss."
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52c979b9336331280d00751e"
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        int_value: 23
+      }
+    }
+  }
+}
+roots {
+  responseText: "{{CC}}Your wrist com blinks showing you have a recorded message{{/CC}}"
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 22
+      }
+    }
+  }
+  nextNodeIndex: 0
+}

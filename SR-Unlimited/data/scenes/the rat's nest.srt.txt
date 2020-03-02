@@ -584,35 +584,46 @@ triggers {
         }
       }
     }
-    ops {
-      functionName: "On Item Interaction"
-      args {
-        call_value {
-          functionName: "Get Map Item (InteractableObject)"
-          args {
-            string_value: "53e136733864616811004190"
-          }
-        }
-      }
-    }
   }
   conditions {
     ops {
-      functionName: "Comparison (int)"
+      functionName: "Comparison (bool)"
       args {
-        int_value: 19
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Called_Andy"
+          }
+        }
       }
       args {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "Comparison Ops"
+            string_value: "IsOrIsNot"
           }
           args {
             int_value: 1
           }
         }
       }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
       args {
         call_value {
           functionName: "Get Story Variable (int)"
@@ -623,6 +634,20 @@ triggers {
             string_value: "StoryStep"
           }
         }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 21
       }
     }
   }
@@ -13115,15 +13140,23 @@ triggers {
   }
   conditions {
     ops {
-      functionName: "Comparison (int)"
+      functionName: "Comparison (bool)"
       args {
-        int_value: 19
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Called_Andy"
+          }
+        }
       }
       args {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "Comparison Ops"
+            string_value: "IsOrIsNot"
           }
           args {
             int_value: 1
@@ -13132,12 +13165,12 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Get Story Variable (int)"
+          functionName: "Get Preset Value (int)"
           args {
-            string_value: "51f15c62336331d02c00440e"
+            string_value: "bool"
           }
           args {
-            string_value: "StoryStep"
+            int_value: 0
           }
         }
       }
@@ -13323,17 +13356,69 @@ triggers {
   }
   conditions {
     ops {
-      functionName: "Comparison (Actor)"
+      functionName: "Evaluate Team Survival Percentage"
       args {
         call_value {
-          functionName: "Triggering Target Actor"
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 100
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add Item to Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Soka_Recording"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
         }
       }
       args {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "IsOrIsNot"
+            string_value: "WithOrWithout"
           }
           args {
             int_value: 1
@@ -13342,19 +13427,97 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Get Map Item (Actor)"
+          functionName: "Get Map Item (SceneDimension)"
           args {
-            string_value: "5a46b4bc653737342c002e41"
+            string_value: "Default"
           }
         }
       }
     }
-  }
-  actions {
     ops {
-      functionName: "End Story With Epilogue"
+      functionName: "Set Variable (string)"
       args {
-        string_value: "vSoka"
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "PlotInformation"
+          }
+        }
+      }
+      args {
+        string_value: "Give Piper his recording."
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Plot Information"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "PlotInformation"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5d0eec30396639001f0010a2"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "58dbf37d303736104a89d1b0"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "58de4c2e303736f53bb68215"
+          }
+        }
       }
     }
   }
@@ -14806,6 +14969,66 @@ triggers {
         float_value: 0
       }
     }
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Runs_Vigor"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "Current_Fixer"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: "Vigor"
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Runs_Vigor"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5cf9cb7b39663998390060e7"
+  }
+  elseActions {
   }
   is_oneshot: true
 }
@@ -19324,7 +19547,7 @@ characters {
   gridPoint {
     x: -62.270004
     y: 0
-    z: -84.380005
+    z: -89.380005
   }
   orientation: ORIENTATION_E
   GeneralTags: "step20"
@@ -19379,11 +19602,11 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -62
+    x: -68
     y: 0
-    z: -87
+    z: -82
   }
-  orientation: ORIENTATION_E
+  orientation: ORIENTATION_S
   GeneralTags: "step20"
   displayName: "red sam"
   idRef {
@@ -19392,8 +19615,7 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
-    character_sheet_id: "Lonestar_Lv6_Heavy_SMG"
-    equipment_sheet_id: "Lonestar_Lv6_SMG_Gear"
+    character_sheet_id: "Lonestar_Lv5_Captain"
     equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     character_mod {
       stats {
@@ -19456,26 +19678,33 @@ characters {
       vulnerabilities {
       }
     }
+    equipment {
+      prefab_name: "Berlin_Ex 2 ArmTech MGL-6"
+    }
+    equipment {
+      prefab_name: "Berlin_AR 2 FN HAR"
+    }
     team_id: "LoneStar"
-    char_name: "New Actor"
+    char_name: "Renraku Samuri Heavy Weapons"
     GeneralTags: "step20"
     enabled_at_start: false
     pc_spawn_number: -1
-    cyberware_body: "tattoo_body_earth"
+    cyberware_body: "Dermal Plating Mk 2"
+    cyberware_left_arm: "Muscle Augmentation"
     portrait {
       filename: ""
     }
-    karma: 105
+    karma: 98
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -61
+    x: -68
     y: 0
-    z: -87
+    z: -80
   }
-  orientation: ORIENTATION_E
+  orientation: ORIENTATION_S
   GeneralTags: "step20"
   displayName: "red sam"
   idRef {
@@ -19484,8 +19713,7 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
-    character_sheet_id: "Lonestar_Lv6_Heavy_SMG"
-    equipment_sheet_id: "Lonestar_Lv6_SMG_Gear"
+    character_sheet_id: "Lonestar_Lv5_Human_Mage"
     equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     character_mod {
       stats {
@@ -19497,9 +19725,9 @@ characters {
         willpower: 0
         essence: 0
         magic: 0
-        hp: 0
+        hp: 10
         ap: 0
-        armor: 0
+        armor: 3
         force: 0
         morale: 0
         discipline: 0
@@ -19516,10 +19744,10 @@ characters {
         ranged_combat: 0
         close_combat: 0
         throwing_weapons: 0
-        spellcasting: 0
+        spellcasting: -4
         decking: 0
-        conjuring: 0
-        spirit_summoning: 0
+        conjuring: 5
+        spirit_summoning: 4
         drone_control: 0
         biotech: 0
         dodge: 0
@@ -19539,7 +19767,7 @@ characters {
         smg: 0
         edged: 0
         unarmed: 0
-        spirit_control: 0
+        spirit_control: 4
         esp_control: 0
         drone_combat: 0
       }
@@ -19548,8 +19776,20 @@ characters {
       vulnerabilities {
       }
     }
+    equipment {
+      prefab_name: "Berlin_IdolDragonslayer"
+    }
+    equipment {
+      prefab_name: "Berlin_Spell Toxic Bolt 2"
+    }
+    equipment {
+      prefab_name: "Spell Slow 2"
+    }
+    equipment {
+      prefab_name: "Berlin_Spell Slow 1"
+    }
     team_id: "LoneStar"
-    char_name: "New Actor"
+    char_name: "Red Samuri Shaman"
     GeneralTags: "step20"
     enabled_at_start: false
     pc_spawn_number: -1
@@ -19557,15 +19797,15 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 105
+    karma: 114
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -62
+    x: -63
     y: 0
-    z: -88
+    z: -94
   }
   orientation: ORIENTATION_E
   GeneralTags: "step20"
@@ -19577,8 +19817,6 @@ characters {
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
     character_sheet_id: "Lonestar_Lv6_Heavy_SMG"
-    equipment_sheet_id: "Lonestar_Lv6_SMG_Gear"
-    equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     character_mod {
       stats {
         body: 0
@@ -19626,9 +19864,9 @@ characters {
       }
       specializations {
         pistol: 0
-        rifle: 0
+        rifle: 1
         shotgun: 0
-        smg: 0
+        smg: -2
         edged: 0
         unarmed: 0
         spirit_control: 0
@@ -19640,118 +19878,29 @@ characters {
       vulnerabilities {
       }
     }
+    equipment {
+      prefab_name: "Berlin_SR 2 Walther MA-2100"
+    }
     team_id: "LoneStar"
-    char_name: "New Actor"
+    char_name: "Red Samuri Sniper"
     GeneralTags: "step20"
     enabled_at_start: false
     pc_spawn_number: -1
-    cyberware_body: "tattoo_body_earth"
+    cyberware_eyes: "Vision Magnification Eyes 2"
     portrait {
       filename: ""
     }
-    karma: 105
+    karma: 103
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -61
+    x: -68
     y: 0
-    z: -88
+    z: -84
   }
-  orientation: ORIENTATION_E
-  GeneralTags: "step20"
-  displayName: "red sam"
-  idRef {
-    id: "58de2f2e303736f53bb681f4"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Story/RenrakuSamurai"
-    character_sheet_id: "Lonestar_Lv6_Heavy_SMG"
-    equipment_sheet_id: "Lonestar_Lv6_SMG_Gear"
-    equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
-    character_mod {
-      stats {
-        body: 0
-        quickness: 0
-        strength: 0
-        charisma: 0
-        intelligence: 0
-        willpower: 0
-        essence: 0
-        magic: 0
-        hp: 0
-        ap: 0
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-        vision_peripheral_distance: 0
-        vision_cone_distance: 0
-        vision_cone_angle: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 0
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "LoneStar"
-    char_name: "New Actor"
-    GeneralTags: "step20"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    cyberware_body: "tattoo_body_earth"
-    portrait {
-      filename: ""
-    }
-    karma: 105
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: -61
-    y: 0
-    z: -86
-  }
-  orientation: ORIENTATION_E
+  orientation: ORIENTATION_S
   GeneralTags: "step20"
   displayName: "red mage"
   idRef {
@@ -19761,7 +19910,6 @@ characters {
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
     character_sheet_id: "Lonestar_Lv5_Human_Mage"
-    equipment_sheet_id: "Lonestar_Lv6_SMG_Gear"
     equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     equipment_sheet_id: "Lonestar_Lv6_Mage_Gear"
     character_mod {
@@ -19826,7 +19974,7 @@ characters {
       }
     }
     team_id: "LoneStar"
-    char_name: "New Actor"
+    char_name: "Red Samuri Mage"
     GeneralTags: "step20"
     enabled_at_start: false
     pc_spawn_number: -1
@@ -20798,7 +20946,7 @@ characters {
   gridPoint {
     x: -61
     y: 0
-    z: -84
+    z: -89
   }
   orientation: ORIENTATION_E
   GeneralTags: "step20"
@@ -20814,14 +20962,14 @@ characters {
     character_mod {
       stats {
         body: 0
-        quickness: 0
-        strength: 0
+        quickness: 1
+        strength: 1
         charisma: 0
         intelligence: 0
         willpower: 0
         essence: 0
         magic: 0
-        hp: 0
+        hp: 10
         ap: 0
         armor: 0
         force: 0
@@ -20862,7 +21010,7 @@ characters {
         pistol: 0
         rifle: 0
         shotgun: 0
-        smg: 0
+        smg: 2
         edged: 6
         unarmed: 0
         spirit_control: 0
@@ -20886,7 +21034,304 @@ characters {
     portrait {
       filename: "backerpc_humanmale_davidfry_joshuamorgan"
     }
-    karma: 147
+    karma: 166
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -84
+    y: 0
+    z: -20
+  }
+  orientation: ORIENTATION_E
+  displayName: "Mike Score"
+  idRef {
+    id: "5d1e807f396639fc27000a83"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Corp"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "5cfb0f85396639e01e002442"
+      turnToFace: true
+    }
+    interaction_info_text: "Mike Score"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Business/HumanMaleBusinessMan"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        hp: 0
+        ap: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "Outfit_SINless"
+    }
+    team_id: "Civilians"
+    char_name: "Mike Score"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Avatar
+    portrait {
+      filename: "pc_humanmale_00b"
+    }
+    karma: 6
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -86
+    y: 0
+    z: -16
+  }
+  orientation: ORIENTATION_S
+  GeneralTags: "Gouhin"
+  displayName: "Informant Security"
+  idRef {
+    id: "5dfd5661396639741000357d"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Seattle:Wealthy/HumanMaleAutumn"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        magic: 0
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+        vision_peripheral_distance: 0
+        vision_cone_distance: 0
+        vision_cone_angle: 0
+      }
+      skills {
+        ranged_combat: 0
+        close_combat: 0
+        throwing_weapons: 0
+        spellcasting: 0
+        decking: 0
+        conjuring: 0
+        spirit_summoning: 0
+        drone_control: 0
+        biotech: 0
+        dodge: 0
+        etiquette_corporate: 0
+        etiquette_security: 0
+        etiquette_gang: 0
+        etiquette_socialite: 0
+        chi_casting: 0
+        etiquette_shadowrunner: 0
+        etiquette_street: 0
+        etiquette_academic: 0
+      }
+      specializations {
+        pistol: 0
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 0
+        spirit_control: 0
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Non-Combatant"
+      attitude: AttitudeCautious
+      vulnerabilities {
+      }
+    }
+    team_id: "Civilians"
+    char_name: "Gouhin"
+    GeneralTags: "Gouhin"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Avatar
+    hiring_type: HiringType_None
+    portrait {
+      filename: "pc_trollfemale_00b"
+    }
+    karma: 6
+    hiring_cost_override: 3000
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -83
+    y: 0
+    z: -21
+  }
+  orientation: ORIENTATION_E
+  GeneralTags: "Mike_Score"
+  displayName: "Informant Corp"
+  idRef {
+    id: "5dfd6b013966397410003592"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    prerequisites {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Corp"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    conversationPoint {
+      conversationID: "5cfb0f85396639e01e002442"
+      turnToFace: true
+    }
+    interaction_info_text: "Mike Score"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Berlin:Business/HumanMaleBusinessMan"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        hp: 0
+        ap: 0
+        morale: 0
+        discipline: 0
+        awareness: 0
+        perception: 0
+        authority: 0
+        protect_tether_range: 0
+        move_speed: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+      vulnerabilities {
+      }
+    }
+    equipment {
+      prefab_name: "Outfit_SINless"
+    }
+    team_id: "Civilians"
+    char_name: "Mike Score"
+    GeneralTags: "Mike_Score"
+    pc_spawn_number: -1
+    spawn_type: SpawnType_Matrix
+    portrait {
+      filename: "pc_humanmale_00b"
+    }
+    karma: 6
   }
 }
 variables {
