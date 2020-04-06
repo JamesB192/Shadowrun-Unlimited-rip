@@ -32519,6 +32519,80 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "Freemove"
+  events {
+    ops {
+      functionName: "On Host Jacked Out"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Manual Turn Mode"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "54418eb33637351008004ec0"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Turn-Based Matrix"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5a14d5226630611c12fb17e0"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Enable/Disable Manual Turn Mode"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "54418ed23637351008004ec1"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "region Chunnel"
   position {
@@ -44264,6 +44338,7 @@ mapEvents: "Witness"
 mapEvents: "zonechange"
 mapEvents: "Exit"
 senseTags: "guard"
+senseTags: "FIREWALL"
 worldMapLocation {
   filename: ""
   location {
