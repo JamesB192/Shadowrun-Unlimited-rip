@@ -1,0 +1,1984 @@
+syntax = "proto2";
+package isogame;
+
+message AIObjective {
+   optional string behavior = 1 [default = ""];
+   optional string type = 2 [default = ""];
+   repeated AIObjectiveVariable vars = 3;
+   repeated AIObjective subObjectives = 4;
+}
+message AIObjectiveVariable {
+   optional string name = 1 [default = ""];
+   optional string value = 2 [default = ""];
+}
+message AbilityDef {
+   required string id = 1;
+   optional UIRep uirep = 2;
+   optional AnimAction anim_action = 3 [default = AnimAction_Null];
+   optional AnimModifier anim_modifier = 4 [default = AnimModifier_Null];
+   optional int32 apCostMod = 5 [default = 0];
+   optional float hpDamageMod = 6 [default = 0];
+   optional float apDamageMod = 7 [default = 0];
+   optional float accuracyMod = 8 [default = 0];
+   repeated string prereqStrings = 9;
+   optional ResultBucket damageBucket = 10;
+   optional float attackRatingMod = 11 [default = 0];
+   optional bool offensiveAbility = 12 [default = false];
+   optional bool defensiveAbility = 13 [default = false];
+   optional int32 ammoCost = 14 [default = 0];
+   optional int32 effectDuration = 15 [default = -1];
+   optional ResultBucket drainBucket = 16;
+   optional int32 repetition = 17 [default = 1];
+   optional bool can_summon = 18 [default = false];
+   optional int32 cooldown = 19 [default = 0];
+   optional string cooldown_category = 20 [default = ""];
+   optional float spreadAngle = 21 [default = 0];
+   optional VulnerabilityType damageType = 22 [default = VulnerabilityType_Normal];
+   repeated float effectModTable = 23;
+   optional int32 additionalTargets = 24 [default = -1];
+   optional int32 rpPenetrate = 25 [default = 0];
+   optional int32 rpReduce = 26 [default = 0];
+   optional bool flushCover = 27 [default = false];
+   optional FxRep fxrep = 30;
+   optional string toHitFunction = 41 [default = ""];
+   optional string damageFunction = 42 [default = ""];
+   optional bool override_item_targetting = 43 [default = false];
+   optional bool affectsFriendly = 44 [default = false];
+   optional bool affectsEnemy = 45 [default = false];
+   optional bool canTargetSelf = 50 [default = false];
+   optional bool canTargetActor = 51 [default = false];
+   optional bool canTargetOccupiedGridPoint = 52 [default = false];
+   optional bool canTargetUnoccupiedGridPoint = 53 [default = false];
+   optional string cannotTargetMessage = 54 [default = ""];
+   optional StatusEffects activationStatusEffects = 100;
+   optional IntendedUser intended_user = 110 [default = IntendedUser_Player];
+   optional ItemType additional_anim_group = 120 [default = ItemType_None];
+}
+message ActiveCharacterState {
+   required string char_id = 1;
+   required CharacterInstance char_inst = 2;
+   required int32 current_hp = 3;
+   required int32 current_ap = 4;
+   repeated string current_tags = 5;
+   repeated StatusEffects active_buffs = 6;
+   repeated Equipment __DEPRECATED_current_equipment__ = 7;
+   optional string master = 8 [default = ""];
+   optional bool exited_scene = 9 [default = false];
+   optional bool is_valid = 10 [default = true];
+}
+message Ambience {
+   optional string fx_script = 1 [default = ""];
+   optional string sound_clip = 10 [default = ""];
+   optional float volume = 11 [default = 1];
+   repeated float start_time = 12;
+   optional float crossfade_time = 13 [default = 0];
+   optional float pitch = 14 [default = 1];
+   optional float random_pitch = 15 [default = 0];
+   optional Vector source_point = 20;
+   optional Vector target_point = 21;
+   optional float frequency = 30 [default = 0.5];
+   optional float delay = 31 [default = 0];
+   optional float random_delay = 32 [default = 0];
+   optional float length = 33 [default = 0];
+   optional bool looping = 34 [default = false];
+   required int32 layer = 50;
+}
+message AmbienceTemplate {
+   required string id = 1;
+   repeated Ambience ambience = 2;
+   repeated string audio_bundles = 3;
+}
+enum AnimAction {
+   AnimAction_Null = 1;
+   AnimAction_Idle = 2;
+   AnimAction_Running = 3;
+   AnimAction_HitReaction = 4;
+   AnimAction_Death = 5;
+   AnimAction_Dizzy = 6;
+   AnimAction_Attack = 7;
+   AnimAction_Throw = 8;
+   AnimAction_Cast = 9;
+   AnimAction_Summon = 10;
+   AnimAction_Escape = 11;
+   AnimAction_Interact = 12;
+   AnimAction_Reload = 13;
+   AnimAction_JackIn = 14;
+   AnimAction_JackOut = 15;
+   AnimAction_Spawn = 16;
+   AnimAction_Use = 17;
+   AnimAction_Aiming = 18;
+   AnimAction_Control = 19;
+   AnimAction_Subject = 20;
+   AnimAction_Resurrect = 21;
+   AnimAction_Dodge = 22;
+   AnimAction_Banish = 23;
+   AnimAction_Downed = 24;
+}
+enum AnimModifier {
+   AnimModifier_Null = 1;
+   AnimModifier_Burst = 2;
+   AnimModifier_FullAuto = 3;
+   AnimModifier_BigFront = 4;
+   AnimModifier_SmallFront = 5;
+   AnimModifier_BigBehind = 6;
+   AnimModifier_SmallBehind = 7;
+   AnimModifier_DumpShock = 8;
+   AnimModifier_Decking = 9;
+   AnimModifier_Rigging = 10;
+   AnimModifier_Medkit = 11;
+   AnimModifier_Buff = 12;
+   AnimModifier_Magic = 13;
+   AnimModifier_Disarm = 14;
+   AnimModifier_Walk = 15;
+   AnimModifier_Sprint = 16;
+   AnimModifier_BigLeft = 17;
+   AnimModifier_SmallLeft = 18;
+   AnimModifier_BigRight = 19;
+   AnimModifier_SmallRight = 20;
+   AnimModifier_BigCenter = 21;
+   AnimModifier_SmallCenter = 22;
+}
+enum AnimType {
+   AnimType_Null = 1;
+   AnimType_Pistol = 2;
+   AnimType_Rifle = 3;
+   AnimType_Shotgun = 4;
+   AnimType_Melee1H = 5;
+   AnimType_Melee2H = 6;
+   AnimType_Unarmed = 7;
+   AnimType_Thrown = 8;
+   AnimType_Spell = 9;
+   AnimType_Consumable = 10;
+   AnimType_Melee = 11;
+   AnimType_Range = 12;
+   AnimType_SMG = 13;
+}
+message AnimationModifierEntry {
+   optional string ui_name = 1 [default = ""];
+   optional string mod_name = 2 [default = ""];
+}
+message AnimationModifierList {
+   repeated AnimationModifierEntry entries = 1;
+}
+message AnimationType {
+   optional string bundlegroup = 1 [default = ""];
+   optional string identity = 2 [default = ""];
+   optional string stance = 3 [default = ""];
+   optional string action = 4 [default = ""];
+   optional string type = 5 [default = ""];
+   optional string mod = 6 [default = ""];
+   optional float current_time = 7 [default = 0];
+}
+enum AttackStyle {
+   AttackStyle_NotSet = 0;
+   AttackStyle_BestOnly = 1;
+   AttackStyle_AllEqual = 2;
+   AttackStyle_AnyNonZero = 3;
+   AttackStyle_CycleAll = 4;
+   AttackStyle_RandomAll = 5;
+}
+enum Attitude {
+   AttitudeNone = 0;
+   AttitudeCautious = 1;
+   AttitudeAggressive = 2;
+   AttitudeBoss = 3;
+   AttitudeFurious = 4;
+}
+enum Attribute {
+   Attribute_None = 0;
+   Attribute_Body = 1;
+   Attribute_Quickness = 2;
+   Attribute_Strength = 3;
+   Attribute_Charisma = 4;
+   Attribute_Intelligence = 5;
+   Attribute_Willpower = 6;
+   Attribute_Essence = 7;
+   Attribute_Magic = 8;
+   Attribute_Reaction = 9;
+   Attribute_Initiative = 10;
+   Attribute_HP = 11;
+   Attribute_AP = 12;
+   Attribute_Armor = 13;
+   Attribute_Force = 14;
+   Attribute_Move_Speed = 15;
+   Attribute_Magic_Essence = 16;
+   Attribute_Max_HP = 17;
+   Attribute_Vision_Peripheral_Distance = 20;
+   Attribute_Vision_Cone_Distance = 21;
+   Attribute_Vision_Cone_Angle = 22;
+   Attribute_Accuracy = 50;
+   Attribute_Wound_Mod = 51;
+   Attribute_AP_Mod = 52;
+   Attribute_Magic_AP_Mod = 53;
+   Attribute_Decking_AP_Mod = 54;
+   Attribute_Decking_Alarm_Mod = 55;
+   Attribute_Decking_Accuracy = 56;
+   Attribute_Damage_Mod = 57;
+   Attribute_Damage_Reduction_Mod = 58;
+   Attribute_Accuracy_Reduction_Mod = 59;
+   Attribute_AP_Effect = 60;
+   Attribute_Spirit_Escape_Mod = 61;
+   Attribute_Tether_Action = 70;
+   Attribute_Tether_Follow = 71;
+   Attribute_Authority = 101;
+   Attribute_Discipline = 102;
+   Attribute_Morale = 103;
+   Attribute_Awareness = 104;
+   Attribute_Perception = 105;
+   Attribute_Protect_Tether_Range = 106;
+   Attribute_Is_Fearless = 107;
+   Attribute_Is_Strict = 108;
+}
+message Attributes {
+   optional int32 body = 1 [default = 0];
+   optional int32 quickness = 2 [default = 0];
+   optional int32 strength = 3 [default = 0];
+   optional int32 charisma = 4 [default = 0];
+   optional int32 intelligence = 5 [default = 0];
+   optional int32 willpower = 6 [default = 0];
+   optional int32 essence = 7 [default = 0];
+   optional int32 magic = 8 [default = 0];
+   optional int32 reaction = 9 [default = 0];
+   optional int32 hp = 10 [default = 0];
+   optional int32 ap = 11 [default = 0];
+   optional int32 armor = 12 [default = 0];
+   optional int32 force = 13 [default = 0];
+   optional int32 morale = 14 [default = 75];
+   optional int32 discipline = 15 [default = 75];
+   optional int32 awareness = 16 [default = 80];
+   optional int32 perception = 17 [default = 50];
+   optional int32 authority = 18 [default = 50];
+   optional int32 protect_tether_range = 19 [default = 5];
+   optional int32 move_speed = 20 [default = 6];
+   optional float magic_essence = 21 [default = 0];
+   optional int32 vision_peripheral_distance = 30 [default = 0];
+   optional int32 vision_cone_distance = 31 [default = 0];
+   optional int32 vision_cone_angle = 32 [default = 0];
+   optional int32 accuracy = 40 [default = 0];
+   optional int32 wound_mod = 41 [default = 0];
+   optional int32 ap_mod = 42 [default = 0];
+   optional int32 magic_ap_mod = 43 [default = 0];
+   optional int32 damage_reduction_mod = 44 [default = 0];
+   optional int32 accuracy_reduction_mod = 45 [default = 0];
+   optional int32 spirit_escape_mod = 46 [default = 0];
+   optional int32 decking_ap_mod = 50 [default = 0];
+   optional int32 decking_alarm_mod = 51 [default = 0];
+   optional int32 decking_accuracy = 52 [default = 0];
+   optional int32 damage_mod = 53 [default = 0];
+   optional int32 tether_action = 54 [default = 0];
+   optional int32 tether_follow = 55 [default = 0];
+   optional int32 is_fearless = 56 [default = 0];
+   optional int32 is_strict = 57 [default = 0];
+}
+message AudioBundle {
+   required string id = 1;
+   repeated string sounds = 2;
+}
+message BackerPCData {
+   required string id = 1;
+   optional Race race = 2 [default = Race_None];
+   optional Gender gender = 3 [default = Gender_None];
+   optional TextureRef portrait = 4;
+   optional Equipment outfit = 5;
+}
+message BackerPCLibrary {
+   repeated BackerPCData entries = 1;
+}
+message BooleanType {
+   optional bool defaultValue = 1 [default = false];
+}
+message Buff {
+   optional int32 source_uid = 1 [default = -1];
+   optional int32 target_player_uid = 2 [default = -1];
+   optional Vector target_tile = 3;
+   optional StatusEffects effect = 4;
+   optional int32 range = 5 [default = 0];
+   optional int32 force = 6 [default = 0];
+   optional bool is_magic = 7 [default = false];
+   optional bool affects_enemy = 8 [default = false];
+   optional bool affects_friendly = 9 [default = false];
+   optional string stacking_category = 10 [default = ""];
+   repeated Vector affected_tiles = 11;
+   optional int32 duration = 12 [default = 0];
+   optional ItemDef source_item = 13;
+   optional bool consumed_this_round = 14 [default = false];
+   optional bool is_buff = 15 [default = false];
+   optional bool is_debuff = 16 [default = false];
+   optional Attitude previous_attitude = 17 [default = AttitudeNone];
+}
+message Character {
+   required string unique_id = 1;
+   optional string archetypeName = 2 [default = ""];
+   optional Attitude attitude = 3 [default = AttitudeAggressive];
+   optional Attributes stats = 4;
+   optional Skills skills = 5;
+   optional Specializations specializations = 6;
+   repeated CustomProperty properties = 8;
+   optional string prefab_name = 10 [default = ""];
+   optional TextureRef portrait = 11;
+   optional AttackStyle attackRandom = 12 [default = AttackStyle_AllEqual];
+   optional string char_name = 13 [default = ""];
+   optional Vulnerabilities vulnerabilities = 14;
+   optional string crew_id = 15 [default = ""];
+}
+message CharacterAIInstance {
+   optional int32 failed_morale = 2 [default = -1];
+   optional string archetypeName = 3 [default = ""];
+   optional Attitude attitude = 4 [default = AttitudeNone];
+   optional CustomProperty protect_target = 10;
+   optional CustomProperty default_move_target = 11;
+   optional string patrol_name = 12 [default = ""];
+   optional int32 patrol_index = 13 [default = -1];
+   optional int32 target_preference = 20 [default = -1];
+   repeated int32 threat_uid = 21;
+   repeated int32 threat_level = 22;
+   repeated bool threat_top_priority = 23;
+   repeated bool threat_targeted_enemy = 24;
+   optional AIObjective active_override = 30;
+   optional bool patrol_override = 32 [default = false];
+   optional AIObjective queued_override_strong = 33;
+   optional AIObjective queued_override_weak = 34;
+   optional bool can_attack_team = 40 [default = false];
+   optional bool can_attack_ally = 41 [default = false];
+}
+message CharacterGumboInstance {
+   optional string archetype_name = 1 [default = ""];
+   optional bool is_protect = 2 [default = false];
+   optional string patrol_name = 12 [default = ""];
+   optional int32 patrol_index = 13 [default = -1];
+   optional bool patrol_override = 14 [default = false];
+   repeated ThreatRecord enemy_threats = 20;
+   repeated ThreatRecord other_threats = 21;
+   optional bool yellow_alert = 22 [default = false];
+   optional bool red_alert = 23 [default = false];
+   optional bool cheat_awareness_yellow = 24 [default = false];
+   optional bool cheat_awareness = 25 [default = false];
+   optional Vector start_location = 30;
+   optional Vector patrol_destination = 31;
+   optional Vector move_to_destination = 32;
+   optional int32 move_to_player_uid = 33 [default = 0];
+   optional int32 latest_attacker_uid = 35 [default = 0];
+   optional int32 latest_enemy_uid = 36 [default = 0];
+   optional int32 latest_target_uid = 37 [default = 0];
+   optional bool protect_valid = 40 [default = false];
+   optional Vector protect_destination = 41;
+   optional int32 protect_player_uid = 42 [default = 0];
+   repeated int32 bank_numbers = 50;
+   repeated string bank_strings = 51;
+   repeated int32 bank_actoruids = 52;
+   repeated string bank_item_names = 53;
+   repeated string bank_goals = 54;
+   repeated int32 bank_method_treeuids = 55;
+}
+message CharacterInstance {
+   optional string prefab_name = 1 [default = ""];
+   optional string character_sheet_id = 2 [default = ""];
+   repeated string equipment_sheet_id = 3;
+   optional CharacterMod character_mod = 4;
+   repeated Equipment equipment = 5;
+   repeated CustomProperty properties = 6;
+   optional string team_id = 7 [default = ""];
+   optional string char_name = 8 [default = ""];
+   repeated string aiSightTags = 9;
+   repeated string aiSoundTags = 10;
+   repeated string GeneralTags = 11;
+   optional Vector gridPoint = 12;
+   optional Orientation orientation = 13 [default = ORIENTATION_N];
+   optional string patrolRoute = 14 [default = ""];
+   optional bool enabled_at_start = 15 [default = true];
+   optional int32 pc_spawn_number = 16 [default = -1];
+   optional bool ai_ignores = 17 [default = false];
+   optional bool uninjurable = 18 [default = false];
+   optional bool unkillable = 19 [default = false];
+   optional SpawnType spawn_type = 20 [default = SpawnType_Normal];
+   optional HiringType hiring_type = 21 [default = HiringType_None];
+   optional bool disable_pickups = 22 [default = false];
+   optional int32 ready_priority = 23 [default = 0];
+   optional bool can_moveto_shove = 24 [default = false];
+   optional bool can_combat_shove = 25 [default = false];
+   optional bool revivable_override = 26 [default = false];
+   optional bool revivable_value = 27 [default = false];
+   optional bool can_hear_sound = 28 [default = false];
+   optional string cyberware_eyes = 30 [default = ""];
+   optional string cyberware_jack = 31 [default = ""];
+   optional string cyberware_body = 32 [default = ""];
+   optional string cyberware_left_arm = 33 [default = ""];
+   optional string cyberware_right_arm = 34 [default = ""];
+   optional string cyberware_left_leg = 35 [default = ""];
+   optional string cyberware_right_leg = 36 [default = ""];
+   optional TextureRef portrait = 40;
+   optional string description_bio = 41 [default = ""];
+   optional string portrait_code_override = 42 [default = ""];
+   optional string animation_override = 45 [default = ""];
+   optional string linked_jackpoint = 50 [default = ""];
+   optional string dimension_name = 51 [default = ""];
+   optional int32 karma = 60 [default = 0];
+   optional int32 hiring_cost_override = 61 [default = 0];
+   optional string hiring_set_randomizer = 62 [default = ""];
+   optional string hiring_tag = 63 [default = ""];
+   optional bool is_backer = 64 [default = false];
+   optional int32 unspent_karma = 65 [default = 0];
+   optional bool is_prop_character = 70 [default = false];
+   optional bool scale_character_sheet = 71 [default = false];
+   optional bool cull_on_low_end_mobile = 72 [default = false];
+   optional bool hide_floaties = 80 [default = false];
+   optional bool persistent_body = 81 [default = false];
+   optional bool ai_never_use_draining_abilities = 82 [default = false];
+   optional bool has_fist = 83 [default = true];
+   optional bool can_equip_weapons = 84 [default = true];
+   optional string id = 100 [default = ""];
+   optional int32 actor_uid = 200 [default = -1];
+   optional int32 limit_by_force = 201 [default = 0];
+   optional bool current_vitals_valid = 202 [default = false];
+   optional int32 current_hp = 203 [default = 0];
+   optional int32 current_ap = 204 [default = 0];
+   optional int32 current_wound = 205 [default = 0];
+   optional int32 current_rp = 206 [default = 0];
+   optional bool exited_scene = 210 [default = false];
+   optional bool camera_ignore = 211 [default = false];
+   optional int32 master_uid = 220 [default = -1];
+   repeated int32 slave_uid_list = 221;
+   optional int32 spirit_ap_used = 222 [default = 0];
+   optional int32 spirit_ap_used_turn = 223 [default = 0];
+   optional bool is_controlled_turn = 224 [default = false];
+   optional bool is_slave_active = 225 [default = false];
+   optional bool is_spirit_gambled_turn = 226 [default = true];
+   optional bool is_bug_spirit_immortal = 227 [default = false];
+   optional bool is_bug_spirit_kill_after_movement = 228 [default = false];
+   optional bool is_knocked_out = 230 [default = false];
+   optional bool is_in_matrix = 250 [default = false];
+   optional bool is_inside_decking = 251 [default = false];
+   optional int32 decking_avatar_uid = 254 [default = -1];
+   optional int32 decking_host_uid = 255 [default = -1];
+   optional IDRef decking_spawn_prop = 256;
+   optional IDRef decking_jackpoint_prop = 257;
+   optional AnimationType current_animation = 270;
+   optional AnimationType queued_animation = 271;
+   repeated string overwrite_animation = 272;
+   repeated Buff source_buff_list = 300;
+   repeated Cooldown cooldown_list = 301;
+   repeated int32 vulnerable_list = 302;
+   repeated int32 vulnerable_base_list = 303;
+   optional bool in_cover_mode = 310 [default = false];
+   optional bool in_crouch_cover = 311 [default = false];
+   optional int32 override_walkmode = 312 [default = -1];
+   optional int32 tether_mode = 315 [default = -1];
+   optional int32 spawn_tile_x = 320 [default = -9999];
+   optional int32 spawn_tile_y = 321 [default = -9999];
+   optional bool passive_moving = 322 [default = false];
+   optional int32 wander_radius = 323 [default = -1];
+   optional bytes revealed_tiles = 330;
+   repeated int32 overwatch_tiles_x = 331;
+   repeated int32 overwatch_tiles_y = 332;
+   optional string overwatch_attack = 333 [default = ""];
+   optional int32 overwatch_state = 334 [default = 0];
+   optional int32 overwatch_reactions = 335 [default = 0];
+   repeated int32 player_measures = 340;
+   optional string current_weapon_name = 341 [default = ""];
+   optional string current_ability_name = 342 [default = ""];
+   optional CharacterStateInstance state_instance = 350;
+   optional CharacterAIInstance ai_instance = 351;
+   optional CharacterGumboInstance gumbo_instance = 352;
+   optional string temp_body_name = 360 [default = ""];
+   optional string crew_id = 370 [default = ""];
+}
+message CharacterMod {
+   optional Attributes stats = 1;
+   optional Skills skills = 2;
+   optional Specializations specializations = 3;
+   optional string archetypeName = 4 [default = ""];
+   optional Attitude attitude = 5 [default = AttitudeNone];
+   repeated CustomProperty properties = 7;
+   optional AttackStyle attackRandom = 8 [default = AttackStyle_AllEqual];
+   optional Vulnerabilities vulnerabilities = 9;
+}
+message CharacterPrefabData {
+   required string prefab_name = 1;
+   required string prefab_group = 2;
+   required string prefab_race = 3;
+   required string prefab_gender = 4;
+   optional string bundle_group = 10 [default = ""];
+}
+message CharacterPrefabLibrary {
+   repeated CharacterPrefabData entries = 1;
+}
+message CharacterRoster {
+   repeated CharacterRosterEntry roster_entries = 1;
+   repeated RosterConfirmPrereq confirm_prereqs = 2;
+}
+message CharacterRosterEntry {
+   required string reference_id = 1;
+   required TsBlock hiring_conditions = 2;
+   required int32 hiring_cost = 3;
+   optional string content_pack_source = 4 [default = ""];
+}
+message CharacterStateInstance {
+   required bool bleeding = 3;
+   required int32 bleeding_remaining = 4;
+   required bool consumed_turn = 10;
+   required bool force_advance = 11;
+   required bool controlled_turn = 12;
+   required bool is_prepared = 13;
+   required bool is_scene_transition = 14;
+   optional string scene_transition_name = 15 [default = ""];
+   optional bool is_detained = 16 [default = false];
+   required bool is_suspended = 20;
+   required int32 suspended_ap = 21;
+   required int32 turns_started = 30;
+   required int32 turns_finished = 31;
+   optional int32 ready_state = 40 [default = -1];
+}
+message CharacterVariant {
+   required string id = 1;
+   required string crew_id = 2;
+   optional string name = 3 [default = ""];
+   optional string icon = 4 [default = ""];
+   optional string short_desc = 5 [default = ""];
+   optional string long_desc = 6 [default = ""];
+   repeated Equipment equipment_to_add = 10;
+   repeated string equipment_sheet_to_add = 11;
+   repeated Equipment equipment_to_remove = 12;
+   repeated string equipment_sheet_to_remove = 13;
+   optional CharacterMod character_mod = 14;
+   optional string cyberware_eyes = 20 [default = ""];
+   optional string cyberware_jack = 21 [default = ""];
+   optional string cyberware_body = 22 [default = ""];
+   optional string cyberware_left_arm = 23 [default = ""];
+   optional string cyberware_right_arm = 24 [default = ""];
+   optional string cyberware_left_leg = 25 [default = ""];
+   optional string cyberware_right_leg = 26 [default = ""];
+   repeated string general_tags_to_add = 30;
+   repeated string general_tags_to_remove = 31;
+}
+message ColorValue {
+   optional float r = 1 [default = 0];
+   optional float g = 2 [default = 0];
+   optional float b = 3 [default = 0];
+   optional float a = 4 [default = 1];
+   optional string hex = 5 [default = ""];
+}
+message Conversation {
+   required IDRef idRef = 1;
+   optional string ui_name = 2 [default = ""];
+   repeated ConversationNode nodes = 3;
+   repeated ConversationLink roots = 4;
+}
+enum ConversationAutoFollowType {
+   ConversationAutoFollowType_None = 1;
+   ConversationAutoFollowType_Short = 2;
+   ConversationAutoFollowType_Medium = 3;
+   ConversationAutoFollowType_Long = 4;
+}
+message ConversationLink {
+   optional string responseText = 1 [default = ""];
+   optional TsBlock conditions = 2;
+   optional TsBlock actions = 3;
+   optional int32 nextNodeIndex = 4 [default = 0];
+   optional bool hideIfUnavailable = 5 [default = false];
+   optional bool onlyOnce = 6 [default = false];
+   optional IDRef idRef = 7;
+   optional bool inputBypass = 8 [default = false];
+   optional bool auxiliaryLink = 10 [default = false];
+   optional string comment = 30 [default = ""];
+}
+message ConversationNode {
+   required IDRef idRef = 1;
+   required int32 index = 2;
+   optional string text = 4 [default = ""];
+   repeated ConversationLink branches = 5;
+   optional ConversationNodeType nodeType = 6 [default = ConversationNodeType_Simple];
+   optional bool truthValue = 7 [default = false];
+   optional ConversationAutoFollowType autoFollowBranchDelay = 8 [default = ConversationAutoFollowType_None];
+   optional int32 inputMaxLength = 9 [default = 0];
+   optional ConversationTopicRef sourceTopicRef = 10;
+   repeated ConversationTopicRef subjectTopicRefs = 11;
+   optional IDRef sourceInSceneRef = 12;
+   optional string sourceWithTagInScene = 13 [default = ""];
+   optional TsBlock actions = 20;
+   optional string comment = 30 [default = ""];
+}
+enum ConversationNodeType {
+   ConversationNodeType_Simple = 1;
+   ConversationNodeType_GM_Voice = 4;
+   ConversationNodeType_GM_Speaker_Voice = 6;
+   ConversationNodeType_InputNumpad = 7;
+   ConversationNodeType_InputKeyboard = 8;
+}
+message ConversationTopicRef {
+   required IDRef topicIDRef = 1;
+   optional int32 imageIndex = 2 [default = 0];
+   optional bool showInConversation = 3 [default = false];
+}
+message Cooldown {
+   optional string item_id = 1 [default = ""];
+   optional string ability_id = 2 [default = ""];
+   optional string category = 3 [default = ""];
+   optional int32 current_rounds = 4 [default = 0];
+   optional int32 max_rounds = 5 [default = 0];
+}
+enum CoverAmount {
+   COVERAMOUNT_NONE = 0;
+   COVERAMOUNT_LIGHT = 1;
+   COVERAMOUNT_MEDIUM = 2;
+   COVERAMOUNT_HEAVY = 3;
+}
+message CrewEntry {
+   optional string id = 1 [default = ""];
+   optional string name = 2 [default = ""];
+   optional string title = 3 [default = ""];
+   optional TsBlock prerequisites = 4;
+   optional TextureRef portrait = 5;
+   optional string description_bio = 6 [default = ""];
+   repeated CrewNode completed_nodes = 7;
+   repeated CrewNode active_nodes = 8;
+   repeated CharacterVariant active_variants = 9;
+   optional bool hide_when_unavailable = 10 [default = false];
+   required string scale_variable = 11;
+}
+message CrewNode {
+   optional string name = 1 [default = ""];
+   optional string icon = 2 [default = ""];
+   required int32 scale_level = 3;
+   repeated string crew_variants = 4;
+   optional bool hide_when_unavailable = 5 [default = false];
+   required string associated_char_sheet = 6;
+   optional int32 node_idx = 7 [default = 0];
+   optional bool completed = 8 [default = false];
+   optional int32 current_focus = 9 [default = -1];
+}
+message CurrentRandomState {
+   required string prefab_name = 1;
+   required string portrait_name = 2;
+   required string portrait_code_override = 3;
+   required string character_name = 4;
+   required string character_description = 5;
+   required string outfit = 6;
+}
+message CustomProperty {
+   optional int32 property_index = 1 [default = 0];
+   optional string property_id = 2 [default = ""];
+   optional int32 int_value = 3 [default = 0];
+   optional float float_value = 4 [default = 0];
+   optional string string_value = 5 [default = ""];
+   optional int32 enum_value = 6 [default = 0];
+   optional Vector vector_value = 7;
+   optional Dimension dimension_value = 8;
+   optional Rect rect_value = 9;
+   optional bool bool_value = 10 [default = false];
+}
+message CustomPropertyDef {
+   required string id = 1;
+   optional string ui_name = 2 [default = ""];
+   optional string ui_description = 3 [default = ""];
+   optional string ui_group = 4 [default = ""];
+   optional BooleanType boolean_info = 10;
+   optional IntegerType integer_info = 11;
+   optional FloatType float_info = 12;
+   optional StringType string_info = 13;
+   optional EnumType enum_info = 14;
+   optional VectorType vector_info = 15;
+   optional DimensionType dimension_info = 16;
+   optional RectType rect_info = 17;
+}
+message CustomPropertyMapping {
+   repeated string id = 1;
+}
+enum CyberwareType {
+   CyberwareType_None = 0;
+   CyberwareType_Eyes = 1;
+   CyberwareType_Jack = 2;
+   CyberwareType_Body = 3;
+   CyberwareType_Arm = 4;
+   CyberwareType_Leg = 5;
+}
+message DeckProgramDef {
+   required string id = 1;
+   optional UIRep uirep = 2;
+   optional int32 ap_cost = 3 [default = 0];
+   optional bool can_target_nodes = 4 [default = false];
+   optional bool can_target_ic = 5 [default = false];
+   optional bool can_target_black_ic = 6 [default = false];
+   optional bool can_target_alarm = 7 [default = false];
+   optional bool can_target_black_alarm = 8 [default = false];
+   optional StatusEffects activation_status_effects = 100;
+}
+message Dimension {
+   optional float width = 1 [default = 0];
+   optional float height = 2 [default = 0];
+   optional float depth = 3 [default = 0];
+}
+message DimensionInformation {
+   optional string dimension_name = 1 [default = "Default"];
+   optional float initial_alarm_state = 2 [default = 0];
+   optional int32 turns_per_round = 3 [default = 1];
+   optional float current_alarm_state = 4 [default = 0];
+   optional bool fired_signal = 5 [default = false];
+   optional int32 turn_current = 6 [default = 0];
+}
+message DimensionType {
+   optional Dimension defaultValue = 1;
+}
+message PortraitEntry {
+   required string value = 1;
+   optional Race race = 2 [default = Race_None];
+   optional Gender gender = 3 [default = Gender_None];
+}
+message TotemEntry {
+   required string totem_name = 1;
+   required string totem_item_id = 2;
+   required string totem_description = 3;
+   optional string totem_icon = 4 [default = ""];
+   optional bool is_content_icon = 5 [default = false];
+}
+message ManifestEntry {
+   required string name = 1;
+   optional int64 size = 2 [default = 0];
+   optional string digest = 3 [default = ""];
+   optional string digest_method = 4 [default = ""];
+}
+message ResultEntry {
+   required float weight = 1;
+   required float value = 2;
+}
+message EnumType {
+   repeated string value = 1;
+   optional int32 defaultValue = 2 [default = 0];
+}
+message Equipment {
+   required string prefab_name = 1;
+   repeated CustomProperty properties = 2;
+}
+message EquipmentSheet {
+   required string unique_id = 1;
+   repeated Equipment equipment = 2;
+}
+message FactionInformation {
+   required int32 team_index = 1;
+   required string team_name = 2;
+   repeated TeamInformation teams = 3;
+   repeated int32 affiliation = 5;
+   repeated Equipment inventory = 10;
+   optional Equipment disguise = 11;
+   optional bytes fog_of_war = 12;
+}
+message FloatType {
+   optional float defaultValue = 1 [default = 0];
+   optional float minimum = 2 [default = 0];
+   optional float maximum = 3 [default = 0];
+}
+message FxRep {
+   optional string preActionFxName = 1 [default = ""];
+   optional string actionFxName = 2 [default = ""];
+   optional string postActionFxName = 3 [default = ""];
+   optional string hitReactionFxName = 4 [default = ""];
+   optional string missReactionFxName = 5 [default = ""];
+}
+enum Gender {
+   Gender_None = 0;
+   Gender_Male = 1;
+   Gender_Female = 2;
+}
+message GenericArgs {
+   optional int32 source_player_uid = 1 [default = 0];
+   optional int32 target_player_uid = 2 [default = 0];
+   optional IDRef source_prop_id = 3;
+   optional IDRef target_prop_id = 4;
+   optional IDRef affected_region_id = 5;
+   optional TsVariant event_value = 6;
+   optional ItemDef item = 7;
+   optional Vector target_point = 8;
+}
+enum GoalStatus {
+   GoalStatus_Hidden = 0;
+   GoalStatus_Started = 1;
+   GoalStatus_Success = 2;
+   GoalStatus_Failure = 3;
+}
+enum GoalType {
+   GoalType_Primary = 0;
+   GoalType_Secondary = 1;
+}
+message GridData {
+   required int32 width = 1;
+   required int32 depth = 2;
+   repeated int32 flagmap = 3 [packed = true];
+   repeated float heightmap = 4 [packed = true];
+}
+message HiringSet {
+   required string id = 1;
+   repeated string prefab = 2;
+   repeated string portrait = 3;
+   repeated NameDescription description = 4;
+   repeated string outfit = 5;
+   optional bool ignore_uniqueness = 6 [default = false];
+}
+enum HiringType {
+   HiringType_None = 0;
+   HiringType_Hireable = 1;
+   HiringType_NOTUSED = 2;
+   HiringType_Forced = 3;
+}
+message IDRef {
+   required string id = 1;
+}
+message IntegerType {
+   optional int32 defaultValue = 1 [default = 0];
+   optional int32 minimum = 2 [default = 0];
+   optional int32 maximum = 3 [default = 0];
+}
+enum IntendedUser {
+   IntendedUser_Player = 0;
+   IntendedUser_AI = 1;
+   IntendedUser_Spirits = 2;
+   IntendedUser_Drone = 3;
+}
+message InteractionBehaviorAlarm {
+   required bool isActive = 1;
+   required int32 soundRadius = 2;
+}
+message InteractionBehaviorConversation {
+   required string conversationID = 1;
+   optional bool turnToFace = 2 [default = false];
+}
+message InteractionBehaviorDoor {
+   required bool doorState = 1;
+   optional bool aiOnlyDoor = 2 [default = false];
+   optional string doorSound = 3 [default = ""];
+   optional string doorSoundBundle = 4 [default = ""];
+}
+message InteractionBehaviorDummy {
+}
+message InteractionBehaviorDummyMatrixLabel {
+   optional string hackingObjectID = 1 [default = ""];
+   optional string label_text = 2 [default = ""];
+}
+message InteractionBehaviorInspect {
+   required float dispalyTime = 1;
+   required float fadeTime = 2;
+   required string inspectText = 3;
+   required bool disableAfterInteracting = 4;
+}
+message InteractionBehaviorJackPoint {
+   required string LANIdentifier = 1;
+   optional string LANEquipment = 2 [default = ""];
+}
+message InteractionBehaviorMatrixNode {
+   optional string hackingObjectID = 1 [default = ""];
+   repeated string hacking_objects = 2;
+   optional bool prerequisites_control_state = 3 [default = false];
+   optional string constant_matrix_fx = 10 [default = "matrixcontrolnode"];
+   optional string state_change_offline_fx = 11 [default = ""];
+   optional string state_change_offline_sound = 12 [default = ""];
+   optional float state_change_offline_sound_volume = 13 [default = 0];
+   optional string state_change_hackable_fx = 14 [default = "MatrixControlNodeHacked"];
+   optional string state_change_hackable_sound = 15 [default = "MatrixNodeHackReady"];
+   optional float state_change_hackable_sound_volume = 16 [default = 1];
+   optional string state_change_locked_fx = 17 [default = ""];
+   optional string state_change_locked_sound = 18 [default = ""];
+   optional float state_change_locked_sound_volume = 19 [default = 0];
+   optional string state_change_hacked_fx = 20 [default = ""];
+   optional string state_change_hacked_sound = 21 [default = ""];
+   optional float state_change_hacked_sound_volume = 22 [default = 0];
+}
+message InteractionBehaviorMatrixSpawnPoint {
+   required string dimension = 1;
+}
+message InteractionBehaviorPickup {
+   required string itemName = 1;
+   required bool destroyOnPickup = 2;
+}
+message InteractionBehaviorRoot {
+   required bool isEnabled = 1;
+   optional int32 interactionRadius = 2 [default = 0];
+   optional TsBlock prerequisites = 3;
+   optional InteractionBehaviorJackPoint jackPoint = 10;
+   optional InteractionBehaviorSummonPoint summonPoint = 11;
+   optional InteractionBehaviorAlarm alarmPoint = 12;
+   optional InteractionBehaviorPickup pickupItem = 13;
+   optional InteractionBehaviorConversation conversationPoint = 14;
+   optional InteractionBehaviorDoor doorPoint = 15;
+   optional InteractionBehaviorTransition transitionPoint = 16;
+   optional InteractionBehaviorMatrixNode matrixNode = 17;
+   optional InteractionBehaviorMatrixSpawnPoint matrixSpawnPoint = 18;
+   optional InteractionBehaviorDummy dummyInteraciton = 19;
+   optional InteractionBehaviorInspect inspectInteraction = 20;
+   optional InteractionWarp warpInteraction = 21;
+   optional InteractionBehaviorDummyMatrixLabel matrixLabel = 22;
+   optional InteractionIcon interactionIcon = 30 [default = InteractionIcon_Generic];
+   optional string interaction_info_text = 31 [default = ""];
+   optional bool last_interaction_is_npc = 50 [default = false];
+   optional int32 interactions_used = 51 [default = 0];
+   optional InteractionHackStatus last_hack_status = 52 [default = InteractionHackStatus_NONE];
+   optional bool is_interaction_doc_wagon = 53 [default = false];
+}
+message InteractionBehaviorSummonPoint {
+   required bool hasCharacter = 1;
+   required string summon_icon = 2;
+   required int32 max_summon_force = 3;
+}
+message InteractionBehaviorTransition {
+   required string scene_name = 1;
+   optional bool open_hiring_screen = 2 [default = false];
+   optional string confirmation_text = 3 [default = ""];
+}
+enum InteractionHackStatus {
+   InteractionHackStatus_NONE = 0;
+   InteractionHackStatus_NOT_HACKED = 1;
+   InteractionHackStatus_CANT_HACK = 2;
+   InteractionHackStatus_HACKED = 3;
+   InteractionHackStatus_DISCONNECTED = 4;
+}
+enum InteractionIcon {
+   InteractionIcon_Generic = 0;
+   InteractionIcon_Matrix = 1;
+   InteractionIcon_ItemPickup = 2;
+   InteractionIcon_Conversation = 3;
+   InteractionIcon_Summon = 4;
+   InteractionIcon_Door = 5;
+   InteractionIcon_LockedDoor = 6;
+   InteractionIcon_Inspect = 7;
+   InteractionIcon_SceneTransition = 8;
+   InteractionIcon_Warp = 9;
+}
+message InteractionWarp {
+}
+enum IsoMeshPrefab {
+   ISOMESH_PREFAB_BOX = 1;
+   ISOMESH_PREFAB_FLAT_BOTTOM_BOX = 2;
+   ISOMESH_PREFAB_COLUMN = 3;
+   ISOMESH_PREFAB_WALL_N = 4;
+   ISOMESH_PREFAB_WALL_E = 5;
+   ISOMESH_PREFAB_WALL_S = 6;
+   ISOMESH_PREFAB_WALL_W = 7;
+   ISOMESH_PREFAB_FLOOR = 8;
+}
+message ItemDef {
+   required string id = 1;
+   optional ItemType type = 2 [default = ItemType_None];
+   optional UIRep uirep = 3;
+   optional string equipPrefabName = 4 [default = ""];
+   optional AnimType anim_type = 5 [default = AnimType_Null];
+   optional Attribute coreAttribute = 6 [default = Attribute_None];
+   optional Skill coreSkill = 7 [default = Skill_None];
+   optional Specialization coreSpecialization = 8 [default = Specialization_None];
+   optional int32 forceRating = 9 [default = 0];
+   optional int32 apCost = 10 [default = 0];
+   repeated string prereqStrings = 11;
+   optional bool is_unique = 16 [default = false];
+   optional int32 maxAmmo = 20 [default = 0];
+   optional float baseHPDamage = 21 [default = 0];
+   optional float baseAPDamage = 22 [default = 0];
+   repeated float rangeModTable = 23;
+   repeated float effectModTable = 24;
+   optional float noiseLevel = 25 [default = 0];
+   optional int32 noiseRounds = 26 [default = 0];
+   optional int32 ammoReloadAPCost = 27 [default = 0];
+   optional float spreadAngle = 28 [default = 0];
+   optional bool locationMissSkew = 29 [default = false];
+   repeated string abilityModes = 30;
+   repeated string modelessAbilities = 31;
+   optional int32 rpReduce = 35 [default = 0];
+   optional int32 rpPenetrate = 36 [default = 0];
+   optional bool flushCover = 37 [default = false];
+   optional bool affectsFriendly = 40 [default = false];
+   optional bool affectsEnemy = 41 [default = false];
+   optional bool affectsDecker = 42 [default = false];
+   optional string cannotTargetMessage = 43 [default = ""];
+   optional bool canTargetSelf = 50 [default = false];
+   optional bool canTargetActor = 51 [default = false];
+   optional bool canTargetOccupiedGridPoint = 52 [default = false];
+   optional bool canTargetUnoccupiedGridPoint = 53 [default = false];
+   optional int32 additionalTargets = 54 [default = -1];
+   optional bool isBuff = 55 [default = false];
+   optional bool isDebuff = 56 [default = false];
+   optional int32 cooldown = 57 [default = 0];
+   optional string cooldown_category = 58 [default = ""];
+   optional bool isMagic = 60 [default = false];
+   optional int32 effectDuration = 61 [default = -1];
+   optional int32 effectRadius = 62 [default = 0];
+   optional bool effectOnTile = 63 [default = false];
+   optional ResultBucket drainBucket = 64;
+   optional FxRep fxrep = 65;
+   optional string reloadInteraction = 66 [default = ""];
+   optional string character_sheet_id = 70 [default = ""];
+   repeated string equipment_sheet_id = 71;
+   optional string character_prefab_id = 72 [default = ""];
+   optional string character_ui_name = 73 [default = ""];
+   optional string decking_default_weapon = 80 [default = ""];
+   optional int32 decking_hardening = 81 [default = 0];
+   optional int32 decking_body = 82 [default = 0];
+   optional int32 decking_evasion = 83 [default = 0];
+   optional int32 decking_max_ip = 84 [default = 0];
+   optional int32 decking_max_ap = 85 [default = 0];
+   optional int32 decking_program_limit = 86 [default = 0];
+   optional int32 decking_esp_limit = 87 [default = 0];
+   optional int32 reactions_per_use = 90 [default = 0];
+   optional int32 credentials = 91 [default = 0];
+   optional int32 ai_priority = 92 [default = 0];
+   optional StatusEffects activationStatusEffects = 100;
+   optional StatusEffects equippedStatusEffects = 101;
+   optional StatusEffects passiveStatusEffects = 102;
+   optional IntendedUser intended_user = 110 [default = IntendedUser_Player];
+   optional bool use_on_damage = 111 [default = false];
+   optional bool use_on_downed = 112 [default = false];
+   optional bool use_on_death = 113 [default = false];
+   optional bool use_on_revive = 114 [default = false];
+   optional CyberwareType cyberware_type = 120 [default = CyberwareType_None];
+   optional string gear_bundle = 121 [default = ""];
+   optional string outfit_texture = 122 [default = ""];
+   optional string gear_prefab = 123 [default = ""];
+   optional bool gear_covers_arms = 124 [default = false];
+   optional bool gear_covers_hair = 125 [default = false];
+   optional bool gear_covers_face = 126 [default = false];
+   optional bool is_cyberware_datajack = 127 [default = false];
+   optional int32 store_cost = 130 [default = -1];
+   optional string sorting_group = 131 [default = ""];
+   optional bool is_consumable = 132 [default = false];
+   optional VulnerabilityType damageType = 135 [default = VulnerabilityType_Normal];
+   optional TargetPatternType additionalTargetsPattern = 136 [default = TargetPatternType_Normal];
+   optional bool additionalTargetsAtSource = 137 [default = false];
+   optional bool instantAction = 138 [default = false];
+   optional TextureRef closeupImage = 140;
+   optional string closeupCaption = 141 [default = ""];
+   optional ItemType anim_group_override = 142 [default = ItemType_None];
+   optional bool team_as_melee = 143 [default = false];
+   optional bool maim_always = 144 [default = false];
+   optional bool maim_crit = 145 [default = false];
+   optional bool maim_large = 146 [default = false];
+   optional float vfx_scale = 150 [default = 0];
+   optional float vfx_hue_shift = 151 [default = 0];
+}
+enum ItemType {
+   ItemType_None = 0;
+   ItemType_Pistol = 1;
+   ItemType_Rifle = 2;
+   ItemType_Shotgun = 3;
+   ItemType_Melee1H = 4;
+   ItemType_Melee2H = 5;
+   ItemType_Unarmed = 6;
+   ItemType_Thrown = 7;
+   ItemType_Spell = 8;
+   ItemType_Consumable = 9;
+   ItemType_Shaman = 10;
+   ItemType_Rigger = 11;
+   ItemType_Adept = 12;
+   ItemType_Samurai = 13;
+   ItemType_Decker = 14;
+   ItemType_DeckerProgram = 15;
+   ItemType_ShamanTotem = 16;
+   ItemType_SMG = 17;
+   ItemType_Outfit = 18;
+   ItemType_Cyberware = 19;
+   ItemType_Disguise = 20;
+   ItemType_QuestItem = 21;
+   ItemType_QuestNote = 22;
+   ItemType_DeckerESP = 23;
+   ItemType_AttackSpell = 24;
+}
+message Light {
+   optional LightType light_type = 1 [default = LightType_Point];
+   optional float range = 2 [default = 10];
+   optional ColorValue color = 3;
+   optional float intensity = 4 [default = 1];
+   optional bool lightGroup0 = 30 [default = false];
+   optional bool lightGroup1 = 31 [default = false];
+   optional bool lightGroup2 = 32 [default = false];
+   optional bool lightGroup3 = 33 [default = false];
+   optional bool lightGroup4 = 34 [default = false];
+   optional bool lightGroup5 = 35 [default = false];
+   optional bool lightGroup6 = 36 [default = false];
+   optional bool lightGroup7 = 37 [default = false];
+}
+enum LightType {
+   LightType_Point = 1;
+   LightType_Directional = 2;
+}
+message Manifest {
+   repeated ManifestEntry entries = 1;
+   optional string entries_digest = 2 [default = ""];
+   optional string entries_digest_method = 3 [default = ""];
+}
+message MapDef {
+   optional string name = 1 [default = ""];
+   optional int32 minX = 2 [default = 0];
+   optional int32 minZ = 3 [default = 0];
+   optional int32 numX = 4 [default = 0];
+   optional int32 numZ = 5 [default = 0];
+   repeated CustomProperty properties = 7;
+   repeated PropInstance props = 8;
+   optional string description = 15 [default = ""];
+}
+enum MapLayer {
+   MAPLAYER_GROUND = 0;
+   MAPLAYER_GROUNDDECO = 1;
+   MAPLAYER_WALLS = 2;
+   MAPLAYER_WALLDECO = 3;
+   MAPLAYER_PROPS = 4;
+   MAPLAYER_CHARACTERS = 5;
+   MAPLAYER_REGIONS = 6;
+   MAPLAYER_PATHS = 7;
+   MAPLAYER_LIGHTS = 8;
+   MAPLAYER_INVISIBLE = 9;
+   MAPLAYER_UNDERFLOOR = 10;
+   MAPLAYER_LAN = 11;
+}
+message Mesh {
+   optional Dimension bounds = 1;
+   optional IsoMeshPrefab prefab = 2 [default = ISOMESH_PREFAB_BOX];
+   optional string meshfile = 3 [default = ""];
+   optional MeshData meshdata = 4;
+}
+message MeshData {
+   repeated float position_x = 1 [packed = true];
+   repeated float position_y = 2 [packed = true];
+   repeated float position_z = 3 [packed = true];
+   repeated float uv0_u = 21 [packed = true];
+   repeated float uv0_v = 22 [packed = true];
+   repeated float normal_x = 41 [packed = true];
+   repeated float normal_y = 42 [packed = true];
+   repeated float normal_z = 43 [packed = true];
+   repeated Vertex vertices = 100;
+   repeated int32 tri_indexes = 101 [packed = true];
+   optional bytes vbuf_p = 201;
+   optional bytes vbuf_pt0 = 202;
+   optional bytes vbuf_pt0n = 203;
+   optional bytes ibuf16_triangles = 301;
+   optional bytes ibuf32_triangles = 401;
+}
+message MissionDef {
+   required string id = 1;
+   repeated TsParam variables = 2;
+}
+message ModeDef {
+   optional UIRep uirep = 1;
+   repeated string prereqStrings = 2;
+   repeated string abilities = 3;
+}
+message NameDescription {
+   required Gender gender = 1;
+   required string name = 2;
+   optional string description = 3 [default = ""];
+}
+message NameSet {
+   required string id = 1;
+   repeated string names = 2;
+}
+enum NormalsPreset {
+   NORMALS_PRESET_FLOOR = 0;
+   NORMALS_PRESET_BOX = 1;
+   NORMALS_PRESET_SPHERE = 2;
+   NORMALS_PRESET_COLUMN = 3;
+   NORMALS_PRESET_WALL_N = 4;
+   NORMALS_PRESET_WALL_E = 5;
+   NORMALS_PRESET_WALL_S = 6;
+   NORMALS_PRESET_WALL_W = 7;
+   NORMALS_PRESET_BOX_DISJOINT = 8;
+}
+message ObjectiveArchetype {
+   optional string name = 1 [default = ""];
+   repeated AIObjective objectives = 2;
+}
+enum Orientation {
+   ORIENTATION_N = 0;
+   ORIENTATION_E = 1;
+   ORIENTATION_S = 2;
+   ORIENTATION_W = 3;
+}
+message PackageRef {
+   required string package_id = 1;
+   required string package_version = 2;
+   optional string package_name = 3 [default = ""];
+   optional string package_description = 4 [default = ""];
+   optional string package_url = 5 [default = ""];
+   optional bool prevent_overwriting = 6 [default = false];
+}
+message PathNode {
+   optional string name = 1 [default = ""];
+   optional Vector position = 2;
+   optional int32 index = 3 [default = 0];
+}
+message PathRoute {
+   optional string name = 1 [default = ""];
+   optional int32 pathType = 2 [default = 0];
+   repeated PathNode nodes = 3;
+   optional bool can_move_beyond_node = 4 [default = false];
+   optional IDRef idRef = 10;
+}
+message Portrait {
+   optional string filename = 1 [default = ""];
+   repeated PortraitPart parts = 2;
+}
+message PortraitCodeEntry {
+   required string portrait = 1;
+   required string code = 2;
+}
+message PortraitCodeList {
+   repeated PortraitCodeEntry entries = 1;
+}
+message PortraitList {
+   repeated PortraitEntry entries = 1;
+}
+message PortraitPart {
+   optional Vector offset = 1;
+   optional string name = 2 [default = ""];
+}
+message ProjectDef {
+   required string project_id = 1;
+   required string project_name = 2;
+   required string project_version = 3;
+   optional string author_name = 4 [default = ""];
+   optional string synopsis = 5 [default = ""];
+   optional bool has_story = 6 [default = false];
+   optional string story_id = 7 [default = ""];
+   optional bool read_only = 8 [default = false];
+   optional string preview_image = 9 [default = ""];
+   optional float game_version_required = 10 [default = 1];
+   repeated PackageRef content_pack_dependencies = 20;
+}
+message PropDef {
+   optional string ui_name = 1 [default = ""];
+   optional string ui_description = 2 [default = ""];
+   optional string ui_group = 3 [default = ""];
+   repeated string ui_tag = 4;
+   optional MapLayer mapLayer = 5 [default = MAPLAYER_GROUND];
+   optional CoverAmount coverAmount = 6 [default = COVERAMOUNT_NONE];
+   repeated PropView views = 7;
+   repeated CustomProperty properties = 8;
+}
+message PropInstance {
+   required string name = 1;
+   required Vector gridPoint = 2;
+   required Orientation orientation = 3;
+   repeated CustomProperty properties = 4;
+   repeated string aiSightTags = 5;
+   repeated string aiSoundTags = 6;
+   repeated string GeneralTags = 7;
+   optional string displayName = 8 [default = ""];
+   optional int32 uniqueId = 9 [default = 0];
+   optional IDRef idRef = 10;
+   optional InteractionBehaviorRoot interactionRoot = 11;
+   optional bool tablet_optional = 20 [default = false];
+   optional int32 lod = 21 [default = 0];
+   optional bool is_render_enabled = 30 [default = true];
+   optional Vector velocity = 31;
+   optional CharacterInstance character_instance = 100;
+   optional Light light = 101;
+   optional bool is_temp_prop = 110 [default = false];
+   optional IDRef originalIdRef = 111;
+}
+message PropView {
+   optional Orientation orientation = 1 [default = ORIENTATION_N];
+   optional TextureRef texture = 2;
+   optional Render render = 3;
+   optional Mesh mesh = 4;
+   optional GridData grid_data = 5;
+   optional NormalsPreset normals_preset = 6 [default = NORMALS_PRESET_FLOOR];
+   optional bool lighting_enabled = 7 [default = true];
+}
+enum Race {
+   Race_None = 0;
+   Race_Human = 1;
+   Race_Dwarf = 2;
+   Race_Elf = 3;
+   Race_Ork = 4;
+   Race_Troll = 5;
+   Race_Dragon = 6;
+   Race_Ghoul = 7;
+   Race_Spirit = 8;
+   Race_Drone = 9;
+   Race_Object = 10;
+   Race_Creature = 11;
+   Race_Bug = 12;
+}
+message Rect {
+   optional float x = 1 [default = 0];
+   optional float y = 2 [default = 0];
+   optional float width = 3 [default = 0];
+   optional float height = 4 [default = 0];
+}
+message RectType {
+   optional Rect defaultValue = 1;
+}
+message RegionDef {
+   optional string name = 1 [default = ""];
+   optional Rect position = 2;
+   optional bool enabledAtStart = 3 [default = false];
+   repeated string GeneralTags = 4;
+   optional bool is_camera_region = 5 [default = false];
+   optional bool is_camera_region_combat = 6 [default = false];
+   optional IDRef idRef = 10;
+   optional ColorValue highlight_color = 11;
+   optional bool visible_at_start = 12 [default = false];
+   optional bool is_closet = 13 [default = false];
+   optional bool is_teleporter_region = 20 [default = false];
+   optional string linked_teleporter_region = 21 [default = ""];
+   optional int32 teleport_facing = 22 [default = 0];
+   optional string teleport_sound_fx = 23 [default = ""];
+   optional float teleport_sound_volume = 24 [default = 0];
+   optional string teleport_source_fx = 25 [default = ""];
+   optional string teleport_destination_fx = 26 [default = ""];
+   optional bool teleport_pc_only = 27 [default = true];
+   optional Vector directional_light_dir = 40;
+   optional ColorValue directional_light_color = 41;
+   optional ColorValue ambient_light_color = 42;
+   optional string ambience_template = 60 [default = ""];
+   optional string combat_music = 61 [default = ""];
+   optional string default_music = 62 [default = ""];
+   optional bool loop_combat_music = 63 [default = false];
+   optional bool loop_default_music = 64 [default = false];
+   optional bool no_fow_in_region = 65 [default = false];
+}
+message Render {
+   optional Dimension bounds = 1;
+   optional Vector offset = 2;
+}
+message ResultBucket {
+   repeated ResultEntry successEntries = 1;
+   repeated ResultEntry failureEntries = 2;
+}
+message RosterConfirmPrereq {
+   required string prereq_description = 1;
+   required TsBlock prereq_conditions = 2;
+}
+message SaveGame {
+   required string save_name = 1;
+   optional string display_name = 2 [default = ""];
+   optional int64 time_utc = 3 [default = 0];
+   required TsStoryId parent_story = 4;
+   optional string save_image = 5 [default = ""];
+   optional bool is_autosave = 6 [default = false];
+   repeated SaveStoryBlock story_data = 7;
+   optional int64 first_time_utc = 10 [default = 0];
+   optional string campaign_id = 11 [default = ""];
+   optional bool is_campaign_autosave = 12 [default = false];
+   optional bool is_hardcore_mode = 13 [default = false];
+   optional int32 save_version = 14 [default = 0];
+}
+message SaveStoryBlock {
+   optional string display_name = 1 [default = ""];
+   optional bool is_major_save = 2 [default = false];
+   repeated CharacterInstance newsave_party = 3;
+   optional string scene_name = 4 [default = ""];
+   repeated VariableDataSection variable_data = 5;
+   repeated string team_items = 6;
+   repeated string topic_conversation_history = 7;
+   repeated Equipment equipment_stash = 8;
+   optional int32 nuyen = 9 [default = 0];
+   repeated SavedRandomHire template_randomization = 10;
+   repeated ActiveCharacterState oldsave_party = 11;
+   optional int32 block_version = 13 [default = 1];
+   repeated SceneFactionItem faction_items = 14;
+   optional int32 lastUID = 20 [default = 100];
+   optional int32 firstUID = 21 [default = 100];
+   repeated int32 life_measures = 25;
+   repeated string recent_game_reports = 26;
+   optional int64 time_utc = 30 [default = 0];
+   repeated SceneVersionMapping scene_mapping = 100;
+   optional bool is_user_save = 110 [default = false];
+   optional int32 save_data_version = 120 [default = 0];
+   optional string current_build_version = 121 [default = ""];
+   repeated CrewEntry crew_entries = 122;
+}
+message SavedRandomHire {
+   required string template_root_name = 1;
+   required string original_randomizer = 2;
+   required CurrentRandomState random_state = 3;
+   repeated CurrentRandomState random_history = 4;
+   optional string permadead_id = 5 [default = ""];
+}
+message SceneDef {
+   repeated TsTriggerDef triggers = 1;
+   repeated RegionDef regions = 2;
+   repeated PathRoute patrolRoutes = 3;
+   repeated PropInstance characters = 4;
+   repeated TsVariant variables = 5;
+   repeated string mapEvents = 7;
+   repeated string senseTags = 8;
+   repeated SceneGoal goals = 9;
+   optional WorldMapLocation worldMapLocation = 10;
+   optional string mapName = 11 [default = ""];
+   optional string parentStory = 12 [default = ""];
+   optional MapDef mapDef = 14;
+   optional string scene_title = 20 [default = ""];
+   optional string scene_subtitle = 21 [default = ""];
+   optional string scene_synopsis = 22 [default = ""];
+   optional string scene_image = 23 [default = ""];
+   optional bool scene_continue_button_skip = 24 [default = false];
+   optional bool scene_restore_runner_health = 25 [default = false];
+   optional Vector directional_light_dir = 40;
+   optional ColorValue directional_light_color = 41;
+   optional ColorValue ambient_light_color = 42;
+   optional bool allow_drawn_weapons = 50 [default = false];
+   repeated int32 etiquette_ratings = 51;
+   repeated TeamAffiliation team_affiliations = 52;
+   repeated ItemDef scene_disguises = 53;
+   repeated DimensionInformation scene_dimensions = 54;
+   repeated FactionInformation factions = 55;
+   optional string ambience_template = 60 [default = ""];
+   optional string combat_music = 61 [default = ""];
+   optional string matrix_music = 62 [default = ""];
+   optional string override_music = 63 [default = ""];
+   optional float override_music_volume = 64 [default = 0];
+   optional bool override_music_looping = 65 [default = false];
+   optional string override_sound = 66 [default = ""];
+   optional float override_sound_volume = 67 [default = 0];
+   optional bool override_sound_looping = 68 [default = false];
+   optional CharacterRoster character_roster = 80;
+   optional bool show_hiring_screen_on_scene_load = 81 [default = false];
+   optional RosterConfirmPrereq scene_hiring_prerequisites = 82;
+   optional int32 hiring_slot_count = 83 [default = 0];
+   optional int32 hiring_minimum_karma = 84 [default = 0];
+   optional int32 hiring_maximum_karma = 85 [default = 25];
+   repeated string hire_from_content_pack = 86;
+   optional CharacterRoster roster_overrides = 87;
+   optional bool use_hiring_cost_warning = 88 [default = false];
+   optional int32 hiring_average_cost = 89 [default = 0];
+   optional bool override_hiring_average_cost = 90 [default = false];
+   optional bool show_equip_screen_on_scene_load = 95 [default = false];
+   repeated PropInstance spawned_characters = 100;
+   repeated int32 current_round = 110;
+   repeated int32 combat_round = 111;
+   optional bool friendly_world = 112 [default = false];
+   optional int32 active_player_uid = 113 [default = 0];
+   optional bool manual_turn_mode = 114 [default = false];
+   optional string isolated_team_name = 115 [default = ""];
+   optional int32 isolated_team_dimension = 116 [default = 0];
+   optional int32 isolated_team_rounds = 117 [default = 0];
+   optional bool los_turn_mode = 118 [default = false];
+   repeated int32 game_measures_pc = 121;
+   repeated int32 game_measures_ai = 122;
+   repeated Task task_list = 130;
+   repeated ScreenLabel screen_label_list = 135;
+   repeated Waypoint waypoint_list = 136;
+   repeated string conversation_only_once = 140;
+   repeated Buff current_orphan_buffs = 150;
+   repeated string environmental_fx_name = 160;
+   repeated int32 environmental_fx_strength = 161;
+   repeated TriggeredFx triggered_fxs = 162;
+   optional bool is_persistant = 170 [default = false];
+   optional bool is_persistant_has_value = 171 [default = false];
+   repeated PropInstance original_spawners = 180;
+   optional bool can_move_outside_camera_regions = 181 [default = true];
+   optional bool can_start_before_triggers = 182 [default = true];
+   optional bool can_use_team_advancement = 183 [default = false];
+}
+message SceneFactionItem {
+   required string team_id = 1;
+   required string item = 2;
+}
+message SceneGoal {
+   required string name = 1;
+   required GoalType type = 2;
+   required GoalStatus status = 3;
+   optional string description = 4 [default = ""];
+}
+message SceneVersionMapping {
+   required string scene_name = 1;
+   required string filename = 2;
+   required int32 scene_block_version = 3;
+}
+message ScratchpadDef {
+   required string working_directory = 1;
+   required string project_id = 2;
+   required string scene_name = 3;
+   required int32 nuyen = 4;
+   repeated TsParam story_variables = 5;
+   repeated TsVariant scene_variables = 6;
+   optional CharacterInstance main_character_override = 7;
+   optional bool dont_show_character_load = 8 [default = false];
+   optional string file_load_path = 9 [default = ""];
+}
+message ScreenLabel {
+   required string label_name = 1;
+   required string label_text = 2;
+   optional float val_x = 3 [default = 0];
+   optional float val_y = 4 [default = 0];
+}
+enum Skill {
+   Skill_None = 0;
+   Skill_RangedCombat = 1;
+   Skill_CloseCombat = 2;
+   Skill_ThrowingWeapons = 3;
+   Skill_Spellcasting = 4;
+   Skill_ChiCasting = 5;
+   Skill_Decking = 20;
+   Skill_DeckBuildRepair = 21;
+   Skill_Conjuring = 30;
+   Skill_SpiritSummoning = 31;
+   Skill_SpiritControl = 32;
+   Skill_SpiritBanishing = 33;
+   Skill_MagicDefense = 34;
+   Skill_DrainResistance = 35;
+   Skill_DroneControl = 50;
+   Skill_RemoteGunnery = 51;
+   Skill_DroneBuildRepair = 52;
+   Skill_DroneCombat = 53;
+   Skill_Athletics = 60;
+   Skill_Biotech = 61;
+   Skill_Dodge = 62;
+   Skill_Stealth = 63;
+   Skill_Negotiation = 70;
+   Skill_Etq_Corporate = 100;
+   Skill_Etq_Security = 101;
+   Skill_Etq_Gang = 102;
+   Skill_Etq_Paranormal = 103;
+   Skill_Etq_Socialite = 104;
+   Skill_Etq_Infected = 105;
+   Skill_Etq_Shadowrunner = 106;
+   Skill_Etq_Street = 107;
+   Skill_Etq_Academic = 108;
+}
+message Skills {
+   optional int32 ranged_combat = 1 [default = 0];
+   optional int32 close_combat = 2 [default = 0];
+   optional int32 throwing_weapons = 3 [default = 0];
+   optional int32 spellcasting = 4 [default = 0];
+   optional int32 decking = 5 [default = 0];
+   optional int32 deck_build_repair = 6 [default = 0];
+   optional int32 conjuring = 7 [default = 0];
+   optional int32 spirit_summoning = 8 [default = 0];
+   optional int32 spirit_control = 9 [default = 0];
+   optional int32 spirit_banishing = 10 [default = 0];
+   optional int32 magic_defense = 11 [default = 0];
+   optional int32 drone_control = 12 [default = 0];
+   optional int32 remote_gunnery = 13 [default = 0];
+   optional int32 drone_build_repair = 14 [default = 0];
+   optional int32 athletics = 15 [default = 0];
+   optional int32 biotech = 16 [default = 0];
+   optional int32 dodge = 17 [default = 0];
+   optional int32 negotiation = 18 [default = 0];
+   optional int32 stealth = 19 [default = 0];
+   optional int32 etiquette_corporate = 20 [default = 0];
+   optional int32 etiquette_security = 21 [default = 0];
+   optional int32 etiquette_gang = 22 [default = 0];
+   optional int32 etiquette_paranormal = 23 [default = 0];
+   optional int32 etiquette_socialite = 24 [default = 0];
+   optional int32 etiquette_infected = 25 [default = 0];
+   optional int32 chi_casting = 26 [default = 0];
+   optional int32 drain_resistance = 27 [default = 0];
+   optional int32 drone_combat = 28 [default = 0];
+   optional int32 etiquette_shadowrunner = 29 [default = 0];
+   optional int32 etiquette_street = 30 [default = 0];
+   optional int32 etiquette_academic = 31 [default = 0];
+}
+message SoundLibrary {
+   repeated AudioBundle audio_bundles = 1;
+}
+enum SpawnType {
+   SpawnType_Normal = 0;
+   SpawnType_Matrix = 1;
+   SpawnType_Avatar = 2;
+}
+enum Specialization {
+   Specialization_None = 0;
+   Specialization_RC_Bows = 1;
+   Specialization_RC_Heavy = 2;
+   Specialization_RC_Lasers = 3;
+   Specialization_RC_Pistol = 4;
+   Specialization_RC_Rifle = 5;
+   Specialization_RC_Shotgun = 6;
+   Specialization_RC_Smg = 7;
+   Specialization_CC_Edged = 21;
+   Specialization_CC_Unarmed = 23;
+   Specialization_TW_Blades = 40;
+   Specialization_SC_Attack_Spells = 60;
+   Specialization_SC_Manipulation_Spells = 61;
+   Specialization_SC_Social_Spells = 62;
+   Specialization_SC_Support_Spells = 63;
+   Specialization_DK_Combat_Programs = 80;
+   Specialization_DK_Defensive_Programs = 81;
+   Specialization_DK_Trap_Programs = 82;
+   Specialization_DK_ESP_Control = 83;
+   Specialization_SU_Spirit_Control = 90;
+   Specialization_DR_Drone_Combat = 100;
+}
+message Specializations {
+   optional int32 bows = 1 [default = 0];
+   optional int32 heavy_weapons = 2 [default = 0];
+   optional int32 laser = 3 [default = 0];
+   optional int32 pistol = 4 [default = 0];
+   optional int32 rifle = 5 [default = 0];
+   optional int32 shotgun = 6 [default = 0];
+   optional int32 smg = 7 [default = 0];
+   optional int32 clubs = 8 [default = 0];
+   optional int32 edged = 9 [default = 0];
+   optional int32 polearms = 10 [default = 0];
+   optional int32 unarmed = 11 [default = 0];
+   optional int32 whips = 12 [default = 0];
+   optional int32 throwing_blades = 13 [default = 0];
+   optional int32 attack_spells = 14 [default = 0];
+   optional int32 manipulation_spells = 15 [default = 0];
+   optional int32 social_spells = 16 [default = 0];
+   optional int32 support_spells = 17 [default = 0];
+   optional int32 combat_programs = 18 [default = 0];
+   optional int32 defensive_programs = 19 [default = 0];
+   optional int32 trap_programs = 20 [default = 0];
+   optional int32 spirit_control = 21 [default = 0];
+   optional int32 esp_control = 22 [default = 0];
+   optional int32 drone_combat = 23 [default = 0];
+}
+message StatMod {
+   optional Attribute attribute = 1 [default = Attribute_None];
+   optional Skill skill = 2 [default = Skill_None];
+   optional Specialization specialization = 3 [default = Specialization_None];
+   optional int32 intModValue = 10 [default = 0];
+   optional float floatModValue = 11 [default = 0];
+   optional VulnerabilityType damageType = 20 [default = VulnerabilityType_Normal];
+}
+enum StatusCondition {
+   Condition_Blind = 1;
+   Condition_Deaf = 2;
+   Condition_Rooted = 3;
+   Condition_Silence = 4;
+   Condition_Disarmed = 5;
+   Condition_Petrified = 6;
+   Condition_Confused = 7;
+   Condition_MindWiped = 8;
+   Condition_Invisible = 9;
+   Condition_HalfVisibility = 10;
+   Condition_Dispelled = 11;
+   Condition_Paralyzed = 12;
+   Condition_KillingHands = 13;
+   Condition_MageAura = 14;
+   Condition_CoverLight = 50;
+   Condition_CoverMedium = 51;
+   Condition_CoverHeavy = 52;
+   Condition_MagicCoverLight = 53;
+   Condition_MagicCoverMedium = 54;
+   Condition_MagicCoverHeavy = 55;
+   Condition_MageEnhanceLight = 60;
+   Condition_MageEnhanceMedium = 61;
+   Condition_MageEnhanceHeavy = 62;
+   Condition_DocWagonBasic = 63;
+   Condition_DocWagonGold = 64;
+   Condition_DocWagonPlatinum = 65;
+   Condition_BossTotemBuff = 66;
+   Condition_BossTotemDebuff = 67;
+   Condition_MatrixCharge1 = 68;
+   Condition_MatrixCharge2 = 69;
+   Condition_AutoDodge = 70;
+   Condition_BuMoNABasic = 71;
+   Condition_BuMoNAGold = 72;
+   Condition_BuMoNAPlatinum = 73;
+   Condition_KillingHandsPassive = 74;
+}
+message StatusEffects {
+   optional UIRep uirep = 1;
+   optional string stackingCategory = 2 [default = ""];
+   repeated StatMod statMods = 3;
+   repeated StatusCondition statusConditions = 4;
+   optional string fxScript = 5 [default = ""];
+   optional string durationFxScript = 6 [default = ""];
+   optional bool is_ignore_armor = 10 [default = false];
+   optional bool is_buff = 20 [default = false];
+   optional bool is_debuff = 21 [default = false];
+   optional bool is_totem = 22 [default = false];
+}
+message StoryDef {
+   required string id = 1;
+   repeated TsParam variables = 2;
+   optional string description = 3 [default = ""];
+   optional string startScene = 10 [default = ""];
+   repeated string scenes = 11;
+   optional bool allowCharacterImport = 13 [default = false];
+   optional bool allowImportedEquipment = 14 [default = false];
+   optional bool allowCharacterGen = 15 [default = false];
+   optional bool allowFallbackCharacter = 16 [default = false];
+   optional string fallbackCharacterName = 17 [default = ""];
+   optional bool useDefaultEquipment = 18 [default = false];
+   optional string defaultCharacterEquipment = 19 [default = ""];
+   optional int32 storyKarmaLevel = 20 [default = 34];
+   optional int32 resalePercent = 21 [default = 75];
+   optional int32 upgradeToThreeApLevel = 22 [default = 117];
+   optional int32 upgradeToFourApLevel = 23 [default = -1];
+   optional bool allow_killed_runners_on_hiring = 24 [default = false];
+   optional bool show_conversation_triggering_actor = 25 [default = false];
+   optional CharacterRoster character_roster = 80;
+   optional bool is_persistant = 90 [default = false];
+   optional bool use_crew_advancement = 100 [default = false];
+   repeated CrewEntry crew_list = 101;
+   optional string crew_advancement_variable = 102 [default = ""];
+   optional int32 crew_advancement_min_val = 103 [default = 0];
+}
+message StringList {
+   repeated string value = 1;
+}
+message StringType {
+   optional string defaultValue = 1 [default = ""];
+   optional string validation_regex = 2 [default = ""];
+}
+message SubMixGroup {
+   optional string group_name = 1 [default = ""];
+   optional float group_volume = 2 [default = 1];
+   repeated SubMixSound sounds = 3;
+   repeated SubMixGroup groups = 4;
+}
+message SubMixSound {
+   required string sound_name = 1;
+   optional float sound_volume = 2 [default = 1];
+}
+enum TargetPatternType {
+   TargetPatternType_Normal = 0;
+   TargetPatternType_Circle = 1;
+   TargetPatternType_Plus = 2;
+   TargetPatternType_Line = 3;
+   TargetPatternType_Cone = 4;
+}
+message Task {
+   required float time_to_execute = 1;
+   required string run_type_name = 2;
+   required string run_method_name = 3;
+   required string event_name = 4;
+   required GenericArgs event_args = 5;
+}
+message TeamAffiliation {
+   optional string team_name = 1 [default = ""];
+   repeated int32 affiliation = 2;
+}
+message TeamInformation {
+   optional int32 dimension = 3 [default = 0];
+   optional int32 captain_uid = 5 [default = 0];
+   optional int32 alive_count = 6 [default = 0];
+   optional int32 dead_count = 7 [default = 0];
+   optional int32 turns_started = 10 [default = 0];
+   optional int32 turns_finished = 11 [default = 0];
+   optional int32 turns_per_round = 12 [default = 0];
+   optional int32 turns_remaining = 13 [default = 0];
+   optional int32 turn_current = 14 [default = 0];
+   optional int32 turns_suspended = 15 [default = 0];
+}
+message TextureRef {
+   optional string filename = 1 [default = ""];
+   optional bool flip_horizontal = 2 [default = false];
+   optional bool flip_vertical = 3 [default = false];
+   optional Vector offset = 4;
+   optional Rect uv_rect = 5;
+}
+message ThreatRecord {
+   optional int32 player_uid = 1 [default = 0];
+   optional int32 perception = 2 [default = 0];
+   optional int32 hidden_turn_count = 3 [default = 0];
+   optional bool untargetted = 4 [default = false];
+}
+message Topic {
+   required IDRef idRef = 1;
+   optional TopicType topicType = 2 [default = TopicType_Person];
+   optional string title = 3 [default = ""];
+   optional string subtitle = 4 [default = ""];
+   repeated string images = 5;
+   optional string description = 7 [default = ""];
+   repeated string keywords = 8;
+   repeated TsParam variables = 9;
+   repeated IDRef relatedConversations = 20;
+}
+enum TopicType {
+   TopicType_Person = 1;
+   TopicType_Place = 2;
+   TopicType_Organization = 3;
+   TopicType_Object = 4;
+   TopicType_CaseFile = 5;
+   TopicType_Clue = 6;
+}
+message TotemList {
+   repeated TotemEntry entries = 1;
+}
+message TriggeredFx {
+   required string fx_name = 1;
+   optional int32 parent_uid = 2 [default = -1];
+   optional Vector position = 3;
+}
+message TsBlock {
+   repeated TsCall ops = 1;
+}
+message TsCall {
+   required string functionName = 1;
+   repeated TsVariant args = 2;
+}
+message TsFunction {
+   required string name = 1;
+   optional string returnTypeName = 2 [default = ""];
+   repeated TsParam params = 3;
+   optional string grammarText = 4 [default = ""];
+   optional string tooltipText = 5 [default = ""];
+   optional string group = 6 [default = ""];
+   optional bool hideInEditor = 7 [default = false];
+   optional float game_version_added = 8 [default = 1];
+}
+message TsLibrary {
+   optional string name = 1 [default = ""];
+   repeated TsType types = 2;
+   repeated TsFunction functions = 3;
+}
+message TsNameValuePair {
+   required string name = 1;
+   required TsVariant value = 2;
+}
+message TsParam {
+   required string name = 1;
+   required string typeName = 2;
+   optional TsVariant defaultValue = 3;
+   optional string hint = 4 [default = ""];
+   optional bool localize = 6 [default = false];
+}
+message TsPresetValue {
+   required string name = 1;
+   optional string hint = 2 [default = ""];
+   required TsVariant value = 3;
+}
+message TsStoryId {
+   optional string account_id = 1 [default = ""];
+   optional string content_pack_id = 2 [default = ""];
+   optional string story_id = 3 [default = ""];
+}
+message TsTriggerDef {
+   optional string name = 1 [default = ""];
+   optional TsBlock events = 2;
+   optional TsBlock conditions = 3;
+   optional TsBlock actions = 4;
+   optional string comment = 5 [default = ""];
+   optional bool isActive = 6 [default = false];
+   optional IDRef idRef = 7;
+   repeated TsVariant localVariables = 8;
+   optional TsBlock elseActions = 9;
+   optional bool is_oneshot = 10 [default = true];
+   optional TsTriggerInstance currentInstance = 20;
+}
+message TsTriggerInstance {
+   optional bool is_original_active = 1 [default = false];
+   optional bool is_evaluation_passed = 2 [default = false];
+   optional bool is_currently_paused = 3 [default = false];
+   optional int32 execution_count = 4 [default = 0];
+   optional int32 current_execution_step = 5 [default = 0];
+   optional int32 action_execution_step = 6 [default = 0];
+   optional int32 else_action_execution_step = 7 [default = 0];
+   optional GenericArgs event_args = 10;
+}
+message TsType {
+   required string name = 1;
+   optional string baseTypeName = 2 [default = ""];
+   optional string group = 3 [default = ""];
+   repeated TsPresetValue presets = 4;
+   optional string protobufPresetSource = 5 [default = ""];
+   optional bool hideInEditor = 6 [default = false];
+}
+message TsVariableRef {
+   required TsVariableScope scope = 1;
+   optional string scope_name = 2 [default = ""];
+   required string name = 3;
+   optional TsStoryId parent_story = 4;
+   optional string typeName = 5 [default = ""];
+}
+enum TsVariableScope {
+   TsVariableScope___ZERO = 0;
+   TsVariableScope_Local = 1;
+   TsVariableScope_Scene = 2;
+   TsVariableScope_Story_Topic = 3;
+   TsVariableScope_Story = 4;
+   TsVariableScope_Character = 5;
+   TsVariableScope_PlayerAccount = 6;
+}
+message TsVariant {
+   optional int32 int_value = 1 [default = 0];
+   optional bool bool_value = 2 [default = false];
+   optional float float_value = 3 [default = 0];
+   optional string string_value = 4 [default = ""];
+   optional TsCall call_value = 5;
+   optional TsVariableRef variableref_value = 6;
+}
+message UIRep {
+   optional string icon = 1 [default = ""];
+   optional string name = 2 [default = ""];
+   optional string description = 3 [default = ""];
+   optional string thumbnail = 4 [default = ""];
+}
+message VariableDataSection {
+   required TsVariableScope scope = 1;
+   optional string scope_name = 2 [default = ""];
+   repeated TsNameValuePair values = 3;
+}
+message Vector {
+   optional float x = 1 [default = 0];
+   optional float y = 2 [default = 0];
+   optional float z = 3 [default = 0];
+}
+message VectorType {
+   optional Vector defaultValue = 1;
+}
+message Vertex {
+   optional float position_x = 1 [default = 0];
+   optional float position_y = 2 [default = 0];
+   optional float position_z = 3 [default = 0];
+   optional float texcoord0_u = 4 [default = 0];
+   optional float texcoord0_v = 5 [default = 0];
+   optional float texcoord1_u = 6 [default = 0];
+   optional float texcoord1_v = 7 [default = 0];
+   optional float texcoord2_u = 8 [default = 0];
+   optional float texcoord2_v = 9 [default = 0];
+   optional float texcoord3_u = 10 [default = 0];
+   optional float texcoord3_v = 11 [default = 0];
+   optional float normal_x = 12 [default = 0];
+   optional float normal_y = 13 [default = 0];
+   optional float normal_z = 14 [default = 0];
+}
+message Vulnerabilities {
+   optional VulnerabilityLevel normal = 1 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel magic = 2 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel repair = 3 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel heal = 4 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel insecticide = 5 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel fire = 6 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel death = 7 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel buff = 8 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel debuff = 9 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel stun = 10 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel crit = 11 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel permadeath = 12 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel bleed = 13 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel actionpoints = 14 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel moverange = 15 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel disarm = 16 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel poison = 17 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel shock = 18 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel drain = 19 [default = VulnerabilityLevel_Default];
+   optional VulnerabilityLevel mental = 20 [default = VulnerabilityLevel_Default];
+}
+enum VulnerabilityLevel {
+   VulnerabilityLevel_Default = 0;
+   VulnerabilityLevel_Immune = 1;
+   VulnerabilityLevel_Less = 2;
+   VulnerabilityLevel_Normal = 3;
+   VulnerabilityLevel_More = 4;
+}
+enum VulnerabilityType {
+   VulnerabilityType_Normal = 0;
+   VulnerabilityType_Magic = 1;
+   VulnerabilityType_Repair = 2;
+   VulnerabilityType_Heal = 3;
+   VulnerabilityType_Insecticide = 4;
+   VulnerabilityType_Fire = 5;
+   VulnerabilityType_Death = 6;
+   VulnerabilityType_Buff = 7;
+   VulnerabilityType_Debuff = 8;
+   VulnerabilityType_Stun = 9;
+   VulnerabilityType_Crit = 10;
+   VulnerabilityType_PermaDeath = 11;
+   VulnerabilityType_Bleed = 12;
+   VulnerabilityType_ActionPoints = 13;
+   VulnerabilityType_MoveRange = 14;
+   VulnerabilityType_Disarm = 15;
+   VulnerabilityType_Poison = 16;
+   VulnerabilityType_Shock = 17;
+   VulnerabilityType_Drain = 18;
+   VulnerabilityType_Mental = 19;
+}
+message Waypoint {
+   optional int32 style = 1 [default = 0];
+   optional Vector source_pos = 2;
+   optional int32 source_player_uid = 3 [default = 0];
+   optional IDRef source_prop_id = 4;
+}
+message WorldMapLocation {
+   optional string filename = 1 [default = ""];
+   optional Vector location = 2;
+}
+
