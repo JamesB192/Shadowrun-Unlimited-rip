@@ -5785,28 +5785,6 @@ triggers {
       }
     }
     ops {
-      functionName: "Set Region Enabled"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "EnableOrDisable"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Region)"
-          args {
-            string_value: "51f6ada8336331703b001425"
-          }
-        }
-      }
-    }
-    ops {
       functionName: "Clear Waypoint from Prop"
       args {
         call_value {
@@ -5835,6 +5813,28 @@ triggers {
           }
           args {
             int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "51f7edf5336331a81e001a67"
           }
         }
       }
@@ -5989,6 +5989,33 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor)"
+          args {
+            string_value: "51f6ad1c336331703b001422"
+          }
+        }
+      }
+    }
   }
   actions {
     ops {
@@ -6058,7 +6085,7 @@ triggers {
       }
     }
     ops {
-      functionName: "Teleport Actor near Actor"
+      functionName: "Teleport Actor near Point"
       args {
         call_value {
           functionName: "All Actors on Team"
@@ -6099,9 +6126,24 @@ triggers {
       }
       args {
         call_value {
-          functionName: "Get Map Item (Player)"
+          functionName: "Current Location of Prop"
           args {
-            int_value: 0
+            call_value {
+              functionName: "Nearest Tagged Prop to Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (SenseTagList)"
+                  args {
+                    string_value: "TaxiStop"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Triggering Actor"
+                }
+              }
+            }
           }
         }
       }
