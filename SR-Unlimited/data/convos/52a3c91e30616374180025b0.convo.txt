@@ -9,7 +9,7 @@ nodes {
   index: 0
   text: "There it is!  Kill it!\n{{GM}}A bewildered look crosses her face as she notices you.{{/GM}}\nUhh... Who are you?\nErr... This is a restricted UCAS military zone.  Surrender immediately!"
   branches {
-    responseText: "{{CC}}Etiquette:Security{{/CC}}We\'re here to help with your canine problem."
+    responseText: "{{CC}}Etiquette: Security{{/CC}}We\'re here to help with your canine problem."
     conditions {
       ops {
         functionName: "Compare Actor Skill"
@@ -529,6 +529,19 @@ nodes {
           }
         }
       }
+      args {
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
     }
   }
 }
@@ -537,13 +550,13 @@ nodes {
     id: "52a5ce103061632c2100444e"
   }
   index: 3
-  text: "You didn\'t mean that did you?"
+  text: "You didn\'t mean that, did you?"
   branches {
     responseText: "Don\'t worry, I\'d just prefer not to have them shooting at us."
     nextNodeIndex: 4
   }
   branches {
-    responseText: "Of course I meant it!  That\'s a hell hound lady!"
+    responseText: "Of course, I meant it!  That\'s a hell hound lady!"
     nextNodeIndex: 5
   }
   nodeType: ConversationNodeType_Simple
