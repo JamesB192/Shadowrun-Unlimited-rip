@@ -12092,55 +12092,6 @@ triggers {
             string_value: "51f15c62336331d02c00440e"
           }
           args {
-            string_value: "General_Use3"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Actor Attribute"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "BaseOrCurrent"
-              }
-              args {
-                int_value: 1
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "ActorAttributes"
-              }
-              args {
-                int_value: 14
-              }
-            }
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
             string_value: "Main_Health"
           }
         }
@@ -12249,7 +12200,7 @@ triggers {
             string_value: "BuffDebuffType"
           }
           args {
-            int_value: 1
+            int_value: 0
           }
         }
       }
@@ -12293,46 +12244,6 @@ triggers {
           }
           args {
             int_value: 8
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Actor Base Attribute"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Player)"
-              args {
-                int_value: 0
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "General_Use3"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "ActorAttributes"
-          }
-          args {
-            int_value: 14
           }
         }
       }
@@ -13236,72 +13147,37 @@ triggers {
   }
   conditions {
     ops {
-      functionName: "OR"
+      functionName: "Comparison (bool)"
       args {
         call_value {
-          functionName: "Comparison (bool)"
+          functionName: "Get Story Variable (bool)"
           args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "bool"
-              }
-              args {
-                int_value: 0
-              }
-            }
+            string_value: "51f15c62336331d02c00440e"
           }
           args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "IsOrIsNot"
-              }
-              args {
-                int_value: 1
-              }
-            }
-          }
-          args {
-            call_value {
-              functionName: "Get Story Variable (bool)"
-              args {
-                string_value: "51f15c62336331d02c00440e"
-              }
-              args {
-                string_value: "Called_Andy"
-              }
-            }
+            string_value: "Called_Andy"
           }
         }
       }
       args {
         call_value {
-          functionName: "Comparison (int)"
+          functionName: "Get Preset Value (int)"
           args {
-            int_value: 21
+            string_value: "IsOrIsNot"
           }
           args {
-            call_value {
-              functionName: "Get Preset Value (int)"
-              args {
-                string_value: "Comparison Ops"
-              }
-              args {
-                int_value: 1
-              }
-            }
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
           }
           args {
-            call_value {
-              functionName: "Get Story Variable (int)"
-              args {
-                string_value: "51f15c62336331d02c00440e"
-              }
-              args {
-                string_value: "StoryStep"
-              }
-            }
+            int_value: 0
           }
         }
       }
@@ -18288,8 +18164,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
-      attitude: AttitudeBoss
+      archetypeName: "Guard - Seek And Destroy"
+      attitude: AttitudeAggressive
       vulnerabilities {
       }
     }
@@ -18375,8 +18251,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
-      attitude: AttitudeBoss
+      archetypeName: "Guard - Seek And Destroy"
+      attitude: AttitudeAggressive
       vulnerabilities {
       }
     }
@@ -18516,8 +18392,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
-      attitude: AttitudeBoss
+      archetypeName: "Guard - Seek And Destroy"
+      attitude: AttitudeAggressive
       vulnerabilities {
       }
     }
@@ -18603,8 +18479,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
-      attitude: AttitudeBoss
+      archetypeName: "Guard - Hunt And Destroy"
+      attitude: AttitudeAggressive
       vulnerabilities {
       }
     }
@@ -18744,8 +18620,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
-      attitude: AttitudeBoss
+      archetypeName: "Guard - Hunt And Destroy"
+      attitude: AttitudeAggressive
       vulnerabilities {
       }
     }
@@ -19746,7 +19622,7 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
-    character_sheet_id: "Lonestar_Lv2_Captain"
+    character_sheet_id: "Lonestar_Lv5_Captain"
     equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     character_mod {
       stats {
@@ -19825,8 +19701,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 52
-    scale_character_sheet: true
+    karma: 98
   }
 }
 characters {
@@ -19845,7 +19720,7 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
-    character_sheet_id: "Lonestar_Lv2_Human_Mage"
+    character_sheet_id: "Lonestar_Lv5_Human_Mage"
     equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     character_mod {
       stats {
@@ -19857,9 +19732,9 @@ characters {
         willpower: 0
         essence: 0
         magic: 0
-        hp: 0
+        hp: 10
         ap: 0
-        armor: 0
+        armor: 3
         force: 0
         morale: 0
         discipline: 0
@@ -19876,10 +19751,10 @@ characters {
         ranged_combat: 0
         close_combat: 0
         throwing_weapons: 0
-        spellcasting: -2
+        spellcasting: -4
         decking: 0
-        conjuring: 2
-        spirit_summoning: 2
+        conjuring: 5
+        spirit_summoning: 4
         drone_control: 0
         biotech: 0
         dodge: 0
@@ -19899,7 +19774,7 @@ characters {
         smg: 0
         edged: 0
         unarmed: 0
-        spirit_control: 2
+        spirit_control: 4
         esp_control: 0
         drone_combat: 0
       }
@@ -19929,8 +19804,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 49
-    scale_character_sheet: true
+    karma: 114
   }
 }
 characters {
@@ -19949,7 +19823,7 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
-    character_sheet_id: "Lonestar_Lv2_Heavy_SMG"
+    character_sheet_id: "Lonestar_Lv6_Heavy_SMG"
     character_mod {
       stats {
         body: 0
@@ -19997,9 +19871,9 @@ characters {
       }
       specializations {
         pistol: 0
-        rifle: 0
+        rifle: 1
         shotgun: 0
-        smg: 0
+        smg: -2
         edged: 0
         unarmed: 0
         spirit_control: 0
@@ -20023,8 +19897,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 47
-    scale_character_sheet: true
+    karma: 103
   }
 }
 characters {
@@ -20043,7 +19916,7 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
-    character_sheet_id: "Lonestar_Lv2_Human_Mage"
+    character_sheet_id: "Lonestar_Lv5_Human_Mage"
     equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     equipment_sheet_id: "Lonestar_Lv6_Mage_Gear"
     character_mod {
@@ -20116,8 +19989,7 @@ characters {
     portrait {
       filename: ""
     }
-    karma: 43
-    scale_character_sheet: true
+    karma: 89
   }
 }
 characters {
@@ -20193,7 +20065,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
+      archetypeName: "gumbo_Auto"
       attitude: AttitudeBoss
       vulnerabilities {
       }
@@ -20284,7 +20156,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
+      archetypeName: "gumbo_Auto"
       attitude: AttitudeBoss
       vulnerabilities {
       }
@@ -20375,7 +20247,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
+      archetypeName: "gumbo_Auto"
       attitude: AttitudeBoss
       vulnerabilities {
       }
@@ -20466,7 +20338,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
+      archetypeName: "gumbo_Auto"
       attitude: AttitudeBoss
       vulnerabilities {
       }
@@ -20557,7 +20429,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
+      archetypeName: "gumbo_Auto"
       attitude: AttitudeBoss
       vulnerabilities {
       }
@@ -20648,8 +20520,8 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
-      attitude: AttitudeBoss
+      archetypeName: "gumbo_Auto"
+      attitude: AttitudeAggressive
       vulnerabilities {
       }
     }
@@ -20739,7 +20611,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
+      archetypeName: "gumbo_Auto"
       attitude: AttitudeBoss
       vulnerabilities {
       }
@@ -20830,7 +20702,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
+      archetypeName: "gumbo_Auto"
       attitude: AttitudeBoss
       vulnerabilities {
       }
@@ -20921,7 +20793,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
+      archetypeName: "gumbo_Auto"
       attitude: AttitudeBoss
       vulnerabilities {
       }
@@ -21012,7 +20884,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "gumbo_MeleeSoldier"
+      archetypeName: "gumbo_Auto"
       attitude: AttitudeBoss
       vulnerabilities {
       }
@@ -21092,38 +20964,38 @@ characters {
   lod: 0
   character_instance {
     prefab_name: "Seattle:Story/RenrakuSamurai"
-    character_sheet_id: "Lonestar_Lv2_Heavy_SMG"
+    character_sheet_id: "Lonestar_Lv6_Heavy_SMG"
     equipment_sheet_id: "Lonestar_Lv6_Captain_Gear"
     character_mod {
       stats {
         body: 0
-        quickness: 0
-        strength: 0
+        quickness: 1
+        strength: 1
         charisma: 0
         intelligence: 0
         willpower: 0
         essence: 0
         magic: 0
-        hp: 0
+        hp: 10
         ap: 0
         armor: 0
         force: 0
         morale: 0
         discipline: 0
         awareness: 0
-        perception: 0
+        perception: 20
         authority: 0
         protect_tether_range: 0
         move_speed: 0
         vision_peripheral_distance: 0
         vision_cone_distance: 0
         vision_cone_angle: 0
-        is_fearless: 0
-        is_strict: 0
+        is_fearless: 1
+        is_strict: 1
       }
       skills {
         ranged_combat: 0
-        close_combat: 4
+        close_combat: 6
         throwing_weapons: 0
         spellcasting: 0
         decking: 0
@@ -21145,15 +21017,15 @@ characters {
         pistol: 0
         rifle: 0
         shotgun: 0
-        smg: 0
-        edged: 4
+        smg: 2
+        edged: 6
         unarmed: 0
         spirit_control: 0
         esp_control: 0
         drone_combat: 0
       }
       archetypeName: "Guard - Seek And Destroy"
-      attitude: AttitudeAggressive
+      attitude: AttitudeBoss
       vulnerabilities {
       }
     }
@@ -21169,8 +21041,7 @@ characters {
     portrait {
       filename: "backerpc_humanmale_davidfry_joshuamorgan"
     }
-    karma: 67
-    scale_character_sheet: true
+    karma: 166
   }
 }
 characters {
