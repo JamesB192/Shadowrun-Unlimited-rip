@@ -11047,67 +11047,6 @@ triggers {
     ops {
       functionName: "Set Ambient Light Color"
       args {
-        float_value: 0.45
-      }
-      args {
-        float_value: 0.55
-      }
-      args {
-        float_value: 0.6
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55972ead3366379800000a0b"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -1.1
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55972ead3366379800000a0b"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
         float_value: 0.5
       }
       args {
@@ -11172,67 +11111,6 @@ triggers {
     id: "59f9030f6537373c3e000a6a"
   }
   elseActions {
-    ops {
-      functionName: "Set Ambient Light Color"
-      args {
-        float_value: 0.1
-      }
-      args {
-        float_value: 0.15
-      }
-      args {
-        float_value: 0.2
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55972ead3366379800000a0b"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Set Directional Light Color"
-      args {
-        float_value: 0.75
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0.9
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        float_value: -0.6
-      }
-      args {
-        float_value: -0.8
-      }
-      args {
-        float_value: -0.4
-      }
-      args {
-        float_value: 0
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (CameraRegion)"
-          args {
-            string_value: "55972ead3366379800000a0b"
-          }
-        }
-      }
-    }
     ops {
       functionName: "Set Ambient Light Color"
       args {
@@ -11504,7 +11382,7 @@ triggers {
       }
     }
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "exit 2 Northside / Docks"
@@ -11713,7 +11591,7 @@ triggers {
       }
     }
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "exit 2 Rats Nest / Graveyard"
@@ -11922,7 +11800,7 @@ triggers {
       }
     }
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "exit 2 Penumbra / Puyullup"
@@ -12131,7 +12009,7 @@ triggers {
       }
     }
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 triggers {
   name: "summoning circle break in"
@@ -15479,18 +15357,54 @@ triggers {
   name: "purge tag"
   events {
     ops {
+      functionName: "On Actor Death"
+    }
+    ops {
       functionName: "Get Map Item (Event)"
       args {
         string_value: "purge tag"
       }
     }
     ops {
-      functionName: "On Actor Death"
+      functionName: "On New Round"
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "On Actor End Turn"
     }
   }
   conditions {
     ops {
-      functionName: "Invert Bool"
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "comm-augmentedReality"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
       args {
         call_value {
           functionName: "Get Preset Value (int)"
@@ -15498,7 +15412,7 @@ triggers {
             string_value: "bool"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
@@ -15542,6 +15456,220 @@ triggers {
                 string_value: "Default"
               }
             }
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Actor"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Random Actor on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 4
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5b4cb14e343032604b00207f"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5b4cafe5343032604b00207b"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5b4cb319343032604b002089"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5b4cb23a343032604b002083"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5b4caf66343032604b002076"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5b4cb2b1343032604b002087"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5b4cb04c343032604b00207d"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5b4a0ebe3430326c440040b0"
           }
         }
       }
@@ -16113,6 +16241,28 @@ triggers {
     }
   }
   actions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5b4cbece343032604b00208d"
+          }
+        }
+      }
+    }
     ops {
       functionName: "Set Variable (bool)"
       args {
@@ -16738,7 +16888,10 @@ triggers {
               }
               args {
                 call_value {
-                  functionName: "Nothing Selected"
+                  functionName: "Get Map Item (SceneDimension)"
+                  args {
+                    string_value: "Default"
+                  }
                 }
               }
             }
@@ -16794,6 +16947,283 @@ triggers {
   isActive: true
   idRef {
     id: "520a10f7336331e81500695d"
+  }
+  elseActions {
+    ops {
+      functionName: "Enable/Disable Trigger"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "EnableOrDisable"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Trigger)"
+          args {
+            string_value: "5b4cbece343032604b00208d"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Kill Actor"
+      args {
+        call_value {
+          functionName: "All Actors Except Some"
+          args {
+            call_value {
+              functionName: "All Actors"
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "AllOrAny"
+                  }
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "All Actors on Team"
+              args {
+                call_value {
+                  functionName: "Get Preset Value (string)"
+                  args {
+                    string_value: "FactionList"
+                  }
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "AllOrAny"
+                  }
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Map Item (SceneDimension)"
+                  args {
+                    string_value: "Default"
+                  }
+                }
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "DeathMethod"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "FacingDirection"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "change ghould team"
+  events {
+    ops {
+      functionName: "On Actor Awareness of Another Actor"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 4
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Compare Actor Team"
+      args {
+        call_value {
+          functionName: "Triggering Target Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Change Actor Team"
+      args {
+        call_value {
+          functionName: "All Actors on Team"
+          args {
+            call_value {
+              functionName: "Get Preset Value (string)"
+              args {
+                string_value: "FactionList"
+              }
+              args {
+                int_value: 4
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "AllOrAny"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (SceneDimension)"
+              args {
+                string_value: "Default"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 2
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5f2f09ce323131380bb71003"
   }
   elseActions {
   }
@@ -17996,7 +18426,7 @@ characters {
       attitude: AttitudeCautious
       attackRandom: AttackStyle_CycleAll
     }
-    team_id: "purge ghoul"
+    team_id: "unaware ghouls"
     char_name: "Feral Ghoul A"
     GeneralTags: "GhoulA"
     GeneralTags: "Purge"
@@ -18090,7 +18520,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "purge ghoul"
+    team_id: "unaware ghouls"
     char_name: "Feral Ghoul B"
     GeneralTags: "GhoulB"
     GeneralTags: "Purge"
@@ -18184,7 +18614,7 @@ characters {
       vulnerabilities {
       }
     }
-    team_id: "purge ghoul"
+    team_id: "unaware ghouls"
     char_name: "Feral Ghoul C"
     GeneralTags: "GhoulC"
     GeneralTags: "Purge"
@@ -18219,7 +18649,7 @@ characters {
       attitude: AttitudeCautious
       attackRandom: AttackStyle_CycleAll
     }
-    team_id: "stealthy"
+    team_id: "unaware ghouls"
     char_name: "Feral Ghoul 0 guard"
     GeneralTags: "Purge"
     GeneralTags: "Guard"
@@ -18357,10 +18787,12 @@ team_affiliations {
   affiliation: 1
   affiliation: 1
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "stealthy"
   affiliation: 1
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
@@ -18371,9 +18803,19 @@ team_affiliations {
   affiliation: 0
   affiliation: 0
   affiliation: 0
+  affiliation: 0
 }
 team_affiliations {
   team_name: "Civilians"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "unaware ghouls"
+  affiliation: 0
   affiliation: 0
   affiliation: 0
   affiliation: 0
