@@ -1,0 +1,83 @@
+idRef {
+  id: "5f41c1736665339c190007e3"
+}
+ui_name: "Therapist-Receptionist"
+nodes {
+  idRef {
+    id: "5f41c28b6665339c190007ed"
+  }
+  index: 0
+  text: "Can I help you?"
+  branches {
+    responseText: "I\'m from the city inspector\'s office. This location was randomly chosen for a surprise inspection. Here is my authorization."
+    actions {
+      ops {
+        functionName: "Remove Item from Team"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Fake Papers 1"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (string)"
+            args {
+              string_value: "FactionList"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (SceneDimension)"
+            args {
+              string_value: "Default"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f41c3e06665339c19000801"
+  }
+  index: 1
+  text: "Well this is a surprise, but that\'s the point of a surprise inspection I suppose. Your papers are in order. Go on in."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Delete Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5f3ef112666533902a000326"
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  nextNodeIndex: 0
+}

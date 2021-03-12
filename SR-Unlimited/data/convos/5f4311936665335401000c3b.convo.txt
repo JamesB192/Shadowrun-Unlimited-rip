@@ -1,0 +1,93 @@
+idRef {
+  id: "5f4311936665335401000c3b"
+}
+ui_name: "Frosty-Story_Step_34"
+nodes {
+  idRef {
+    id: "5f4312256665335401000c6b"
+  }
+  index: 0
+  text: "Maybe. He mentioned his master a lot. {{GM}}You can see the excitement lurking under her cool exterior.{{/GM}}"
+  branches {
+    responseText: "The master\'s grave is an obvious place. Too obvious, Renraku likely checked there before Joshua ever died."
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f4312f16665335401000c6e"
+  }
+  index: 1
+  text: "I thought so too. The thing is he mentioned his master bringing him to a sacred tree a lot. Seems significant and something not many would know about. {{GM}}She\'s trying to maintain a pokerface, but her feeling of triumph is a little too strong.{{/GM}}"
+  branches {
+    responseText: "Solid lead. Tell me where to go and I\'ll check there."
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f4315eb6665335401000c78"
+  }
+  index: 2
+  text: "It\'s in the Rat\'s Nest, North East side. It\'s up to you, but you shouldn\'t tell Renraku. At this point I think they\'d use overwhelming force to get it."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        int_value: 35
+      }
+    }
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+      args {
+        string_value: "The files indicate the box is hidden at a mana tree in the Rat\'s Nest on the NE side"
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Plot Information"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "PlotInformation"
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  responseText: "You have something for me?"
+  nextNodeIndex: 0
+}

@@ -1,0 +1,236 @@
+idRef {
+  id: "5f4c22ad666533d429005cc5"
+}
+ui_name: "Elf-Step_36"
+nodes {
+  idRef {
+    id: "5f4c2365666533d429005cd3"
+  }
+  index: 0
+  text: "We meet again. You have the box?{{GM}}He doesn\'t even try to keep his disdain for his location or company out of his voice.{{/GM}}"
+  branches {
+    responseText: "That depends. Do you have the money and answers?"
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f4c2469666533d429005ce8"
+  }
+  index: 1
+  text: "As to the money yes. Also my men have checked this place for listening devices, both magical and mundane. My employer, over my objection, thought you should be told what happened. So answers also yes.{{GM}}You can hear in his voice he has great respect for his employer.{{/GM}}"
+  branches {
+    responseText: "And those answers are?"
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f4c260e666533d429005cf3"
+  }
+  index: 2
+  text: "On the nearby awakened lands two groups live in relative harmony. The elves of Tir Tangrie and Native American called the Duwamish group. While we detest having to share the area we tolerate it.{{GM}}His tone of voice makes it clear he doesn\'t agree with a live and let live policy.{{/GM}}"
+  branches {
+    responseText: "And this has to do with the box how?"
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f4c2867666533d429005de0"
+  }
+  index: 3
+  text: "Renraku paid us to look the other way as they explored a certain area. Since the Duwamish hold it as off limits, but we don\'t, we agreed. Of course once we agreed we set to finding out why it\'s off limits.{{GM}}He looks annoyed at the interruption, but continues.{{/GM}}"
+  branches {
+    responseText: "Still nothing about the box."
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f4c2ae2666533d429005e04"
+  }
+  index: 4
+  text: "{{GM}}He shoots you a dirty look for interrupting again.{{/GM}} We found out that in the previous age of magic they had sealed an evil spirit there. Looking back Renraku offered us so much money since they knew about it too and wanted to exploit it."
+  branches {
+    responseText: "..."
+    nextNodeIndex: 5
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f4c2bde666533d429005e3d"
+  }
+  index: 5
+  text: "We rushed to stop Renraku, but it was too late. It was sealed up in that box. We hired your brother to retrieve it. Renraku killed him to keep the spirit safe. {{GM}}He looks grateful you didn\'t interrupt.{{/GM}}"
+  branches {
+    responseText: "And now that you have the box you plan to seal it again?"
+    nextNodeIndex: 6
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f4c2e52666533d429005e60"
+  }
+  index: 6
+  text: "Better. The ancients were only able to seal it. With our superior magic and technology we figure we can kill it. That\'s where you come in. {{GM}}He looks smug about their superiority.{{/GM}}"
+  branches {
+    responseText: "That\'s where I come in?"
+    nextNodeIndex: 7
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f4c5434666533d429005e99"
+  }
+  index: 7
+  text: "It is.To find a way tto kill it we need more than just the box, we also need a sample of the cave where the box was kept. We also need a runner with no obvious ties to us. So we\'ll be setting up this and other runs through a trusted fixer and give you an introduction.{{GM}}He looks surprised you picked it up so fast.{{/GM}}"
+  branches {
+    responseText: "Sounds like a plan. I give you the box, you give me the money and fixer name and number."
+    nextNodeIndex: 8
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f4c6b0d666533d429005f10"
+  }
+  index: 8
+  text: "Here\'s the money. The fixer\'s name is Waldo Butters. He handles high end jobs. Just talk to him in person. He\'s in the coffee shop on the Northside near the bar."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Remove Item from Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "The Box"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Nuyen"
+      args {
+        int_value: 250000
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Butters_Contact"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        int_value: 37
+      }
+    }
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+      args {
+        string_value: "Time to go see this Botters person. Coffee shop Northside."
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Journal"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "text"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  nextNodeIndex: 0
+}

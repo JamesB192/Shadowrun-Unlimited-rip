@@ -1,0 +1,296 @@
+idRef {
+  id: "5f19a2bb3966391802001a59"
+}
+ui_name: "Therapist-Bar"
+nodes {
+  idRef {
+    id: "5f19a6593966391802001ab2"
+  }
+  index: 0
+  text: "Hi. I assume you were the one who called me. You never said who it was about? {{GM}}She seems open, honest. and easy to talk to, but behind the friendliness you sense steel.{{/GM}}"
+  branches {
+    responseText: "When you worked at Ankh-Morpork do you remember a patient named Henry?"
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f19a7363966391802001abb"
+  }
+  index: 1
+  text: "Maybe. Why do you want to know? {{GM}}Her eyes narrow suspiciously at you.{{/GM}}"
+  branches {
+    responseText: "I\'m a relative of an associate of his. I\'m trying to find out what I can about my relatives associates."
+    nextNodeIndex: 2
+  }
+  branches {
+    responseText: "He was killed during a \"break in\" at the facility. I\'m trying to track down why."
+    nextNodeIndex: 5
+  }
+  branches {
+    responseText: "I\'ll ask the questions here."
+    nextNodeIndex: 8
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f19a8dd3966391802001ad1"
+  }
+  index: 2
+  text: "I do remember him and still have my old files. I can\'t discuss things told to me in confidence, but maybe I can help you with other things. {{GM}}She stares at you a second before answering. You get the sudden realization this woman has been a therapist for a long time, has had many people lie to her, and has long ago learned to see through them.{{/GM}}"
+  branches {
+    responseText: "My relative gave him a family heirloom. Any idea where he might have hidden it?"
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f19ac443966391802001aea"
+  }
+  index: 3
+  text: "Maybe, but that\'s the sort of thing that would be in my records of sessions and not something I can discuss. {{GM}}She still seems friendly, but you can tell there is no give to her ethics."
+  branches {
+    responseText: "I really need to know that though."
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f19adaa3966391802001b24"
+  }
+  index: 4
+  text: "I\'m sorry, but that information is in the records back at my office and not for public consumption. {{GM}}She turns away clearly done with the conversation. You can sense some genuine regret in her voice, but not a hint of give.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        int_value: 33
+      }
+    }
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+      args {
+        string_value: "I better find a way to get those records. Maybe Frosty knows where they are."
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Plot Information"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f19b2813966391802001b35"
+  }
+  index: 5
+  text: "He was crazy and definitely deserved to be there, but he didn\'t deserve that fate. Also thank you for your candor. {{GM}}She stares at you a second before answering. You get the sudden realization this woman has been a therapist for a long time, has had many people lie to her, and has long ago learned to see through them.{{/GM}}"
+  branches {
+    responseText: "I\'ve determined the motive was something he had and hid, any idea where he hid it?"
+    nextNodeIndex: 6
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f19b3c43966391802001b69"
+  }
+  index: 6
+  text: "Pretty sure those answers are in my files back at the office. Sorry, but I can\'t give you those. {{GM}}The finality of her words and steel in her eyes make clear that it\'s useless to argue that point.{{/GM}}"
+  branches {
+    responseText: "Anything you can tell me?"
+    nextNodeIndex: 7
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f19b4e83966391802001b7e"
+  }
+  index: 7
+  text: "My secretary is easily impressed by official looking documents. I worry about her giving away the office while I\'m gone. {{GM}}She smiles at you trying to get her meaning across. Then turns away clearly done.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        int_value: 33
+      }
+    }
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+      args {
+        string_value: "I better find a way to get those records. Maybe Frosty knows where they are, also she might know where I can get documents to fool that secretary."
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Therapist_Hint"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Plot Information"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f19b6cc3966391802001bd0"
+  }
+  index: 8
+  text: "You can ask, but I won\'t answer. There is no way I\'ll give anything in my client files to someone like you. {{GM}}The anger and conviction in her voice makes clear she means it. You could try to beat it out of her, but are unlikely to succeed. Besides there is another way.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        int_value: 33
+      }
+    }
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Information"
+          }
+        }
+      }
+      args {
+        string_value: "I better find a way to get those records. Maybe Frosty knows where they are."
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Plot Information"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "PlotInformation"
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  responseText: "Greeting Victoria."
+  nextNodeIndex: 0
+}

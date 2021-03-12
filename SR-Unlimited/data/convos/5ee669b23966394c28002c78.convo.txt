@@ -1,0 +1,155 @@
+idRef {
+  id: "5ee669b23966394c28002c78"
+}
+ui_name: "Frosty-Story_Step_31"
+nodes {
+  idRef {
+    id: "5ee66a553966394c28002d1d"
+  }
+  index: 0
+  text: "Yes although I should warn you this may get you in trouble again. {{GM}}She does not look like she expects you to care.{{/GM}}"
+  branches {
+    responseText: "Give me the information anyway please."
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "What do mean \"again\". I\'ve never been in trouble in my life. Give it to me anyway, first time for everything right?"
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "I be bored if that wasn\'t true. Lay it on me."
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5ee66b213966394c28002d32"
+  }
+  index: 1
+  text: "I mean it, Eventually Renraku will realize your still looking and come after you hard. The longer before they realize their lose ends are not as tied up as they thought the better. {{GM}}She looks genuinely concerned now.{{/GM}}"
+  branches {
+    responseText: "I appreciate the warning, but give me the info."
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5ee66dc63966394c28002d5b"
+  }
+  index: 2
+  text: "There was a therapist, Victoria Graham, who quit right after the asylum privatized. My guess is she\'s one of these rare types who has a conscience. One of his patients there was Henry. "
+  branches {
+    responseText: "Well thin as it is it\'s something."
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5ee67cd83966394c28002d69"
+  }
+  index: 3
+  text: "I\'ll give you her number. One other thing someone left a message for you. \"Call me once you get the box.\" It was left in the Matrix. Deleted itself once I downloaded it. The once I read it, deleted everything but the number. {{GM}}She looks quite troubled by this.{{/GM}}"
+  branches {
+    responseText: "Disturbing, but you could do the same right?"
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5ee67e803966394c28002d7a"
+  }
+  index: 4
+  text: "Much as it pains me to say it, no. Oh, I could do something similar, but it wouln\'td be this traceless. This tells me it\'s either someone with a LOT of resources, or is really good, and someone really desperate to not be identified. {{GM}}She looks annoyed to admit she can\'t.{{/GM}}"
+  branches {
+    responseText: "Okay, give me both numbers."
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Elf_Number"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Therapist_Number"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "StoryStep"
+            }
+          }
+        }
+        args {
+          int_value: 32
+        }
+      }
+    }
+    nextNodeIndex: 5
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5ee680bf3966394c28002d8c"
+  }
+  index: 5
+  text: "Okay, just tell me if you need more help. I may have left the team long ago, but Joshua was a good friend. {{GM}}She blushes slightly as she admits this.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: "You have something for me?"
+  nextNodeIndex: 0
+}

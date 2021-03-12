@@ -1,0 +1,4239 @@
+idRef {
+  id: "5f21d2033966394c0f0039b4"
+}
+ui_name: "Informant-Forger"
+nodes {
+  idRef {
+    id: "5f231172396639e822007b18"
+  }
+  index: 0
+  text: "Yup that\'s me. {{GM}}He says with a grin.{{/GM}}"
+  branches {
+    responseText: "Pleasure to meet you. That\'s an odd name."
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "I was sent to find you."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+    }
+    nextNodeIndex: 8
+  }
+  branches {
+    responseText: "Oi fragface. What\'s with the name?"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+    }
+    nextNodeIndex: 9
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f23135c396639e822007b3e"
+  }
+  index: 1
+  text: "{{GM}}His smile disappears.{{/GM}} So polite. Hides your real intentions, but what can you expect when we don\'t know each other."
+  branches {
+    responseText: "So the name?"
+    nextNodeIndex: 2
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f231428396639e822007b54"
+  }
+  index: 2
+  text: "Despite my appearance I am mostly Native American. Even grew up on the near by awakened lands. Apparently one of my ancestors was so bad at being a warrior that he earned that name. It runs in the family until someone redeems it. {{GM}}He looks nostalgic as he talks.{{/GM}}"
+  branches {
+    responseText: "That\'s good to know, but to business."
+    nextNodeIndex: 3
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f231619396639e822007b85"
+  }
+  index: 3
+  text: "Okay, so what do you need a forger for? {{GM}}The cheerfulness remain, but he seems more focused and business like.{{/GM}}"
+  branches {
+    responseText: "I\'ve heard that a receptionist at a therapist office is easily impressed by official documents."
+    nextNodeIndex: 4
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f23172b396639e822007b95"
+  }
+  index: 4
+  text: "So you need paper that while not official, look official enough to fool her. Easily done. {{GM}}He look down right devilish contemplating how to pull one over on said receptionist.{{/GM}}"
+  branches {
+    responseText: "Good to know it\'s doable. How much?"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              int_value: 3000
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Arithmetic (int)"
+                args {
+                  call_value {
+                    functionName: "Arithmetic (int)"
+                    args {
+                      call_value {
+                        functionName: "Get Story Variable (int)"
+                        args {
+                          string_value: "51f15c62336331d02c00440e"
+                        }
+                        args {
+                          string_value: "Custom_Skill-Negotiation"
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Preset Value (int)"
+                        args {
+                          string_value: "Arithmetic Ops"
+                        }
+                        args {
+                          int_value: 0
+                        }
+                      }
+                    }
+                    args {
+                      call_value {
+                        functionName: "Get Story Variable (int)"
+                        args {
+                          string_value: "51f15c62336331d02c00440e"
+                        }
+                        args {
+                          string_value: "Informant_Forger_Approval"
+                        }
+                      }
+                    }
+                  }
+                }
+                args {
+                  call_value {
+                    functionName: "Get Preset Value (int)"
+                    args {
+                      string_value: "Arithmetic Ops"
+                    }
+                    args {
+                      int_value: 2
+                    }
+                  }
+                }
+                args {
+                  int_value: 200
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 5
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f23181d396639e822007bb7"
+  }
+  index: 5
+  text: "Well it\'s easier since they don\'t need to be real, just look real. Let\'s say \302\245$(story.Cost)."
+  branches {
+    responseText: "Deal."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 6
+  }
+  branches {
+    responseText: "Not right now."
+    nextNodeIndex: 7
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f231e7c396639e822007e97"
+  }
+  index: 6
+  text: "Just give me a few minutes to put it together. Let ma give you my number for later.{{GM}}He says this with a devilish grin.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Trigger: Wait for Rounds"
+      args {
+        int_value: 2
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Item to Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Fake Papers 1"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2324f9396639e822007ed3"
+  }
+  index: 7
+  text: "You\'re mistake. But here\'s my number for when you change your mind."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f23265c396639e822007f14"
+  }
+  index: 8
+  text: "Well at least were starting off with some authenticity. {{GM}}His smile fades a little bit, but is far from gone.{{/GM}}"
+  branches {
+    responseText: "So the name?"
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Approval"
+          }
+        }
+      }
+      args {
+        int_value: 5
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2327e1396639e822007f6e"
+  }
+  index: 9
+  text: "Some real authenticity in this fake age. I like it. {{GM}}His smile widens at your words.{{/GM}}"
+  branches {
+    responseText: "So the name?"
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f247219396639003a00234e"
+  }
+  index: 10
+  text: "It is. What can this Badwarrior do for you?"
+  branches {
+    responseText: "Maybe I should get those paper, how much were they again?"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Informant_Forger_Approval"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 11
+  }
+  branches {
+    responseText: "I\'m here for the fake paper\'s we talked about. Now gimme."
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 14
+  }
+  branches {
+    responseText: "Yo \"chummer\", I\'m here for the papers."
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    nextNodeIndex: 17
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f247497396639003a002353"
+  }
+  index: 11
+  text: "Once again a polite response. Let\'s say \302\245$(story.Cost). {{GM}}He seems almost sad about you reply.{{/GM}}"
+  branches {
+    responseText: "Deal."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 12
+  }
+  branches {
+    responseText: "Not right now."
+    nextNodeIndex: 13
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Cost"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            int_value: 3000
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Arithmetic (int)"
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Custom_Skill-Negotiation"
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "Arithmetic Ops"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Informant_Forger_Approval"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 2
+                  }
+                }
+              }
+              args {
+                int_value: 200
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f231e7c396639e822007e97"
+  }
+  index: 12
+  text: "Just give me a few minutes to put it together. {{GM}}He says this with a devilish grin.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Trigger: Wait for Rounds"
+      args {
+        int_value: 2
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Item to Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Fake Papers 1"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2324f9396639e822007ed3"
+  }
+  index: 13
+  text: "You\'re mistake."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f247687396639003a0023ae"
+  }
+  index: 14
+  text: "Not as authentic as possible, but could be worse. Let\'s say \302\245$(story.Cost). {{GM}}He smiles a little bit at your words.{{/GM}}"
+  branches {
+    responseText: "Deal."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 15
+  }
+  branches {
+    responseText: "Not right now."
+    nextNodeIndex: 16
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Cost"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            int_value: 3000
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Arithmetic (int)"
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Custom_Skill-Negotiation"
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "Arithmetic Ops"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Informant_Forger_Approval"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 2
+                  }
+                }
+              }
+              args {
+                int_value: 200
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f231e7c396639e822007e97"
+  }
+  index: 15
+  text: "Just give me a few minutes to put it together. {{GM}}He says this with a devilish grin.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Trigger: Wait for Rounds"
+      args {
+        int_value: 2
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Item to Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Fake Papers 1"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2324f9396639e822007ed3"
+  }
+  index: 16
+  text: "You\'re mistake."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2477a3396639003a0023bf"
+  }
+  index: 17
+  text: "There\'s the authenticity I was hoping for. Let\'s say \302\245$(story.Cost). {{GM}}He grins wide at your words.{{/GM}}"
+  branches {
+    responseText: "Deal."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 18
+  }
+  branches {
+    responseText: "Not right now."
+    nextNodeIndex: 19
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Cost"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            int_value: 3000
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Arithmetic (int)"
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Custom_Skill-Negotiation"
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "Arithmetic Ops"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Informant_Forger_Approval"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 2
+                  }
+                }
+              }
+              args {
+                int_value: 200
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f231e7c396639e822007e97"
+  }
+  index: 18
+  text: "Just give me a few minutes to put it together. {{GM}}He says this with a devilish grin.{{/GM}}"
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Trigger: Wait for Rounds"
+      args {
+        int_value: 2
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Item to Team"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Fake Papers 1"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (string)"
+          args {
+            string_value: "FactionList"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "Default"
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2324f9396639e822007ed3"
+  }
+  index: 19
+  text: "You\'re mistake."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5eb78ebc3966391c0e007e40"
+  }
+  index: 20
+  text: "What do you need?"
+  branches {
+    responseText: "Nothing at the moment."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f231172396639e822007b18"
+  }
+  index: 21
+  text: "Yup that\'s me. {{GM}}He says with a grin.{{/GM}}"
+  branches {
+    responseText: "Pleasure to meet you. That\'s an odd name."
+    nextNodeIndex: 22
+  }
+  branches {
+    responseText: "I was sent to find you."
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          int_value: 5
+        }
+      }
+    }
+    nextNodeIndex: 37
+  }
+  branches {
+    responseText: "Oi fragface. What\'s with the name?"
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+    }
+    nextNodeIndex: 38
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f23135c396639e822007b3e"
+  }
+  index: 22
+  text: "{{GM}}His smile disappears.{{/GM}} So polite. Hides your real intentions, but what can you expect when we don\'t know each other."
+  branches {
+    responseText: "So the name?"
+    nextNodeIndex: 23
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f231428396639e822007b54"
+  }
+  index: 23
+  text: "Despite my appearance I am mostly Native American. Even grew up on the near by awakened lands. Apparently one of my ancestors was so bad at being a warrior that he earned that name. It runs in the family until someone redeems it. {{GM}}He looks nostalgic as he talks.{{/GM}}"
+  branches {
+    responseText: "That\'s good to know, but to business."
+    nextNodeIndex: 24
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f231619396639e822007b85"
+  }
+  index: 24
+  text: "Okay, so what do you need a forger for? {{GM}}The cheerfulness remain, but he seems more focused and business like.{{/GM}}"
+  branches {
+    responseText: "I\'m actually not here about a forgery. I have a run at the local awakened area and need information about it."
+    nextNodeIndex: 25
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f59e67e666533e02f00462e"
+  }
+  index: 25
+  text: "Give the location and \302\245$(story.Cost) and I\'ll tell you what I know."
+  branches {
+    responseText: "Deal."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 1000
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 1000
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Awakened_Info_Purchased"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 26
+  }
+  branches {
+    responseText: "No deal."
+    nextNodeIndex: 36
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Cost"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            int_value: 3000
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Arithmetic (int)"
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Custom_Skill-Negotiation"
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "Arithmetic Ops"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Informant_Forger_Approval"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 2
+                  }
+                }
+              }
+              args {
+                int_value: 100
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f5ae3f1666533e02f0049cc"
+  }
+  index: 26
+  text: "I know a bit about the area. I\'ll tell you what I can."
+  branches {
+    responseText: "What can you tell me?"
+    nextNodeIndex: 27
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f5ae459666533e02f004a18"
+  }
+  index: 27
+  text: "What do you want to know?"
+  branches {
+    responseText: "What about any dangerous animals in the area?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Wilderness_Type"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 28
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Any environmental hazards?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Wilderness_Type"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+    }
+    nextNodeIndex: 29
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Actually I have something to tell you about the mission."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "StoryStep"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 38
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Native_Americans_Told"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 31
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Tell me about the secret path again."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "StoryStep"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 38
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Native_Americans_Told"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 34
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "5f5ae735666533e02f004b5f"
+    }
+  }
+  branches {
+    responseText: "Nothing more."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Number"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 35
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Nothing more."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Number"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f5af4dd666533e02f005246"
+  }
+  index: 28
+  text: "There are scorpyrine in the area. But these ones are immune to fire. Just look out for fresh kills. Fortunatly they hunt alone, unless it\'s mated pair."
+  branches {
+    responseText: "What else can you tell me?"
+    nextNodeIndex: 27
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f5af5a8666533e02f005365"
+  }
+  index: 29
+  text: "Yes, two. First be careful of the little trees, they can summon fire. They don\'t have a ton of range so as long as you don\'t get too close you\'ll be fine. Also they don\'t aim super fast, don\'t stop and you\'ll be fine."
+  branches {
+    responseText: "And the second?"
+    nextNodeIndex: 30
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f66c9a4666533e0180049be"
+  }
+  index: 30
+  text: "Second if you stop the grass tries to tries to eat you. It only needs a few seconds, so if you stop for even a second it\'ll get you at least a little. The process isn\'t instant though."
+  branches {
+    responseText: "What else can you tell me?"
+    nextNodeIndex: 27
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f5ae91e666533e02f004c91"
+  }
+  index: 31
+  text: "What is it? {{GM}}He gets a more serious look.{{/GM}}"
+  branches {
+    responseText: "{{CC}}Tell him about the elves.{{/CC}} I was told not to tell you this but the reason I\'m going there is ..."
+    actions {
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Native_Americans_Told"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 32
+  }
+  branches {
+    responseText: "{{CC}}Don\'t tell him.{{/CC}} Actually nothing."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f5aedfa666533e02f004eff"
+  }
+  index: 32
+  text: "Not sure what the tribe will say, but the creature is released and needs to be sealed so for now just play along while I tell the tribe. {{GM}}He looks very grim at your news.{{/GM}}"
+  branches {
+    responseText: "Ok. Anything you know about that particular area?"
+    nextNodeIndex: 33
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f5aefd6666533e02f004f57"
+  }
+  index: 33
+  text: "Actually yes. I know that area and where you will likely set down. On the side of the clearing to the right of the obvious path out is a small path behind the second tree. The path loops a bit, but avoids plant hazard and scorpyrine hunting grounds. {{GM}}He actually gets a little bit of a nostalgic look.{{/GM}}"
+  branches {
+    responseText: "What else can you tell me?"
+    nextNodeIndex: 27
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f5aefd6666533e02f004f57"
+  }
+  index: 34
+  text: "Happily. I know that area and where you will likely set down. On the side of the clearing to the right of the obvious path out is a small path behind the third tree. The path loops a bit, but avoids plant hazard and scorpyrine hunting grounds. {{GM}}He actually gets a little bit of a nostalgic look.{{/GM}}"
+  branches {
+    responseText: "What else can you tell me?"
+    nextNodeIndex: 27
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f5ae516666533e02f004a68"
+  }
+  index: 35
+  text: "Let me give you my number."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f5ae135666533e02f004784"
+  }
+  index: 36
+  text: "I\'ll give you my number for when you change yout mind."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f23265c396639e822007f14"
+  }
+  index: 37
+  text: "Well at least were starting off with some authenticity. {{GM}}His smile fades a little bit, but is far from gone.{{/GM}}"
+  branches {
+    responseText: "So the name?"
+    nextNodeIndex: 23
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Approval"
+          }
+        }
+      }
+      args {
+        int_value: 5
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2327e1396639e822007f6e"
+  }
+  index: 38
+  text: "Some real authenticity in this fake age. I like it. {{GM}}His smile widens at your words.{{/GM}}"
+  branches {
+    responseText: "So the name?"
+    nextNodeIndex: 23
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f247219396639003a00234e"
+  }
+  index: 39
+  text: "It is. What can this Badwarrior do for you?"
+  branches {
+    responseText: "Maybe I should get that informatiom, how much was it again?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Informant_Forger_Approval"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 40
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "I\'m here for the information we talked about. Now gimme."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 42
+  }
+  branches {
+    responseText: "Yo \"chummer\", I\'m here for the infoemation."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    nextNodeIndex: 44
+  }
+  branches {
+    responseText: "Maybe I should get that informatiom, how much was it again?"
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Arithmetic (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "Informant_Forger_Approval"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Get Preset Value (int)"
+                args {
+                  string_value: "Arithmetic Ops"
+                }
+                args {
+                  int_value: 1
+                }
+              }
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 46
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "I\'m here for the information we talked about. Now gimme."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 48
+  }
+  branches {
+    responseText: "Yo \"chummer\", I\'m here for the information."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          int_value: 10
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Informant_Forger_Approval"
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    nextNodeIndex: 50
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f247497396639003a002353"
+  }
+  index: 40
+  text: "Once again a polite response. Let\'s say \302\245$(story.Cost). {{GM}}He seems almost sad about you reply.{{/GM}}"
+  branches {
+    responseText: "Deal."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Awakened_Info_Purchased"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 27
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Not right now."
+    nextNodeIndex: 41
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Cost"
+          }
+        }
+      }
+      args {
+        int_value: 1000
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2324f9396639e822007ed3"
+  }
+  index: 41
+  text: "You\'re mistake."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f247687396639003a0023ae"
+  }
+  index: 42
+  text: "Not as authentic as possible, but could be worse. Let\'s say \302\245$(story.Cost). {{GM}}He smiles a little bit at your words.{{/GM}}"
+  branches {
+    responseText: "Deal."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Awakened_Info_Purchased"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 27
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Not right now."
+    nextNodeIndex: 43
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Cost"
+          }
+        }
+      }
+      args {
+        int_value: 1000
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2324f9396639e822007ed3"
+  }
+  index: 43
+  text: "You\'re mistake."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2477a3396639003a0023bf"
+  }
+  index: 44
+  text: "There\'s the authenticity I was hoping for. Let\'s say \302\245$(story.Cost). {{GM}}He grins wide at your words.{{/GM}}"
+  branches {
+    responseText: "Deal."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Awakened_Info_Purchased"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 27
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Not right now."
+    nextNodeIndex: 45
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Cost"
+          }
+        }
+      }
+      args {
+        int_value: 1000
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2324f9396639e822007ed3"
+  }
+  index: 45
+  text: "You\'re mistake."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f247497396639003a002353"
+  }
+  index: 46
+  text: "Once again a polite response. Let\'s say \302\245$(story.Cost). {{GM}}He seems almost sad about you reply.{{/GM}}"
+  branches {
+    responseText: "Deal."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Awakened_Info_Purchased"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 27
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Not right now."
+    nextNodeIndex: 47
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Cost"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            int_value: 3000
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Arithmetic (int)"
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Custom_Skill-Negotiation"
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "Arithmetic Ops"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Informant_Forger_Approval"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 2
+                  }
+                }
+              }
+              args {
+                int_value: 200
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2324f9396639e822007ed3"
+  }
+  index: 47
+  text: "You\'re mistake."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f247687396639003a0023ae"
+  }
+  index: 48
+  text: "Not as authentic as possible, but could be worse. Let\'s say \302\245$(story.Cost). {{GM}}He smiles a little bit at your words.{{/GM}}"
+  branches {
+    responseText: "Deal."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Awakened_Info_Purchased"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 27
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Not right now."
+    nextNodeIndex: 49
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Cost"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            int_value: 3000
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Arithmetic (int)"
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Custom_Skill-Negotiation"
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "Arithmetic Ops"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Informant_Forger_Approval"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 2
+                  }
+                }
+              }
+              args {
+                int_value: 200
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2324f9396639e822007ed3"
+  }
+  index: 49
+  text: "You\'re mistake."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2477a3396639003a0023bf"
+  }
+  index: 50
+  text: "There\'s the authenticity I was hoping for. Let\'s say \302\245$(story.Cost). {{GM}}He grins wide at your words.{{/GM}}"
+  branches {
+    responseText: "Deal."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Cost"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Awakened_Info_Purchased"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 27
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "Not right now."
+    nextNodeIndex: 51
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Cost"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            int_value: 3000
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Arithmetic (int)"
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Custom_Skill-Negotiation"
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "Arithmetic Ops"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Informant_Forger_Approval"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 2
+                  }
+                }
+              }
+              args {
+                int_value: 200
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f2324f9396639e822007ed3"
+  }
+  index: 51
+  text: "You\'re mistake."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5f247219396639003a00234e"
+  }
+  index: 52
+  text: "It is. What can this Badwarrior do for you?"
+  branches {
+    responseText: "That information can you go over it again."
+    nextNodeIndex: 53
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5f247497396639003a002353"
+  }
+  index: 53
+  text: "Sure, you paid for it."
+  branches {
+    responseText: "What can you tell me?"
+    nextNodeIndex: 27
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Cost"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            int_value: 3000
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Arithmetic (int)"
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Custom_Skill-Negotiation"
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Preset Value (int)"
+                      args {
+                        string_value: "Arithmetic Ops"
+                      }
+                      args {
+                        int_value: 0
+                      }
+                    }
+                  }
+                  args {
+                    call_value {
+                      functionName: "Get Story Variable (int)"
+                      args {
+                        string_value: "51f15c62336331d02c00440e"
+                      }
+                      args {
+                        string_value: "Informant_Forger_Approval"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 2
+                  }
+                }
+              }
+              args {
+                int_value: 200
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  responseText: "John Badwarrior?"
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 34
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 0
+  hideIfUnavailable: true
+}
+roots {
+  responseText: "Is this John Badwarrior"
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 34
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate If Actor Has Item"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Fake Papers 1"
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 10
+  hideIfUnavailable: true
+}
+roots {
+  responseText: "Hi"
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "OR"
+      args {
+        call_value {
+          functionName: "Evaluate If Actor Has Item"
+          args {
+            call_value {
+              functionName: "Specific Actor"
+              args {
+                call_value {
+                  functionName: "Get Map Item (Player)"
+                  args {
+                    int_value: 0
+                  }
+                }
+              }
+              args {
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "HasOrHasNot"
+              }
+              args {
+                int_value: 1
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Map Item (Item)"
+              args {
+                string_value: "Fake Papers 1"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Comparison (string)"
+          args {
+            call_value {
+              functionName: "Get Story Variable (string)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "Current-Run-JobType"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "IsOrIsNot"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            string_value: "Wildrness"
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 20
+  hideIfUnavailable: true
+}
+roots {
+  responseText: "John Badwarrior?"
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 38
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 21
+  hideIfUnavailable: true
+}
+roots {
+  responseText: "Is this John Badwarrior"
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Awakened_Info_Purchased"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "Current-Run-JobType"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: "Wilderness"
+      }
+    }
+  }
+  nextNodeIndex: 39
+  hideIfUnavailable: true
+}
+roots {
+  responseText: "Is this John Badwarrior"
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Forger_Number"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Awakened_Info_Purchased"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "Current-Run-JobType"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        string_value: "Wilderness"
+      }
+    }
+  }
+  nextNodeIndex: 52
+  hideIfUnavailable: true
+}

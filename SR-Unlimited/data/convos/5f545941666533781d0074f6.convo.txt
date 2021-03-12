@@ -1,0 +1,319 @@
+idRef {
+  id: "5f545941666533781d0074f6"
+}
+ui_name: "Helicopter-hire"
+nodes {
+  idRef {
+    id: "5f545ccb666533781d007703"
+  }
+  index: 0
+  text: "This is Harry with Up And At \'Em Chopters, we provide affordable local air travel."
+  branches {
+    responseText: "My name is $(s.name). Waldo told me to call you for a ride."
+    nextNodeIndex: 1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c18f813363311c0500809c"
+  }
+  index: 1
+  text: "No problem, give me the coordinates and I\'ll flt you there. My rate is 1000\302\245, non-negotiable."
+  branches {
+    responseText: "Deal. Let\'s go."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 1000
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-cave"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 1000
+        }
+      }
+    }
+    nextNodeIndex: 2
+  }
+  branches {
+    responseText: "Maybe later."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Helicopter_call"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+nodes {
+  idRef {
+    id: "5455a5fe363735ac16002e09"
+  }
+  index: 2
+  text: "I\'ll be ready when you get here. I\'ll give you a flare to call me when done, although it may take me a tiny bit to come back and pick you up."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52bdb0ad3363315c28001d97"
+  }
+  index: 3
+  text: "Hey $(l.name), what do you need?"
+  branches {
+    responseText: "I need to fly somewhere for a job."
+    nextNodeIndex: 4
+  }
+  branches {
+    responseText: "Just checking in."
+    nextNodeIndex: 7
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c18f283363311c05008099"
+  }
+  index: 4
+  text: "Details?"
+  branches {
+    responseText: "I need a lift out to a location in the awakened lands"
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Cave"
+        }
+      }
+    }
+    nextNodeIndex: 5
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c18f813363311c0500809c"
+  }
+  index: 5
+  text: "My rate is 1000\302\245, non-negotiable."
+  branches {
+    responseText: "Deal. Let\'s go."
+    conditions {
+      ops {
+        functionName: "Evaluate Nuyen"
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 3
+            }
+          }
+        }
+        args {
+          int_value: 1000
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "run location-cave"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          int_value: 1000
+        }
+      }
+    }
+    nextNodeIndex: 6
+  }
+  branches {
+    responseText: "Maybe later."
+    nextNodeIndex: -1
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5455a5fe363735ac16002e09"
+  }
+  index: 6
+  text: "I\'ll be ready when you get here. I\'ll give you a flare to call me when done, although it may take me a tiny bit to come back and pick you up."
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52c190363363311c050080a0"
+  }
+  index: 7
+  text: "Right. Talk to you later..."
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: "Hello?"
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Helicopter_call"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 0
+  hideIfUnavailable: true
+}
+roots {
+  responseText: "Harry?"
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Helicopter_call"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 3
+  hideIfUnavailable: true
+}
