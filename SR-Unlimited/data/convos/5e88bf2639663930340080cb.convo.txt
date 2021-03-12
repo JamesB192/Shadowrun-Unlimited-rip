@@ -1,0 +1,176 @@
+idRef {
+  id: "5e88bf2639663930340080cb"
+}
+ui_name: "Story_Step_27_Call_From_Piper"
+nodes {
+  idRef {
+    id: "5d02e8b03966397015005460"
+  }
+  index: 0
+  text: "{{GM}}The comm chimes a new call.{{/GM}}"
+  branches {
+    responseText: "Hello?"
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "Go for $(s.name)\'s phone."
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: "{{GM}}Answer, but say nothing...{{/GM}}"
+    nextNodeIndex: 1
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5d02e9ad3966397015005470"
+  }
+  index: 1
+  text: "Here\'s the informants info. His name is Mike Score. He likes polite people and is unlikely to work for free. You can contact him either on the Matrix Hub or use the Penumbra payphone. Good luck chummer. {{GM}}As he gives you the informants info you get the impression they are far from close. He perks up at the end and manages to smile as he wishes you good luck, then terminates the call."
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "PlotInformation"
+          }
+        }
+      }
+      args {
+        string_value: "Go see Mike Score."
+      }
+    }
+    ops {
+      functionName: "Set Screen Label"
+      args {
+        string_value: "Journal"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "PlotInformation"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        int_value: 28
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Informant_Corp"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+roots {
+  responseText: "..."
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 27
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Play Sound"
+      args {
+        call_value {
+          functionName: "Get Map Item (Sound)"
+          args {
+            string_value: "props"
+          }
+          args {
+            string_value: "PDA-Ring1"
+          }
+        }
+      }
+      args {
+        float_value: 2
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  nextNodeIndex: 0
+}
