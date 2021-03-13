@@ -22559,7 +22559,7 @@ nodes {
           }
         }
         args {
-          string_value: "I need to break into Telestrian R&D and kill thier head scientist."
+          string_value: "I need to break into Telestrian R&D and kill their head scientist."
         }
       }
       ops {
