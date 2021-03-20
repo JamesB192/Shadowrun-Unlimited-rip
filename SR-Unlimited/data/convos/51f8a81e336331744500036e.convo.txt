@@ -1334,7 +1334,7 @@ nodes {
   index: 1
   text: "MATRIX JACKPOINT"
   branches {
-    responseText: "Travel to the Hub."
+    responseText: "Travel to The Hub."
     actions {
       ops {
         functionName: "Open Scene"
@@ -1352,7 +1352,7 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
-    responseText: "Hack the the target system of my current run."
+    responseText: "Hack the target system of my current run."
     conditions {
       ops {
         functionName: "Comparison (bool)"
@@ -1562,6 +1562,114 @@ nodes {
     }
     nextNodeIndex: 4
     hideIfUnavailable: true
+    comment: "keycard High Security"
+  }
+  branches {
+    responseText: "Hack the run location\'s system to help make infiltration easier."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Employed"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "RunSuccess"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current-Run-JobType"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Matrix Security"
+        }
+      }
+    }
+    nextNodeIndex: 6
+    hideIfUnavailable: true
+    comment: "Matrix but no keycard Matrix Security"
   }
   branches {
     responseText: "Hack a random system."
@@ -1630,7 +1738,117 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 6
+    nextNodeIndex: 8
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Hack the therapist\'s office."
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "StoryStep"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 34
+        }
+      }
+      ops {
+        functionName: "Evaluate If Actor Has Item"
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "HasOrHasNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Henry\'s File"
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Frosty_Research"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-therapist office"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
     hideIfUnavailable: true
   }
   branches {
@@ -1645,7 +1863,7 @@ nodes {
     id: "52e1f9133363313029005cc7"
   }
   index: 2
-  text: "TRACKING SYSTEM..."
+  text: "TRACKING SYSTEM...."
   branches {
     responseText: ""
     nextNodeIndex: 3
@@ -2574,7 +2792,7 @@ nodes {
     id: "52e1f9133363313029005cce"
   }
   index: 4
-  text: "TRACKING SYSTEM..."
+  text: "TRACKING SYSTEM...."
   branches {
     responseText: ""
     nextNodeIndex: 5
@@ -2917,9 +3135,95 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52a0fef83363315037003df9"
+    id: "52e1f9133363313029005cce"
   }
   index: 6
+  text: "TRACKING SYSTEM...."
+  branches {
+    responseText: ""
+    nextNodeIndex: 7
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52a0fefc3363315037003dfc"
+  }
+  index: 7
+  text: "ENTERING SYSTEM CODE..."
+  branches {
+    responseText: "Travel to system."
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Asylum"
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid has identified this system as belonging to the Anhk-Morpork Mental Health Institute."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-asylum"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "asylum"
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52a0fef83363315037003df9"
+  }
+  index: 8
   text: "ENTERING SYSTEM CODE PERMUTATIONS"
   branches {
     responseText: "Engage."
