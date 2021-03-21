@@ -920,12 +920,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 9
     hideIfUnavailable: true
   }
   branches {
     responseText: "Call a fixer"
-    nextNodeIndex: 8
+    nextNodeIndex: 10
   }
   branches {
     responseText: "Perform a graceful logout."
@@ -956,7 +956,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 9
+    nextNodeIndex: 11
   }
   branches {
     responseText: "remove files from cyberdeck"
@@ -995,7 +995,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 10
+    nextNodeIndex: 12
     hideIfUnavailable: true
   }
   branches {
@@ -1259,6 +1259,113 @@ nodes {
     hideIfUnavailable: true
   }
   branches {
+    responseText: "Hack the run location\'s system to help make infiltration easier."
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Employed"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "RunSuccess"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current-Run-JobType"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Matrix Security"
+        }
+      }
+    }
+    nextNodeIndex: 6
+    hideIfUnavailable: true
+    comment: "Matrix but no keycard Matrix Security"
+  }
+  branches {
     responseText: "Hack a random system."
     conditions {
       ops {
@@ -1325,7 +1432,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 6
+    nextNodeIndex: 8
     hideIfUnavailable: true
   }
   branches {
@@ -2690,9 +2797,95 @@ nodes {
 }
 nodes {
   idRef {
-    id: "52a0fef83363315037003df9"
+    id: "52e1f9133363313029005cce"
   }
   index: 6
+  text: "TRACKING SYSTEM...."
+  branches {
+    responseText: ""
+    nextNodeIndex: 7
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52a0fefc3363315037003dfc"
+  }
+  index: 7
+  text: "ENTERING SYSTEM CODE..."
+  branches {
+    responseText: "Travel to system."
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          string_value: "Asylum"
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "DynamicSceneDescription"
+            }
+          }
+        }
+        args {
+          string_value: "Analyzing the System Access Node from the Local Telecommunications Grid has identified this system as belonging to the Anhk-Morpork Mental Health Institute."
+        }
+      }
+      ops {
+        functionName: "Open Scene"
+        args {
+          call_value {
+            functionName: "Get Map Item (Scene)"
+            args {
+              string_value: "matrix_system-asylum"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+    comment: "asylum"
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "52a0fef83363315037003df9"
+  }
+  index: 8
   text: "ENTERING SYSTEM CODE PERMUTATIONS"
   branches {
     responseText: "Engage."
@@ -3228,7 +3421,7 @@ nodes {
   idRef {
     id: "5b42238a343032900a0080fe"
   }
-  index: 7
+  index: 9
   text: ""
   branches {
     responseText: ""
@@ -3542,7 +3735,7 @@ nodes {
   idRef {
     id: "52a102da336331540f005769"
   }
-  index: 8
+  index: 10
   text: "COMMUNICATION RELAY"
   branches {
     responseText: "Contact Eric."
@@ -3827,7 +4020,7 @@ nodes {
   idRef {
     id: "52a0fa81336331f018004bb6"
   }
-  index: 9
+  index: 11
   text: "Do you want to leave the matrix or stay?"
   branches {
     responseText: "Jack out."
@@ -4803,7 +4996,7 @@ nodes {
   idRef {
     id: "557d399e646632940c0008a9"
   }
-  index: 10
+  index: 12
   text: "Cyberdeck file cull v0.4\nMMLIV Microdeck Inc.\nRedmond, UCAS"
   branches {
     responseText: "{{GM}}Do something else.{{/GM}}"
@@ -4886,7 +5079,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     comment: "01"
   }
@@ -4966,7 +5159,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "02"
@@ -5047,7 +5240,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "03"
@@ -5128,7 +5321,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "04"
@@ -5209,7 +5402,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "05"
@@ -5290,7 +5483,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "06"
@@ -5371,7 +5564,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "07"
@@ -5452,7 +5645,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "08"
@@ -5533,7 +5726,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "09"
@@ -5614,7 +5807,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "10"
@@ -5695,7 +5888,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "11"
@@ -5776,7 +5969,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "12"
@@ -5857,7 +6050,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "13"
@@ -5938,7 +6131,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "14"
@@ -6019,7 +6212,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 13
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "15"
@@ -6092,11 +6285,11 @@ nodes {
   idRef {
     id: "59ebc5af653737c44d0053ff"
   }
-  index: 11
+  index: 13
   text: ""
   branches {
     responseText: ""
-    nextNodeIndex: 10
+    nextNodeIndex: 12
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
