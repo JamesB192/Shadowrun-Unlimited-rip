@@ -10096,146 +10096,6 @@ triggers {
   is_oneshot: false
 }
 triggers {
-  name: "Runner-SmashJacker Hire"
-  events {
-    ops {
-      functionName: "On Conversation Complete"
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "Kill Actor"
-      args {
-        call_value {
-          functionName: "Specific Actor"
-          args {
-            call_value {
-              functionName: "Get Map Item (Actor)"
-              args {
-                string_value: "52e39c67336331f429002d14"
-              }
-            }
-          }
-          args {
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "DeathMethod"
-          }
-          args {
-            int_value: 3
-          }
-        }
-      }
-      args {
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Send Event After Delay"
-      args {
-        call_value {
-          functionName: "Get Map Item (Event)"
-          args {
-            string_value: "SmashJacker Hire"
-          }
-        }
-      }
-      args {
-        float_value: 0.5
-      }
-    }
-    ops {
-      functionName: "Fade Camera Out"
-      args {
-        float_value: 1
-      }
-      args {
-        float_value: 0
-      }
-    }
-    ops {
-      functionName: "Fade Camera In"
-      args {
-        float_value: 1.5
-      }
-      args {
-        float_value: 2
-      }
-    }
-    ops {
-      functionName: "Enable/Disable Trigger"
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "EnableOrDisable"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Map Item (Trigger)"
-          args {
-            string_value: "52c97e0e3363318c21000994"
-          }
-        }
-      }
-    }
-  }
-  isActive: false
-  idRef {
-    id: "52c97e0e3363318c21000994"
-  }
-  elseActions {
-  }
-  is_oneshot: false
-}
-triggers {
-  name: "Runner-SmashJacker Hire Event"
-  events {
-    ops {
-      functionName: "Get Map Item (Event)"
-      args {
-        string_value: "SmashJacker Hire"
-      }
-    }
-  }
-  conditions {
-  }
-  actions {
-    ops {
-      functionName: "No Effect"
-    }
-  }
-  isActive: true
-  idRef {
-    id: "52c97e0e3363318c21000995"
-  }
-  elseActions {
-  }
-  is_oneshot: true
-}
-triggers {
   name: "Runner-SmashJacker Vanish"
   events {
     ops {
@@ -20661,7 +20521,7 @@ characters {
       }
       specializations {
       }
-      archetypeName: "Player"
+      archetypeName: "Non-Combatant"
       attitude: AttitudeAggressive
       vulnerabilities {
       }
@@ -20750,7 +20610,7 @@ characters {
         esp_control: 0
         drone_combat: 0
       }
-      archetypeName: "Guard - Protect"
+      archetypeName: "Non-Combatant"
       attitude: AttitudeAggressive
       vulnerabilities {
       }
