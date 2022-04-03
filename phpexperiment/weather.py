@@ -16,11 +16,11 @@ sky = 0
 
 print("x\ttrend\tdHg\tHg")
 print("============================")
-for I in range(600):
+for I in range(30):
     trend = fakediv((Hg - 985), abs(Hg - 985))
     trend *= -2
 
-    dHg += trend * random.randint(1, 4)
+    dHg += int(trend / random.randint(1, 4))
     dHg += random.randint(1, 6) - random.randint(1, 6)
     dHg += random.randint(1, 6) - random.randint(1, 6)
 
