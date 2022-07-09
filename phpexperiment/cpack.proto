@@ -1,0 +1,25 @@
+syntax = "proto3";
+package class;
+
+message ContentPackDep {
+    string package_id = 1;
+    string package_version = 2;
+    string package_name = 3;
+    string package_description = 4;
+}
+
+message ContentPack {
+    string project_id = 1;
+    string project_name = 2;
+    string project_version = 3;
+    string author_name = 4;
+    string synopsis = 5;
+    bool has_story = 6;
+    // 7?
+    bool read_only = 8;
+    string preview_image = 9;
+    // float version, eh?
+    float game_version_required = 10;
+
+    repeated ContentPackDep content_pack_dependencies = 20;
+}
