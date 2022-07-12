@@ -178,7 +178,7 @@ def make_directory(indir, outfile):
         SL.join(["SR-Unlimited", "data", "stories", "story.story.txt"])
     )
     _tmp = _sto.get('description')
-    _sto.set("description", _tmp % (tags[0], "EOL CI"))
+    _sto.set("description", tags[0] + " -- EOL CI")
     _sto.stored.description = _tmp % tuple(tags)
 
     _co = IoProtoBuf(df_pb2.ItemDef)
@@ -195,7 +195,6 @@ def make_directory(indir, outfile):
     )
     _tmp = _co.stored.uirep
     _tmp = _tmp.description % tags[0] + "EOL CI"
-    _tmp = _tmp.description % tuple(tags)
     _co.stored.uirep.description = _tmp
 
     odir1 = tmpdir0 + SL + o_name
