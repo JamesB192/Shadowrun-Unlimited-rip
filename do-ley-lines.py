@@ -38,16 +38,17 @@ def add_props(node, props, lines):
     add = set(props.keys())
     for prop in props:
         for preset in node.properties:
-            id = preset.property_id
-            if id in add:
-                add.remove(id)
-                preset.string_value = props[id]
+            key = preset.property_id
+            if key in add:
+                add.remove(key)
+                preset.string_value = props[key]
 
     # Add properties not already there
     for prop in list(add):
+        print(repr([add, prop, props[prop]]))  # FIXME: commentary
         t = node.properties.add()
-        t.property_id = prop[0]
-        t.string_value = prop[1]
+        t.property_id = prop
+        t.string_value = props[prop]
 
     # Set Ley Line attributes creatinf as needed
     if not hasattr(node, "leyLine"):
@@ -112,6 +113,7 @@ if "__main__" == __name__:
                     tally += 1
                     add_props(node, props[end], lines[end])
         print(repr([file, tally]))
-        ipb.write_text(file)
+        if tally != 0:
+            ipb.write_text(file)
         ipb.reset()
     print("-30-")
