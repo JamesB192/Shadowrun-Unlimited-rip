@@ -28,12 +28,12 @@ for Day in range(7):
         dHg += random.randint(1, 6) - random.randint(1, 6)
         dHg += random.randint(1, 6) - random.randint(1, 6)
 
-        dHg = int((12 + dHg - abs(12 - dHg)) / 2)
+        dHg = int((12 + dHg - abs(12 - dHg)) / 2)  # clamp between -12,12
         dHg = int((-12 + dHg + abs(-12 - dHg)) / 2)
 
         Hg += dHg
 
-        Hg = int((10 + Hg + abs(10 - Hg)) / 2)
+        Hg = int((10 + Hg + abs(10 - Hg)) / 2)  # clamp between 10,90
         Hg = int((90 + Hg - abs(90 - Hg)) / 2)
         # ====================================================
         if (sky == 0):
