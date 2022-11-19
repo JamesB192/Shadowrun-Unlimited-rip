@@ -2513,6 +2513,17 @@ triggers {
           }
         }
       }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
     }
     ops {
       functionName: "Add Actor Karma"
@@ -5358,6 +5369,17 @@ triggers {
           }
           args {
             int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
           }
         }
       }
@@ -13195,7 +13217,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "start_step 20"
+  name: "start_step 21"
   events {
     ops {
       functionName: "On Map Start"
@@ -13203,15 +13225,19 @@ triggers {
   }
   conditions {
     ops {
-      functionName: "Comparison (bool)"
+      functionName: "Evaluate If Actor Has Item"
       args {
         call_value {
-          functionName: "Get Story Variable (bool)"
+          functionName: "Specific Actor"
           args {
-            string_value: "51f15c62336331d02c00440e"
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
           }
           args {
-            string_value: "Called_Andy"
           }
         }
       }
@@ -13219,23 +13245,48 @@ triggers {
         call_value {
           functionName: "Get Preset Value (int)"
           args {
-            string_value: "IsOrIsNot"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "bool"
+            string_value: "HasOrHasNot"
           }
           args {
             int_value: 0
           }
         }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "Soka_Recording"
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "StoryStep"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        int_value: 21
       }
     }
   }
@@ -15237,6 +15288,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "53e136ad38646168110051e2"
   }
@@ -15255,15 +15308,15 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.5019608
-    g: 0.5019608
-    b: 0.5019608
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
     a: 1
   }
   ambient_light_color {
-    r: 0.5019608
-    g: 0.5019608
-    b: 0.5019608
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
     a: 1
   }
   ambience_template: ""
@@ -15272,6 +15325,16 @@ regions {
   loop_combat_music: true
   loop_default_music: true
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Arena Camera Bind"
@@ -15283,6 +15346,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "53e1371138646168110051e3"
   }
@@ -15301,15 +15366,15 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.5019608
-    g: 0.5019608
-    b: 0.5019608
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
     a: 1
   }
   ambient_light_color {
-    r: 0.5019608
-    g: 0.5019608
-    b: 0.5019608
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
     a: 1
   }
   ambience_template: ""
@@ -15318,6 +15383,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "To Redmond"
@@ -15329,6 +15404,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: false
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "53f687b33864614461006dc8"
   }
@@ -15347,15 +15424,15 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.5019608
-    g: 0.5019608
-    b: 0.5019608
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
     a: 1
   }
   ambient_light_color {
-    r: 0.5019608
-    g: 0.5019608
-    b: 0.5019608
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
     a: 1
   }
   ambience_template: ""
@@ -15364,6 +15441,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "New Region"
@@ -15375,6 +15462,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "559595803366372805003166"
   }
@@ -15410,6 +15499,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 regions {
   name: "Arena Camera Bind"
@@ -15421,6 +15520,8 @@ regions {
   }
   enabledAtStart: true
   is_camera_region: true
+  is_matrix_node: false
+  is_vfx_fill_region: false
   idRef {
     id: "55e5ed2f646632ac28003f6e"
   }
@@ -15439,15 +15540,15 @@ regions {
     z: -0.75
   }
   directional_light_color {
-    r: 0.5019608
-    g: 0.5019608
-    b: 0.5019608
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
     a: 1
   }
   ambient_light_color {
-    r: 0.5019608
-    g: 0.5019608
-    b: 0.5019608
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
     a: 1
   }
   ambience_template: ""
@@ -15456,6 +15557,16 @@ regions {
   loop_combat_music: true
   loop_default_music: false
   no_fow_in_region: false
+  combat_intense_music: ""
+  combat_wrapup_music: ""
+  loop_combat_intense_music: true
+  loop_combat_wrapup_music: true
+  combat_intense_threshold: 5
+  combat_wrapup_threshold: 2
+  combat_fade_interval: 2
+  combat_intro_stinger: ""
+  combat_outro_stinger: ""
+  vfx_fill_prefab_name: ""
 }
 characters {
   name: "chars_icon_playerIcon"
@@ -22225,14 +22336,14 @@ directional_light_dir {
   z: -0.75
 }
 directional_light_color {
-  r: 0.5019608
-  g: 0.5019608
-  b: 0.5019608
+  r: 0.50196081
+  g: 0.50196081
+  b: 0.50196081
 }
 ambient_light_color {
-  r: 0.5019608
-  g: 0.5019608
-  b: 0.5019608
+  r: 0.50196081
+  g: 0.50196081
+  b: 0.50196081
 }
 allow_drawn_weapons: false
 team_affiliations {
