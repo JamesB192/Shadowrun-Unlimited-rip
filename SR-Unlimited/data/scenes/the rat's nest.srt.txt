@@ -2513,17 +2513,6 @@ triggers {
           }
         }
       }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
-          }
-        }
-      }
     }
     ops {
       functionName: "Add Actor Karma"
@@ -4948,6 +4937,28 @@ triggers {
     id: "58d80be03037369c2670f984"
   }
   elseActions {
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "52c5a6e6336331a419004d08"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
   }
   is_oneshot: true
 }
@@ -5369,17 +5380,6 @@ triggers {
           }
           args {
             int_value: 0
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 1
           }
         }
       }
@@ -13291,12 +13291,6 @@ triggers {
     }
   }
   actions {
-  }
-  isActive: true
-  idRef {
-    id: "58de284f303736f53bb681f1"
-  }
-  elseActions {
     ops {
       functionName: "Kill Actor"
       args {
@@ -13458,6 +13452,12 @@ triggers {
         }
       }
     }
+  }
+  isActive: true
+  idRef {
+    id: "58de284f303736f53bb681f1"
+  }
+  elseActions {
   }
   is_oneshot: false
 }
@@ -16533,12 +16533,12 @@ characters {
     character_sheet_id: "runner Clockwork"
     equipment_sheet_id: "runner Clockwork"
     character_mod {
-      archetypeName: "Player"
+      archetypeName: "Non-Combatant"
       attitude: AttitudeAggressive
       vulnerabilities {
       }
     }
-    team_id: "Shadowrunners"
+    team_id: "Civilians"
     char_name: "Clockwork"
     GeneralTags: "Clockwork"
     enabled_at_start: false
