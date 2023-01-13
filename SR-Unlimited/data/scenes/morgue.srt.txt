@@ -86,6 +86,69 @@ triggers {
         int_value: 25
       }
     }
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Employed"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Comparison (string)"
+      args {
+        string_value: "Eric"
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+          }
+          args {
+            string_value: "Current_Fixer"
+          }
+        }
+      }
+    }
   }
   actions {
     ops {
@@ -9992,6 +10055,155 @@ triggers {
   }
   is_oneshot: false
 }
+triggers {
+  name: "Commlink"
+  events {
+    ops {
+      functionName: "On Actor Clicked"
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Actor)"
+      args {
+        call_value {
+          functionName: "Triggering Actor"
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate Turn Mode"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "TurnBasedOrFreeMove"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (string)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (string)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Zone"
+          }
+        }
+      }
+      args {
+        string_value: "Morgue"
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (bool)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "comm-offRoad"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "comm-jammed"
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "520caeef3363313423007e8a"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "63c0bf7434363253bb10120e"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
 regions {
   name: "Exit"
   position {
@@ -10103,7 +10315,7 @@ regions {
     b: 0.0
     a: 1.0
   }
-  visible_at_start: false
+  visible_at_start: true
   is_closet: false
   is_teleporter_region: false
   directional_light_dir {
@@ -10139,6 +10351,52 @@ regions {
   combat_intro_stinger: "HongKong-Combat-stinger-Start"
   combat_outro_stinger: "HongKong-Combat-stinger-End"
   vfx_fill_prefab_name: ""
+}
+regions {
+  name: "New Region"
+  position {
+    x: -82
+    y: 11
+    width: 3
+    height: 10
+  }
+  enabledAtStart: true
+  is_camera_region: false
+  idRef {
+    id: "63c0c17f34363253bb101210"
+  }
+  highlight_color {
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  }
+  visible_at_start: false
+  is_closet: true
+  is_teleporter_region: false
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambience_template: ""
+  combat_music: ""
+  default_music: ""
+  loop_combat_music: true
+  loop_default_music: false
+  no_fow_in_region: false
 }
 characters {
   name: "chars_icon_playerIcon"
@@ -10460,9 +10718,9 @@ characters {
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -1.0
-    y: 0.0
-    z: -60.0
+    x: -81
+    y: 0
+    z: 20
   }
   orientation: ORIENTATION_S
   idRef {
@@ -10508,14 +10766,15 @@ characters {
     hiring_type: HiringType_None
     karma: 6
     hiring_cost_override: 3000
+    is_prop_character: false
   }
 }
 characters {
   name: "chars_icon_playerIcon"
   gridPoint {
-    x: -1.0
-    y: 0.0
-    z: -59.0
+    x: -81
+    y: 0
+    z: 19
   }
   orientation: ORIENTATION_S
   idRef {
@@ -10566,6 +10825,7 @@ characters {
     }
     karma: 225
     hiring_cost_override: 1000
+    is_prop_character: false
   }
 }
 characters {
