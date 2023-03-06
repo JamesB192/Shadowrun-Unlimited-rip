@@ -9857,12 +9857,12 @@ triggers {
   }
   elseActions {
     ops {
-      functionName: "Activate Actor Spawner"
+      functionName: "Trigger: Run Alternate Trigger"
       args {
         call_value {
-          functionName: "Get Map Item (Actor Reference)"
+          functionName: "Get Map Item (Trigger)"
           args {
-            string_value: "52e39c67336331f429002d14"
+            string_value: "640525a1343632aa2fdb8f59"
           }
         }
       }
@@ -9873,7 +9873,29 @@ triggers {
             string_value: "WithOrWithout"
           }
           args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WaitOrNot"
+          }
+          args {
             int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
           }
         }
       }
@@ -15978,65 +16000,50 @@ triggers {
   }
   conditions {
     ops {
-      functionName: "Comparison (bool)"
+      functionName: "OR"
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "Invert Bool"
           args {
-            string_value: "bool"
-          }
-          args {
-            int_value: 1
+            call_value {
+              functionName: "Get Story Variable (bool)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "BurnedTheYak"
+              }
+            }
           }
         }
       }
       args {
         call_value {
-          functionName: "Get Preset Value (int)"
+          functionName: "Comparison (int)"
           args {
-            string_value: "IsOrIsNot"
+            call_value {
+              functionName: "Get Story Variable (int)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "StoryStep"
+              }
+            }
           }
           args {
-            int_value: 1
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Story Variable (bool)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "BurnedTheYak"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Comparison (int)"
-      args {
-        int_value: 14
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "Comparison Ops"
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Comparison Ops"
+              }
+              args {
+                int_value: 2
+              }
+            }
           }
           args {
-            int_value: 4
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "StoryStep"
+            int_value: 18
           }
         }
       }
@@ -16072,28 +16079,6 @@ triggers {
           }
           args {
             int_value: 1
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "Activate Actor Spawner"
-      args {
-        call_value {
-          functionName: "Get Map Item (Actor Reference)"
-          args {
-            string_value: "52fbab703363317429002351"
-          }
-        }
-      }
-      args {
-        call_value {
-          functionName: "Get Preset Value (int)"
-          args {
-            string_value: "WithOrWithout"
-          }
-          args {
-            int_value: 0
           }
         }
       }
@@ -18298,6 +18283,93 @@ triggers {
   elseActions {
   }
   is_oneshot: false
+}
+triggers {
+  name: "Runner-Smash Jacker Load 2"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "OR"
+      args {
+        call_value {
+          functionName: "Invert Bool"
+          args {
+            call_value {
+              functionName: "Get Story Variable (bool)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "BurnedTheYak"
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Comparison (int)"
+          args {
+            call_value {
+              functionName: "Get Story Variable (int)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "StoryStep"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Comparison Ops"
+              }
+              args {
+                int_value: 2
+              }
+            }
+          }
+          args {
+            int_value: 18
+          }
+        }
+      }
+    }
+  }
+  actions {
+  }
+  isActive: true
+  idRef {
+    id: "640525a1343632aa2fdb8f59"
+  }
+  elseActions {
+    ops {
+      functionName: "Activate Actor Spawner"
+      args {
+        call_value {
+          functionName: "Get Map Item (Actor Reference)"
+          args {
+            string_value: "52e39c67336331f429002d14"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: true
 }
 regions {
   name: "CameraBind"
@@ -20529,98 +20601,6 @@ characters {
     team_id: "Civilians"
     char_name: "Smash Jacker"
     GeneralTags: "Smash Jacker"
-    enabled_at_start: false
-    pc_spawn_number: -1
-    hiring_type: HiringType_None
-    cyberware_jack: "Datajack"
-    cyberware_body: "Bone Lacing Kevlar 2"
-    portrait {
-      filename: "pc_trollfemale_04d_devil"
-    }
-    karma: 119
-    hiring_cost_override: 1000
-  }
-}
-characters {
-  name: "chars_icon_playerIcon"
-  gridPoint {
-    x: 69
-    y: 0
-    z: 291
-  }
-  orientation: ORIENTATION_S
-  displayName: "SmashJack Stand-In"
-  idRef {
-    id: "52fbab703363317429002351"
-  }
-  lod: 0
-  character_instance {
-    prefab_name: "Seattle:Core/TrollFemale"
-    character_sheet_id: "runner Smash Jacker"
-    equipment_sheet_id: "runner Smash Jacker"
-    character_mod {
-      stats {
-        body: 0
-        quickness: 0
-        strength: 0
-        charisma: 0
-        intelligence: 0
-        willpower: 0
-        essence: 0
-        magic: 0
-        hp: 0
-        ap: 0
-        armor: 0
-        force: 0
-        morale: 0
-        discipline: 0
-        awareness: 0
-        perception: 0
-        authority: 0
-        protect_tether_range: 0
-        move_speed: 0
-        vision_peripheral_distance: 0
-        vision_cone_distance: 0
-        vision_cone_angle: 0
-      }
-      skills {
-        ranged_combat: 0
-        close_combat: 0
-        throwing_weapons: 0
-        spellcasting: 0
-        decking: 0
-        conjuring: 0
-        spirit_summoning: 0
-        drone_control: 0
-        biotech: 0
-        dodge: 0
-        etiquette_corporate: 0
-        etiquette_security: 0
-        etiquette_gang: 0
-        etiquette_socialite: 0
-        chi_casting: 0
-        etiquette_shadowrunner: 0
-        etiquette_street: 0
-        etiquette_academic: 0
-      }
-      specializations {
-        pistol: 0
-        rifle: 0
-        shotgun: 0
-        smg: 0
-        edged: 0
-        unarmed: 0
-        spirit_control: 0
-        esp_control: 0
-        drone_combat: 0
-      }
-      archetypeName: "Player"
-      attitude: AttitudeAggressive
-      vulnerabilities {
-      }
-    }
-    team_id: "Civilians"
-    char_name: "Smash Jacker"
     enabled_at_start: false
     pc_spawn_number: -1
     hiring_type: HiringType_None
