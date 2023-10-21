@@ -14406,7 +14406,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (InteractableObject)"
           args {
-            string_value: "3a108038336331841e000fb0"
+            string_value: "3a1080bc336331841e000ffe"
           }
         }
       }
@@ -18289,7 +18289,7 @@ triggers {
   is_oneshot: true
 }
 triggers {
-  name: "JackOut2"
+  name: "JackOut"
   events {
     ops {
       functionName: "On Map Start"
@@ -18344,12 +18344,12 @@ triggers {
             string_value: "Comparison Ops"
           }
           args {
-            int_value: 0
+            int_value: 1
           }
         }
       }
       args {
-        int_value: 2
+        int_value: 0
       }
     }
   }
@@ -18376,9 +18376,40 @@ triggers {
           functionName: "Current Location of Prop"
           args {
             call_value {
-              functionName: "Get Map Item (Prop)"
+              functionName: "Nearest Tagged Prop to Actor"
               args {
-                string_value: "529fc457336331482b00138d"
+                call_value {
+                  functionName: "Tag From String"
+                  args {
+                    call_value {
+                      functionName: "Append (string)"
+                      args {
+                        call_value {
+                          functionName: "Convert (int) to (string)"
+                          args {
+                            call_value {
+                              functionName: "Get Story Variable (int)"
+                              args {
+                                string_value: "51f15c62336331d02c00440e"
+                              }
+                              args {
+                                string_value: "DeckLabUsed"
+                              }
+                            }
+                          }
+                        }
+                      }
+                      args {
+                        string_value: "travel_111_"
+                      }
+                    }
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Triggering Actor"
+                }
               }
             }
           }
@@ -18405,6 +18436,23 @@ triggers {
             int_value: 0
           }
         }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "DeckLabUsed"
+          }
+        }
+      }
+      args {
+        int_value: 0
       }
     }
   }
@@ -30621,6 +30669,56 @@ characters {
     hiring_tag: "Magic Support"
     is_prop_character: false
     id: "Runner Bob"
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -444
+    y: 0
+    z: -204
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "6533267a6462620bef7650a6"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Story/Gruberman"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        hp: 0
+        ap: 0
+        morale: 24
+        discipline: 0
+        awareness: 24
+        perception: 0
+        authority: 0
+        protect_tether_range: 5
+        move_speed: 6
+      }
+      skills {
+      }
+      specializations {
+      }
+    }
+    team_id: "Civilians"
+    char_name: "Taxi Driver"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: "backer_humanmale_andresguillermoaguirre"
+    }
+    karma: 6
+    hiring_cost_override: 3000
   }
 }
 variables {
