@@ -71,7 +71,9 @@ def decompile(name):
         ("mode", "modes", proto.ModeDef),
         ("eq_sht", "chars", proto.EquipmentSheet),
         ("ch_sht", "chars", proto.Character),
+        ("cvf", "chars", proto.CharacterVariant),
         ("item", "items", proto.ItemDef),
+        ("story", "stories", proto.StoryDef),
     )
     # Strip down to just file nae and change extension, ugh.
     oname = '.'.join(name.split('/')[-1].split('.')[:-1])+'.txt'
