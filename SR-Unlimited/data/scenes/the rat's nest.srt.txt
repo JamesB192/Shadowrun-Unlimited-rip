@@ -14632,6 +14632,182 @@ triggers {
   }
   is_oneshot: true
 }
+triggers {
+  name: "Arena unfriendly"
+  events {
+    ops {
+      functionName: "On Actor Damage"
+      args {
+        call_value {
+          functionName: "Nothing Selected"
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (Specialization)"
+      args {
+        call_value {
+          functionName: "Get Item Specialization"
+          args {
+            call_value {
+              functionName: "Triggering Item"
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "ActorSpecializations"
+          }
+          args {
+            int_value: 5
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Evaluate Tag for Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Target Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HasOrHasNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (SenseTagList)"
+          args {
+            string_value: "Arena"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "Arena2-friendly"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "653cfea3323131c79cfaf43b"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Arena still friends"
+  events {
+  }
+  conditions {
+    ops {
+      functionName: "Invert Bool"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "Arena2-friendly"
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Arena2-manyfists"
+          }
+        }
+      }
+      args {
+        int_value: 0
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "653d2120323131c79cfaf5f5"
+  }
+  elseActions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Arena2-manyfists"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  is_oneshot: true
+}
 regions {
   name: "Main Camera Bind"
   position {
@@ -21526,6 +21702,14 @@ variables {
   variableref_value {
     scope: TsVariableScope_Scene
     name: "inside"
+    typeName: "bool"
+  }
+}
+variables {
+  bool_value: true
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "Arena2-friendly"
     typeName: "bool"
   }
 }
