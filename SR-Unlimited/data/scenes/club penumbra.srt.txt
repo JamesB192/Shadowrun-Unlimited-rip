@@ -10298,25 +10298,9 @@ triggers {
   name: "Story_18to19_Call_From_Vigor"
   events {
     ops {
-      functionName: "On Item Interaction"
+      functionName: "Get Map Item (Event)"
       args {
-        call_value {
-          functionName: "Get Map Item (InteractableObject)"
-          args {
-            string_value: "51aeb30f303031cc13001540"
-          }
-        }
-      }
-    }
-    ops {
-      functionName: "On Item Interaction"
-      args {
-        call_value {
-          functionName: "Get Map Item (InteractableObject)"
-          args {
-            string_value: "51fa30db336331dc47002219"
-          }
-        }
+        string_value: "Leaving Call"
       }
     }
   }
@@ -10531,6 +10515,12 @@ triggers {
         string_value: "Descend"
       }
     }
+    ops {
+      functionName: "Get Map Item (Event)"
+      args {
+        string_value: "Leaving Call"
+      }
+    }
   }
   conditions {
     ops {
@@ -10712,6 +10702,36 @@ triggers {
   isActive: true
   idRef {
     id: "5ee3d0ee3966395c2f002e98"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Leaving Call"
+  events {
+    ops {
+      functionName: "On Actor Awareness of Another Actor"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Send Event"
+      args {
+        call_value {
+          functionName: "Get Map Item (Event)"
+          args {
+            string_value: "Leaving Call"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "654fa42132313100151c86ed"
   }
   elseActions {
   }
@@ -12624,6 +12644,51 @@ characters {
     id: "Runner Bob"
   }
 }
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -6
+    y: 0
+    z: 6
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "654fa3dd32313100151c86ec"
+  }
+  lod: 0
+  character_instance {
+    prefab_name: "Objects/InvisibleActor"
+    character_sheet_id: "Lonestar_Lv1_Captain"
+    character_mod {
+      stats {
+        morale: 24
+        discipline: 0
+        awareness: 24
+        perception: 0
+        authority: 0
+        protect_tether_range: 5
+        move_speed: 6
+        vision_peripheral_distance: 2
+        vision_cone_distance: 18
+        vision_cone_angle: 90
+        is_fearless: 0
+      }
+      skills {
+      }
+      specializations {
+      }
+    }
+    team_id: "LoneStar"
+    char_name: "Mr Footage Capture Man"
+    pc_spawn_number: -1
+    hiring_type: HiringType_None
+    portrait {
+      filename: ""
+    }
+    karma: 44
+    hiring_cost_override: 50
+  }
+}
 variables {
   int_value: 0
   variableref_value {
@@ -12654,6 +12719,7 @@ mapEvents: "Spawn Objective Item"
 mapEvents: "Taxi Check"
 mapEvents: "Taxi Leave"
 mapEvents: "Descend"
+mapEvents: "Leaving Call"
 worldMapLocation {
   filename: ""
   location {
