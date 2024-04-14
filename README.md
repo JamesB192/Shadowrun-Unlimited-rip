@@ -59,6 +59,7 @@ for the Sega Genesis, so if you were a fan of that game, make sure to check this
 
 * "Stableish" is the current development branch for Dragon Fall Directors cut
 * "SRR" is the current (not) working branch for Shadowrun Returns + Dragon Fall
+* "hkci" is the current branch for Shadowrun Hong Kong
 
 ---
 
@@ -73,6 +74,24 @@ Figure it out my attempts at handholding worked really well from the feedback. F
 
 ### INSTALLATION
 
+#### From Steam
+
+1. Subscribe to the following content ContentPack
+  - [453526979 - SR Unlimited](https://steamcommunity.com/sharedfiles/filedetails/?id=453526979)
+2. Wait for the Content Pack to download.
+3. Run Shadowrun Hong Kong as typical
+
+#### Install from Nexus Mods
+
+1. Go to the Nexus Mods page for [SR Unlimited](https://www.nexusmods.com/shadowrunhongkong/mods/53).
+2. Download the 51f15c62336331d02c00440e-SR-Unlimited.zip file to:
+    * PC: `C:\Users\<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks`
+    * MAC: `<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks`
+    * Linux: `/home/<USER>/Documents/Shadowrun Dragonfall Director's Cut/ContentPacks`
+3. Run Shadowrun DragonfFall as typical
+
+#### From Source (not recommended for regular users) 
+
 1. Download the zip by clicking the green "Clone or download" button above the list of files on the right.
 2. Extract archive to: 
 * PC: `C:\Users\<USER>\Documents\Shadowrun Dragonfall Director's Cut\ContentPacks`
@@ -85,7 +104,7 @@ Figure it out my attempts at handholding worked really well from the feedback. F
 6. Under the `File` menu item select `Publish Content Pack Locally`.
 7. Wait for the editor to publish the content pack.
 8. Close the editor.
-9. (Re)start Dragonfall
+9. (Re)start Shadowrun Dragonfall
 
 In case you get `File not found` errors during publishing, try the following:
 1. Under the `File` menu item select `Edit Content Pack Search Path`.
