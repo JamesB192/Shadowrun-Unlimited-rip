@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 from random import randint
-from json import dumps
 from sys import stderr
 
 strung = """props {
@@ -12,6 +11,8 @@ strung = """props {
   }
   orientation: ORIENTATION_%s
   lod: 0
+  GeneralTags: "variant_0"
+  GeneralTags: "variant_%d"
 }"""
 
 arr = [["sleekOffice_furniture_overturnedTable02", 1, 1],
@@ -26,7 +27,7 @@ dir = ["N", "E", "S", "W"]
 
 array = []
 passes = 0
-yettodo = 30
+yettodo = 36
 rend = len(arr) - 1
 # print(rend)
 
@@ -41,11 +42,12 @@ while yettodo > 0:
 
 #       change these to be wright
     clear = True
-    if((randO & 1)):
-        randX = randint(3, 20-arr[randT][1])
-        randZ = randint(3, 20-arr[randT][2])
-        for tX in range(randX, (randX+arr[randT][1])):
-            for tZ in range(randZ, (randZ+arr[randT][2])):
+    ox, oz = (1, 2) if 1 == (randO & 1) else (2, 1)
+    if True:
+        randX = randint(3, 20-arr[randT][ox])
+        randZ = randint(3, 20-arr[randT][oz])
+        for tX in range(randX, (randX+arr[randT][ox])):
+            for tZ in range(randZ, (randZ+arr[randT][oz])):
                 node = "%u,%u" % (tX, tZ)
                 if node in array:
                     print("collision: ", node, file=stderr)
@@ -56,23 +58,7 @@ while yettodo > 0:
                     node = "%u,%u" % (tX, tZ)
                     array += [node]
             yettodo -= 1
-            print(strung % (arr[randT][0], randX, randZ, dir[randO]))
-    else:
-        randX = randint(3, 20-arr[randT][2])
-        randZ = randint(3, 20-arr[randT][1])
-        for tX in range(randX, (randX+arr[randT][2])):
-            for tZ in range(randZ, (randZ+arr[randT][1])):
-                node = "%u,%u" % (tX, tZ)
-                if node in array:
-                    print("collision: ", node, file=stderr)
-                    clear = False
-        if clear:
-            for tX in range(randX, (randX+arr[randT][2])):
-                for tZ in range(randZ, (randZ+arr[randT][1])):
-                    node = "%u,%u" % (tX, tZ)
-                    array += [node]
-            yettodo -= 1
-            print(strung % (arr[randT][0], randX, randZ, dir[randO]))
+            print(strung % (arr[randT][0], randX, randZ, dir[randO], 6 - (yettodo % 6)))
 
-print(dumps(array), file=stderr)
+print(repr(array), file=stderr)
 print("passes: ", passes, file=stderr)
