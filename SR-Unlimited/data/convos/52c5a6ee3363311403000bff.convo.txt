@@ -9,7 +9,36 @@ nodes {
   index: 0
   text: "ALARM PANEL"
   branches {
-    responseText: "Try and disable the panel.\n\n{{GM}}Test Intelligence{{/GM}}"
+    responseText: "Try and disable the panel.\n\n{{GM}}PC0, Test Intelligence{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (Actor)"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Player)"
+            args {
+              int_value: 0
+            }
+          }
+        }
+      }
+    }
     actions {
       ops {
         functionName: "Send Event"
