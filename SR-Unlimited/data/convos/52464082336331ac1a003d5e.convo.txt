@@ -140,7 +140,7 @@ nodes {
     auxiliaryLink: true
   }
   branches {
-    responseText: "{{CC}}Electronics{{/CC}}Attempt to re-wire the control panel and open the door quietly.\n"
+    responseText: "{{CC}}PC0 & Electronics{{/CC}}Attempt to re-wire the control panel and open the door quietly.\n"
     conditions {
       ops {
         functionName: "Comparison (int)"
@@ -168,6 +168,33 @@ nodes {
         }
         args {
           int_value: 0
+        }
+      }
+      ops {
+        functionName: "Comparison (Actor)"
+        args {
+          call_value {
+            functionName: "Triggering Actor"
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Map Item (Player)"
+            args {
+              int_value: 0
+            }
+          }
         }
       }
     }
