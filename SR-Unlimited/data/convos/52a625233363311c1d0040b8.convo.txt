@@ -10,7 +10,156 @@ nodes {
   text: "{{GM}}You complete your job successfully.{{/GM}}"
   branches {
     responseText: "{{GM}}Carry on.{{/GM}}"
+    conditions {
+      ops {
+        functionName: "Comparison (bool)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f169b733633124330018bf"
+            }
+            args {
+              string_value: "RunSuccess"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
     actions {
+      ops {
+        functionName: "Remove Item from Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Matrix_Data"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Item from Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Theft Target"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Item from Actor"
+        args {
+          call_value {
+            functionName: "Get Map Item (Item)"
+            args {
+              string_value: "Keycard"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Specific Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (Player)"
+                args {
+                  int_value: 0
+                }
+              }
+            }
+            args {
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
       ops {
         functionName: "Add Nuyen"
         args {
@@ -180,74 +329,6 @@ nodes {
         }
       }
       ops {
-        functionName: "Remove Item from Actor"
-        args {
-          call_value {
-            functionName: "Get Map Item (Item)"
-            args {
-              string_value: "Matrix_Data"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 0
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Run_Identifier"
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-      ops {
-        functionName: "Remove Nuyen"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f169b733633124330018bf"
-            }
-            args {
-              string_value: "Upkeep"
-            }
-          }
-        }
-      }
-      ops {
         functionName: "Add To Variable (int)"
         args {
           call_value {
@@ -298,23 +379,6 @@ nodes {
         }
       }
       ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Run_Permutation"
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-      ops {
         functionName: "Set Variable (string)"
         args {
           call_value {
@@ -333,31 +397,6 @@ nodes {
       }
       ops {
         functionName: "Clear All Waypoints"
-      }
-      ops {
-        functionName: "Set Variable (bool)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (bool)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "MatrixRunComplete"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "bool"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
       }
       ops {
         functionName: "Set Variable (int)"
@@ -425,23 +464,6 @@ nodes {
               string_value: "Information"
             }
           }
-        }
-      }
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Johnson_Meeting"
-            }
-          }
-        }
-        args {
-          int_value: 0
         }
       }
       ops {
@@ -579,7 +601,7 @@ nodes {
         }
       }
       ops {
-        functionName: "Send Event After Delay"
+        functionName: "Send Event"
         args {
           call_value {
             functionName: "Get Map Item (Event)"
@@ -588,44 +610,715 @@ nodes {
             }
           }
         }
+      }
+      ops {
+        functionName: "Set Variable (bool)"
         args {
-          float_value: 2.5
+          call_value {
+            functionName: "Get Story Variable (bool)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "MatrixRunComplete"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "bool"
+            }
+            args {
+              int_value: 1
+            }
+          }
         }
       }
       ops {
-        functionName: "Kill Actor Followers"
+        functionName: "Set Variable (string)"
         args {
           call_value {
-            functionName: "All Actors With Tag"
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Location"
+            }
+          }
+        }
+        args {
+          string_value: "Nil"
+        }
+      }
+      ops {
+        functionName: "Set Variable (string)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Current_Run-Objective"
+            }
+          }
+        }
+        args {
+          string_value: "Nil"
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Job_Check"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Johnson_Meeting"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Run_Identifier"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Run_Permutation"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Trigger: Run Alternate Trigger"
+        args {
+          call_value {
+            functionName: "Get Map Item (Trigger)"
+            args {
+              string_value: "5cf9cb7b39663998390060e7"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WaitOrNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Upkeep"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 1
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5b42238a343032900a0080fe"
+  }
+  index: 1
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "General_Use3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 2
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 2
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "General_Use3"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Remove Nuyen"
+        args {
+          call_value {
+            functionName: "Absolute Value (int)"
+            args {
+              call_value {
+                functionName: "Get Story Variable (int)"
+                args {
+                  string_value: "51f15c62336331d02c00440e"
+                }
+                args {
+                  string_value: "General_Use3"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          int_value: 0
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 4
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "General_Use3"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add Nuyen"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "General_Use3"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "srtest-rate"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            call_value {
+              functionName: "Get Story Variable (int)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "srtest-rateLow"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Story Variable (int)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "srtest-rateHigh"
+              }
+            }
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "srtest-rate"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            call_value {
+              functionName: "Get Story Variable (int)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "srtest-rateLow"
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Story Variable (int)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "srtest-rateHigh"
+              }
+            }
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "General_Use3"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Arithmetic (int)"
+          args {
+            call_value {
+              functionName: "Arithmetic (int)"
+              args {
+                call_value {
+                  functionName: "Get Story Variable (int)"
+                  args {
+                    string_value: "51f15c62336331d02c00440e"
+                  }
+                  args {
+                    string_value: "srtest-invested"
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Preset Value (int)"
+                  args {
+                    string_value: "Arithmetic Ops"
+                  }
+                  args {
+                    int_value: 2
+                  }
+                }
+              }
+              args {
+                call_value {
+                  functionName: "Get Story Variable (int)"
+                  args {
+                    string_value: "51f15c62336331d02c00440e"
+                  }
+                  args {
+                    string_value: "srtest-rate"
+                  }
+                }
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "Arithmetic Ops"
+              }
+              args {
+                int_value: 3
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Story Variable (int)"
+              args {
+                string_value: "51f15c62336331d02c00440e"
+              }
+              args {
+                string_value: "srtest-investmentDenominator"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  comment: "investment node"
+}
+nodes {
+  idRef {
+    id: "6686ebc5323131109b675574"
+  }
+  index: 2
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          string_value: "Vigor"
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Fixer"
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: 3
+  }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (string)"
+        args {
+          string_value: "Vigor"
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "IsOrIsNot"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Fixer"
+            }
+          }
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Add To Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Runs_Vigor"
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    nextNodeIndex: 3
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  comment: "Runs_Vigor increment node"
+}
+nodes {
+  idRef {
+    id: "5f18949c39663910340010df"
+  }
+  index: 3
+  text: ""
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "StoryStep"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 31
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Research"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Frosty_Research"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Start Conversation"
+        args {
+          call_value {
+            functionName: "Get Map Item (Conversation)"
+            args {
+              string_value: "5ee669b23966394c28002c78"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Nearest Tagged Actor to Actor"
             args {
               call_value {
                 functionName: "Get Map Item (SenseTagList)"
                 args {
-                  string_value: "Clockwork"
+                  string_value: "Frosty"
                 }
               }
             }
             args {
               call_value {
-                functionName: "Get Preset Value (int)"
-                args {
-                  string_value: "AllOrAny"
-                }
-                args {
-                  int_value: 0
-                }
+                functionName: "Triggering Actor"
               }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "DeathMethod"
-            }
-            args {
-              int_value: 3
             }
           }
         }
@@ -637,170 +1330,6 @@ nodes {
             }
             args {
               int_value: 1
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Kill Actor"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 1
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "DeathMethod"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "FacingDirection"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Kill Actor"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 2
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "DeathMethod"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "FacingDirection"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-      }
-      ops {
-        functionName: "Kill Actor"
-        args {
-          call_value {
-            functionName: "Specific Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (Player)"
-                args {
-                  int_value: 3
-                }
-              }
-            }
-            args {
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "DeathMethod"
-            }
-            args {
-              int_value: 3
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "FacingDirection"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 0
             }
           }
         }
@@ -809,7 +1338,153 @@ nodes {
     nextNodeIndex: -1
     hideIfUnavailable: true
   }
+  branches {
+    responseText: ""
+    conditions {
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Frosty_Research"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Research"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 1
+        }
+      }
+    }
+    actions {
+      ops {
+        functionName: "Set Variable (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Frosty_Research"
+            }
+          }
+        }
+        args {
+          int_value: 0
+        }
+      }
+      ops {
+        functionName: "Start Conversation"
+        args {
+          call_value {
+            functionName: "Get Map Item (Conversation)"
+            args {
+              string_value: "5f4311936665335401000c3b"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Nearest Tagged Actor to Actor"
+            args {
+              call_value {
+                functionName: "Get Map Item (SenseTagList)"
+                args {
+                  string_value: "Frosty"
+                }
+              }
+            }
+            args {
+              call_value {
+                functionName: "Triggering Actor"
+              }
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "WithOrWithout"
+            }
+            args {
+              int_value: 1
+            }
+          }
+        }
+      }
+    }
+    nextNodeIndex: -1
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: ""
+    nextNodeIndex: -1
+  }
   nodeType: ConversationNodeType_Simple
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Research"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+  }
+  comment: "Frosty research node"
 }
 roots {
   responseText: ""

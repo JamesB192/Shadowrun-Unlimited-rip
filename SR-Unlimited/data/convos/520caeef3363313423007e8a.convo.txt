@@ -950,7 +950,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 5
+    nextNodeIndex: 4
     hideIfUnavailable: true
   }
   branches {
@@ -1047,7 +1047,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 6
+    nextNodeIndex: 5
     hideIfUnavailable: true
   }
   branches {
@@ -1116,7 +1116,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 7
+    nextNodeIndex: 6
     hideIfUnavailable: true
   }
   branches {
@@ -1185,16 +1185,16 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 8
+    nextNodeIndex: 7
     hideIfUnavailable: true
   }
   branches {
     responseText: "{{GM}}Increase Non-Combat Skills{{/GM}}"
-    nextNodeIndex: 9
+    nextNodeIndex: 8
   }
   branches {
     responseText: "Asset Management"
-    nextNodeIndex: 16
+    nextNodeIndex: 15
   }
   branches {
     responseText: "Call a Taxi"
@@ -1557,7 +1557,8 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 3
+    nextNodeIndex: 2
+    auxiliaryLink: true
   }
   branches {
     responseText: ""
@@ -1607,7 +1608,8 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 4
+    nextNodeIndex: 2
+    auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
   actions {
@@ -1777,7 +1779,7 @@ nodes {
 }
 nodes {
   idRef {
-    id: "5f18949c39663910340010df"
+    id: "6686ebc5323131109b675574"
   }
   index: 2
   text: ""
@@ -1785,23 +1787,15 @@ nodes {
     responseText: ""
     conditions {
       ops {
-        functionName: "Comparison (int)"
+        functionName: "Comparison (string)"
         args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "StoryStep"
-            }
-          }
+          string_value: "Vigor"
         }
         args {
           call_value {
             functionName: "Get Preset Value (int)"
             args {
-              string_value: "Comparison Ops"
+              string_value: "IsOrIsNot"
             }
             args {
               int_value: 0
@@ -1809,105 +1803,53 @@ nodes {
           }
         }
         args {
-          int_value: 31
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
           call_value {
-            functionName: "Get Story Variable (int)"
+            functionName: "Get Story Variable (string)"
             args {
-              string_value: "51f15c62336331d02c00440e"
             }
             args {
-              string_value: "Research"
+              string_value: "Current_Fixer"
             }
           }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 2
         }
       }
     }
-    actions {
+    nextNodeIndex: 3
+  }
+  branches {
+    responseText: ""
+    conditions {
       ops {
-        functionName: "Set Variable (int)"
+        functionName: "Comparison (string)"
         args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Frosty_Research"
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-      ops {
-        functionName: "Start Conversation"
-        args {
-          call_value {
-            functionName: "Get Map Item (Conversation)"
-            args {
-              string_value: "5ee669b23966394c28002c78"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Nearest Tagged Actor to Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (SenseTagList)"
-                args {
-                  string_value: "Frosty"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-          }
+          string_value: "Vigor"
         }
         args {
           call_value {
             functionName: "Get Preset Value (int)"
             args {
-              string_value: "WithOrWithout"
+              string_value: "IsOrIsNot"
             }
             args {
               int_value: 1
             }
           }
         }
+        args {
+          call_value {
+            functionName: "Get Story Variable (string)"
+            args {
+            }
+            args {
+              string_value: "Current_Fixer"
+            }
+          }
+        }
       }
     }
-    nextNodeIndex: -1
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: ""
-    conditions {
+    actions {
       ops {
-        functionName: "Comparison (int)"
+        functionName: "Add To Variable (int)"
         args {
           call_value {
             functionName: "Get Story Variable (int)"
@@ -1915,46 +1857,7 @@ nodes {
               string_value: "51f15c62336331d02c00440e"
             }
             args {
-              string_value: "Frosty_Research"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Research"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
+              string_value: "Runs_Vigor"
             }
           }
         }
@@ -1963,93 +1866,11 @@ nodes {
         }
       }
     }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Frosty_Research"
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-      ops {
-        functionName: "Start Conversation"
-        args {
-          call_value {
-            functionName: "Get Map Item (Conversation)"
-            args {
-              string_value: "5f4311936665335401000c3b"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Nearest Tagged Actor to Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (SenseTagList)"
-                args {
-                  string_value: "Frosty"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: ""
-    nextNodeIndex: 0
+    nextNodeIndex: 3
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Add To Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Research"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-  }
+  comment: "Runs_Vigor increment node"
 }
 nodes {
   idRef {
@@ -2069,34 +1890,6 @@ nodes {
               string_value: "51f15c62336331d02c00440e"
             }
             args {
-              string_value: "Research"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
               string_value: "StoryStep"
             }
           }
@@ -2114,6 +1907,34 @@ nodes {
         }
         args {
           int_value: 31
+        }
+      }
+      ops {
+        functionName: "Comparison (int)"
+        args {
+          call_value {
+            functionName: "Get Story Variable (int)"
+            args {
+              string_value: "51f15c62336331d02c00440e"
+            }
+            args {
+              string_value: "Research"
+            }
+          }
+        }
+        args {
+          call_value {
+            functionName: "Get Preset Value (int)"
+            args {
+              string_value: "Comparison Ops"
+            }
+            args {
+              int_value: 0
+            }
+          }
+        }
+        args {
+          int_value: 2
         }
       }
     }
@@ -2326,288 +2147,13 @@ nodes {
       }
     }
   }
-}
-nodes {
-  idRef {
-    id: "5f18949c39663910340010df"
-  }
-  index: 4
-  text: ""
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Research"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "StoryStep"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 31
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Frosty_Research"
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-      ops {
-        functionName: "Start Conversation"
-        args {
-          call_value {
-            functionName: "Get Map Item (Conversation)"
-            args {
-              string_value: "5ee669b23966394c28002c78"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Nearest Tagged Actor to Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (SenseTagList)"
-                args {
-                  string_value: "Frosty"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: ""
-    conditions {
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Frosty_Research"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 2
-        }
-      }
-      ops {
-        functionName: "Comparison (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Research"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "Comparison Ops"
-            }
-            args {
-              int_value: 0
-            }
-          }
-        }
-        args {
-          int_value: 1
-        }
-      }
-    }
-    actions {
-      ops {
-        functionName: "Set Variable (int)"
-        args {
-          call_value {
-            functionName: "Get Story Variable (int)"
-            args {
-              string_value: "51f15c62336331d02c00440e"
-            }
-            args {
-              string_value: "Frosty_Research"
-            }
-          }
-        }
-        args {
-          int_value: 0
-        }
-      }
-      ops {
-        functionName: "Start Conversation"
-        args {
-          call_value {
-            functionName: "Get Map Item (Conversation)"
-            args {
-              string_value: "5f4311936665335401000c3b"
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Nearest Tagged Actor to Actor"
-            args {
-              call_value {
-                functionName: "Get Map Item (SenseTagList)"
-                args {
-                  string_value: "Frosty"
-                }
-              }
-            }
-            args {
-              call_value {
-                functionName: "Triggering Actor"
-              }
-            }
-          }
-        }
-        args {
-          call_value {
-            functionName: "Get Preset Value (int)"
-            args {
-              string_value: "WithOrWithout"
-            }
-            args {
-              int_value: 1
-            }
-          }
-        }
-      }
-    }
-    nextNodeIndex: -1
-    hideIfUnavailable: true
-  }
-  branches {
-    responseText: ""
-    nextNodeIndex: 0
-    auxiliaryLink: true
-  }
-  nodeType: ConversationNodeType_Simple
-  actions {
-    ops {
-      functionName: "Add To Variable (int)"
-      args {
-        call_value {
-          functionName: "Get Story Variable (int)"
-          args {
-            string_value: "51f15c62336331d02c00440e"
-          }
-          args {
-            string_value: "Research"
-          }
-        }
-      }
-      args {
-        int_value: 1
-      }
-    }
-  }
+  comment: "Frosty research node"
 }
 nodes {
   idRef {
     id: "5d1e6658396639fc27000875"
   }
-  index: 5
+  index: 4
   text: "Contacts"
   branches {
     responseText: "Henry\'s Therapist"
@@ -2878,7 +2424,7 @@ nodes {
   idRef {
     id: "5d1e6658396639fc27000875"
   }
-  index: 6
+  index: 5
   text: "Informants"
   branches {
     responseText: "Forger - John Badwarrior"
@@ -3228,7 +2774,7 @@ nodes {
   idRef {
     id: "53ed4fab386461800400898e"
   }
-  index: 7
+  index: 6
   text: "Runners"
   branches {
     responseText: "Call Helicopter Service"
@@ -4659,7 +4205,7 @@ nodes {
   idRef {
     id: "53ed4fc2386461800400899c"
   }
-  index: 8
+  index: 7
   text: "Fixers"
   branches {
     responseText: "Call Eric Gunderson."
@@ -5096,31 +4642,31 @@ nodes {
   idRef {
     id: "5442e76c363735140a006f7d"
   }
-  index: 9
+  index: 8
   text: ""
   branches {
     responseText: "Negotiation: $(story.Custom_Skill-Negotiation)"
-    nextNodeIndex: 10
+    nextNodeIndex: 9
   }
   branches {
     responseText: "Lockpicking: $(story.Custom_Skill-Lockpicking)"
-    nextNodeIndex: 11
+    nextNodeIndex: 10
   }
   branches {
     responseText: "Electronics: $(story.Custom_Skill-Electronics)"
-    nextNodeIndex: 12
+    nextNodeIndex: 11
   }
   branches {
     responseText: "Fast Talking: $(story.Custom_Skill-Fast_Talking)"
-    nextNodeIndex: 13
+    nextNodeIndex: 12
   }
   branches {
     responseText: "Stealth: $(story.Custom_Skill-Stealth)"
-    nextNodeIndex: 14
+    nextNodeIndex: 13
   }
   branches {
     responseText: "Dispelling: $(story.Custom_Skill-Dispelling)"
-    nextNodeIndex: 15
+    nextNodeIndex: 14
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
@@ -5137,7 +4683,7 @@ nodes {
   idRef {
     id: "5442e77a363735140a006f81"
   }
-  index: 10
+  index: 9
   text: "{{GM}}Negotiation{{/GM}}\n\nThis skill will allow you to negotiate larger pay-outs for runs.\n\nRequires an equal level of {{CC}}Charisma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Negotiation)"
   branches {
     responseText: "Buy a point of Negotiation"
@@ -5308,12 +4854,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 10
+    nextNodeIndex: 9
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 9
+    nextNodeIndex: 8
     auxiliaryLink: true
   }
   branches {
@@ -5326,7 +4872,7 @@ nodes {
   idRef {
     id: "5442e77a363735140a006f81"
   }
-  index: 11
+  index: 10
   text: "{{GM}}Lockpicking{{/GM}}\n\nThis skill will allow you to bypass tumbler-locked doors.\n\nRequires an equal level of {{CC}}Quickness{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Lockpicking)"
   branches {
     responseText: "Buy a point of Lockpicking"
@@ -5497,12 +5043,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 11
+    nextNodeIndex: 10
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 9
+    nextNodeIndex: 8
     auxiliaryLink: true
   }
   branches {
@@ -5515,7 +5061,7 @@ nodes {
   idRef {
     id: "5442e77a363735140a006f81"
   }
-  index: 12
+  index: 11
   text: "{{GM}}Electronics{{/GM}}\n\nThis skill is used to rewire or repair electronics. Primarily used to bypass MagLocked doors.\n\nRequires an equal level of {{CC}}Intelligence{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Electronics)"
   branches {
     responseText: "Buy a point of Electronics"
@@ -5686,12 +5232,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 12
+    nextNodeIndex: 11
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 9
+    nextNodeIndex: 8
     auxiliaryLink: true
   }
   branches {
@@ -5704,7 +5250,7 @@ nodes {
   idRef {
     id: "5442e77a363735140a006f81"
   }
-  index: 13
+  index: 12
   text: "{{GM}}Fast Talking{{/GM}}\n\nThis skill is used to lie convincingly. Primarily used to bypass guards and civilians non-violently.\n\nRequires an equal level of {{CC}}Charisma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Fast_Talking)"
   branches {
     responseText: "Buy a point of Fast-talk"
@@ -5875,12 +5421,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 13
+    nextNodeIndex: 12
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 9
+    nextNodeIndex: 8
     auxiliaryLink: true
   }
   branches {
@@ -5893,7 +5439,7 @@ nodes {
   idRef {
     id: "5442e77a363735140a006f81"
   }
-  index: 14
+  index: 13
   text: "{{GM}}Stealth{{/GM}}\n\nThis skill is used to sneak by guards who might otherwise hear you.\n\nRequires an equal level of {{CC}}Quickness{{/CC}} and {{CC}}Karma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Stealth)"
   branches {
     responseText: "Buy a point of Stealth"
@@ -6064,12 +5610,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 14
+    nextNodeIndex: 13
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 9
+    nextNodeIndex: 8
     auxiliaryLink: true
   }
   branches {
@@ -6087,7 +5633,7 @@ nodes {
   idRef {
     id: "559672b8336637c8150085e0"
   }
-  index: 15
+  index: 14
   text: "{{GM}}Dispelling{{/GM}}\n\nThis skill is used to unravel magical barriers.\n\nRequires an equal levels of {{CC}}Willpower{{/CC}}, {{CC}}Spell casting{{/CC}} and {{CC}}Karma{{/CC}} to purchase.\n\nCurrent Rank: $(story.Custom_Skill-Dispelling)"
   branches {
     responseText: "Buy a point of Dispelling"
@@ -6342,12 +5888,12 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 15
+    nextNodeIndex: 14
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 9
+    nextNodeIndex: 8
     auxiliaryLink: true
   }
   branches {
@@ -6360,7 +5906,7 @@ nodes {
   idRef {
     id: "5589c5146466321815003a2f"
   }
-  index: 16
+  index: 15
   text: "{{GM}}Manage your stuff.{{/GM}}"
   branches {
     responseText: "Enable Augmented Reality overlay"
@@ -6631,7 +6177,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 17
+    nextNodeIndex: 16
     hideIfUnavailable: true
   }
   branches {
@@ -6646,7 +6192,7 @@ nodes {
   }
   branches {
     responseText: "Risk PermaDeath?"
-    nextNodeIndex: 19
+    nextNodeIndex: 18
   }
   branches {
     responseText: "Reset (some) test variables"
@@ -6703,7 +6249,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 16
+    nextNodeIndex: 15
     auxiliaryLink: true
   }
   branches {
@@ -6721,11 +6267,11 @@ nodes {
   idRef {
     id: "557d399e646632940c0008a9"
   }
-  index: 17
+  index: 16
   text: "Cyberdeck file cull v0.4\nMMLIV Microdeck Inc.\nRedmond, UCAS"
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 16
+    nextNodeIndex: 15
     auxiliaryLink: true
   }
   branches {
@@ -6808,7 +6354,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     comment: "01"
   }
@@ -6888,7 +6434,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "02"
@@ -6969,7 +6515,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "03"
@@ -7050,7 +6596,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "04"
@@ -7131,7 +6677,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "05"
@@ -7212,7 +6758,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "06"
@@ -7293,7 +6839,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "07"
@@ -7374,7 +6920,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "08"
@@ -7455,7 +7001,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "09"
@@ -7536,7 +7082,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "10"
@@ -7617,7 +7163,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "11"
@@ -7698,7 +7244,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "12"
@@ -7779,7 +7325,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "13"
@@ -7860,7 +7406,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "14"
@@ -7941,7 +7487,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 18
+    nextNodeIndex: 17
     hideIfUnavailable: true
     auxiliaryLink: true
     comment: "15"
@@ -8014,11 +7560,11 @@ nodes {
   idRef {
     id: "59ebc5af653737c44d0053ff"
   }
-  index: 18
+  index: 17
   text: ""
   branches {
     responseText: ""
-    nextNodeIndex: 17
+    nextNodeIndex: 16
     auxiliaryLink: true
   }
   nodeType: ConversationNodeType_Simple
@@ -8156,7 +7702,7 @@ nodes {
   idRef {
     id: "5aa17a64343032fc140065cc"
   }
-  index: 19
+  index: 18
   text: "Given the seemingly endless hate on for the invisible runner.\nIf enabled will never spawn the invisible runner in updated maps.\nYou will then need to use the handy dandy \'rewind\' feature if the DocWagon does not come for you due to not hiring additional runners.\n\nEnabled: $(story.riskPermadeath)"
   branches {
     responseText: "Enable PermaDeath"
@@ -8225,7 +7771,7 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 16
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
   }
@@ -8296,13 +7842,13 @@ nodes {
         }
       }
     }
-    nextNodeIndex: 16
+    nextNodeIndex: 15
     hideIfUnavailable: true
     auxiliaryLink: true
   }
   branches {
     responseText: "{{GM}}Back to Parent{{/GM}}"
-    nextNodeIndex: 16
+    nextNodeIndex: 15
     auxiliaryLink: true
   }
   branches {
