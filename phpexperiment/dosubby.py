@@ -41,8 +41,10 @@ def file_edit(fname):
         swapped_out = False
         for matcher in range(common):
             if original_text_fragments[matcher] in chunk:
+                new = replacement_text_fragments[matcher]
                 count += 1
-                result += [replacement_text_fragments[matcher]]
+                if new is not None:
+                    result.append(new)
                 swapped_out = True
         if not swapped_out:
             result += [chunk]
