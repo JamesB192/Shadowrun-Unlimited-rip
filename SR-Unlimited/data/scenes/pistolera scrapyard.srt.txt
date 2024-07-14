@@ -4607,7 +4607,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (SenseTagList)"
           args {
-            string_value: "variant_0"
+            string_value: "variant"
           }
         }
       }
@@ -4643,6 +4643,31 @@ triggers {
       }
     }
     ops {
+      functionName: "Set Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Genera_Use"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Random (int)"
+          args {
+            int_value: 0
+          }
+          args {
+            int_value: 36
+          }
+        }
+      }
+    }
+    ops {
       functionName: "Set Prop Visible by Tag"
       args {
         call_value {
@@ -4655,12 +4680,31 @@ triggers {
                   functionName: "Convert (int) to (string)"
                   args {
                     call_value {
-                      functionName: "Random (int)"
+                      functionName: "Arithmetic (int)"
                       args {
-                        int_value: 1
+                        call_value {
+                          functionName: "Get Story Variable (int)"
+                          args {
+                            string_value: "51f15c62336331d02c00440e"
+                          }
+                          args {
+                            string_value: "Genera_Use"
+                          }
+                        }
                       }
                       args {
-                        int_value: 7
+                        call_value {
+                          functionName: "Get Preset Value (int)"
+                          args {
+                            string_value: "Arithmetic Ops"
+                          }
+                          args {
+                            int_value: 3
+                          }
+                        }
+                      }
+                      args {
+                        int_value: 6
                       }
                     }
                   }
@@ -4717,12 +4761,77 @@ triggers {
                   functionName: "Convert (int) to (string)"
                   args {
                     call_value {
-                      functionName: "Random (int)"
+                      functionName: "Arithmetic (int)"
                       args {
-                        int_value: 1
+                        call_value {
+                          functionName: "Get Story Variable (int)"
+                          args {
+                            string_value: "51f15c62336331d02c00440e"
+                          }
+                          args {
+                            string_value: "Genera_Use"
+                          }
+                        }
                       }
                       args {
-                        int_value: 7
+                        call_value {
+                          functionName: "Get Preset Value (int)"
+                          args {
+                            string_value: "Arithmetic Ops"
+                          }
+                          args {
+                            int_value: 1
+                          }
+                        }
+                      }
+                      args {
+                        call_value {
+                          functionName: "Arithmetic (int)"
+                          args {
+                            int_value: 6
+                          }
+                          args {
+                            call_value {
+                              functionName: "Get Preset Value (int)"
+                              args {
+                                string_value: "Arithmetic Ops"
+                              }
+                              args {
+                                int_value: 2
+                              }
+                            }
+                          }
+                          args {
+                            call_value {
+                              functionName: "Arithmetic (int)"
+                              args {
+                                call_value {
+                                  functionName: "Get Story Variable (int)"
+                                  args {
+                                    string_value: "51f15c62336331d02c00440e"
+                                  }
+                                  args {
+                                    string_value: "Genera_Use"
+                                  }
+                                }
+                              }
+                              args {
+                                call_value {
+                                  functionName: "Get Preset Value (int)"
+                                  args {
+                                    string_value: "Arithmetic Ops"
+                                  }
+                                  args {
+                                    int_value: 3
+                                  }
+                                }
+                              }
+                              args {
+                                int_value: 6
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -4773,7 +4882,7 @@ triggers {
   }
   elseActions {
   }
-  is_oneshot: true
+  is_oneshot: false
 }
 regions {
   name: "New Region"
