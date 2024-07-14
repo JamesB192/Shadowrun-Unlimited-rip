@@ -2588,7 +2588,7 @@ triggers {
         }
       }
       args {
-        string_value: "You manage to subvert control of the CPU, and gain a significant advantage within the system."
+        string_value: "You manage to subvert control of the CPU and gain a significant advantage within the system."
       }
       args {
         float_value: 0
@@ -2624,7 +2624,7 @@ triggers {
         call_value {
           functionName: "Get Map Item (Event)"
           args {
-            string_value: "Test"
+            string_value: "Matrix Test"
           }
         }
       }
@@ -2987,6 +2987,23 @@ triggers {
         }
       }
     }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Arena2-xpbits"
+          }
+        }
+      }
+      args {
+        int_value: 4
+      }
+    }
   }
   isActive: true
   idRef {
@@ -3005,7 +3022,7 @@ triggers {
       }
     }
     ops {
-      functionName: "Send Event After Delay"
+      functionName: "Send Event"
       args {
         call_value {
           functionName: "Get Map Item (Event)"
@@ -3014,8 +3031,198 @@ triggers {
           }
         }
       }
+    }
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "clean xpbits"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+    ops {
+      functionName: "On New Round"
       args {
-        float_value: 1
+        call_value {
+          functionName: "Get Map Item (SceneDimension)"
+          args {
+            string_value: "New Dimension 1"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Arena2-xpbits"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "Comparison Ops"
+          }
+          args {
+            int_value: 3
+          }
+        }
+      }
+      args {
+        int_value: 64
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Arena2-xpbits"
+          }
+        }
+      }
+      args {
+        int_value: -64
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Heat"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Notoriety"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Add To Variable (int)"
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Street_Cred"
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Add Actor Karma"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Get Map Item (Player)"
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        int_value: 1
+      }
+    }
+    ops {
+      functionName: "Set Screen Label Progress Bar (int)"
+      args {
+        string_value: "xpbits"
+      }
+      args {
+        string_value: "Karmic bits"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Arena2-xpbits"
+          }
+        }
+      }
+      args {
+        int_value: 64
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "653c17c7323131f80bb8bde7"
+  }
+  elseActions {
+    ops {
+      functionName: "Set Screen Label Progress Bar (int)"
+      args {
+        string_value: "xpbits"
+      }
+      args {
+        string_value: "Karmic bits"
+      }
+      args {
+        call_value {
+          functionName: "Get Story Variable (int)"
+          args {
+            string_value: "51f15c62336331d02c00440e"
+          }
+          args {
+            string_value: "Arena2-xpbits"
+          }
+        }
+      }
+      args {
+        int_value: 64
       }
     }
   }
