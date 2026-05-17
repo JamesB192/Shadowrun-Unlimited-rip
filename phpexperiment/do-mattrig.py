@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Try to transmute DragonFall maps to Hong Kong."""
+
 import glob
 import os
 
@@ -35,11 +36,11 @@ class IoProtoBuf:
 
 if "__main__" == __name__:
     values = {
-        'Slave-Door Disable Test': 2,
-        'Slave-Camera Disable Test': 2,
-        'Access Node-Spoof_Pass (A)': 1,
-        'Access Node-Spoof_Pass (B)': 1,
-        'CPU Disable Test': 4,
+        "Slave-Door Disable Test": 2,
+        "Slave-Camera Disable Test": 2,
+        "Access Node-Spoof_Pass (A)": 1,
+        "Access Node-Spoof_Pass (B)": 1,
+        "CPU Disable Test": 4,
     }
 
     SL = os.sep
@@ -53,14 +54,14 @@ if "__main__" == __name__:
             if trigger.name in values.keys():
                 tally += 1
                 baz = hk.TsCall()
-                baz.functionName = 'Get Story Variable (int)'
+                baz.functionName = "Get Story Variable (int)"
                 buz = hk.TsVariant()
-                buz.string_value = '51f15c62336331d02c00440e'
+                buz.string_value = "51f15c62336331d02c00440e"
                 buz = hk.TsVariant()
-                buz.string_value = 'Arena2-xpbits'
+                buz.string_value = "Arena2-xpbits"
                 bar = hk.TsVariant(call_value=baz)
                 foo = hk.TsCall()
-                foo.functionName = 'Add To Variable (int)'
+                foo.functionName = "Add To Variable (int)"
                 foo.args.append(bar)
                 bar = hk.TsVariant()
                 bar.int_value = values[trigger.name]

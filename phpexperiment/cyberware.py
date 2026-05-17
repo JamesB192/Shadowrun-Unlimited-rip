@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Fabricate armor of SR:u Hong Kong or something."""
+
 # import sys
 import hk_pb2 as pb
 import google.protobuf.text_format as tf

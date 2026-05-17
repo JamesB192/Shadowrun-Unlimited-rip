@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Try to add portraits to Shadowrun Hong Kong."""
+
 import sys
 import re_pb2 as pb
 
-
 sexmap = [
-    ['female', pb.Gender_Female],
-    ['male', pb.Gender_Male],
-    ]
+    ["female", pb.Gender_Female],
+    ["male", pb.Gender_Male],
+]
 racemap = [
     ["human", pb.Race_Human],
     ["dwarf", pb.Race_Dwarf],
@@ -25,7 +25,7 @@ racemap = [
     ["freedrone", pb.Race_FreeDrone],
     ["matrix", pb.Race_Matrix],
     ["matrixesp", pb.Race_MatrixESP],
-    ]
+]
 
 
 def map_str_from_num(mapped, num):
@@ -55,12 +55,16 @@ if "__main__" == __name__:
                 break
 
     for entry in instance.entries:
-        print("%14s\t%6s\t'%s'" % (
-              map_str_from_num(racemap, entry.race),
-              map_str_from_num(sexmap, entry.gender),
-              entry.value))
+        print(
+            "%14s\t%6s\t'%s'"
+            % (
+                map_str_from_num(racemap, entry.race),
+                map_str_from_num(sexmap, entry.gender),
+                entry.value,
+            )
+        )
 
     sys.exit(0)
     if 1 < len(sys.argv):
-        with open("hongkong.pl.bytes", 'wb') as fwp:
+        with open("hongkong.pl.bytes", "wb") as fwp:
             fwp.write(instance.SerializeToString())

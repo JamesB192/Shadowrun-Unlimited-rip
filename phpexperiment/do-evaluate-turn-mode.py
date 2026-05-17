@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Try to transmute DragonFall maps to Hong Kong."""
+
 import glob
 import os
 
@@ -37,7 +38,7 @@ def cook_node(node):
     node.functionName = "Evaluate Turn Mode in Dimension"
     tmp = node.args.add()
     tmp.call_value.functionName = "Get Map Item (SceneDimension)"
-    tmp = tmp.call_value.args.add() 
+    tmp = tmp.call_value.args.add()
     tmp.string_value = "Default"
 
 

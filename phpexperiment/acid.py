@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Try to compile DragonFall extended content packs."""
+
 import glob
 import os
 import shutil
@@ -177,7 +178,7 @@ def make_directory(indir, outfile):
     _sto.parse_text(
         SL.join(["SR-Unlimited", "data", "stories", "story.story.txt"])
     )
-    _tmp = _sto.get('description')
+    _tmp = _sto.get("description")
     _sto.set("description", tags[0] + " -- EOL CI")
     _sto.stored.description = _tmp % tuple(tags)
 

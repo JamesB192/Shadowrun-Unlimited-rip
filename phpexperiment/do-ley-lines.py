@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Try to transmute DragonFall maps to Hong Kong."""
+
 import glob
 import os
 
