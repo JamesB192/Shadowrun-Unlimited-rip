@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Try to compile DragonFall extended content packs."""
-import os
+# -*- coding: utf-8 -*-
+# Copyright James Browning
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+"""Decompile Shadowrun Returns/DragonFall/Hong Kong content packs."""
+import argparse
+from os import sep as SL
 import sys
-
-import hk_pb2 as proto
 import google.protobuf.text_format as tf
 
 
@@ -90,7 +92,17 @@ def decompile(name):
 
 
 if "__main__" == __name__:
-    SL = os.sep
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("-p", "--pack", choices=["re", "df", "hk"], help="choose whether REturns, DragonFall, or HongKong format")
+    parser.add_argument("files", type=str)
+    args = parser.parse_args()
+    if args.pack == "hk":
+        import hk_pb2 as proto
+    elif args.pack == "df":
+        import df_pb2 as proto
+    else:
+        import re_pb2 as proto
+
     for fname in sys.argv:
         decompile(fname)
     print('-30-')
