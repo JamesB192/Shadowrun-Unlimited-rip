@@ -76,8 +76,10 @@ def decompile(name):
         ("story", "stories", proto.StoryDef),
         ("mf", ".", proto.Manifest),
     )
-    # Strip down to just file nae and change extension, ugh.
-    oname = '.'.join(name.split('/')[-1].split('.')[:-1])+'.txt'
+    # Strip down to just file name and change extension, ugh.
+    if not name.endswith(".bytes"):
+        raise ValueError("Can only decompile '.bytes' files")
+    oname = '.'.join(name.split('/')[-1][:-6])+'.txt'
     for item in form:
         if item[0] in name.lower():
             ipb = IoProtoBuf(item[2])
