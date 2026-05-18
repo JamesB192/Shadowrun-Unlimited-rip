@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Try to compile DragonFall extended content packs."""
+
 import glob
 import os
 import shutil
@@ -55,7 +56,7 @@ class IoProtoBuf:
         return True
 
     def write_bytes(self, outfile):
-        with open(outfile[:-4] + ".bytes", mode="wb") as fwp:
+        with open(outfile[:-3] + "bytes", mode="wb") as fwp:
             fwp.write(self.stored.SerializeToString())
 
     def write_text(self, outfile):
@@ -101,10 +102,10 @@ def crankzip(parent, indir, outcpz):
             for line in glob.iglob(indir + SL + "**", recursive=True):
                 print(line)
                 myzip.write(line)
-    except Exception as exc:
-        print("something went worng...")
-        print(repr(exc))
-        print(repr(locals()))
+    #except Exception as exc:
+    #    print("something went worng...")
+    #    print(repr(exc))
+    #    print(repr(locals()))
     finally:
         os.chdir(where)
 
@@ -140,6 +141,8 @@ def make_copy(idir, odir, subdir, iglob, man=None, xmog=None):
         print(repr(exc))
         print(repr(locals()))
         exit(1)
+    finally:
+        return
 
 
 def make_directory(indir, outfile):
@@ -177,7 +180,7 @@ def make_directory(indir, outfile):
     _sto.parse_text(
         SL.join(["SR-Unlimited", "data", "stories", "story.story.txt"])
     )
-    _tmp = _sto.get('description')
+    _tmp = _sto.get("description")
     _sto.set("description", _tmp % (tags[0], "EOL CI"))
 
     _co = IoProtoBuf(df_pb2.ItemDef)
@@ -198,6 +201,9 @@ def make_directory(indir, outfile):
 
     odir1 = tmpdir0 + SL + o_name
     os.mkdir(odir1)
+    odir2 = odir1 + SL + "data"
+    os.mkdir(odir2)
+    os.mkdir(odir1 + SL + "data" + SL + "stories")
 
     _proj.write_bytes(odir1 + SL + "project.cpack.txt")
     _sto.write_bytes(
@@ -218,8 +224,6 @@ def make_directory(indir, outfile):
     make_copy(indir, odir1, "art", "*.png")
 
     idir2 = indir + SL + "data"
-    odir2 = odir1 + SL + "data"
-    os.mkdir(odir2)
     # stem outdir prototyper
     form = (
         ("pb", "props", df_pb2.PropDef),
