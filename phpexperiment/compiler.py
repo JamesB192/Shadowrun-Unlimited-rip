@@ -45,12 +45,13 @@ def make_directory(indir, outdir):
         "%s%s**%s*.png" % (idir2, os.sep, os.sep), recursive=True
     )
     for num, file in enumerate(glb, start=1):
-        _entry = proto.ManifestEntry()
+        _entry = _man.entries.add()
         _entry.name = file.split(os.sep)[-1]
+        _entry.size = os.stat(file).st_size
         shutil.copy2(file, odir2)
         sys.stderr.write("art: %d\r" % num)
     sys.stderr.write("\n")
-    write_file(odir2 + os.sep + "manifest.mf.bytes", _proj)
+    write_file(odir2 + os.sep + "manifest.mf.bytes", _man)
 
     idir2 = indir + os.sep + "data"
     odir2 = odir1 + os.sep + "data"
@@ -82,14 +83,15 @@ def make_directory(indir, outdir):
             recursive=True,
         )
         for num, file in enumerate(glb, start=1):
-            _entry = proto.ManifestEntry()
-            _entry.name = subdir + os.sep + file.split(os.sep)[-1]
             this_file = ptype()
             parse_file(file, this_file)
             write_file(odir2 + os.sep + _entry.name, this_file)
+            _entry = _man.entries.add()
+            _entry.name = subdir + os.sep + file.split(os.sep)[-1]
+            _entry.size = os.stat('data/%s/%sbytes' % (subdir, file.split("/")[-1][:-3])).st_size
             sys.stderr.write("%s: %d\r" % (stem, num))
         sys.stderr.write("\n")
-    write_file(odir2 + os.sep + "manifest.mf.bytes", _proj)
+    write_file(odir2 + os.sep + "manifest.mf.bytes", _man)
 
     with zipfile.ZipFile(
         outdir + os.sep + o_name + ".cpz", "w"
