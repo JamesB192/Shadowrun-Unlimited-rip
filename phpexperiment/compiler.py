@@ -8,6 +8,7 @@ import argparse
 import glob
 import os
 import shutil
+import sys
 import tempfile
 import zipfile
 import google.protobuf.text_format as tf
@@ -43,13 +44,12 @@ def make_directory(indir, outdir):
     glb = glob.iglob(
         "%s%s**%s*.png" % (idir2, os.sep, os.sep), recursive=True
     )
-    # glb = glob.glob(odir2, '*.png', recursive=True)
-    for file in glb:
-        # print(repr(file))
+    for num, file in enumerate(glb, start=1):
         _entry = proto.ManifestEntry()
         _entry.name = file.split(os.sep)[-1]
-        # print(repr(file), repr(odir2 + os.sep + _entry.name))
         shutil.copy2(file, odir2)
+        sys.stderr.write("art: %d\r" % num)
+    sys.stderr.write("\n")
     write_file(odir2 + os.sep + "manifest.mf.bytes", _proj)
 
     idir2 = indir + os.sep + "data"
@@ -81,12 +81,14 @@ def make_directory(indir, outdir):
             "%s%s**%s*.%s.txt" % (idir2, os.sep, os.sep, stem),
             recursive=True,
         )
-        for file in glb:
+        for num, file in enumerate(glb, start=1):
             _entry = proto.ManifestEntry()
             _entry.name = subdir + os.sep + file.split(os.sep)[-1]
             this_file = ptype()
             parse_file(file, this_file)
             write_file(odir2 + os.sep + _entry.name, this_file)
+            sys.stderr.write("%s: %d\r" % (stem, num))
+        sys.stderr.write("\n")
     write_file(odir2 + os.sep + "manifest.mf.bytes", _proj)
 
     with zipfile.ZipFile(
@@ -94,9 +96,10 @@ def make_directory(indir, outdir):
     ) as myzip:
         cwd = os.getcwd()
         os.chdir(odir1)
-        for line in glob.iglob("**", recursive=True):
-            print(line)
+        for num, line in enumerate(glob.iglob("**", recursive=True), start=1):
             myzip.write(line)
+            sys.stderr.write("cpz: %d\r" % num)
+        sys.stderr.write("\n")
         os.chdir(cwd)
     shutil.rmtree(odir0)
 
