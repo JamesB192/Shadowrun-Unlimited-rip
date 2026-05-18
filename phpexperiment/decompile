@@ -1,0 +1,108 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# Copyright James Browning
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+"""Decompile Shadowrun Returns/DragonFall/Hong Kong content packs."""
+import argparse
+from os import sep as SL
+import sys
+import google.protobuf.text_format as tf
+
+
+class IoProtoBuf:
+    _typed = None
+    stored = None
+
+    def __init__(self, typical):
+        if not callable(typical):
+            return
+        self._typed = typical
+        self.reset()
+
+    def compile(self, text, bites):
+        self.parse_text(text)
+        self.write_bytes(bites)
+        self.reset()
+
+    def decompile(self, bites, text):
+        self.parse_bytes(bites)
+        self.write_text(text)
+        self.reset()
+
+    def reset(self):
+        self.stored = self._typed()
+
+    def parse_bytes(self, infile):
+        with open(infile, mode="rb") as frp:
+            self.stored.ParseFromString(frp.read())
+
+    def parse_text(self, infile):
+        with open(
+            infile, mode="r", encoding="latin-1"
+        ) as frp:
+            tf.Parse(frp.read(), self.stored)
+
+    def get(self, key):
+        return getattr(self.stored, key)
+
+    def set(self, key, value):
+        if not hasattr(self.stored, key):
+            return False
+        setattr(self.stored, key, value)
+        return True
+
+    def write_bytes(self, outfile):
+        with open(outfile, mode="wb") as fwp:
+            fwp.write(self.stored.SerializeToString())
+
+    def write_text(self, outfile):
+        with open(
+            outfile, mode="w", encoding="latin-1"
+        ) as fwp:
+            tf.PrintMessage(out=fwp, message=self.stored)
+
+
+def decompile(name):
+    form = (
+        ("pb", "props", proto.PropDef),
+        ("ab", "abilities", proto.AbilityDef),
+        ("convo", "convos", proto.Conversation),
+        ("srm", "maps", proto.MapDef),
+        ("srt", "scenes", proto.SceneDef),
+        ("ch_inst", "chars", proto.CharacterInstance),
+        ("mode", "modes", proto.ModeDef),
+        ("eq_sht", "chars", proto.EquipmentSheet),
+        ("ch_sht", "chars", proto.Character),
+        ("cvf", "chars", proto.CharacterVariant),
+        ("item", "items", proto.ItemDef),
+        ("story", "stories", proto.StoryDef),
+        ("mf", ".", proto.Manifest),
+    )
+    # Strip down to just file name and change extension, ugh.
+    if not name.endswith(".bytes"):
+        raise ValueError("Can only decompile '.bytes' files")
+    oname = '.'.join(name.split('/')[-1][:-6])+'.txt'
+    for item in form:
+        if item[0] in name.lower():
+            ipb = IoProtoBuf(item[2])
+            ipb.parse_bytes(name)
+            ipb.write_text(oname)
+            print(oname, '->', oname)
+            return
+
+
+if "__main__" == __name__:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("-p", "--pack", choices=["re", "df", "hk"], help="choose whether REturns, DragonFall, or HongKong format")
+    parser.add_argument("files", type=str)
+    args = parser.parse_args()
+    if args.pack == "hk":
+        import hk_pb2 as proto
+    elif args.pack == "df":
+        import df_pb2 as proto
+    else:
+        import re_pb2 as proto
+
+    for fname in sys.argv:
+        decompile(fname)
+    print('-30-')
