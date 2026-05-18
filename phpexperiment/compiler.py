@@ -1,104 +1,123 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# Copyright James Browning
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
 """Try to compile DragonFall extended content packs."""
+
+import argparse
 import glob
 import os
 import shutil
 import tempfile
 import zipfile
-
-import df_pb2
 import google.protobuf.text_format as tf
 
 
 def parse_file(infile, type_instance):
-    with open(infile, 'r') as frp:
+    with open(infile, "r") as frp:
         tf.Parse(frp.read(), type_instance)
 
 
 def write_file(outfile, instance):
-    with open(outfile, 'wb') as fwp:
+    with open(outfile, "wb") as fwp:
         fwp.write(instance.SerializeToString())
 
 
 def make_directory(indir, outdir):
-    _proj = df_pb2.ProjectDef()
+    _proj = proto.ProjectDef()
 
-    parse_file(indir + os.sep + 'project.cpack.txt', _proj)
-    o_name = f'{_proj.project_id}-{_proj.project_name}'
+    parse_file(indir + os.sep + "project.cpack.txt", _proj)
+    o_name = f"{_proj.project_id}-{_proj.project_name}"
 
-    odir0 = tempfile.mkdtemp(suffix='-work', prefix='DFEcompiler-', dir=outdir)
+    odir0 = tempfile.mkdtemp(
+        suffix="-work", prefix="DFEcompiler-", dir=outdir
+    )
     odir1 = odir0 + os.sep + o_name
     os.mkdir(odir1)
-    write_file(odir1 + os.sep + 'project.cpack.bytes', _proj)
+    write_file(odir1 + os.sep + "project.cpack.bytes", _proj)
 
-    idir2 = indir + os.sep + 'art'
-    odir2 = odir1 + os.sep + 'art'
+    idir2 = indir + os.sep + "art"
+    odir2 = odir1 + os.sep + "art"
     os.mkdir(odir2)
-    _man = df_pb2.Manifest()
-    glb = glob.iglob('%s%s**%s*.png' %(
-        idir2, os.sep, os.sep
-        ), recursive=True)
-    #glb = glob.glob(odir2, '*.png', recursive=True)
+    _man = proto.Manifest()
+    glb = glob.iglob(
+        "%s%s**%s*.png" % (idir2, os.sep, os.sep), recursive=True
+    )
+    # glb = glob.glob(odir2, '*.png', recursive=True)
     for file in glb:
-        #print(repr(file))
-        _entry = df_pb2.ManifestEntry()
+        # print(repr(file))
+        _entry = proto.ManifestEntry()
         _entry.name = file.split(os.sep)[-1]
-        #print(repr(file), repr(odir2 + os.sep + _entry.name))
+        # print(repr(file), repr(odir2 + os.sep + _entry.name))
         shutil.copy2(file, odir2)
-    write_file(odir2 + os.sep + 'manifest.mf.bytes', _proj)
+    write_file(odir2 + os.sep + "manifest.mf.bytes", _proj)
 
-    idir2 = indir + os.sep + 'data'
-    odir2 = odir1 + os.sep + 'data'
+    idir2 = indir + os.sep + "data"
+    odir2 = odir1 + os.sep + "data"
     os.mkdir(odir2)
-    _man = df_pb2.Manifest()
+    _man = proto.Manifest()
     # stem outdir prototyper
-    form = (('item', 'items', df_pb2.ItemDef),
-            ('ab', 'abilities', df_pb2.AbilityDef),
-            ('convo', 'convos', df_pb2.Conversation),
-            ('srm', 'maps', df_pb2.MapDef),
-            ('srt', 'scenes', df_pb2.SceneDef),
-            ('ch_inst', 'chars', df_pb2.CharacterInstance),
-            ('mode', 'modes', df_pb2.ModeDef),
-            ('pb', 'props', df_pb2.PropDef),
-            ('eq_sht', 'chars', df_pb2.EquipmentSheet),
-            ('ch_sht', 'chars', df_pb2.Character),
-            ('story', 'story', df_pb2.StoryDef),
-            )
+    form = (
+        ("item", "items", proto.ItemDef),
+        ("ab", "abilities", proto.AbilityDef),
+        ("convo", "convos", proto.Conversation),
+        ("srm", "maps", proto.MapDef),
+        ("srt", "scenes", proto.SceneDef),
+        ("ch_inst", "chars", proto.CharacterInstance),
+        ("mode", "modes", proto.ModeDef),
+        ("pb", "props", proto.PropDef),
+        ("eq_sht", "chars", proto.EquipmentSheet),
+        ("ch_sht", "chars", proto.Character),
+        ("story", "story", proto.StoryDef),
+    )
     for stem, subdir, ptype in form:
         odir3 = odir2 + os.sep + subdir
         try:
             os.mkdir(odir3)
         except FileExistsError:
             pass
-        _man = df_pb2.Manifest()
-        glb = glob.iglob('%s%s**%s*.%s.txt' %(
-            idir2, os.sep, os.sep, stem
-            ), recursive=True)
+        _man = proto.Manifest()
+        glb = glob.iglob(
+            "%s%s**%s*.%s.txt" % (idir2, os.sep, os.sep, stem),
+            recursive=True,
+        )
         for file in glb:
-            _entry = df_pb2.ManifestEntry()
-            _entry.name = subdir + os.sep +file.split(os.sep)[-1]
+            _entry = proto.ManifestEntry()
+            _entry.name = subdir + os.sep + file.split(os.sep)[-1]
             this_file = ptype()
             parse_file(file, this_file)
             write_file(odir2 + os.sep + _entry.name, this_file)
-    write_file(odir2 + os.sep + 'manifest.mf.bytes', _proj)
+    write_file(odir2 + os.sep + "manifest.mf.bytes", _proj)
 
-    with zipfile.ZipFile(outdir + os.sep + o_name + '.cpz', 'w') as myzip:
-        for line in glob.iglob(odir0 + os.sep + '**', recursive=True):
+    with zipfile.ZipFile(
+        outdir + os.sep + o_name + ".cpz", "w"
+    ) as myzip:
+        cwd = os.getcwd()
+        os.chdir(odir1)
+        for line in glob.iglob("**", recursive=True):
             print(line)
             myzip.write(line)
+        os.chdir(cwd)
     shutil.rmtree(odir0)
 
 
-make_directory('../SR-Unlimited', 'scrap')
+if "__main__" == __name__:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "-p",
+        "--pack",
+        choices=["re", "df", "hk"],
+        help="choose whether REturns, DragonFall, or HongKong format",
+    )
+    parser.add_argument("directory", type=str, nargs=1)
+    args = parser.parse_args()
+    if args.pack == "hk":
+        import hk_pb2 as proto
+    elif args.pack == "df":
+        import df_pb2 as proto
+    else:
+        import re_pb2 as proto
 
-#file = '''Desktop/SrU/SR-Unlimited/data/maps/The Docks3.srm.txt'''
-#_map = df_pb2.MapDef()
-#with open(file, 'r') as frp:
-    ##_map.text_format.Parse(frp.read())
-    #tf.Parse(frp.read(), _map)
-
-#for prop in _map.props:
-    #pass
-
-#with open(file+'.2', 'w') as fwp:
-    #tf.PrintMessage(out=fwp, message=_map, float_format='.3g')
+    if args.directory:
+        make_directory(args.directory[0], ".")
+    print("-30-")
