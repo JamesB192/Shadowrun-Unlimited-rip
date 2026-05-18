@@ -36,6 +36,7 @@ def make_directory(indir, outdir):
     odir1 = odir0 + os.sep + o_name
     os.mkdir(odir1)
     write_file(odir1 + os.sep + "project.cpack.bytes", _proj)
+    shutil.copy2(indir + os.sep + "preview.png", odir1)
 
     idir2 = indir + os.sep + "art"
     odir2 = odir1 + os.sep + "art"
@@ -77,7 +78,6 @@ def make_directory(indir, outdir):
             os.mkdir(odir3)
         except FileExistsError:
             pass
-        _man = proto.Manifest()
         glb = glob.iglob(
             "%s%s**%s*.%s.txt" % (idir2, os.sep, os.sep, stem),
             recursive=True,
@@ -85,10 +85,11 @@ def make_directory(indir, outdir):
         for num, file in enumerate(glb, start=1):
             this_file = ptype()
             parse_file(file, this_file)
-            write_file(odir2 + os.sep + _entry.name, this_file)
+            out_file = odir3 + os.sep + file.split(os.sep)[-1][:-3] + "bytes"
+            write_file(out_file, this_file)
             _entry = _man.entries.add()
-            _entry.name = subdir + os.sep + file.split(os.sep)[-1]
-            _entry.size = os.stat('data/%s/%sbytes' % (subdir, file.split("/")[-1][:-3])).st_size
+            _entry.name = os.sep.join(os.sep.split(out_file)[-3:])
+            _entry.size = os.stat(out_file).st_size
             sys.stderr.write("%s: %d\r" % (stem, num))
         sys.stderr.write("\n")
     write_file(odir2 + os.sep + "manifest.mf.bytes", _man)
@@ -97,13 +98,14 @@ def make_directory(indir, outdir):
         outdir + os.sep + o_name + ".cpz", "w"
     ) as myzip:
         cwd = os.getcwd()
-        os.chdir(odir1)
-        for num, line in enumerate(glob.iglob("**", recursive=True), start=1):
+        os.chdir(odir0)
+        manifest = list(glob.iglob("**", recursive=True))
+        for num, line in enumerate(sorted(manifest), start=1):
             myzip.write(line)
             sys.stderr.write("cpz: %d\r" % num)
         sys.stderr.write("\n")
         os.chdir(cwd)
-    shutil.rmtree(odir0)
+    #shutil.rmtree(odir0)
 
 
 if "__main__" == __name__:
