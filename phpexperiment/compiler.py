@@ -132,14 +132,14 @@ if "__main__" == __name__:
     parser.add_argument(
         "-p",
         "--pack",
-        choices=["re", "df", "hk"],
+        choices=["re", "df", "hk", "hkci", "stableish"],
         help="choose whether REturns, DragonFall, or HongKong format",
     )
     parser.add_argument("directory", type=str, nargs=1)
     args = parser.parse_args()
-    if args.pack == "hk":
+    if args.pack in ["hk", "hkci"]:
         import hk_pb2 as proto
-    elif args.pack == "df":
+    elif args.pack in ["df", "stableish"]:
         import df_pb2 as proto
     else:
         import re_pb2 as proto

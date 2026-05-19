@@ -1,0 +1,30 @@
+---
+name: GitHub Build Package
+run-name: Build a ShadowRun ${{ github.ref }} content pack
+on:
+  - push
+jobs:
+  build-it:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update apt repo
+        run: apt update
+      - name: Install packages
+        run: apt install python-is-python3 python3-protobuf
+      - name: Check out repository code
+        uses: actions/checkout@v6
+      - name: shiv in inapproriate image
+        run: cp -v Shadowrun-Unlimited-rip/SR-Unlimited/ci-spawn.png
+          Shadowrun-Unlimited-rip/SR-Unlimited/preview.>
+      - name: Shiv in inappropriate stamp
+        run: >
+          sed "s|[0-9]{2}[a-kA-K][0-9]{2}|$(date +%y%m%dT%H%M)|" -i
+          Shadowrun-Unlimited-rip/SR-Unlimited/data/items/Quest/Commlink.item.txt
+          Shadowrun-Unlimited-rip/SR-Unlimited/data/stories/story.story.txt
+          Shadowrun-Unlimited-rip/SR-Unlimited/project.cpack.txt
+      - name: Build the package
+        run: Shadowrun-Unlimited-rip/phpexperiment/compile.py -p ${{ github.ref }}
+      - uses: actions/download-artifact@v8
+        with:
+          path: 51f15c62336331d02c00440e-SR\ Unlimited-${{ github.ref }}.cpz
+          name: 51f15c62336331d02c00440e-SR\ Unlimited.cpz
