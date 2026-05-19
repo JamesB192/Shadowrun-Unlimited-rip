@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Copyright James Browning
 # SPDX-License-Identifier: CC-BY-NC-SA-4.0
@@ -15,16 +15,35 @@ import google.protobuf.text_format as tf
 
 
 def parse_file(infile, type_instance):
+    """Extract data from text format protobuf files.
+
+    Takes the file name and a handle to the processing class.
+    Returns the processed data.
+    """
     with open(infile, "r") as frp:
         tf.Parse(frp.read(), type_instance)
 
 
 def write_file(outfile, instance):
+    """Write binary protobuf file from processed data.
+
+    Takes the file name and data instance to write.
+    Returns nothing.
+    """
     with open(outfile, "wb") as fwp:
         fwp.write(instance.SerializeToString())
 
 
 def make_directory(indir, outdir):
+    """Do the actual processing.
+
+    - Store preview cover image & convert project blob
+    - Generate relevant manifest while
+      - Storing assorted images.
+      - converting the text source to binary.
+    - store zip deflated in cpz file
+    - Clean up afterwards
+    """
     _proj = proto.ProjectDef()
 
     parse_file(indir + os.sep + "project.cpack.txt", _proj)
@@ -85,7 +104,9 @@ def make_directory(indir, outdir):
         for num, file in enumerate(glb, start=1):
             this_file = ptype()
             parse_file(file, this_file)
-            out_file = odir3 + os.sep + file.split(os.sep)[-1][:-3] + "bytes"
+            out_file = (
+                odir3 + os.sep + file.split(os.sep)[-1][:-3] + "bytes"
+            )
             write_file(out_file, this_file)
             _entry = _man.entries.add()
             _entry.name = os.sep.join(os.sep.split(out_file)[-3:])
@@ -95,7 +116,10 @@ def make_directory(indir, outdir):
     write_file(odir2 + os.sep + "manifest.mf.bytes", _man)
 
     with zipfile.ZipFile(
-        outdir + os.sep + o_name + ".cpz", "w"
+        outdir + os.sep + o_name + ".cpz",
+        "w",
+        compression=zipfile.ZIP_DEFLATED,
+        compresslevel=9,
     ) as myzip:
         cwd = os.getcwd()
         os.chdir(odir0)
@@ -105,7 +129,7 @@ def make_directory(indir, outdir):
             sys.stderr.write("cpz: %d\r" % num)
         sys.stderr.write("\n")
         os.chdir(cwd)
-    #shutil.rmtree(odir0)
+    shutil.rmtree(odir0)
 
 
 if "__main__" == __name__:
