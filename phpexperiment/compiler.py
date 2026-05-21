@@ -70,7 +70,7 @@ def make_directory(indir, outdir):
         _entry.name = file.split(os.sep)[-1]
         _entry.size = os.stat(file).st_size
         shutil.copy2(file, odir2)
-        sys.stderr.write("art: %d\r" % num)
+        sys.stderr.write("art %d: %s\n" % (num, file.split(os.sep)[-1]))
     sys.stderr.write("\n")
     write_file(odir2 + os.sep + "manifest.mf.bytes", _man)
 
@@ -116,12 +116,22 @@ def make_directory(indir, outdir):
         sys.stderr.write("\n")
     write_file(odir2 + os.sep + "manifest.mf.bytes", _man)
 
+    odir3 = os.sep.join([odir2, "misc"])
+    idir3 = os.sep.join([idir2, "misc"])
+    glb = glob.iglob(idir3 + os.sep + "*.txt")
+    os.mkdir(odir3)
+    for num, file in enumerate(glb, start=1):
+        shutil.copy2(file, odir3)
+        sys.stderr.write("misc: %d\r" % num)
+    sys.stderr.write("\n")
+
     os.mkdir(os.sep.join([odir1, "resources"]))
     os.mkdir(os.sep.join([odir1, "resources", "locale"]))
-    for lang in ('de', 'es', 'fr', 'ru'):
+    for num, lang in enumerate(('de', 'es', 'fr', 'ru'), start=1):
         po = polib.pofile(os.sep.join([indir, "resources", "locale", "%s.po" % lang]))
         modata = po.to_binary()
         po.save_as_mofile(os.sep.join([odir1, "resources", "locale", "%s.mo" % lang]))
+        sys.stderr.write("lang %d: %s\r" % (num, lang))
     sys.stderr.write("\n")
 
     with zipfile.ZipFile(
