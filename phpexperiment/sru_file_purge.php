@@ -23,15 +23,15 @@ $loopy=[
 	,[["6",	"6a",	"6b"],	"20",	"System Activity"]
 
 	,[["7",	"7a"	],	"30",	"Corporate Profile"]
-	,[["8a",	"8a"]	,	"30",	"Corporate Profile"]
+	,[["8",	"8a"	]	,	"30",	"Corporate Profile"]
 	,[["9",	"9a"	],	"30",	"Long Range Goals"]
-	,[["10",	"10a"]	,	"30",	"Long Range Goals"]
+	,[["10","10a"	]	,	"30",	"Long Range Goals"]
 	,[["11"		],	"30",	"Capital Expenditure"]
 
-	,[["12",	"12a",	"12b"],	"50",	"Capital Expenditure"]
-	,[["13",	"13a"	],	"50",	"Security Expenses"]
-	,[["14",	"14a"	],	"50",	"Security Expenses"]
-	,[["15",	"15a"	],	"50",	"Local Accounts"]
+	,[["12","12a",		"12b"],	"50",	"Capital Expenditure"]
+	,[["13","13a"		],	"50",	"Security Expenses"]
+	,[["14","14a"		],	"50",	"Security Expenses"]
+	,[["15","15a"		],	"50",	"Local Accounts"]
 
 	,[["16",	"16a",	"16b"],	"75",	"Local Accounts"]
 	,[["17",	"17a",	"17b"],	"75",	"Corporate Accounts"]
@@ -41,7 +41,7 @@ $loopy=[
 	,[["20",	"20a"	],	"100",	"Prototype Blueprints"]
 	,[["21"		],	"100",	"Classified Corporate Files"]
 	,[["22"		],	"100",	"Open Projects Data"]
-	,[["23 "	],	"100",	"Prototype Blueprints"]
+	,[["23"		],	"100",	"Prototype Blueprints"]
 	,[["24"		],	"100",	"Prototype Blueprints"]
 	,[["25"		],	"100",	"Classified Corporate Files"]
   ];

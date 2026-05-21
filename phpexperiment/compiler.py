@@ -11,6 +11,7 @@ import shutil
 import sys
 import tempfile
 import zipfile
+import polib
 import google.protobuf.text_format as tf
 
 
@@ -70,7 +71,7 @@ def make_directory(indir, outdir):
         ("pb", "props", proto.PropDef),
         ("eq_sht", "chars", proto.EquipmentSheet),
         ("ch_sht", "chars", proto.Character),
-        ("story", "story", proto.StoryDef),
+        ("story", "stories", proto.StoryDef),
     )
     for stem, subdir, ptype in form:
         odir3 = odir2 + os.sep + subdir
@@ -88,11 +89,19 @@ def make_directory(indir, outdir):
             out_file = odir3 + os.sep + file.split(os.sep)[-1][:-3] + "bytes"
             write_file(out_file, this_file)
             _entry = _man.entries.add()
-            _entry.name = os.sep.join(os.sep.split(out_file)[-3:])
+            _entry.name = os.sep.join(out_file.split(os.sep)[-3:])
             _entry.size = os.stat(out_file).st_size
             sys.stderr.write("%s: %d\r" % (stem, num))
         sys.stderr.write("\n")
     write_file(odir2 + os.sep + "manifest.mf.bytes", _man)
+
+    os.mkdir(os.sep.join([odir1, "resources"]))
+    os.mkdir(os.sep.join([odir1, "resources", "locale"]))
+    for lang in ('de', 'es', 'fr', 'ru'):
+        po = polib.pofile(os.sep.join([indir, "resources", "locale", "%s.po" % lang]))
+        modata = po.to_binary()
+        po.save_as_mofile(os.sep.join([odir1, "resources", "locale", "%s.mo" % lang]))
+    sys.stderr.write("\n")
 
     with zipfile.ZipFile(
         outdir + os.sep + o_name + ".cpz", "w"
