@@ -60,17 +60,20 @@ def make_directory(indir, outdir):
 
     idir2 = indir + os.sep + "art"
     odir2 = odir1 + os.sep + "art"
-    os.mkdir(odir2)
+    # os.mkdir(odir2)
     _man = proto.Manifest()
+    shutil.copytree(idir2, odir2)
     glb = glob.iglob(
         "%s%s**%s*.png" % (idir2, os.sep, os.sep), recursive=True
     )
+    fart = open("fart.log", "w")
     for num, file in enumerate(glb, start=1):
         _entry = _man.entries.add()
-        _entry.name = file.split(os.sep)[-1]
+        _entry.name = file.split(os.sep + "art" + os.sep)[-1]
         _entry.size = os.stat(file).st_size
-        shutil.copy2(file, odir2)
-        sys.stderr.write("art %d: %s\n" % (num, file.split(os.sep)[-1]))
+        fart.write(_entry.name + "\n")
+        sys.stderr.write("art-m %d: %s\n" % (num, file.split(os.sep)[-1]))
+    fart.close()
     sys.stderr.write("\n")
     write_file(odir2 + os.sep + "manifest.mf.bytes", _man)
 
@@ -148,7 +151,7 @@ def make_directory(indir, outdir):
             sys.stderr.write("cpz: %d\r" % num)
         sys.stderr.write("\n")
         os.chdir(cwd)
-    shutil.rmtree(odir0)
+    # shutil.rmtree(odir0)
 
 
 if "__main__" == __name__:
