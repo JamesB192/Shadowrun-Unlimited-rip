@@ -78,7 +78,7 @@ $loopy2=[ ["blue", 10, [
 			,["20a",2875 ]
 		]],["Classified Corporate Files", [["21", 2975]
 		]],["Open Projects Data", [["22", 2650]
-		]],["Prototype Blueprints", [["23 ", 2740]
+		]],["Prototype Blueprints", [["23", 2740]
 		]],["Prototype Blueprints", [["24", 2940]
 		]],["Email Data", [["25", 3150]
 		]]

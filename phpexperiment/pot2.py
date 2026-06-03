@@ -26,24 +26,21 @@ def cook_string2(strung):
 
 
 def to_lang(lang):
-    po = polib.pofile("fake.pot" % lang)
+    pot = polib.pofile('fake.pot' % lang)
     client = translate.Client()
 
-    do = polib.POFile()
-    do.metadata = po.metadata
+    po = polib.POFile()
+    po.metadata = pot.metadata
 
-    count = 1
-    for entry in po:
-        tout = client.translate(
-            cook_string1(entry.msgid, count),
-            source_language="en",
-            target_language=lang,
-        )
-        print(tout)
-        entry.msgstr = cook_string2(tout)
-        to.append(tentry)
-        count += 1
-        to.save("%s.po" % lang)
+    for count, entry in enumerate(po, start=1):
+        pos = client.translate(
+           cook_string1(entry.msgid, count),
+           source_language='en',
+           target_language=lang)
+        print(pos)
+        entry.msgstr = cook_string2(pos)
+        po.append(pos)
+    po.save('%s.po' % lang)
 
 
 to_lang("de")

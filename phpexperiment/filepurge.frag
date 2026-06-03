@@ -6011,7 +6011,7 @@ nodes {
           call_value {
             functionName: "Get Map Item (Item)"
             args {
-              string_value: "Pay Data 23 "
+              string_value: "Pay Data 23"
             }
           }
         }
@@ -6024,7 +6024,7 @@ nodes {
           call_value {
             functionName: "Get Map Item (Item)"
             args {
-              string_value: "Pay Data 23 "
+              string_value: "Pay Data 23"
             }
           }
         }
@@ -6093,7 +6093,7 @@ nodes {
       id: "54a775ae6466324026002c72"
     }
     auxiliaryLink: true
-    comment: "23 "
+    comment: "23"
   }
 
   branches {

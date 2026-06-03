@@ -24,7 +24,7 @@ printf("%s, %s and %s.", $a[2], $b[2], $c[2])
     nextNodeIndex: <?php print $a[0]; ?>
   }
   branches {
-    responseText: "Tell me about <?php print $c[3]; ?>"
+    responseText: "Tell me about <?php print $b[3]; ?>"
     nextNodeIndex: <?php print $b[0]; ?>
     auxiliaryLink: true
   }

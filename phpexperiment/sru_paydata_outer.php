@@ -501,7 +501,7 @@ roots {
             int_value: 1
           }
           args {
-            int_value: <?php /* 9 */ ?>
+            int_value: <?php printf("%d", 9); ?>
           }
         }
       }
